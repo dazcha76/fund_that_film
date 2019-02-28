@@ -4,5 +4,5 @@ node_modules/
 .vscode
 .DS_Store
 
-config/
-!config/*.template
+config/*.php
+config/*.js
