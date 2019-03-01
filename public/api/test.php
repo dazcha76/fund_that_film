@@ -1,6 +1,9 @@
-<?php
+<?php 
 
-print(json_encode([
-	'success' => true,
-	'message' => 'Test API endpoint working'
-]));
+
+require_once('./mysqlconnect.php');
+
+
+print_r('hello world');
+
+?>
