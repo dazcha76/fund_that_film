@@ -1,0 +1,403 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:3306
+-- Generation Time: Mar 01, 2019 at 12:42 AM
+-- Server version: 5.7.23
+-- PHP Version: 7.2.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `movie_funder`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comparables`
+--
+
+CREATE TABLE `comparables` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `us_theatrical_release` date NOT NULL,
+  `us_gross_bo` bigint(20) UNSIGNED NOT NULL,
+  `intl_gross_bo` bigint(20) UNSIGNED NOT NULL,
+  `budget` bigint(20) UNSIGNED NOT NULL,
+  `mpaa_rating` varchar(5) NOT NULL,
+  `audience_satisfaction` float NOT NULL,
+  `us_theatrical_end` date NOT NULL,
+  `genre` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comparables`
+--
+
+INSERT INTO `comparables` (`id`, `title`, `us_theatrical_release`, `us_gross_bo`, `intl_gross_bo`, `budget`, `mpaa_rating`, `audience_satisfaction`, `us_theatrical_end`, `genre`) VALUES
+(3, 'The Lake House', '2006-06-19', 52330111, 62500000, 40000000, 'PG', 0.73, '2006-09-18', 'Drama'),
+(4, 'The Amazing Spider-Man', '2012-07-03', 262030663, 495859604, 220000000, 'PG-13', 0.77, '2012-10-12', 'Adventure');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comparables_distribution`
+--
+
+CREATE TABLE `comparables_distribution` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comparables_id` bigint(20) UNSIGNED NOT NULL,
+  `distribution_companies_id` smallint(5) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comparables_distribution`
+--
+
+INSERT INTO `comparables_distribution` (`id`, `comparables_id`, `distribution_companies_id`) VALUES
+(1, 3, 1),
+(2, 4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comparables_funding`
+--
+
+CREATE TABLE `comparables_funding` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comparables_id` bigint(20) UNSIGNED NOT NULL,
+  `funding_partners_id` smallint(5) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comparables_funding`
+--
+
+INSERT INTO `comparables_funding` (`id`, `comparables_id`, `funding_partners_id`) VALUES
+(1, 3, 1),
+(2, 4, 2),
+(3, 4, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `current_connections`
+--
+
+CREATE TABLE `current_connections` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `users_id` bigint(20) UNSIGNED NOT NULL,
+  `connected` datetime NOT NULL,
+  `last_action` datetime NOT NULL,
+  `token` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `distribution_companies`
+--
+
+CREATE TABLE `distribution_companies` (
+  `id` smallint(5) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `distribution_companies`
+--
+
+INSERT INTO `distribution_companies` (`id`, `name`) VALUES
+(1, 'Warner Bros.'),
+(2, 'Sony Pictures');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `funding_partners`
+--
+
+CREATE TABLE `funding_partners` (
+  `id` smallint(5) UNSIGNED NOT NULL,
+  `name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `funding_partners`
+--
+
+INSERT INTO `funding_partners` (`id`, `name`) VALUES
+(1, 'Touchstone'),
+(2, 'Columbia Pictures'),
+(3, 'Marvel Studios');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projects_id` bigint(20) UNSIGNED NOT NULL,
+  `image_url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inflation`
+--
+
+CREATE TABLE `inflation` (
+  `id` smallint(5) UNSIGNED NOT NULL,
+  `year` smallint(5) UNSIGNED NOT NULL,
+  `annual_avg_rate` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE `projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) NOT NULL,
+  `year` smallint(5) UNSIGNED NOT NULL,
+  `logline` text NOT NULL,
+  `synopsis` text NOT NULL,
+  `production_stage` varchar(20) NOT NULL,
+  `genre` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `title`, `year`, `logline`, `synopsis`, `production_stage`, `genre`) VALUES
+(1, 'The Greatest Movie', 2019, 'In class no one can hear you scream', 'Student try to finalize a student project as well as juggling the demands of a portfolio and trying to find a job.', 'Development', 'Horror'),
+(2, 'The Worst Movie', 2019, 'Too Fast, Too Many Typos', 'Slowing your brain and fingers leads to less grammatical and spelling errors in the future.', 'Distribution', 'Psychological Thriller');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects_comparables`
+--
+
+CREATE TABLE `projects_comparables` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projects_id` bigint(20) UNSIGNED NOT NULL,
+  `comparables_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `projects_comparables`
+--
+
+INSERT INTO `projects_comparables` (`id`, `projects_id`, `comparables_id`) VALUES
+(1, 1, 3),
+(2, 1, 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `last_login` datetime NOT NULL,
+  `email` text NOT NULL,
+  `password` varchar(64) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `last_login`, `email`, `password`) VALUES
+(1, 'Bill S. Preston, Esq.', '2016-02-14 18:18:18', 'bill@wyldstallyns.com', '2beb0192eb1ca5a8756bc89a09b93036e1854049'),
+(2, 'Ted Theodore Logan', '2018-06-07 08:32:12', 'ted@wyldstallyns.com', 'a9b94b97c6027d050c13d3f5912920f593ae7004');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_projects`
+--
+
+CREATE TABLE `users_projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `users_id` bigint(20) UNSIGNED NOT NULL,
+  `projects_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_projects`
+--
+
+INSERT INTO `users_projects` (`id`, `users_id`, `projects_id`) VALUES
+(1, 1, 1),
+(5, 1, 2),
+(6, 2, 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `comparables`
+--
+ALTER TABLE `comparables`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comparables_distribution`
+--
+ALTER TABLE `comparables_distribution`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `comparables_id` (`comparables_id`,`distribution_companies_id`);
+
+--
+-- Indexes for table `comparables_funding`
+--
+ALTER TABLE `comparables_funding`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `comparables_id` (`comparables_id`,`funding_partners_id`);
+
+--
+-- Indexes for table `current_connections`
+--
+ALTER TABLE `current_connections`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `distribution_companies`
+--
+ALTER TABLE `distribution_companies`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `funding_partners`
+--
+ALTER TABLE `funding_partners`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `inflation`
+--
+ALTER TABLE `inflation`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `projects`
+--
+ALTER TABLE `projects`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `projects_comparables`
+--
+ALTER TABLE `projects_comparables`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `projects_id` (`projects_id`,`comparables_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users_projects`
+--
+ALTER TABLE `users_projects`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `users_id` (`users_id`,`projects_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `comparables`
+--
+ALTER TABLE `comparables`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `comparables_distribution`
+--
+ALTER TABLE `comparables_distribution`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `comparables_funding`
+--
+ALTER TABLE `comparables_funding`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `current_connections`
+--
+ALTER TABLE `current_connections`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `distribution_companies`
+--
+ALTER TABLE `distribution_companies`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `funding_partners`
+--
+ALTER TABLE `funding_partners`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `inflation`
+--
+ALTER TABLE `inflation`
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `projects_comparables`
+--
+ALTER TABLE `projects_comparables`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users_projects`
+--
+ALTER TABLE `users_projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
