@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2019 at 12:42 AM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Generation Time: Mar 01, 2019 at 02:10 AM
+-- Server version: 5.6.34-log
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `movie_funder`
@@ -39,7 +47,8 @@ CREATE TABLE `comparables` (
 
 INSERT INTO `comparables` (`id`, `title`, `us_theatrical_release`, `us_gross_bo`, `intl_gross_bo`, `budget`, `mpaa_rating`, `audience_satisfaction`, `us_theatrical_end`, `genre`) VALUES
 (3, 'The Lake House', '2006-06-19', 52330111, 62500000, 40000000, 'PG', 0.73, '2006-09-18', 'Drama'),
-(4, 'The Amazing Spider-Man', '2012-07-03', 262030663, 495859604, 220000000, 'PG-13', 0.77, '2012-10-12', 'Adventure');
+(4, 'The Amazing Spider-Man', '2012-07-03', 262030663, 495859604, 220000000, 'PG-13', 0.77, '2012-10-12', 'Adventure'),
+(5, 'Justice League', '2017-11-17', 229024295, 426920914, 300000000, 'PG-13', 0.73, '2018-03-09', 'Action');
 
 -- --------------------------------------------------------
 
@@ -334,70 +343,63 @@ ALTER TABLE `users_projects`
 -- AUTO_INCREMENT for table `comparables`
 --
 ALTER TABLE `comparables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `comparables_distribution`
 --
 ALTER TABLE `comparables_distribution`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `comparables_funding`
 --
 ALTER TABLE `comparables_funding`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `current_connections`
 --
 ALTER TABLE `current_connections`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `distribution_companies`
 --
 ALTER TABLE `distribution_companies`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `funding_partners`
 --
 ALTER TABLE `funding_partners`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `inflation`
 --
 ALTER TABLE `inflation`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `projects_comparables`
 --
 ALTER TABLE `projects_comparables`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `users_projects`
 --
 ALTER TABLE `users_projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
