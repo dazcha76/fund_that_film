@@ -1,9 +1,13 @@
 import React from 'react';
+import Person from './person';
 
 export default props => {
     return (
         <div>
-            <h1>This is the about us</h1>
+           <Person name="John"/>
+           <Person name="Diana"/>
+           <Person name="Danika"/>
+           <Person name="Christine"/>
         </div>
     )
 }
