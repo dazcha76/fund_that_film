@@ -1,3 +1,4 @@
+<?php
 /* 
 this file is the endpoint that the client will reach when they submit their project details provided by the user
 
@@ -22,3 +23,12 @@ we will now make the call to the database passing it the query, the varaibles, c
     then we json-ify the ibject and send it back to the client
 
 */
+
+require_once('./mysqlconnect.php');
+$query = "SELECT * FROM `comparables` AS c
+            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
+            JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
+            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.`id`
+            JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`";
+
+?>
