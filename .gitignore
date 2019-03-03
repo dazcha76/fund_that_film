@@ -7,3 +7,4 @@ node_modules/
 config/*.php
 config/*.js
 !config/setup.php
+!config/mysqlconnect.php
