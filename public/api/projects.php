@@ -17,7 +17,7 @@ We will then INSERT the  strings into the projects table and send a response of 
  */
 
 require_once('../../config/setup.php');
-require_once('./mysqlconnect.php');
+require_once('../../config/mysqlconnect.php');
 
 $output = [
     'success' => false

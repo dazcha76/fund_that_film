@@ -24,7 +24,7 @@ we will now make the call to the database passing it the query, the varaibles, c
 */
 
 require_once('../../config/setup.php');
-require_once('./mysqlconnect.php');
+require_once('../../config/mysqlconnect.php');
 
 $output = [
     'success'=>false
