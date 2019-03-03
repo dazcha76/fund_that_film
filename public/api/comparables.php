@@ -23,6 +23,7 @@ we will now make the call to the database passing it the query, the varaibles, c
 
 */
 
+require_once('../../config/setup.php');
 require_once('./mysqlconnect.php');
 
 $output = [
@@ -41,48 +42,53 @@ $result = $db->query($query);
 
 $data=[];
 
-while($row=$result->fetch_assoc()){
-    $row['distribution_companies_info'] = [
-        [
-        'id'=>$row['dc_id'],
-        'name'=>$row['dc_name']
-        ]
-    ];
-    
-    $row['funding_partners_info']=[];
-    
-    if(strlen($row['funding_partners_ids']) == 1){
-        $row['funding_partners_info'][]=[
-            'id'=>$row['funding_partners_ids'],
-            'name'=>$row['funding_partners_names']
-        ];
-    }
-
-    if(strlen($row['funding_partners_ids']) > 1){
-        $id = explode(',',$row['funding_partners_ids']);
-        $name = explode(',',$row['funding_partners_names']);
-        for( $index=0; $index<count($id) ; $index++){
+if ($result){
+    if ($result -> num_rows > 0) {
+        while($row=$result->fetch_assoc()){
+            $row['distribution_companies_info'] = [
+                [
+                'id'=>$row['dc_id'],
+                'name'=>$row['dc_name']
+                ]
+            ];
+            
+            $row['funding_partners_info']=[];
+            
+            if(strlen($row['funding_partners_ids']) == 1){
                 $row['funding_partners_info'][]=[
-                    'id' => $id[$index],
-                    'name'=>$name[$index]
+                    'id'=>$row['funding_partners_ids'],
+                    'name'=>$row['funding_partners_names']
                 ];
-        }
+            }
+
+            if(strlen($row['funding_partners_ids']) > 1){
+                $id = explode(',',$row['funding_partners_ids']);
+                $name = explode(',',$row['funding_partners_names']);
+                for( $index=0; $index<count($id) ; $index++){
+                        $row['funding_partners_info'][]=[
+                            'id' => $id[$index],
+                            'name'=>$name[$index]
+                        ];
+                }
+            }
+
+            unset($row['funding_partners_ids']);
+            unset($row['funding_partners_names']);    
+
+            $row['year'] = explode('-',$row['us_theatrical_release'] )[0];
+            
+            unset($row['fp_id']);
+            unset($row['fp_name']);
+            unset($row['dc_id']);
+            unset($row['dc_name']);
+            
+            $data[]=$row;
+            $output['success']=true;
+        };
     }
-
-    unset($row['funding_partners_ids']);
-    unset($row['funding_partners_names']);    
-
-    $row['year'] = explode('-',$row['us_theatrical_release'] )[0];
-    
-    unset($row['fp_id']);
-    unset($row['fp_name']);
-    unset($row['dc_id']);
-    unset($row['dc_name']);
-    
-    $data[]=$row;
-};
-
-$output['success']=true;
+} else {
+    throw new Exception('SQL Error');
+}
 
 $output['data']=$data;
 
