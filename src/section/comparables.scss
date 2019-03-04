@@ -1,0 +1,54 @@
+
+@import './variables';
+@import './main';
+
+//First Page 
+ .comparables-wrapper-hidden{
+     .comparables-container{
+
+         .header{
+             .movie-subtitle {
+
+                 .movies{
+                     display: flex;
+                     flex-direction: row;
+                     justify-content:space-evenly;
+
+                  .comparison-movie-display{
+                        width: 57vw;
+                         display: table-cell;
+                         margin: 0 auto;
+                        text-align:center;
+                         
+                        .movie-display{
+                             display:inline-block;
+                             width:45%;
+                             margin-top:40px;
+                             height:auto;
+                             text-align:center;
+
+                             .movie-title-wrapper{
+                                 .movie-title-subheader{
+                                     font-family: $font-family;
+                                     font-size:30px;
+                                     color:$box-shadow-color;
+                                     text-transform:uppercase;
+                                 }
+                                 .movie-subheader{
+                                    font-family:$font-family;
+                                    font-size:25px;
+                                    margin:4px 0;
+                                    padding: 3px 0;
+                                    color: $box-shadow-color;
+                                 }
+                             }
+                         }
+                         &:hover{
+                           filter: drop-shadow ( 4px 5px 10px $button-color);
+                         }
+                     }
+                 }
+             }
+         }
+     }
+ }
