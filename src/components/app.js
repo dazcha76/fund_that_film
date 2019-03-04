@@ -15,11 +15,11 @@ const App = () => (
     <div>
       <Nav/> 
          <Route exact path='/' component={ Home }/>
-         <Route exact path='/new_project' component={ NewProject }/>
-         <Route exact path='/comparisons' component={ Comparisons }/>
-         <Route exact path='/financials' component={ Financials }/>
-         <Route exact path='/contact' component={ Contact }/>
-         <Route exact path='/about' component={ About }/>
+         <Route  path='/new_project' component={ NewProject }/>
+         <Route  path='/comparisons' component={ Comparisons }/>
+         <Route  path='/financials' component={ Financials }/>
+         <Route  path='/contact' component={ Contact }/>
+         <Route  path='/about' component={ About }/>
          
     </div>
 );
