@@ -1,0 +1,15 @@
+@import './variables';
+
+.disclaimer-content{
+    background: rgba(55, 239, 186, 0.7);
+    position:fixed;
+    bottom:0;
+    width:100%;
+    
+    .disclaimer-text{
+        font-size:.8rem;
+        color:$dark-background;
+        text-align:center;
+        margin:10px;
+    }
+}
