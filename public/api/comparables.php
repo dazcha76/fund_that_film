@@ -30,7 +30,7 @@ $output = [
     'success'=>false
 ];
 
-$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` as dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names
+$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names
                 FROM `comparables` AS c
                 JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
                 JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
