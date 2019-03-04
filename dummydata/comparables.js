@@ -6,7 +6,7 @@ var comparables = {
         us_theatrical_release: "2006-06-19",
         us_gross_bo:52330111,
         intl_gross_bo:62500000,
-        distribution_company_info:[
+        distribution_companies_info:[
             {
                 id: 965298512,
                 name: "Warner Bros."
@@ -31,7 +31,7 @@ var comparables = {
         us_theatrical_release: "2012-07-03",
         us_gross_bo:262030663,
         intl_gross_bo:495859604,
-        distribution_company_info:[
+        distribution_companies_info:[
             {
                 id:65296528,
                 name:"Sony Pictures"
