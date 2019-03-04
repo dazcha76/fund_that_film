@@ -1,0 +1,18 @@
+@import './variables';
+@import './main';
+
+.contact-us-wrapper {
+
+  .contact-us-form {
+    width: 50%;
+
+    .contact_text {
+      height: 20vh;
+    }
+
+    .send-email-button {
+      top: 75%;
+      left: 45%;
+    }
+  }   
+}
