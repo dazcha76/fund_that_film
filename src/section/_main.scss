@@ -1,0 +1,13 @@
+@import './variables';
+
+body{
+    background-color:$dark-background;
+    position:relative;
+    width:100%;
+    overflow-x:hidden;
+}
+#main-content{
+    padding-top:60px;
+}
+
+
