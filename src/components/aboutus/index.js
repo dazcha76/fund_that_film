@@ -1,13 +1,71 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Person from './person';
+import john from '../../assets/images/john_profile.png';
+import danika from '../../assets/images/danika_profile.png';
+import diana from '../../assets/images/diana_profile.png';
+import christine from '../../assets/images/christine_profile.png';
+import { strictEqual } from 'assert';
+import { link } from 'react-router-dom';
 
-export default props => {
-    return (
-        <div>
-           <Person name='John'/>
-           <Person name='Diana'/>
-           <Person name='Danika'/>
-           <Person name='Christine'/>
-        </div>
-    )
+
+class CardsContainer extends Component {
+    state = { 
+        people:  [
+          {
+              name: 'John Holman',
+              image: john,
+              linkedin:'https://www.linkedin.com/in/johntheholman/',
+              github: 'https://github.com/bearlovesbob',
+              portfolio:'http://johntheholman.com/'
+          },
+          {
+            name: 'Diana Curtis',
+            image: diana,
+            linkedin:'https://www.linkedin.com/in/diana-curtis/',
+            github: 'https://github.com/DianaCurtis',
+            portfolio:'dianacurtisdev.com'
+          },
+          {
+        name: 'Danika Quinteros',
+            image: danika,
+            linkedin:'https://www.linkedin.com/in/danikaquinteros/',
+            github: 'https://github.com/dazcha76',
+            portfolio:'http://www.danikaquinteros.com'
+          },
+          {
+            name: 'Christine Than',
+            image: christine,
+            linkedin:'https://www.linkedin.com/in/christinepthan/',
+            github: 'https://github.com/krispthan',
+            portfolio:'http://www.christinethan.com'
+          },
+       ]
+    }
+        constructor(props){
+            super(props);
+        }
+
+    buildPersonInfo(person) {
+        return (
+            <Person key= { person.name } name= { person.name } image={ person.image } linkedin={ person.linkedin }
+            github= { person.github } portfolio={ person.portfolio }/>
+        )
+    }
+    render(){
+        const personCard = this.state.people.map(this.buildPersonInfo);
+
+        return(
+            <div className= 'about-us-wrapper'>
+                <div className='about-us-container'>
+                    <h1 className='about-us-header'>About Us</h1>
+                </div>
+                <div className= 'card-container'> 
+                        { personCard }
+                </div>
+            </div>
+
+        )
+    }
 }
+
+export default CardsContainer;
