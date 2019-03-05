@@ -1,0 +1,37 @@
+@import './variables';
+@import './main';
+
+.new-project-wrapper {
+  overflow: hidden;
+
+  .new-project-container {
+    
+    .new-project-form {
+      width: 70%;
+
+      #year-input, 
+      #mpaa-input, 
+      #genre-input, 
+      #production-stage-input {
+        color: #747474;
+      }
+
+      .my-project {
+        margin-bottom: 2%;
+        columns: #747474;
+      }
+
+      .meets {
+        margin-top: 1.5%;
+      }
+    }
+
+    .first-button {
+      left: 37.5%;
+    }
+
+    .second-button {
+      right: 37.5%;
+    }
+  }
+}
