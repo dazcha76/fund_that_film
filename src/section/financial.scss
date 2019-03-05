@@ -1,0 +1,47 @@
+@import './variables';
+@import './main';
+
+.calculations-container h1 {
+  color: #05B97F;
+  text-align: center;
+  margin-top: 2%;
+}
+
+table, th, td {
+  border-collapse: collapse;
+  border: 2px solid #05B97F;
+}
+
+table {
+  width: 70%;
+  margin: 2% auto;
+}
+
+th, td {
+  padding: 1%;
+}
+
+th {
+  color: #32333D;
+  background-color: #05B97F;
+  font-size: 150%;
+  text-align: left;
+}
+
+td {
+  color: #dadadd;
+  text-align: right;
+}
+
+.col1 {
+  width: 75%;
+}
+
+.left {
+  text-align: left;
+}
+
+.total {
+  font-size: 120%;
+  font-style: italic;
+}
