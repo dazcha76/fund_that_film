@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 01, 2019 at 02:10 AM
+-- Generation Time: Mar 05, 2019 at 12:17 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -142,7 +142,7 @@ CREATE TABLE `funding_partners` (
 INSERT INTO `funding_partners` (`id`, `name`) VALUES
 (1, 'Touchstone'),
 (2, 'Columbia Pictures'),
-(3, 'Marvel Studios');
+(3, 'Marvel Studious');
 
 -- --------------------------------------------------------
 
@@ -167,6 +167,36 @@ CREATE TABLE `inflation` (
   `year` smallint(5) UNSIGNED NOT NULL,
   `annual_avg_rate` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `percentages`
+--
+
+CREATE TABLE `percentages` (
+  `id` tinyint(3) UNSIGNED NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `rate` float UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `percentages`
+--
+
+INSERT INTO `percentages` (`id`, `name`, `rate`) VALUES
+(1, 'theatrical_film_rental', 0.5),
+(2, 'theatrical_studio_dist_fee', 0.25),
+(3, 'home_ent_dist_fee', 0.25),
+(4, 'theatrical_home_sales_agent_fee', 0.05),
+(5, 'ppv_sales_agent_fee', 0.15),
+(6, 'premium_cable_sales_agent_fee', 0.15),
+(7, 'free_tv_sales_agent_fee', 0.15),
+(8, 'cable_syndicated_sales_agent_fee', 0.05),
+(9, 'intl_sales_agent_fee', 0.2),
+(10, 'consumer_product_sales_agent_fee', 0.15),
+(11, 'production_financing_expense', 0.06),
+(12, 'talent_participation', 0.07);
 
 -- --------------------------------------------------------
 
@@ -310,6 +340,12 @@ ALTER TABLE `inflation`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `percentages`
+--
+ALTER TABLE `percentages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `projects`
 --
 ALTER TABLE `projects`
@@ -379,6 +415,11 @@ ALTER TABLE `images`
 --
 ALTER TABLE `inflation`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `percentages`
+--
+ALTER TABLE `percentages`
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `projects`
 --
