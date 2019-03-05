@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 05, 2019 at 12:17 AM
+-- Generation Time: Mar 05, 2019 at 02:09 AM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.2.1
 
@@ -94,6 +94,18 @@ INSERT INTO `comparables_funding` (`id`, `comparables_id`, `funding_partners_id`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `comparables_images`
+--
+
+CREATE TABLE `comparables_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comparables_id` bigint(20) UNSIGNED NOT NULL,
+  `image_url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `current_connections`
 --
 
@@ -143,18 +155,6 @@ INSERT INTO `funding_partners` (`id`, `name`) VALUES
 (1, 'Touchstone'),
 (2, 'Columbia Pictures'),
 (3, 'Marvel Studious');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `projects_id` bigint(20) UNSIGNED NOT NULL,
-  `image_url` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -245,6 +245,18 @@ INSERT INTO `projects_comparables` (`id`, `projects_id`, `comparables_id`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `projects_images`
+--
+
+CREATE TABLE `projects_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `projects_id` bigint(20) UNSIGNED NOT NULL,
+  `image_url` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -310,6 +322,12 @@ ALTER TABLE `comparables_funding`
   ADD UNIQUE KEY `comparables_id` (`comparables_id`,`funding_partners_id`);
 
 --
+-- Indexes for table `comparables_images`
+--
+ALTER TABLE `comparables_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `current_connections`
 --
 ALTER TABLE `current_connections`
@@ -325,12 +343,6 @@ ALTER TABLE `distribution_companies`
 -- Indexes for table `funding_partners`
 --
 ALTER TABLE `funding_partners`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `images`
---
-ALTER TABLE `images`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -357,6 +369,12 @@ ALTER TABLE `projects`
 ALTER TABLE `projects_comparables`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `projects_id` (`projects_id`,`comparables_id`);
+
+--
+-- Indexes for table `projects_images`
+--
+ALTER TABLE `projects_images`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -391,6 +409,11 @@ ALTER TABLE `comparables_distribution`
 ALTER TABLE `comparables_funding`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
+-- AUTO_INCREMENT for table `comparables_images`
+--
+ALTER TABLE `comparables_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `current_connections`
 --
 ALTER TABLE `current_connections`
@@ -405,11 +428,6 @@ ALTER TABLE `distribution_companies`
 --
 ALTER TABLE `funding_partners`
   MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `inflation`
 --
@@ -430,6 +448,11 @@ ALTER TABLE `projects`
 --
 ALTER TABLE `projects_comparables`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `projects_images`
+--
+ALTER TABLE `projects_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `users`
 --
