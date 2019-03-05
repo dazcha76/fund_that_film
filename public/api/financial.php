@@ -77,10 +77,10 @@ $data=[
             "total net earnings"=> 0
         ],
         'global consumer products'=>[
-            "royalties gross"=> 3841280,
+            "royalties gross"=> 0,
             "merchandising distribution fee"=> 0,
-            "sales agent fee"=> 576192,
-            "distributor's net"=> 3265088
+            "sales agent fee"=> 0,
+            "distributor's net"=> 0
         ],
         "total distributor's net"=>0,
         'global brand tie-in fees'=> 0,
