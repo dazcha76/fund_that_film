@@ -1,7 +1,7 @@
 {
-  "name": "php_react_starter",
+  "name": "Fund that Film",
   "version": "1.0.0",
-  "description": "Starting setup for ReactJS ReduxJS project with PHP server",
+  "description": "Find out if your movie will be the next big thing by verifying your financial information.",
   "main": "index.js",
   "proxy": {
     "/api/*": {
