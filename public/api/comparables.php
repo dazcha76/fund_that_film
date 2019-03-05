@@ -30,6 +30,18 @@ $output = [
     'success'=>false
 ];
 
+
+$id_query = 'SELECT c.`id`,c.`title`
+                FROM `comparables` AS c
+                WHERE c.`title`="The Amazing Spider-Man" OR c.`title`="The Lake House"';
+$id_result=$db->query($id_query);
+$id_array=[];
+
+while($row=$id_result->fetch_assoc()){
+    $id_array[]=$row['id'];
+}
+print_r($id_array);
+
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
             FROM `comparables` AS c
             JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
