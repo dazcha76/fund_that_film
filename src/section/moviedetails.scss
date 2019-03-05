@@ -1,0 +1,78 @@
+
+    @import './variables';
+    @import './main';
+
+
+
+.movie1_comparison_modal{
+    position:fixed;
+    top:0;
+    left:0;
+    height:100vh;
+    width:100%;
+    background:$dark-background;
+    z-index:5;
+    pointer-events: none;
+  
+    transition:all 0.5s;
+    transform: translateX(-100%);
+    
+    &.active{
+        display:block;
+        pointer-events: inherit;
+        opacity:1;
+        transition:all 0.5s;
+        transform: translateX(0);
+    }
+}
+
+
+.modal-content{
+    height: 80vh;
+    background-color: $input-background;
+    
+    .modal-movie-img{
+        position: relative;
+        display: flex;
+        margin: 35px;
+        .movie-poster{
+            width: 25%;
+             position: relative;
+             .movie-img-modal{
+                display: table-cell;
+                width: 45%;
+                position: relative;
+                }
+             }
+             .title-genre-wrapper{
+                 position: relative;
+                 text-transform: $text-transform;
+                color: $box-shadow-color;
+                margin: 0 20px;
+            }
+            .movie-detail{
+                vertical-align: middle;
+                position: relative;
+            
+                .movie-details-wrapper{
+                    display: inline-block;
+                    position: relative;
+                    margin: 0px 70px;  
+                    color:$box-shadow-color;
+                }
+            }
+         }
+    }
+
+    h1{
+        color: $box-shadow-color;
+        padding-right: 30px;
+        text-align:right;
+        font-size:1.5rem;
+
+    }
+
+
+h2{
+  font-size: 1.2rem;
+}
