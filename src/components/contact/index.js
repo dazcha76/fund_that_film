@@ -8,7 +8,7 @@ class Contact extends Component {
       <div className="wrapper contact-us-wrapper">
         <div className="contact-us-container">
           <h1>Contact Us</h1>
-          <form className="contact-us-form" onSubmit={this.handleSubmit}>
+          <form className="contact-us-form">
             <div className="multiple-inputs">
               <input type="text" id="first-name" name="first-name" className="contact_input" placeholder="First Name" />
               <input type="text" id="last-name" name="last-name" className="contact_input" placeholder="Last Name" />
