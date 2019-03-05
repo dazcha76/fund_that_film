@@ -4,6 +4,7 @@ import scss from '../../section/newproject.scss';
 class NewProject extends Component {
   render(){
     return (
+
       <div className="new-project-wrapper">
         <div className="new-project-container">
           <h1>New Project</h1>
