@@ -34,6 +34,7 @@ $output = [
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
                 WHERE c.`title`="The Amazing Spider-Man" OR c.`title`="The Lake House"';
+
 $id_result=$db->query($id_query);
 $id_array=[];
 
@@ -44,14 +45,22 @@ print_r($id_array);
 
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
             FROM `comparables` AS c
-            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
+            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = ?
             JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
-            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.`id`
+            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = ?
             JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
-            JOIN `comparables_images` AS ci ON c.`id` = ci.`comparables_id`
+            JOIN `comparables_images` AS ci ON ? = ci.`comparables_id`
             GROUP BY cf.`comparables_id`';
 
-$result = $db->query($query);
+//$result = $db->query($query);
+
+$statement = $db-> prepare($query);
+$statement=>bind_param('i',$id_array[0]);
+
+$statement->excute();
+$result =$statement->get_result();
+
+
 
 $data=[];
 
