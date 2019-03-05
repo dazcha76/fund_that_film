@@ -30,13 +30,14 @@ $output = [
     'success'=>false
 ];
 
-$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names
-                FROM `comparables` AS c
-                JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
-                JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
-                JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.`id`
-                JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
-                GROUP BY cf.`comparables_id`';
+$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
+            FROM `comparables` AS c
+            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
+            JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
+            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.`id`
+            JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
+            JOIN `comparables_images` AS ci ON c.`id` = ci.`comparables_id`
+            GROUP BY cf.`comparables_id`';
 
 $result = $db->query($query);
 

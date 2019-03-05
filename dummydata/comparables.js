@@ -23,7 +23,8 @@ var comparables = {
         ],
         us_theatrical_end:"2006-09-18",
         genre:"Drama",
-        year:"2006"
+        year:"2006",
+        image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/tHpc1118dYWLnHZleGhwZxRbpae.jpg"
     },
     {
         id: 2000,
@@ -52,7 +53,8 @@ var comparables = {
         ],
         us_theatrical_end:"2012-10-12",
         genre:"Adventure",
-        year: "2012"   
+        year: "2012" ,
+        image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg"  
     }
     ]
 }
