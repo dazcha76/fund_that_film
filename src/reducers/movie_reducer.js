@@ -1,5 +1,4 @@
 import types from '../actions/types';
-// import lakehouse from '../../assets/images/lakehouse.png';
 
 const DEFAULT_STATE = [
   {

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import scss from '../../section/financial.scss';
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
-export default props => {
-    return (
-         <div className="calculations-wrapper hidden">
+class Financials extends Component {
+
+    componentDidMount(){
+        this.props.getFinancialData();
+      }
+
+    render(){
+        return (
+            <div className="calculations-wrapper hidden">
             <div className="calculations-container">
                 <h1>Producer's Global Income Share Analysis for The Greatest Movie</h1>
                 <table>
@@ -137,5 +145,17 @@ export default props => {
                 </table>
             </div>
         </div>
-    )
+        )
+    }
 }
+
+const mapStateToProps = state => {
+  return {
+    finance: state.finance
+  }
+}
+
+export default connect(mapStateToProps, {
+  getFinancialData
+})(Financials);
+

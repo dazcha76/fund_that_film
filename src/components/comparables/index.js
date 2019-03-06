@@ -11,7 +11,7 @@ class MovieComparison extends Component {
   toggleClass = () => {
     const currentState = this.props.movies[0].active;
     this.setState({active : !currentState});
-  }
+  } 
 
   componentDidMount(){
     this.props.getMovieData();

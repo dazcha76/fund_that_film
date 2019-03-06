@@ -1,5 +1,7 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
