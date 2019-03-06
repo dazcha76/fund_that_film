@@ -1,5 +1,5 @@
 {
-  "name": "Fund that Film",
+  "name": "fund_that_film",
   "version": "1.0.0",
   "description": "Find out if your movie will be the next big thing by verifying your financial information.",
   "main": "index.js",
@@ -24,11 +24,13 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.3.1",
     "react": "^16.8.3",
+    "react-bootstrap": "^1.0.0-beta.5",
     "react-dom": "^16.8.3",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "reactstrap": "^7.1.0",
-    "redux": "^4.0.1"
+    "redux": "^4.0.1",
+    "redux-form": "^8.1.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

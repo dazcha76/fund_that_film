@@ -67,4 +67,3 @@ class MovieComparison extends Component {
 }
 
 export default MovieComparison;
-
