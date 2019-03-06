@@ -14,6 +14,7 @@ class CardsContainer extends Component {
           {
               name: 'John Holman',
               image: john,
+              title: 'Project Owner',
               linkedin:'https://www.linkedin.com/in/johntheholman/',
               github: 'https://github.com/bearlovesbob',
               portfolio:'http://johntheholman.com/'
@@ -21,6 +22,7 @@ class CardsContainer extends Component {
           {
             name: 'Diana Curtis',
             image: diana,
+            title: 'Backend Developer',
             linkedin:'https://www.linkedin.com/in/diana-curtis/',
             github: 'https://github.com/DianaCurtis',
             portfolio:'dianacurtisdev.com'
@@ -28,6 +30,7 @@ class CardsContainer extends Component {
           {
         name: 'Danika Quinteros',
             image: danika,
+            title: 'Frontend Developer',
             linkedin:'https://www.linkedin.com/in/danikaquinteros/',
             github: 'https://github.com/dazcha76',
             portfolio:'http://www.danikaquinteros.com'
@@ -35,6 +38,7 @@ class CardsContainer extends Component {
           {
             name: 'Christine Than',
             image: christine,
+            title: 'Frontend Developer',
             linkedin:'https://www.linkedin.com/in/christinepthan/',
             github: 'https://github.com/krispthan',
             portfolio:'http://www.christinethan.com'
@@ -47,8 +51,8 @@ class CardsContainer extends Component {
 
     buildPersonInfo(person) {
         return (
-            <Person key= { person.name } name= { person.name } image={ person.image } linkedin={ person.linkedin }
-            github= { person.github } portfolio={ person.portfolio }/>
+            <Person key= { person.name } name= { person.name } title={person.title} image={ person.image } linkedin={ person.linkedin }
+            github= { person.github } portfolio={ person.portfolio } />
         )
     }
     render(){

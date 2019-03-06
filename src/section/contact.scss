@@ -7,6 +7,11 @@
   .contact-us-form {
     width: 50%;
 
+    input::placeholder,
+    textarea::placeholder { 
+      color: $input-placeholder; 
+    }
+
     .contact_text {
       height: 20vh;
     }
