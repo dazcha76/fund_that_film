@@ -11,15 +11,15 @@ class MovieComparison extends Component {
         movie: [
             {   
                 image: lakehouse,
-                title: 'Lakehouse',
-                dor: '2017',
-                roi: '$1.3 Million'
+                title: 'The Lake House',
+                dor: '2006-06-19',
+                roi: '$1.3 Million' // us_gross_bo + intl_gross_bo
             },
             {
                 image: spiderman,
-                title: 'Spiderman',
-                dor: '2018',
-                roi: '1.5 Million'
+                title: 'The Amazing Spider-Man',
+                dor: '2012-07-03',
+                roi: '1.5 Million' // us_gross_bo + intl_gross_bo
             },
         ]
     } 
@@ -34,8 +34,8 @@ class MovieComparison extends Component {
                     <img src= { movie.image } id='movie-1-img' className='movie-display'/>
                     <div className='movie-title-wrapper'>
                         <h3 className='movie-title-subheader'>{ movie.title } </h3>
-                        <h3 className='movie-subheader'>{ movie.dor }</h3>
-                        <h3 className='movie-subheader'>{ movie.roi }</h3>
+                        <h3 className='movie-subheader'>Release Date: { movie.dor }</h3>
+                        <h3 className='movie-subheader'>Total Box Office: { movie.roi }</h3>
                     </div>
                 </div>
             </div>
