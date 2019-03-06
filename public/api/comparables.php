@@ -43,95 +43,79 @@ while($row_id=$id_result->fetch_assoc()){
     $id_array[]=$row_id['id'];
 }
 
-$first_id=$id_array[1];
+$queryPiece='';
 
-$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, fp.`id` AS funding_partners_ids, fp.`name`AS funding_partners_names, ci.`image_url`
+for($index=0;$index<count($id_array);$index++){
+    $queryPiece.='c.`id`= '.$id_array[$index];
+    if($index<count($id_array)-1){
+        $queryPiece.= ' OR ';
+    }
+}
+
+
+$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
             FROM `comparables` AS c
-            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = ?
+            JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.`id`
             JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
-            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = ?
+            JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.`id`
             JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
-            JOIN `comparables_images` AS ci ON ci.`comparables_id` = ?
-            WHERE c.`id` = ?
+            JOIN `comparables_images` AS ci ON ci.`comparables_id` = c.`id`
+            WHERE '.$queryPiece.'
             GROUP BY cf.`comparables_id`';
-//$result = $db->query($query);
-$statement=$db->prepare($query);
-$statement->bind_param('iiii',$first_id,$first_id,$first_id,$first_id);
-$statement->execute();
-$result = $statement->get_result();
-
-
-
-// $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, fp.`id` AS funding_partners_ids, fp.`name`AS funding_partners_names, ci.`image_url`
-//             FROM `comparables` AS c
-//             JOIN `comparables_funding` AS cf ON cf.`comparables_id` = c.id
-//             JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
-//             JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = c.id
-//             JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
-//             JOIN `comparables_images` AS ci ON ci.`comparables_id` = c.id
-//             WHERE c.`id` = ?
-//             GROUP BY cf.`comparables_id`';
-
-
-
-
-// //$query = 'SELECT "hello"';
-// //$result = $db->query($query);
-
-// $statement = $db->stmt_init();
-// $statement_result=$statement->prepare($query);
-// $statement->bind_param('s',$first_id);
-// $statement->execute();
-// //print_r($statement);
-
-// $result = $statement->get_result();
-
+$result = $db->query($query);
 
 $data=[];
 
+
+
 if ($result){
     if ($result -> num_rows > 0) {
+        $output['success']=true;
+
+
+            while($row=$result->fetch_assoc()){
+                $row['distribution_companies_info'] = [
+                    [
+                    'id'=>$row['dc_id'],
+                    'name'=>$row['dc_name']
+                    ]
+                ];
+                
+                $row['funding_partners_info']=[];
+                
+                if(strlen($row['funding_partners_ids']) == 1){
+                    $row['funding_partners_info'][]=[
+                        'id'=>$row['funding_partners_ids'],
+                        'name'=>$row['funding_partners_names']
+                    ];
+                }elseif(strlen($row['funding_partners_ids']) > 1){
+                    $id = explode(',',$row['funding_partners_ids']);
+                    $name = explode(',',$row['funding_partners_names']);
+                    for( $index=0; $index<count($id) ; $index++){
+                            $row['funding_partners_info'][]=[
+                                'id' => $id[$index],
+                                'name'=>$name[$index]
+                            ];
+                    }
+                }
+    
+                unset($row['funding_partners_ids']);
+                unset($row['funding_partners_names']);    
+    
+                $row['year'] = explode('-',$row['us_theatrical_release'] )[0];
+                
+                unset($row['fp_id']);
+                unset($row['fp_name']);
+                unset($row['dc_id']);
+                unset($row['dc_name']);
+                
+                $data[]=$row;
+                
+            }
+        
         
 
-        while($row=$result->fetch_assoc()){
-            $row['distribution_companies_info'] = [
-                [
-                'id'=>$row['dc_id'],
-                'name'=>$row['dc_name']
-                ]
-            ];
-            
-            $row['funding_partners_info']=[];
-            
-            if(strlen($row['funding_partners_ids']) == 1){
-                $row['funding_partners_info'][]=[
-                    'id'=>$row['funding_partners_ids'],
-                    'name'=>$row['funding_partners_names']
-                ];
-            }elseif(strlen($row['funding_partners_ids']) > 1){
-                $id = explode(',',$row['funding_partners_ids']);
-                $name = explode(',',$row['funding_partners_names']);
-                for( $index=0; $index<count($id) ; $index++){
-                        $row['funding_partners_info'][]=[
-                            'id' => $id[$index],
-                            'name'=>$name[$index]
-                        ];
-                }
-            }
 
-            unset($row['funding_partners_ids']);
-            unset($row['funding_partners_names']);    
-
-            $row['year'] = explode('-',$row['us_theatrical_release'] )[0];
-            
-            unset($row['fp_id']);
-            unset($row['fp_name']);
-            unset($row['dc_id']);
-            unset($row['dc_name']);
-            
-            $data[]=$row;
-            $output['success']=true;
-        }
     }
 } else {
     throw new Exception('SQL Error');
