@@ -41,7 +41,8 @@ $id_array=[];
 while($row_id=$id_result->fetch_assoc()){
     $id_array[]=$row_id['id'];
 }
-$first_id=$id_array[0];
+
+$first_id=$id_array[1];
 
 
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, fp.`id` AS funding_partners_ids, fp.`name`AS funding_partners_names, ci.`image_url`
@@ -50,13 +51,14 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
             JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
             JOIN `comparables_distribution` AS cd ON cd.`comparables_id` = ?
             JOIN `distribution_companies` AS dc ON dc.`id` = cd.`distribution_companies_id`
-            JOIN `comparables_images` AS ci ON ? = ci.`comparables_id`
+            JOIN `comparables_images` AS ci ON ci.`comparables_id` = ?
+            WHERE c.`id` = ?
             GROUP BY cf.`comparables_id`';
 
 //$result = $db->query($query);
 
 $statement=$db->prepare($query);
-$statement->bind_param('iii',$first_id,$first_id,$first_id);
+$statement->bind_param('iiii',$first_id,$first_id,$first_id,$first_id);
 $statement->execute();
 $result = $statement->get_result();
 
