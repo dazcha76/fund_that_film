@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 /* 
 this file is the endpoint that the client will reach when they submit their project details provided by the user
 
