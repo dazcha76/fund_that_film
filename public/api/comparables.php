@@ -38,12 +38,13 @@ $id_query = 'SELECT c.`id`,c.`title`
 $id_result=$db->query($id_query);
 $id_array=[];
 
-while($row=$id_result->fetch_assoc()){
-    $id_array[]=$row['id'];
+while($row_id=$id_result->fetch_assoc()){
+    $id_array[]=$row_id['id'];
 }
-print_r($id_array);
+$first_id=$id_array[0];
 
-$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
+
+$query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, fp.`id` AS funding_partners_ids, fp.`name`AS funding_partners_names, ci.`image_url`
             FROM `comparables` AS c
             JOIN `comparables_funding` AS cf ON cf.`comparables_id` = ?
             JOIN `funding_partners` AS fp ON fp.`id` = cf.`funding_partners_id`
@@ -54,18 +55,18 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
 
 //$result = $db->query($query);
 
-$statement = $db-> prepare($query);
-$statement=>bind_param('i',$id_array[0]);
-
-$statement->excute();
-$result =$statement->get_result();
-
+$statement=$db->prepare($query);
+$statement->bind_param('iii',$first_id,$first_id,$first_id);
+$statement->execute();
+$result = $statement->get_result();
 
 
 $data=[];
 
 if ($result){
     if ($result -> num_rows > 0) {
+        
+
         while($row=$result->fetch_assoc()){
             $row['distribution_companies_info'] = [
                 [
@@ -81,9 +82,7 @@ if ($result){
                     'id'=>$row['funding_partners_ids'],
                     'name'=>$row['funding_partners_names']
                 ];
-            }
-
-            if(strlen($row['funding_partners_ids']) > 1){
+            }elseif(strlen($row['funding_partners_ids']) > 1){
                 $id = explode(',',$row['funding_partners_ids']);
                 $name = explode(',',$row['funding_partners_names']);
                 for( $index=0; $index<count($id) ; $index++){
@@ -106,7 +105,7 @@ if ($result){
             
             $data[]=$row;
             $output['success']=true;
-        };
+        }
     }
 } else {
     throw new Exception('SQL Error');
