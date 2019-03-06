@@ -5,11 +5,16 @@ import lakehouse from '../../assets/images/lakehouse.png';
 import spiderman from '../../assets/images/spiderman.png';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
+import { getMovieData } from '../../actions';
 
 class MovieComparison extends Component {
   toggleClass = () => {
     const currentState = this.props.movies[0].active;
     this.setState({active : !currentState});
+  }
+
+  componentDidMount(){
+    this.props.getMovieData();
   }
 
   renderMovies(){
@@ -37,7 +42,7 @@ class MovieComparison extends Component {
         <div className='comparables-wrapper '>
           <div className='comparables-container'>
             <div className='header'>
-              <h3 className= 'movie-subtitle'> Movie Comparisons </h3>
+              <h1> Movie Comparisons</h1>
             </div>
             <div className='movie-info-container'>
               { this.renderMovies() }
@@ -57,10 +62,11 @@ class MovieComparison extends Component {
 
 const mapStateToProps = state => {
   return {
-      movies: state.movies
-
+    movies: state.movies
   }
 }
 
-export default connect(mapStateToProps)(MovieComparison);
+export default connect(mapStateToProps, {
+  getMovieData
+})(MovieComparison);
 

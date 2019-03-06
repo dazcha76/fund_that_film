@@ -1,12 +1,6 @@
 @import './variables';
 @import './main';
 
-.calculations-container h1 {
-  color: #05B97F;
-  text-align: center;
-  margin-top: 2%;
-}
-
 table, th, td {
   border-collapse: collapse;
   border: 2px solid #05B97F;
@@ -14,7 +8,7 @@ table, th, td {
 
 table {
   width: 70%;
-  margin: 2% auto;
+  margin: 2% auto 5% auto;
 }
 
 th, td {
@@ -26,7 +20,7 @@ th {
   background-color: #05B97F;
   font-size: 150%;
   text-align: left;
-}
+} 
 
 td {
   color: #dadadd;

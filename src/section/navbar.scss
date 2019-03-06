@@ -18,10 +18,11 @@
         position:relative;
         display:block;
         text-align:right;
-        background: rgba($button-color, 0.7);
+        background: $button-color;
        
         button{
             margin:0 auto;
+            outline: none;
         }
     }
 }

@@ -10,20 +10,17 @@
 }
 
 .comparison-movie-display{
-    width: 57vw;
-    display: table-cell;
     margin: 0 auto;
     text-align:center;
 }
     .movie-display{
         display:inline-block;
-        width:400px;
-        margin-top:1px;
+        width:50%;
         height:auto;
         text-align:center;
         transform: scale(1);
         transition: all 0.25s;
-        padding:30px;
+        padding-bottom:3%;
         &:hover{
             filter:drop-shadow(2px 3px 6px $button-color);
             transform: scale(1.1);
@@ -35,8 +32,7 @@
     .movie-info-container{
         display: flex;
          flex-direction: row;
-         justify-content:space-evenly;
-         padding-top:30px;
+         justify-content:center;
         }
     
 
@@ -57,16 +53,7 @@
             text-transform:uppercase;
         }
     
-    .movie-subtitle{
-            font-size: 2rem;
-            color: white;
-    }
-    
-    .header{
-        padding-top: 100px;
-        text-align: center;
-        position: relative;
-    }                             
+                               
                              
                          
                          
