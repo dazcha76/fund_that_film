@@ -9,16 +9,17 @@ export default props => {
            <div className='card-body'>
                 <div className='profile-info'>
                     <div className='profile-name'>
-                        <h5 className='card-title'>{ props.name }</h5>
+                        <h4 className='card-title'>{ props.name }</h4>
+                        <h5 className='card-title'>{ props.title }</h5>
                     </div>
                 </div>
                <div className='social-icon-container'>
                      <a href={ props.github } ><i className='fab fa-github-square'></i></a>
                      <a href={ props.linkedin } ><i className='fab fa-linkedin'></i></a>
-                     <a href={ props.portfolio } ><i className='fas fa-briefcase'></i></a>
+                     <a href={ props.portfolio } ><i className='fas fa-globe'></i></a>
                </div>          
           </div>
      </div>
      
     )
-}
+} 

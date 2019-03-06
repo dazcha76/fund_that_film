@@ -1,5 +1,5 @@
 //Arrow
-.fas{
+.fa-angle-down{
     font-weight: 900;
     font-size: 32px;
     position: relative;
@@ -7,17 +7,17 @@
    
   }
   
-  .fas:hover{
+  .fa-angle-down:hover{
     font-size:35px;;
   }
   
-  .fas{
+  .fa-angle-down{
     display:absolute;
     width:100px;
     height:100px;
-    color:White;
+    color:White; 
   }
-  .fas{
+  .fa-angle-down{
     animation:bounce 2s infinite;
   }
   

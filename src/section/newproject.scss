@@ -8,21 +8,26 @@
     
     .new-project-form {
       width: 70%;
+      color: $input-placeholder;
+
+      input::placeholder { 
+        color: $input-placeholder; 
+      }
 
       #year-input, 
       #mpaa-input, 
       #genre-input, 
       #production-stage-input {
-        color: #747474;
+        color: $input-placeholder;
       }
 
       .my-project {
         margin-bottom: 2%;
-        columns: #747474;
       }
 
       .meets {
         margin-top: 1.5%;
+        padding: 0 1%;
       }
     }
 
