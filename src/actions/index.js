@@ -13,3 +13,11 @@ export const getMovieData = () => {
   }
 }
 
+export const toggleNavbar = () => {
+  return {
+    type: 'TOGGLE_NAVBAR',
+    payload: {
+      active: true
+    }
+  }
+}

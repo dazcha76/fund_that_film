@@ -3,20 +3,30 @@ import types from '../actions/types';
 
 const DEFAULT_STATE = [
   {
-    active: false,
     image: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/tHpc1118dYWLnHZleGhwZxRbpae.jpg',
     movieTitle: 'The Lake House',
     releaseDate: '2006-06-19',
     usBoxOffice: 52330111,
-    intlBoxOffice: 62500000
+    intlBoxOffice: 62500000,
+    genre: '',
+    budget: 0,
+    rating: '',
+    audienceSatisfaction: 0,
+    fundingPartners: '',
+    distributionCompany: ''
   },
   {
-    active: false,
     image: 'https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg',
     movieTitle: 'The Amazing Spider-Man',
     releaseDate: '2012-07-03',
     usBoxOffice: 262030663,
-    intlBoxOffice: 495859604
+    intlBoxOffice: 495859604,
+    genre: '',
+    budget: 0,
+    rating: '',
+    audienceSatisfaction: 0,
+    fundingPartners: '',
+    distributionCompany: ''
   }
 ];
 
