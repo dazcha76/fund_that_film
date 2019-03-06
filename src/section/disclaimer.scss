@@ -1,7 +1,7 @@
 @import './variables';
 
 .disclaimer-content{
-    background: rgba(55, 239, 186, 0.7);
+    background: $button-color;
     position:fixed;
     bottom:0;
     width:100%;

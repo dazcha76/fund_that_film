@@ -1,13 +1,12 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route , Link } from 'react-router-dom';
-
+import comparables from '../../section/home.scss';
 
 export default props => {
-    return (
-            <div>
-                <h1>This is the Home</h1>
+  return (
+    <div>
+      <h1 className="title">Fund My Film</h1>  
 
-               
-            </div>
-    )
+      <button className="page-button start-project-button">Start</button>
+    </div>
+  )
 }
