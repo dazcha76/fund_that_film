@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: 'http://localhost/api/financial.php'
+  baseURL: '/api/financial.php'
 })
