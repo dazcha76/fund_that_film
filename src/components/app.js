@@ -11,12 +11,11 @@ import CardsContainer from './aboutus/index';
 import Nav from './navbar/index';
 import Disclaimer from './footer/disclaimer';
 
-
 const App = () => (
     <div>
         <div>
             <Route exact path='/' component={ Home }/>
-            <Route  path='/new_project' component={ NewProject }/>
+            <Route  path='/new_project' render={() => <NewProject />}/>
             <Route  path='/comparisons' component={ MovieComparison }/>
             <Route  path='/financials' component={ FinancialNorthAmerica }/>
             <Route  path='/contact' component={() => <Contact /> }/>

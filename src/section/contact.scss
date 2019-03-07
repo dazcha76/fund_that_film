@@ -1,28 +1,11 @@
 @import './variables';
 @import './main';
 
-.contact-us-wrapper {
-  overflow: hidden;
-
-  .contact-us-form {
-    width: 50%;
-
-    .contact_text {
-      height: 20vh;
-    }
-
-    .send-email-button {
-      top: 75%;
-      left: 45%;
-    }
-  }   
-}
 
 
-input[type="text"]{
-  color:whitesmoke;
-}
 
-input[type="email"]{
-  color:whitesmoke;
+.contact-us-form{
+  text-align: center;
+  width:85%;
+  max-width:990px;
 }

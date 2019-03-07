@@ -24,15 +24,13 @@ h1 {
 }
 
 .page-button {
-  height: 5vh;
-  width: 10%;
+  padding:10px;
   font-size: 150%;
   border: none;
   border-radius: 3px;
   outline: none;
   background-color: $button-color;
   cursor: pointer;
-  position: absolute;
 }
 
 form {
