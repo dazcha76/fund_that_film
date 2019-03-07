@@ -1,12 +1,10 @@
-import types from './types';
 import comparablesApi from '../apis/comparables.js'
 import financialApi from '../apis/financial.js'
 
 export const getMovieData = () => {
   return async dispatch => {
-    const response = await comparablesApi.get();
-    console.log("Movie Data:", response);
-
+    const response = await comparablesApi.post();
+    console.log(response)
     dispatch({
       type: 'GET_MOVIE_DATA',
       payload: response
@@ -17,7 +15,6 @@ export const getMovieData = () => {
 export const getFinancialData = () => {
   return async dispatch => {
     const response = await financialApi.get();
-    console.log("Financial Data:", response);
 
     dispatch({
       type: 'GET_FINANCIAL_DATA',
@@ -33,4 +30,4 @@ export const toggleNavbar = () => {
       active: true
     }
   }
-}
+} 
