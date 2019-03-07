@@ -1,33 +1,16 @@
 @import './variables';
 @import './main';
 
-.contact-us-wrapper {
-  overflow: hidden;
-
-  .contact-us-form {
-    width: 50%;
-
-    input::placeholder,
-    textarea::placeholder { 
-      color: $input-placeholder; 
-    }
-
-    .contact_text {
-      height: 20vh;
-    }
-
-    .send-email-button {
-      top: 75%;
-      left: 45%;
-    }
-  }   
+input::placeholder, textarea::placeholder { 
+  color: $input-placeholder; 
 }
 
-
-input[type="text"]{
-  color:whitesmoke;
+.contact_text {
+  height: 20vh;
 }
 
-input[type="email"]{
-  color:whitesmoke;
+.contact-us-form {
+  text-align: center;
+  width:85%;
+  max-width:990px;
 }

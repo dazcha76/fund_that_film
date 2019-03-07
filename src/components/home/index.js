@@ -11,7 +11,7 @@ export default props => {
       <h1 className="title">Fund My Film</h1>  
 
       <Link to='/new_project'>
-      <button className="page-button start-project-button">Start</button>
+        <button className="page-button start-project-button">Start</button>
       </Link>
     
     </div>
