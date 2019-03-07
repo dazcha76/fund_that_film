@@ -11,4 +11,4 @@ const rootReducer = combineReducers({
   navbar: navbar_reducer
 });
 
-export default rootReducer;
+export default rootReducer; 
