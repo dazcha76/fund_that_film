@@ -20,13 +20,13 @@ class MovieComparison extends Component {
   renderMovies(){
     return this.props.movies.map( movie => {
       return (
-        <div key = {movie.movieTitle} className='movies'>
+        <div key = {movie.title} className='movies'>
           <div className='comparison-movie-display'>
-            <img src= { movie.image } id='movie-1-img' className='movie-display'/>
+            <img src= { movie.image_url } id='movie-1-img' className='movie-display'/>
             <div className='movie-title-wrapper'>
-              <h3 className='movie-title-subheader'>{ movie.movieTitle } </h3>
-              <h3 className='movie-subheader'>Release Date: { new Date(movie.releaseDate).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}</h3>
-              <h3 className='movie-subheader'>Total Box Office: ${ (movie.usBoxOffice + movie.intlBoxOffice).toLocaleString() }</h3>
+              <h3 className='movie-title-subheader'>{ movie.title } </h3>
+              <h3 className='movie-subheader'>Release Date: { new Date(movie.us_theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}</h3>
+              <h3 className='movie-subheader'>Total Box Office: ${(parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo)).toLocaleString()}</h3>
             </div>
           </div>
         </div>
@@ -62,7 +62,7 @@ class MovieComparison extends Component {
 
 const mapStateToProps = state => {
   return {
-    movies: state.movies
+    movies: state.movies.movieList
   }
 }
 
@@ -70,3 +70,4 @@ export default connect(mapStateToProps, {
   getMovieData
 })(MovieComparison);
 
+ 
