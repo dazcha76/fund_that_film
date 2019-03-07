@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
 import scss from '../../section/newproject.scss';
 import {Link} from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 
+
+
+const yearReleased = ({input, data, valueField, textField})=>
+ <DropdownList{...input}
+  data= { data }
+  valueField= { valuefield }
+  textField = {textfield }
+  onChange = {input.onChange}/>
+
+   const years = [{ year: '2019', value:'2019'},
+          {year:'2020', value: '2020'},
+          {year:'2021', value: '2021'},
+          {year:'2022', value:'2022'}]
 class NewProject extends Component {
   render(){
     return (
@@ -10,7 +24,7 @@ class NewProject extends Component {
         <div className="new-project-container">
           <h1>New Project</h1>
           <form className="new-project-form">
-            <input type="text"  className="user-project-input" placeholder="Title "required />
+            <Field type="text"  className="user-project-input" placeholder="Title "required component = {Forms} />
             <div className="multiple-inputs">
               <select id="year-input">
                   <option value="year">Release Year</option>

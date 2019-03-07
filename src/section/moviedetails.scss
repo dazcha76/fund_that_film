@@ -15,14 +15,14 @@
     pointer-events: none;
   
     transition:all 0.5s;
-    transform: translateX(-100%);
+    transform: translateY(-100%);
     
     &.active{
         display:block;
         pointer-events: inherit;
         opacity:1;
         transition:all 0.5s;
-        transform: translateX(0);
+        transform: translateY(0);
     }
 }
 
