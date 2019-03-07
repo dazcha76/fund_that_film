@@ -6,6 +6,7 @@ import spiderman from '../../assets/images/spiderman.png';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
+import {Link} from 'react-router-dom';
 
 class MovieComparison extends Component {
   toggleClass = () => {
@@ -38,8 +39,8 @@ class MovieComparison extends Component {
     const arrowActive = 'is-active';
 
     return (
-      <div>
-        <div className='comparables-wrapper '>
+      <div className='comparables-main'>
+        <div className='comparables-wrapper'>
           <div className='comparables-container'>
             <div className='header'>
               <h1> Movie Comparisons</h1>
@@ -55,6 +56,9 @@ class MovieComparison extends Component {
         <div>
           <DetailsPage detailPageOnclick = {this.active} toggleDetailPage = {() => { this.toggleClass()}}/>
         </div>
+        <Link to='/financials'>
+            <button className="input-submit-button first-button page-button">Confirm</button>
+        </Link>
       </div>
     )
   }
