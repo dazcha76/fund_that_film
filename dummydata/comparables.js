@@ -57,4 +57,4 @@ var comparables = {
         image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg"  
     }
     ]
-}
+} 
