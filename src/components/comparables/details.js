@@ -89,10 +89,10 @@ class DetailsPage extends Component {
 
     render(){
         const individualMovieDetails = this.state.movieDetails.map(this.buildMovieDetails);
-        const baseClass = "movie1_comparison_modal";
+        const baseClass = 'movie1_comparison_modal';
         console.log();
-        return (
-            <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass }   id='movie_1'>
+        return ( 
+            <div className={ this.props.detailPageOnclick ? 'active ' + baseClass : baseClass }   id='movie_1'>
                 <h1 onClick = {this.props.toggleDetailPage}>X</h1>
                 <div className='modal-content'>
                     { individualMovieDetails }

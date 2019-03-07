@@ -53,9 +53,9 @@ class MovieComparison extends Component {
             </div>
           </div> 
         </div>
-        <div>
+        {/* <div>
           <DetailsPage detailPageOnclick = {this.active} toggleDetailPage = {() => { this.toggleClass()}}/>
-        </div>
+        </div> */}
         <Link to='/financials'>
             <button className="input-submit-button first-button page-button">Confirm</button>
         </Link>
@@ -73,5 +73,3 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   getMovieData
 })(MovieComparison);
-
- 
