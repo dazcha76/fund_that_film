@@ -5,21 +5,21 @@ import financial from '../../section/financial.scss';
 
 class Other extends Component {
     other = {
-         'Other': {  
+         'other': {  
              'Other': {
-            'total distributor net': 270622152,
-            'global brand tie-in fees': 0,
-            'production financing expense': 4050000,
-            'negative cost':45000000,
-            'studio burden': 0,
-            'talent residuals': 6386569,
-            'sales agent direct sales expenses': 500000,
-            'producers gross': 214685583,
-            'talent participation': 15027991,
-            'producer net': 199657592,
-            'studio share': 0,
-            'producer share': 199657592,
-            'distributor net earning to cost ratio': '4.8:1',
+            'Total Distributor Net': 270622152,
+            'Global Brand Tie-in Fees': 0,
+            'Production Financing Expense': 4050000,
+            'Negative Cost':45000000,
+            'Studio Burden': 0,
+            'Talent residuals': 6386569,
+            'Sales Agent Direct Sales Expenses': 500000,
+            'Producers Gross': 214685583,
+            'Talent Participation': 15027991,
+            'Producer Net': 199657592,
+            'Studio Share': 0,
+            'Producer Share': 199657592,
+            'Distributor Net Earning To Cost Ratio': '4.8:1',
             'expenses after distributor net': 70964560
         }
     }
@@ -30,7 +30,7 @@ buildTableRows =( other ) => {
         <div className='card' key={ other }>
         <h5 className='card-header'>{ other }</h5>
         <div className='card-body'>
-            <h5 className='card-title'>Info</h5>
+            <h5 className='card-title'>Information:</h5>
             { generateInfo }
         </div>
     </div>
@@ -38,7 +38,7 @@ buildTableRows =( other ) => {
 }
 otherInfo( item, amount ){
     return (
-        <p key = {item}><strong>{ item }:</strong>{ amount }</p>
+        <p key = { item }><strong>{ item }:</strong>{ amount }</p>
     )
 }
 generateInfo = ( item ) => {

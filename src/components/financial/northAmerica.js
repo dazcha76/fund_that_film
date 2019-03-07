@@ -7,52 +7,52 @@ class NorthAmerica extends Component {
     northAmerica = {
         'north america': {
             'Theatrical': {
-                'gross': 94200000,
-                'film rental': 47100000,
-                'distribution fee': 11775000,
-                'direct distribution expenses': 55000000,
-                'distributors net': -19675000
+                'Gross': 94200000,
+                'Film Rental': 47100000,
+                'Distribution Fee': 11775000,
+                'Direct Distribution Expenses': 55000000,
+                'Distributors Net': -19675000
             },
             'Home Entertainment': {
-                'gross': 177096000,
-                'expenses': 11600962,
-                'distribution fee': 41373759,
-                'distributors net': 124121278
+                'Gross': 177096000,
+                'Expenses': 11600962,
+                'Distribution Fee': 41373759,
+                'Distributors Net': 124121278
             },
             'Theatrical and Home': {
-                'sales agent fee': 5222314,
-                'distributors net': 99223964
+                'Sales Agent Fee': 5222314,
+                'Distributors Net': 99223964
             },
             'Pay Per View': {
-                'gross': 5181000,
-                'distribution fee': 0,
-                'direct distribution expenses': 150000,
-                'sales agent fee': 777150,
-                'distributors net': 4253850
+                'Gross': 5181000,
+                'Distribution Fee': 0,
+                'Direct Distribution Expenses': 150000,
+                'Sales Agent Fee': 777150,
+                'Distributor Net': 4253850
             },
             'Premium Cable': {
-                'gross': 9420000,
-                'distribution fee': 0,
-                'direct distribution expenses': 150000,
-                'sales agent fee': 1390500,
-                'distributors net': 7879500
+                'Gross': 9420000,
+                'Distribution Fee': 0,
+                'Direct Distribution Expenses': 150000,
+                'Sales Agent Fee': 1390500,
+                'Distributors Net': 7879500
             },
             'Free TV Premiere': {
-                'gross': 7065000,
-                'distribution fee': 0,
-                'direct distribution expenses': 200000,
-                'sales agent fee': 1029750,
-                'distributors net': 5835250
+                'Gross': 7065000,
+                'Distribution Fee': 0,
+                'Direct Distribution Expenses': 200000,
+                'Sales Agent Fee': 1029750,
+                'Distributors Net': 5835250
             },
             'Cable & Syndicated TV': {
-                'gross': 4710000,
-                'distribution fee': 0,
-                'direct distribution expenses': 200000,
-                'sales agent fee': 225500,
-                'distributors net': 4284500
+                'Gross': 4710000,
+                'Distribution fee': 0,
+                'Direct Distribution Expenses': 200000,
+                'Sales Agent Fee': 225500,
+                'Distributors Net': 4284500
             },
             'Total Net Earnings':{
-            'total net earnings': 121477064}
+            'Total Net Earnings': 121477064}
         }
     }
 
@@ -63,13 +63,10 @@ class NorthAmerica extends Component {
             <div className='card' key={northAmericaElement}>
                 <h5 className='card-header'>{northAmericaElement}</h5>
                 <div className='card-body'>
-                    <h5 className='card-title'>Info</h5>
+                    <h5 className='card-title'>Information:</h5>
                     {generateInfo}
                 </div>
-            </div>
-
-
-          
+            </div>     
        )	
     }
     itemInfo(item, amount){
@@ -88,7 +85,6 @@ class NorthAmerica extends Component {
     render(){
         const infoArray = [];
        for(let element in this.northAmerica['north america']){
-           console.log(this.northAmerica['north america'][element])
            infoArray.push( this.buildTableRows(element))
        }
         return (

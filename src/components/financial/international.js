@@ -7,20 +7,20 @@ import financial from '../../section/financial.scss';
 class International extends Component {
     international = {
         'International':{
-            'international': {
-                'theatrical, home, tv gross': 182350000,
+            'International': {
+                'Theatrical, Home, TV Gross': 182350000,
                 'sales agent fee': 36470000,
-                'total net earnings': 145880000
+                'Total Net Earnings': 145880000
             },
         }
     }
     buildTableRows = (international) => {
-        const generateInternationalInfo = this.generateInternationalInfo(international);
+        const generateInternationalInfo = this.generateInfo(international);
         return(
             <div className='card' key={international}>
             <h5 className='card-header'>{international}</h5>
             <div className='card-body'>
-                <h5 className='card-title'>Info</h5>
+                <h5 className='card-title'>Information:</h5>
                 {generateInternationalInfo}
             </div>
         </div>
@@ -32,16 +32,16 @@ class International extends Component {
         )
     }
     generateInfo = (item) => {
-        const internationalInfo = this.international['international'][item]
+        const internationalInfo = this.international['International'][item]
         let infoArray = [];
         for(let element in internationalInfo){
-            infoArray.push( this.generateInfo( element, internationalInfo[ element]))
+            infoArray.push( this.internationalInfo( element, internationalInfo[ element]))
         }
         return infoArray;
     }
     render(){
         const infoArray = [];
-        for(let element in this.global['global']){
+        for(let element in this.international['International']){
             infoArray.push( this.buildTableRows(element))
         }
         return (

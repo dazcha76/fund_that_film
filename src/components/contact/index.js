@@ -1,76 +1,59 @@
 import React, { Component } from 'react';
 import scss from '../../section/contact.scss';
 import { Field, reduxForm } from 'redux-form';
-import Forms from '../helpers/forms';
+import Forms, {textarea} from '../helpers/forms';
+// import { connect } from 'react-redux';
+
+// const { DOM : { textarea }} = React;
 
 class Contact extends Component {
 
   // handleContact = value => {
   //   this.props.Contact( values );
   // }
-  dummySubmitHandler(){
-    console.log('form has been submitted!');
+  dummySubmitHandler(values){
+    console.log('form has been submitted with value: ', values);
+    return values;
   }
 
   render(){
     const {handleSubmit, onSubmit } = this.props;
     return (
-     <div className='wrapper contact-us-wrapper'>
-        <div className='contact-us-container'>
-          <h1>Contact Us</h1>
-          <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
-            <div className='multiple-inputs'>
-               <div>
-                 <Field type='text' id='firstName' name='firstName' className='contact_input' placeholder='First Name' component={ Forms }/>
-               </div>
-                  
-                  <Field type='text' id='lastName' name='lastName' className='contact_input' placeholder='Last Name' component = { Forms }/>
-                  <p></p>
-              
-                 <Field type='phone-number' id='phoneNumber' name='phoneNumber' className='contact_input' placeholder='Phone Number' component= { Forms }/>
-               
-               
-                <Field type='email' id='email' name='email' className='contact_input' placeholder='Email Address' component={ Forms }/>
-              
-               <textarea id='message' name='message' className='contact_text' placeholder='Message'></textarea>
-               <button className='page-button send-email-button'>Send</button>
-           </div>
-          </form>
-        </div>
+     <div className='zzwrapper zzcontact-us-wrapper'>
+          <div className='zzcontact-us-container'>
+            <h1> Contact Us</h1>
+              <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
+                  <div className='zzmultiple-inputs'>
+                      <div>
+                        <Field type='text' id='firstName' name='firstName' className='contact_input' label='First Name' component={ Forms }/>
+                      </div>
+                       <div>
+                        <Field type='text' id='lastName' name='lastName' className='contact_input' label='Last Name' component ={ Forms }/>
+                       </div>
+                        <div>
+                       <Field type='phone-number' id='phoneNumber' name='phoneNumber' className='contact_input' label='Phone Number' component= { Forms }/>
+                        </div>
+                        <div>
+                       <Field type='email' id='email' name='email' className='contact_input' label='Email Address' component={ Forms }/>
+                        </div>
+                       <textarea type= 'text' id='message' name='message' className='contact_text'  component="textarea"/>
+                    <button className='page-button send-email-button'>Send</button>
+                </div>
+              </form>
+          </div>
       </div>
+  
     
     )
   }
 }
 
-function validate({firstName, lastName, phoneNumber, email, message}) {
-  console.log(firstName)
-  const error = {};
 
-  if(!firstName) {
-    error.firstName = 'Please Enter A Valid First Name'
-  }
+export default 
+  reduxForm({
+    form: 'contact_validate_form',
+  })(Contact)
 
-  return (
-    error
-  )
-}
-
-
-
-
-
-
-
-
-
-
-
-
-export default reduxForm({
-  form: 'contact_validate_form',
-  validate,
-})(Contact)
 
 
 // const {handleSubmit} = this.props;
