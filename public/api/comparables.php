@@ -33,6 +33,8 @@ $output = [
 ];
 
 
+// getting back an array of objects, the object will contain a key of title
+
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
                 WHERE c.`title`="The Amazing Spider-Man" OR c.`title`="The Lake House"';
