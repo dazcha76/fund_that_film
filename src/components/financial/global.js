@@ -5,12 +5,12 @@ import financial from '../../section/financial.scss';
 
 class Global extends Component {
     global ={
-        'global': {
-            'global consumer products': {
-                'royalties gross': 3841280,
-                'merchandising distribution fee': 0,
-                'sales agent fee': 576192,
-                'distributor net': 3265088
+        'Global': {
+            'Global Consumer Products': {
+                'Royalties Gross': 3841280,
+                'Merchandising Distribution Fee': 0,
+                'Sales Agent Fee': 576192,
+                'Distributor Net': 3265088
             }
         }
     }
@@ -20,7 +20,7 @@ class Global extends Component {
             <div className='card' key={global}>
             <h5 className='card-header'>{global}</h5>
             <div className='card-body'>
-                <h5 className='card-title'>Info</h5>
+                <h5 className='card-title'>Information:</h5>
                 {generateInfo}
             </div>
         </div>
@@ -32,7 +32,7 @@ class Global extends Component {
         )
     }
     generateInfo = (item) =>{
-        const globalInfo = this.global['global'][item]
+        const globalInfo = this.global['Global'][item]
         let infoArray = [];
         for(let element in globalInfo){
             infoArray.push( this.globalInfo(element, globalInfo[ element ]))
@@ -41,7 +41,7 @@ class Global extends Component {
     }
     render(){
         const infoArray =  [];
-        for(let element in this.global['global']){
+        for(let element in this.global['Global']){
             infoArray.push( this.buildTableRows(element))
         }
         return(
