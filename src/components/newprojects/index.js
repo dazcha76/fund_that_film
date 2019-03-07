@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import scss from '../../section/newproject.scss';
+import {Link} from 'react-router-dom';
 
 class NewProject extends Component {
   render(){
@@ -62,7 +63,9 @@ class NewProject extends Component {
                 <input type="text" className="user-project-input" placeholder="Film 2" />  
             </div> 
           </form>
-          <button className="input-submit-button first-button page-button">Submit</button>
+          <Link to='/comparisons'>
+            <button className="input-submit-button first-button page-button">Submit</button>
+          </Link>
           <button className="input-cancel-button second-button page-button">Cancel</button>
         </div>
       </div>
