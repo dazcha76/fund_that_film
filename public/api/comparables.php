@@ -33,9 +33,35 @@ $output = [
 ];
 
 
+$bodyVars = json_decode( file_get_contents( 'php://input'),true);
+
+if(!$bodyVars){
+    exit();
+}
+
+$title_array=[];
+$queryTitle=' ';
+$title='';
+
+
+if($bodyVars){
+    for($index=0;$index<count($bodyVars);$index++){
+        if(array_key_exists('title',$bodyVars[$index])){
+            $title= addslashes($bodyVars[$index]['title']);
+            $queryTitle.='c.`title`=' .json_encode($title);
+            if($index<count($bodyVars)-1){
+                $queryTitle.=' OR ';
+            }
+        }else{
+            exit();
+        }
+    }
+}
+
+
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
-                WHERE c.`title`="The Amazing Spider-Man" OR c.`title`="The Lake House"';
+                WHERE '.$queryTitle.'';
 
 $id_result=$db->query($id_query);
 $id_array=[];
@@ -53,6 +79,7 @@ for($index=0;$index<count($id_array);$index++){
         $queryPiece.= ' OR ';
     }
 }
+
 
 
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
@@ -112,12 +139,8 @@ if ($result){
                 unset($row['dc_name']);
                 
                 $data[]=$row;
-                
+            
             }
-        
-        
-
-
     }
 } else {
     throw new Exception('SQL Error');
