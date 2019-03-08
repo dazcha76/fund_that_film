@@ -8,6 +8,8 @@ import International from './international';
 import Global from './global';
 import Other from './other';
 
+import { getFinancialData } from '../../actions';
+
 class FinancialNorthAmerica extends Component {
   render(){
   	const showActive =' show active';
@@ -33,5 +35,5 @@ class FinancialNorthAmerica extends Component {
     )
   }
 }
-
+ 
 export default FinancialNorthAmerica;

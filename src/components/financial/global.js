@@ -4,7 +4,6 @@ import { Tabs, Tab } from 'react-bootstrap';
 import financial from '../../section/financial.scss';
 
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
 
 class Global extends Component {
 
@@ -46,9 +45,9 @@ class Global extends Component {
         return infoArray;
     }
 
-    componentDidMount(){
-        this.props.getFinancialData();
-    }
+    // componentDidMount(){
+    //     this.props.getFinancialData();
+    // }
 
     render(){
         const infoArray =  [];
@@ -70,6 +69,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, {
-  getFinancialData
-})(Global);
+// export default connect(mapStateToProps, {
+//   getFinancialData
+// })(Global);
+
+export default connect(mapStateToProps)(Global);

@@ -23,7 +23,7 @@ class MovieComparison extends Component {
           <div className='comparison-movie-display'>
             <img src= { movie.image_url } id='movie-1-img' className='movie-display'/>
             <div className='movie-title-wrapper'>
-            <h3 className='movie-title-subheader'>{ movie.title } </h3>
+              <h3 className='movie-title-subheader'>{ movie.title } </h3>
               <h3 className='movie-subheader'>Release Date: { new Date(movie.us_theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}</h3>
               <h3 className='movie-subheader'>Total Box Office: ${(parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo)).toLocaleString()}</h3>
             </div>
@@ -37,8 +37,8 @@ class MovieComparison extends Component {
     const arrowActive = 'is-active';
 
     return (
-      <div className='comparables-main'>
-        <div className='comparables-wrapper'>
+      <div>
+        <div className='comparables-wrapper '>
           <div className='comparables-container'>
             <div className='header'>
               <h1> Movie Comparisons</h1>
@@ -71,3 +71,4 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   getMovieData
 })(MovieComparison);
+
