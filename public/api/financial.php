@@ -109,7 +109,7 @@ if($bodyVars){
         }
     }
 }
-print_r($queryIDPiece);
+
 
 
 $query = 'SELECT c.`id`,c.`title`,c.`us_gross_bo`,c.`intl_gross_bo`
