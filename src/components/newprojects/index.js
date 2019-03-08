@@ -2,8 +2,45 @@ import React, { Component } from 'react';
 import scss from '../../section/newproject.scss';
 import {Link} from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import Select from '../helpers/form/drop_down';
+import Input from '../helpers/form/input';
 
+const years = [
+  { text: '2019', value:'2019'},
+  { text:'2020', value: '2020'},
+  { text:'2021', value: '2021'},
+  { text:'2022', value:'2022'}
+]
 
+const mpaa = [
+  { text: 'G', value: 'G' },
+  { text: 'PG', value: 'PG'},
+  { text:'PG-13', value: 'PG-13'}, 
+  { text:'R', value:'R'},
+  { text:'NC-17', value: 'NC-17'}
+]
+         
+const genre = [
+  { text: 'Thriller', value: 'Thriller'},
+  { text: 'Psychological Thriller', value:' Psychological Thriller'},
+  { text: 'Drama', value:'Drama'}, 
+  { text: 'Western', value: 'Western'}, 
+  { text: 'Comedy', value:'Comedy'},
+  { text: 'Black Comedy', value:'Black Comedy'},
+  { text: 'Romance', value: 'Romance'},
+  { text: 'Romantic Comedy', value: 'Romantic Comedy'},
+  { text: 'Horror', value:'Horror'},  
+  { text: 'Action', value: 'Action'}, { text:'Fantasy', value: 'Fantasy'}, 
+  { text:'Adventure Film', value: 'Adventure Film'},
+  { text: 'Documentary Film', value: 'Documentary Film'}
+]
+
+const developmentStage = [
+  { text:'Pre-production', value:'Pre-production'},
+  { text: 'Production', value: 'Production'},
+  { text: 'Post-production', value:'Post Production'},
+  { text: 'Distribution', value: 'Distribution'}
+]
 
 const yearReleased = ({input, data, valueField, textField})=>
  <DropdownList{...input}
@@ -11,80 +48,89 @@ const yearReleased = ({input, data, valueField, textField})=>
   valueField= { valuefield }
   textField = {textfield }
   onChange = {input.onChange}/>
-
-   const years = [{ year: '2019', value:'2019'},
-          {year:'2020', value: '2020'},
-          {year:'2021', value: '2021'},
-          {year:'2022', value:'2022'}]
+  
 class NewProject extends Component {
-  render(){
-    return (
 
-      <div className="new-project-wrapper">
-        <div className="new-project-container">
+  buildOptions(data){
+    return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
+  }
+
+  dummySubmitHandler(values){
+    console.log('form has been submitted with value: ', values);
+    return values;
+  }
+  
+  render(){
+    const {handleSubmit, onSubmit } = this.props;
+
+    return (
+      <div className='new-project-wrapper'>
+        <div className='new-project-container'>
           <h1>New Project</h1>
-          <form className="new-project-form">
-            <Field type="text"  className="user-project-input" placeholder="Title "required component = {Forms} />
-            <div className="multiple-inputs">
-              <select id="year-input">
-                  <option value="year">Release Year</option>
-                  <option value="1990">2019</option>
-                  <option value="2020-">2020</option>
-                  <option value="2021">2021</option>
-                  <option value="2022">2022</option>
-              </select>
-              <input type="text"   className="user-project-input"placeholder="Intended Runtime" />
+          <form className='new-project-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
+            <div className='row'>
+              <div className='col'>
+                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' required component = {Input} />
+              </div>
+              <div className='col'>
+                <Field type='text'  className='logline' name='logline' placeholder='Logline'  required component = {Input} />
+              </div>
             </div>
-            <input type="text"  className="user-project-input" placeholder="LogLine" />
-            <input type="text"  className="user-project-input" placeholder="Synopsis" />
-            <div className="multiple-inputs">
-              <select  id="mpaa-input">
-                  <option value="MPAA">MPAA Rating</option>
-                  <option value="G">G</option>
-                  <option value="PG">PG</option>
-                  <option value="PG">PG-13</option>
-                  <option value="R">R</option>
-                  <option value="NC-17">NC-17</option>
-              </select>
-              <select id="genre-input">
-                  <option value="genre">Genre</option>
-                  <option value="Thriller">Thriller</option>
-                  <option value="Psychological Thriller">Psychological Thriller</option>
-                  <option value="Drama">Drama</option>
-                  <option value="Western">Western</option>
-                  <option value="Comedy">Comedy</option>
-                  <option value="Black Comedy">Black Comedy</option>
-                  <option value="Romance">Romance</option>
-                  <option value="Romantic Comedy">Romantic Comedy</option>
-                  <option value="Horror">Horror</option>
-                  <option value="Action">Action</option>
-                  <option value="Fantasy">Fantasy</option>
-                  <option value="Adventure Film">Adventure Film</option>
-                  <option value="Documentary Film">Documentary Film</option> 
-              </select>
+            <div className='row'>
+              <div className='col'>
+                <Field type='text' className='user-project-input' name='title' placeholder='Title 'required component = {Input} />
+              </div>
             </div>
-            <select  id="production-stage-input">
-                <option value="Development">Development Stage</option>
-                <option value="Pre-production">Pre-production</option>
-                <option value="Production">Production</option>
-                <option value="Production">Post Production</option>
-                <option value="Distribution">Distribution</option>         
-            </select>
-            <p className="my-project">My project is:</p>
-            <div className="multiple-inputs">
-                <input type="text" className="user-project-input" placeholder="Film 1" />
-                <p className="meets">meets</p>    
-                <input type="text" className="user-project-input" placeholder="Film 2" />  
-            </div> 
-          </form>
-          <Link to='/comparisons'>
-            <button className="input-submit-button first-button page-button">Submit</button>
-          </Link>
-          <button className="input-cancel-button second-button page-button">Cancel</button>
+            <div className='multiple-inputs-fields'>
+              <div className='row'>
+                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)} />
+              </div>
+              <div className='row'>
+                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)} />
+              </div>
+              <div className='row'>
+                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} />
+              </div>
+              <div className='row'>
+                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} />
+              </div>
+            </div>
+            <textarea type= 'text' label='Synopsis' id='message' name='message' className='contact_text'  component='textarea'/>
+            <div className='film-wrapper'>
+              <div className='row'>
+                <div className='col'>
+                  <label className='sr-only' htmlFor='inlineFormInputName'>Film 1</label>
+                  <Field type='text'  className='user-project-input film'  name='film-1' placeholder='Film One'  required component = {Input} />
+                </div>
+                <div className='col'>
+                  <h3 className='film-capture'>Meets</h3>
+                </div>
+                <div className='col'>
+                  <label className='sr-only' htmlFor='inlineFormInputGroupUsername'>Film 2</label>
+                  <Field type='text' className='user-project-input film' name='film-2' placeholder='Film Two'  required component = {Input} />
+                </div>              
+              </div>
+                <Link to='/comparisons'>
+                  <button className='input-submit-button first-button page-button'>Submit</button>
+                </Link>
+                <button type='button' className='input-cancel-button second-button page-button'>Cancel</button>
+            </div>
+          </form> 
         </div>
       </div>
     )
   }
 }
 
-export default NewProject;
+export default 
+  reduxForm (
+    {  
+      form: 'newproject_form',     
+      initialValues: {
+        releasedYear: 'default',
+        mpaa: 'default',
+        genre: 'default',
+        developmentStage: 'default'
+      }
+    }
+  )(NewProject)
