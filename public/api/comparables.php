@@ -33,20 +33,6 @@ $output = [
 ];
 
 
-// getting back an array of objects, the object will contain a key of title
-// the file_get_contents allows you to go to a specific file and gives it the information that is needs
-// we need true inorder to make sure that we have an associate array 
-//only comes in url encoded variables, so we have to go to the boday and pull the data we need to decode it from json
-
-// axios send json encoded
-//ajax is url encoded
-
-
-// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
-// print_r($bodyVars);
-// exit();
-
-
 $bodyVars = json_decode( file_get_contents( 'php://input'),true);
 
 if(!$bodyVars){
@@ -57,12 +43,18 @@ $title_array=[];
 $queryTitle=' ';
 $title='';
 
-for($index=0;$index<count($bodyVars[0]);$index++){
-    //$title_array[]= addslashes($bodyVars[0][$index]['title']);
-    $title= addslashes($bodyVars[0][$index]['title']);
-    $queryTitle.='c.`title`=' .json_encode($title);
-    if($index<count($bodyVars[0])-1){
-        $queryTitle.=' OR ';
+
+if($bodyVars){
+    for($index=0;$index<count($bodyVars);$index++){
+        if(array_key_exists('title',$bodyVars[$index])){
+            $title= addslashes($bodyVars[$index]['title']);
+            $queryTitle.='c.`title`=' .json_encode($title);
+            if($index<count($bodyVars)-1){
+                $queryTitle.=' OR ';
+            }
+        }else{
+            exit();
+        }
     }
 }
 
@@ -147,12 +139,8 @@ if ($result){
                 unset($row['dc_name']);
                 
                 $data[]=$row;
-                
+            
             }
-        
-        
-
-
     }
 } else {
     throw new Exception('SQL Error');
