@@ -87,9 +87,34 @@ $data=[
     ]
 ];
 
+// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
+$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
+
+if(!$bodyVars){
+    exit();
+}
+
+$queryIDPiece='';
+
+if($bodyVars){
+    for($index=0;$index<count($bodyVars);$index++){
+        if(is_numeric($bodyVars[$index])){
+            $queryID=floatVal($bodyVars[$index]);
+            $queryIDPiece.='c.`id`= '.$queryID;
+            if($index<count($bodyVars)-1){
+                $queryIDPiece.= ' OR ';
+            }
+        }else{
+            exit();
+        }
+    }
+}
+print_r($queryIDPiece);
+
+
 $query = 'SELECT c.`id`,c.`title`,c.`us_gross_bo`,c.`intl_gross_bo`
             FROM `comparables` AS c
-            WHERE c.`id`=3 OR c.`id`=4';
+            WHERE '.$queryIDPiece.'';
 
 $result = $db->query($query);
 
