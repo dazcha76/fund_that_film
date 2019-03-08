@@ -12,10 +12,6 @@ class MovieComparison extends Component {
     this.setState({active : !currentState});
   } 
 
-  componentDidMount(){
-    this.props.getMovieData();
-  }
-
   renderMovies(){
     return this.props.movies.map( movie => {
       return (
@@ -63,11 +59,10 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("COMPARABLES", state)
   return {
     movies: state.movies.movieList
   }
 }
 
-export default connect(mapStateToProps, {
-  getMovieData
-})(MovieComparison);
+export default connect(mapStateToProps)(MovieComparison); 
