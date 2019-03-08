@@ -1,4 +1,3 @@
-import types from './types';
 import comparablesApi from '../apis/comparables.js'
 import financialApi from '../apis/financial.js'
 

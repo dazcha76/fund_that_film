@@ -11,10 +11,7 @@ body {
   position:relative;
   height: 100vh;
   width: 100%;
-}
 
-#main-content {
-    padding-top:60px;
 }
 
 h1 {
@@ -24,13 +21,15 @@ h1 {
 }
 
 .page-button {
-  padding:10px;
+  height: 5vh;
+  width: 10%;
   font-size: 150%;
   border: none;
   border-radius: 3px;
   outline: none;
   background-color: $button-color;
   cursor: pointer;
+  position: absolute;
 }
 
 form {

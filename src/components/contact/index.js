@@ -52,22 +52,7 @@ class Contact extends Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default 
   reduxForm({
     form: 'contact_validate_form',
   })(Contact)
-
-

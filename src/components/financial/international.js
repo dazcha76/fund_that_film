@@ -3,24 +3,25 @@ import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
 import financial from '../../section/financial.scss';
 
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
 class International extends Component {
     international = {
         'International':{
             'International': {
-                'Theatrical, Home, TV Gross': 182350000,
-                'sales agent fee': 36470000,
-                'Total Net Earnings': 145880000
+                'Theatrical, Home, TV Gross': this.props.finance['theatrical, home, tv gross'].toFixed(2),
+                'Sales Agent Fee': this.props.finance['sales agent fee'].toFixed(2),
+                'Total Net Earnings': this.props.finance['total net earnings'].toFixed(2)
             },
         }
     }
     buildTableRows = (international) => {
         const generateInternationalInfo = this.generateInfo(international);
         return(
-            <div className='card' key={international}>
-            <h5 className='card-header'>{international}</h5>
-            <div className='card-body'>
-                <h5 className='card-title'>Information:</h5>
+            <div className='card financial-card' key={international}>
+            <h5 className='financial-header'>{international}</h5>
+            <div className='financial-body'>
                 {generateInternationalInfo}
             </div>
         </div>
@@ -28,7 +29,7 @@ class International extends Component {
     }
     internationalInfo(item,amount){
         return(
-          <p key = {item}><strong>{ item }:</strong>{ amount }</p>
+          <p key = {item}>{ item }:<br/> ${ amount }</p>
         )
     }
     generateInfo = (item) => {
@@ -39,16 +40,30 @@ class International extends Component {
         }
         return infoArray;
     }
+
+    componentDidMount(){
+        this.props.getFinancialData();
+    }
+
     render(){
         const infoArray = [];
         for(let element in this.international['International']){
             infoArray.push( this.buildTableRows(element))
         }
         return (
-            <div className='card-financial-wrapper'>
+            <div className='card-financial-global-wrapper'>
                 {infoArray}
             </div>
         )
     }
 }
-export default International;
+
+const mapStateToProps = state => {
+  return {
+    finance: state.finance.financeList[0].international
+  }
+}
+
+export default connect(mapStateToProps, {
+  getFinancialData
+})(International);

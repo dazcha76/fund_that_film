@@ -3,67 +3,69 @@ import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
 import financial from '../../section/financial.scss';
 
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
+
 class NorthAmerica extends Component {
+
     northAmerica = {
         'north america': {
             'Theatrical': {
-                'Gross': 94200000,
-                'Film Rental': 47100000,
-                'Distribution Fee': 11775000,
-                'Direct Distribution Expenses': 55000000,
-                'Distributors Net': -19675000
+                'Gross': this.props.finance['theatrical']['gross'].toFixed(2),
+                'Film Rental': this.props.finance['theatrical']['film rental'].toFixed(2),
+                'Distribution Fee': this.props.finance['theatrical']['distribution fee'].toFixed(2),
+                'Direct Distribution Expenses': this.props.finance['theatrical']['direct distribution expenses'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['theatrical']['distributor\'s net'].toFixed(2)
             },
             'Home Entertainment': {
-                'Gross': 177096000,
-                'Expenses': 11600962,
-                'Distribution Fee': 41373759,
-                'Distributors Net': 124121278
+                'Gross': this.props.finance['home entertainment']['gross'].toFixed(2),
+                'Expenses': this.props.finance['home entertainment']['expenses'].toFixed(2),
+                'Distribution Fee': this.props.finance['home entertainment']['distribution fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['home entertainment']['distributor\'s net'].toFixed(2)
             },
             'Theatrical and Home': {
-                'Sales Agent Fee': 5222314,
-                'Distributors Net': 99223964
+                'Sales Agent Fee': this.props.finance['theatrical and home']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['theatrical and home']['distributor\'s net'].toFixed(2)
             },
             'Pay Per View': {
-                'Gross': 5181000,
-                'Distribution Fee': 0,
-                'Direct Distribution Expenses': 150000,
-                'Sales Agent Fee': 777150,
-                'Distributor Net': 4253850
+                'Gross': this.props.finance['pay per view']['gross'].toFixed(2),
+                'Distribution Fee': this.props.finance['pay per view']['distribution fee'].toFixed(2),
+                'Direct Distribution Expenses': this.props.finance['pay per view']['direct distribution expenses'].toFixed(2),
+                'Sales Agent Fee': this.props.finance['pay per view']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['pay per view']['distributor\'s net'].toFixed(2)
             },
             'Premium Cable': {
-                'Gross': 9420000,
-                'Distribution Fee': 0,
-                'Direct Distribution Expenses': 150000,
-                'Sales Agent Fee': 1390500,
-                'Distributors Net': 7879500
+                'Gross': this.props.finance['premium cable']['gross'].toFixed(2),
+                'Distribution Fee': this.props.finance['premium cable']['distribution fee'].toFixed(2),
+                'Direct Distribution Expenses': this.props.finance['premium cable']['direct distribution expenses'].toFixed(2),
+                'Sales Agent Fee': this.props.finance['premium cable']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['premium cable']['distributor\'s net'].toFixed(2)
             },
             'Free TV Premiere': {
-                'Gross': 7065000,
-                'Distribution Fee': 0,
-                'Direct Distribution Expenses': 200000,
-                'Sales Agent Fee': 1029750,
-                'Distributors Net': 5835250
+                'Gross': this.props.finance['free tv premiere']['gross'].toFixed(2),
+                'Distribution Fee': this.props.finance['free tv premiere']['distribution fee'].toFixed(2),
+                'Direct Distribution Expenses': this.props.finance['free tv premiere']['direct distribution expenses'].toFixed(2),
+                'Sales Agent Fee': this.props.finance['free tv premiere']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['free tv premiere']['distributor\'s net'].toFixed(2)
             },
             'Cable & Syndicated TV': {
-                'Gross': 4710000,
-                'Distribution fee': 0,
-                'Direct Distribution Expenses': 200000,
-                'Sales Agent Fee': 225500,
-                'Distributors Net': 4284500
+                'Gross': this.props.finance['cable and syndicated tv']['gross'].toFixed(2),
+                'Distribution Fee': this.props.finance['cable and syndicated tv']['distribution fee'].toFixed(2),
+                'Direct Distribution Expenses': this.props.finance['cable and syndicated tv']['direct distribution expenses'].toFixed(2),
+                'Sales Agent Fee': this.props.finance['cable and syndicated tv']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance['cable and syndicated tv']['distributor\'s net'].toFixed(2)
             },
             'Total Net Earnings':{
-            'Total Net Earnings': 121477064}
+            'Total Net Earnings': this.props.finance['total net earnings'].toFixed(2)}
         }
     }
 
     buildTableRows = (northAmericaElement) => {
         const generateInfo = this.generateInfo(northAmericaElement);
         return (
-
-            <div className='card' key={northAmericaElement}>
-                <h5 className='card-header'>{northAmericaElement}</h5>
-                <div className='card-body'>
-                    <h5 className='card-title'>Information:</h5>
+            <div className='card financial-card' key={northAmericaElement}>
+                <h5 className='financial-header'>{northAmericaElement}</h5>
+                <div className='financial-body'>
                     {generateInfo}
                 </div>
             </div>     
@@ -71,7 +73,7 @@ class NorthAmerica extends Component {
     }
     itemInfo(item, amount){
         return (
-            <p key={item}><strong>{item}:</strong> {amount}</p>
+            <p key={item}>{item}:<br/> ${amount}</p>
         )
     }
     generateInfo = (item) =>{
@@ -82,17 +84,30 @@ class NorthAmerica extends Component {
         }
         return infoArray;
     }
+
+    componentDidMount(){
+        this.props.getFinancialData();
+    }
+
     render(){
         const infoArray = [];
        for(let element in this.northAmerica['north america']){
            infoArray.push( this.buildTableRows(element))
        }
         return (
-            <div className='card-financial-wrapper'>
+            <div className='card-financial-global-wrapper'>
                {infoArray}
             </div>
         )
     }
 }
 
-export default NorthAmerica;
+const mapStateToProps = state => {
+  return {
+    finance: state.finance.financeList[0]['north america']
+  }
+}
+
+export default connect(mapStateToProps, {
+  getFinancialData
+})(NorthAmerica);

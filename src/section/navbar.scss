@@ -36,7 +36,7 @@
     width:320px;
     transform: translateX(-100%);
     transition: all 0.25s ease;
-    background: $dark-background; 
+    background: white; 
     z-index:10000;
     box-shadow:2px 2px 10px $input-background;
 
@@ -57,7 +57,7 @@
             width:50px;
            }
            .welcome-login-header{
-               display:inline-block;
+               display:none;
                position:relative;
                margin: 0 21px;
            }
