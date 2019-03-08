@@ -33,8 +33,8 @@ $output = [
 ];
 
 
-$bodyVars = json_decode( file_get_contents( 'php://input'),true);
-
+// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
+$bodyVars = [["title"=>"The Amazing Spider-Man"],["title"=>"The Lake House"]]; // TODO: Make sure the frontend is passing in the actual data from the form fields
 if(!$bodyVars){
     exit();
 }
