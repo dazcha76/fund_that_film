@@ -1,5 +1,3 @@
-import types from '../actions/types';
-
 const DEFAULT_STATE = {
   movieList: [
     {
@@ -26,7 +24,7 @@ const DEFAULT_STATE = {
       us_theatrical_end:"2006-09-18",
       genre:"Drama",
       year:"2006",
-      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/tHpc1118dYWLnHZleGhwZxRbpae.jpg"
+      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg"
     },
     {
       id: 2000,
@@ -56,7 +54,7 @@ const DEFAULT_STATE = {
       us_theatrical_end:"2012-10-12",
       genre:"Adventure",
       year: "2012" ,
-      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg"  
+      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/ntP7anZWyi7TxFARKp78bHTLEVr.jpg"  
     }
   ]
 };
@@ -70,4 +68,4 @@ const movieReducer = (state = DEFAULT_STATE, action) => {
   }
 };
 
-export default movieReducer;
+export default movieReducer; 

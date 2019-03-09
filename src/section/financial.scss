@@ -2,41 +2,55 @@
 @import './main';
 
 
-
-.card {
-  position: relative;
-  display: -ms-flexbox;
+.nav.nav-tabs {
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 0;
-  width: 17%;
-  word-wrap: break-word;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid #3E3E44;
-  border-radius: 0.25rem;
-  transition: all 0.25s;
-  transform: scale(1);
-  box-shadow: 0px 0px 3px rgba(245, 245, 245, 0);   
-}
-p{
-  color:$box-shadow-color;
+  flex-direction: row;
+  justify-content: space-around; 
+  border: none; 
+  margin-bottom: 3%;
+
+  .nav-item.nav-link {
+    width: 15%;
+    text-align: center;
+    background-color: $button-color;
+    border-radius: 0.25rem;
+  }
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: $dark-background;
+  }
+
 }
 
-h5{
-  color:$box-shadow-color;
-}
-.card-financial-wrapper{
-  display:flex;
-}
+.card-financial-global-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  
+  .card.financial-card {
+    width: 30%;
+    margin: 0 auto;
+  
+    .financial-header {
+      font-size: 1.2rem;
+      height: 8vh;
+      line-height: 8vh;
+      text-align: center;
+      background-color: $button-color;
+      margin: 0;
+    }
 
-.card-header{
-  font-size:1rem;
-
-  .card-title{
-    font-size:1.3rem;
-    color:$box-shadow-color;
+    .financial-body {
+      height: 100%;
+      color: $button-color;
+      border: 2px solid $button-color;
+      background-color: $dark-background;
+      padding: 4% 2% 1% 4%;
+    }
   }
 }
+
 

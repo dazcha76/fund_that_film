@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import scss from '../../section/newproject.scss';
+import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
+import { sendProjectData, getMovieData } from '../../actions';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 
@@ -55,8 +57,10 @@ class NewProject extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  dummySubmitHandler(values){
-    console.log('form has been submitted with value: ', values);
+  submitHandler = (values) => {
+    console.log('project form has been submitted with value: ', values);
+    this.props.sendProjectData(values);
+    this.props.getMovieData();
     return values;
   }
   
@@ -67,18 +71,18 @@ class NewProject extends Component {
       <div className='new-project-wrapper'>
         <div className='new-project-container'>
           <h1>New Project</h1>
-          <form className='new-project-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
+          <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
+            <div className='row'>
+              <div className='col'>
+                <Field type='text' className='user-project-input' name='title' placeholder='Title 'required component = {Input} />
+              </div>
+            </div>
             <div className='row'>
               <div className='col'>
                 <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' required component = {Input} />
               </div>
               <div className='col'>
                 <Field type='text'  className='logline' name='logline' placeholder='Logline'  required component = {Input} />
-              </div>
-            </div>
-            <div className='row'>
-              <div className='col'>
-                <Field type='text' className='user-project-input' name='title' placeholder='Title 'required component = {Input} />
               </div>
             </div>
             <div className='multiple-inputs-fields'>
@@ -95,24 +99,26 @@ class NewProject extends Component {
                 <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} />
               </div>
             </div>
-            <textarea type= 'text' label='Synopsis' id='message' name='message' className='contact_text' placeholder='Synopsis'  component='textarea'/>
+
+            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis'/>
+
             <div className='film-wrapper'>
               <div className='row'>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputName'>Film 1</label>
-                  <Field type='text'  className='user-project-input film'  name='film-1' placeholder='Film One'  required component = {Input} />
+                  <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  required component = {Input} />
                 </div>
                 <div className='col'>
                   <h3 className='film-capture'>Meets</h3>
                 </div>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputGroupUsername'>Film 2</label>
-                  <Field type='text' className='user-project-input film' name='film-2' placeholder='Film Two'  required component = {Input} />
+                  <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  required component = {Input} />
                 </div>              
               </div>
-                <Link to='/comparisons'>
-                  <button className='input-submit-button first-button page-button'>Submit</button>
-                </Link>
+           
+                <button className='input-submit-button first-button page-button'>Submit</button>
+        
                 <button type='button' className='input-cancel-button second-button page-button'>Cancel</button>
             </div>
           </form> 
@@ -122,15 +128,21 @@ class NewProject extends Component {
   }
 }
 
-export default 
-  reduxForm (
-    {  
-      form: 'newproject_form',     
-      initialValues: {
-        releasedYear: 'default',
-        mpaa: 'default',
-        genre: 'default',
-        developmentStage: 'default'
-      }
-    }
-  )(NewProject)
+NewProject = reduxForm({  
+  form: 'newproject_form',     
+  initialValues: {
+    releasedYear: 'default',
+    mpaa: 'default',
+    genre: 'default',
+    developmentStage: 'default'
+  }
+})(NewProject);
+
+const mapStateToProps = state => {
+  console.log("NEW PROJECT", state.form)
+  return {
+    project_form: state.form
+  }
+}
+
+export default connect(mapStateToProps, { sendProjectData, getMovieData })(NewProject); 

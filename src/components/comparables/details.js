@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import moviedetails from '../../section/moviedetails.scss';
-import spiderman from '../../assets/images/spiderman.png';
-import lakehouse from '../../assets/images/lakehouse.png';
 
 class DetailsPage extends Component {
     state = {
     movieDetails: [
             {
                 id:1000,
-                image: spiderman,
+                image: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg" ,
                 title: 'The Amazing Spider-Man',
                 genre: 'Adventure',
                 theatrical_release: '2012-07-03',
@@ -22,7 +20,7 @@ class DetailsPage extends Component {
             },
             {  
                 id:2000,
-                image:lakehouse,
+                image:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/tHpc1118dYWLnHZleGhwZxRbpae.jpg",
                 title: 'The Lake House',
                 genre: 'Drama',
                 theatrical_release: '2006-06-19',

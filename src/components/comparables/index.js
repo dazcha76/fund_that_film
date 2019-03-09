@@ -1,8 +1,6 @@
 import comparables from '../../section/comparables.scss';
 import animation from '../../section/animation.scss';
 import React, { Component } from 'react';
-import lakehouse from '../../assets/images/lakehouse.png';
-import spiderman from '../../assets/images/spiderman.png';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
@@ -39,8 +37,8 @@ class MovieComparison extends Component {
     const arrowActive = 'is-active';
 
     return (
-      <div className='comparables-main'>
-        <div className='comparables-wrapper'>
+      <div>
+        <div className='comparables-wrapper '>
           <div className='comparables-container'>
             <div className='header'>
               <h1> Movie Comparisons</h1>
@@ -57,7 +55,7 @@ class MovieComparison extends Component {
           <DetailsPage detailPageOnclick = {this.active} toggleDetailPage = {() => { this.toggleClass()}}/>
         </div> */}
         <Link to='/financials'>
-            <button className="input-submit-button first-button page-button">Confirm</button>
+            <button className="input-submit-button page-button">Confirm</button>
         </Link>
       </div>
     )
@@ -73,3 +71,4 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps, {
   getMovieData
 })(MovieComparison);
+

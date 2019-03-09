@@ -8,7 +8,7 @@ class Contact extends Component {
 
 
   dummySubmitHandler(values){
-    console.log('form has been submitted with value: ', values);
+    console.log('contact form has been submitted with value: ', values);
     return values;
   }
 
@@ -17,14 +17,14 @@ class Contact extends Component {
     return (
       <div className='zzwrapper zzcontact-us-wrapper'>
             <div className='zzcontact-us-container'>
-            <h1> Contact Us</h1>
+            <h1>Contact Us</h1>
                     <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
                           <div className='row'>
                         <div className='col'>
                             <Field type='text' id='firstName' name='firstName' className='contact_input'  placeholder='First Name' component={ Input }/>
                         </div>
                       <div className='col'>
-                        <Field type='text' id='lastName' name='firstName' className='contact_input'  placeholder='Last Name' component={ Input }/>
+                        <Field type='text' id='lastName' name='lastName' className='contact_input'  placeholder='Last Name' component={ Input }/>
                       </div>
 
                       </div>
@@ -37,7 +37,7 @@ class Contact extends Component {
                          <Field type='email' id='email' name='email' className='contact_input'  placeholder='Email Address' component={ Input }/>
                        </div>
                         <div className='col'>
-                           <textarea type= 'text' id='message' name='message' className='contact_text' placeholder='Enter Message' component='textarea'/>
+                           <Field component='textarea' type='text' id='message' name='message' className='contact_text' placeholder='Enter Message'/>
                         </div>
                       </div></div>
                       <div className='row'>
@@ -52,22 +52,7 @@ class Contact extends Component {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 export default 
   reduxForm({
     form: 'contact_validate_form',
-  })(Contact)
-
-
+  })(Contact) 

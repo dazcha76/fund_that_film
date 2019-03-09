@@ -46,7 +46,7 @@
     width:320px;
     transform: translateX(-100%);
     transition: all 0.25s ease;
-    background: $button-color; 
+    background: white; 
     z-index:10000;
     box-shadow:2px 2px 10px $input-background;
     .login-img-container{
@@ -84,8 +84,27 @@
        .slide-out-menu-content{
            position:relative;
            
+           .login-img-container{
+               display:inline-block;
+           }
+           .login-img{
+            border-radius:50%;
+            box-shadow:2px 2px 2px whitesmoke;
+            width:50px;
+           }
+           .welcome-login-header{
+               display:none;
+               position:relative;
+               margin: 0 21px;
+           }
+            h1{
+                color:$box-shadow-color;
+                font-size:1rem;
+            }
+            hr{
+                border-color:$dark-background;
+            }
 
- 
             
         }
         li{

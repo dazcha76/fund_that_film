@@ -1,14 +1,22 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Mar 05, 2019 at 09:01 PM
--- Server version: 5.7.23
--- PHP Version: 7.2.10
+-- Host: 127.0.0.1
+-- Generation Time: Mar 08, 2019 at 08:16 PM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `movie_funder`
@@ -212,16 +220,18 @@ CREATE TABLE `projects` (
   `logline` text NOT NULL,
   `synopsis` text NOT NULL,
   `production_stage` varchar(20) NOT NULL,
-  `genre` varchar(30) NOT NULL
+  `genre` varchar(30) NOT NULL,
+  `runtime` tinyint(3) UNSIGNED NOT NULL,
+  `mpaa_rating` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`id`, `title`, `year`, `logline`, `synopsis`, `production_stage`, `genre`) VALUES
-(1, 'The Greatest Movie', 2019, 'In class no one can hear you scream', 'Student try to finalize a student project as well as juggling the demands of a portfolio and trying to find a job.', 'Development', 'Horror'),
-(2, 'The Worst Movie', 2019, 'Too Fast, Too Many Typos', 'Slowing your brain and fingers leads to less grammatical and spelling errors in the future.', 'Distribution', 'Psychological Thriller');
+INSERT INTO `projects` (`id`, `title`, `year`, `logline`, `synopsis`, `production_stage`, `genre`, `runtime`, `mpaa_rating`) VALUES
+(1, 'The Greatest Movie', 2019, 'In class no one can hear you scream', 'Student try to finalize a student project as well as juggling the demands of a portfolio and trying to find a job.', 'Development', 'Horror', 130, 'PG-13'),
+(2, 'The Worst Movie', 2019, 'Too Fast, Too Many Typos', 'Slowing your brain and fingers leads to less grammatical and spelling errors in the future.', 'Distribution', 'Psychological Thriller', 90, 'R');
 
 -- --------------------------------------------------------
 
@@ -477,4 +487,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `users_projects`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

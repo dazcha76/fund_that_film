@@ -4,24 +4,9 @@ header("Access-Control-Allow-Origin: *");
 /* 
 this file is the endpoint that the client will reach when they submit their project details provided by the user
 
-we expect a string from the fields film 1 and film 2
-    we need to sanitize the string and store it as variables outside of the sql query
-
-we will now make the call to the database passing it the query, the varaibles, callback function
-    we will use the get method?
-    we will pass the SELECT query and variables as a prepared statment to the database
-    the query
-        will search through the database comparables table for a matching titles
-        if titles are found then we would then get the information for the funding_partners and 
-            the ditribution_companies tables, this would entail a join
-
         if the titles are not found in the database then we make a call the the api The Movie Database to retrieve the information about the films
             then we send out an  INSERT query that will store the information into comparables table
             but also prepare the data to be sent out to the client 
-
-    when sending back to the client we want to restructure the data recieved from the database (or the movie databse) into the approved the dummy data object 
-
-    then we json-ify the object and send it back to the client
 
 */
 
@@ -33,9 +18,35 @@ $output = [
 ];
 
 
+// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
+$bodyVars = [["title"=>"The Amazing Spider-Man"],["title"=>"The Lake House"]]; // TODO: Make sure the frontend is passing in the actual data from the form fields
+if(!$bodyVars){
+    exit();
+}
+
+$title_array=[];
+$queryTitle=' ';
+$title='';
+
+
+if($bodyVars){
+    for($index=0;$index<count($bodyVars);$index++){
+        if(array_key_exists('title',$bodyVars[$index])){
+            $title= addslashes($bodyVars[$index]['title']);
+            $queryTitle.='c.`title`=' .json_encode($title);
+            if($index<count($bodyVars)-1){
+                $queryTitle.=' OR ';
+            }
+        }else{
+            exit();
+        }
+    }
+}
+
+
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
-                WHERE c.`title`="The Amazing Spider-Man" OR c.`title`="The Lake House"';
+                WHERE '.$queryTitle.'';
 
 $id_result=$db->query($id_query);
 $id_array=[];
@@ -53,6 +64,7 @@ for($index=0;$index<count($id_array);$index++){
         $queryPiece.= ' OR ';
     }
 }
+
 
 
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
@@ -112,12 +124,8 @@ if ($result){
                 unset($row['dc_name']);
                 
                 $data[]=$row;
-                
+            
             }
-        
-        
-
-
     }
 } else {
     throw new Exception('SQL Error');
