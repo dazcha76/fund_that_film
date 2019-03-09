@@ -4,22 +4,14 @@
     font-size: 32px;
     position: relative;
     left: 50%;
-   
+    color:White; 
+    animation:bounce 2s infinite;
   }
   
   .fa-angle-down:hover{
     font-size:35px;;
   }
   
-  .fa-angle-down{
-    display:absolute;
-    width:100px;
-    height:100px;
-    color:White; 
-  }
-  .fa-angle-down{
-    animation:bounce 2s infinite;
-  }
   
   @keyframes bounce{
     0%, 50%, 100%{

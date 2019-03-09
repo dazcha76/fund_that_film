@@ -21,7 +21,7 @@ const App = () => (
             <Route  path='/contact' component={() => <Contact /> }/>
             <Route  path='/about' component={ CardsContainer }/>
         </div>
-         <Nav/>
+        <Nav/>
         <Disclaimer/>
     </div>
 );

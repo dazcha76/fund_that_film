@@ -1,5 +1,4 @@
-
-    @import './variables';
+ @import './variables';
     @import './main';
 
 
@@ -15,14 +14,14 @@
     pointer-events: none;
   
     transition:all 0.5s;
-    transform: translateY(-100%);
+    transform: translateX(-100%);
     
     &.active{
         display:block;
         pointer-events: inherit;
         opacity:1;
         transition:all 0.5s;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 
