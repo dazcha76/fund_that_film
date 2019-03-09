@@ -10,6 +10,8 @@ import NorthAmerica from './northAmerica';
 import International from './international';
 import Global from './global';
 import Other from './other';
+import Chart from '../charts.js/main';
+
 
 class FinancialNorthAmerica extends Component{
 	state = {
@@ -74,6 +76,7 @@ class FinancialNorthAmerica extends Component{
 					</Tab>
 					<Tab eventKey='other' title='other'>
 							<Other/>
+							<Chart/>
 					</Tab>
 				</Tabs>;
 			</div>

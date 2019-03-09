@@ -95,7 +95,7 @@ class NewProject extends Component {
                 <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} />
               </div>
             </div>
-            <textarea type= 'text' label='Synopsis' id='message' name='message' className='contact_text'  component='textarea'/>
+            <textarea type= 'text' label='Synopsis' id='message' name='message' className='contact_text' placeholder='Synopsis'  component='textarea'/>
             <div className='film-wrapper'>
               <div className='row'>
                 <div className='col'>

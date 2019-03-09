@@ -9,7 +9,7 @@
     text-rendering: auto;
     font-size: $icon-font-size;
     line-height: 1;
-    color:$dark-background;
+    color:$box-shadow-color;
 }
 
 .card-container{
@@ -51,7 +51,7 @@
         }
     }
     .card-title{
-        color:$dark-background;
+        color:$box-shadow-color;
         font-family:$font-family;
     }
 

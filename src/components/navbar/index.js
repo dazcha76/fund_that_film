@@ -57,24 +57,31 @@ class Nav extends Component{
 
        <div className='nav-bar-container'>
         <div className='nav-bar'>
+        <h1 className="title">Fund My Film</h1> 
             <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                 <span className='hamburger-box'>
                     <span className='hamburger-inner'></span>
                 </span>
             </button>
+
         </div>
         <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
-       
+        <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                <span className='hamburger-box'>
+                    <span className='hamburger-inner'></span>
+                </span>
+            </button>
+            <div className="login-img-container">
+                <img className='login-img' src= { person }/>
+            </div>
+            <div className="welcome-login-header">
+            {/* h1  will have to be done dynmically once we are able to create a login system
+            that then will be used to pull the users name and email address from the database to the browser */}
+                    <h2>Welcome John!</h2> 
+            </div>
                 <div className='slide-out-menu-content-container'>
                     <div className='slide-out-menu-content'>
-                        <div className="login-img-container">
-                           <img className='login-img' src= { person }/>
-                        </div>
-                        <div className="welcome-login-header">
-                        {/* h1  will have to be done dynmically once we are able to create a login system
-                        that then will be used to pull the users name and email address from the database to the browser */}
-                             <h1>Welcome John!</h1> 
-                        </div>
+
                         <hr/>
                         { navLinksTo }
                     </div>

@@ -3,8 +3,19 @@
 
 .title {
   font-size: 3em;
+  padding: 5px;
+  text-shadow: 1px 1px 5px black;
 }
-
+.home-background{
+  width:100vw;
+  height:100vh;
+  top:0;
+  right:0;
+  background: url(https://images.unsplash.com/photo-1548913462-c25eb1f0609c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
 .start-project-button {
   top: 70%;
   left: 45%;

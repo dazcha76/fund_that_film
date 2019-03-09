@@ -7,8 +7,9 @@ export default props => {
   console.log('home props',props)
 
   return (
-    <div>
-      <h1 className="title">Fund My Film</h1>  
+    <div id="page-button-container">
+      
+   
 
       <Link to='/new_project'>
         <button className="page-button start-project-button">Start</button>

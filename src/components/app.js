@@ -12,7 +12,8 @@ import Nav from './navbar/index';
 import Disclaimer from './footer/disclaimer';
 
 const App = () => (
-    <div>
+    <main>
+   {/* <div className="home-background"></div> */}
         <div>
             <Route exact path='/' component={ Home }/>
             <Route  path='/new_project' render={() => <NewProject />}/>
@@ -23,7 +24,7 @@ const App = () => (
         </div>
          <Nav/>
         <Disclaimer/>
-    </div>
+    </main>
 );
 
 export default App;
