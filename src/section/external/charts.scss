@@ -1,7 +1,17 @@
-import charts from '../../section/charts.scss';
+
+.graphContainer{
+    .bar-chart-display{
+        width:80%;
+        h1{
+            font-size:2rem;
+        }
+    }
+}
+
 
 .barChart{
     position: relative;
     margin: 0 auto;
     width: 80%;
+    height:55vh;
 }

@@ -44,7 +44,7 @@ class MovieComparison extends Component {
               <h1> Movie Comparisons</h1>
             </div>
             <div className='movie-info-container'>
-              { this.renderMovies() }
+              {/* this.renderMovies()*/ }
             </div>  
             <div onClick = { this.toggleClass } id='arrow-icon'>
               <i className='fas fa-angle-down'></i>

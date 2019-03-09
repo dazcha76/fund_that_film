@@ -25,15 +25,15 @@ class Bar extends Component{
             options:{
                 animation:{
                     duration:1000,
-                    onProgress: function( animation ){
-                        onProgress.value = animation.animationObject.onAnimationProgress;
-                        animateRotate: true;
-                    },
-                    onComplete: function (){
-                        window.setTimeout(function(){
-                            onProgress.value = 0;
-                        }, 1000);
-                    }
+                    // onProgress: function( animation ){
+                    //     onProgress.value = animation.animationObject.onAnimationProgress;
+                    //     animateRotate: true;
+                    // },
+                    // onComplete: function (){
+                    //     window.setTimeout(function(){
+                    //         onProgress.value = 0;
+                    //     }, 1000);
+                    // }
                 
                 },  
                 scales:{
@@ -48,7 +48,7 @@ class Bar extends Component{
                     text: 'Distributor Net Earning To Cost'
                 },
                 labels:{
-                    fontColor:'#35f8c7',
+                    fontColor:'#rgba(218, 216, 223, 1)',
                 }
             }
          }

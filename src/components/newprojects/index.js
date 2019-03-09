@@ -118,10 +118,10 @@ class NewProject extends Component {
                   <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  required component = {Input} />
                 </div>              
               </div>
-           
-                <button className='input-submit-button first-button page-button'>Submit</button>
-        
-                <button type='button' className='input-cancel-button second-button page-button'>Cancel</button>
+                <div className="user-input-button-container">
+                <button className='new-project-form-button'>Submit</button>
+                <button type='button' className='new-project-form-button'>Cancel</button>
+                </div> 
             </div>
           </form> 
           </div>
