@@ -28,6 +28,14 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.html$/,
+                use: 'html-loader?attrs[]=video:src'
+            },
+            {
+                test: /\.mp4$/,
+                use: 'url-loader?limit=10000&mimetype=video/mp4'
+            },
+            {
                 test: /\.s?(c|a)ss$/,
                 use: [
                     'style-loader',

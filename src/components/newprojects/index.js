@@ -69,9 +69,11 @@ class NewProject extends Component {
 
     return (
       <div className='new-project-wrapper'>
+      <div className='new-project-filter'></div>
         <div className='new-project-container'>
-          <h1>New Project</h1>
+          <div className='new-project-form-box'>
           <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
+          <h1>New Project</h1>
             <div className='row'>
               <div className='col'>
                 <Field type='text' className='user-project-input' name='title' placeholder='Title 'required component = {Input} />
@@ -122,6 +124,7 @@ class NewProject extends Component {
                 <button type='button' className='input-cancel-button second-button page-button'>Cancel</button>
             </div>
           </form> 
+          </div>
         </div>
       </div>
     )
@@ -139,7 +142,7 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
-  console.log("NEW PROJECT", state.form)
+  console.log('NEW PROJECT', state.form)
   return {
     project_form: state.form
   }

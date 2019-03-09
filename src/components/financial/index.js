@@ -9,7 +9,8 @@ import Global from './global';
 import Other from './other';
 import Chart from '../charts.js/main';
 import { getFinancialData } from '../../actions';
-
+import InternationalGraphs from '../charts.js/international';
+import NorthAmericaHorizontal from './../charts.js/northamerica';
 
 class FinancialNorthAmerica extends Component {
   render(){
@@ -21,15 +22,19 @@ class FinancialNorthAmerica extends Component {
         <Tabs defaultActiveKey='profile' id='uncontrolled-tab-example'>
           <Tab eventKey='northAmerica' title='North America' className="tab">
             <NorthAmerica />
+						<NorthAmericaHorizontal/>
           </Tab>
           <Tab eventKey='international' title='International'>
-            <International/>
+							<International/>
+						<h1>International Gross Earnings</h1>
+            <InternationalGraphs/>
           </Tab>
           <Tab eventKey='global' title='Global'>
             <Global/>
           </Tab>
           <Tab eventKey='other' title='Other'>
             <Other/>
+						<Chart/>
           </Tab>
         </Tabs>;
       </div>

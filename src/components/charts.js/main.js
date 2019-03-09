@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import InternationalGraphs from './graphs';
 import Bar from './bar';
-
-import NorthAmericaHorizontal from './northamerica';
+// import App from './canvastest';
 
 
 class Chart extends Component{
@@ -13,12 +11,10 @@ class Chart extends Component{
     }
     render(){
         return(
-            <div className="graphContainer">
+            <div className='graphContainer'>
                 <h1>Financial Analytics</h1>
-                    <InternationalGraphs/>
+                    {/* <App/> */}
                     <Bar/>
-                    <NorthAmericaHorizontal/>
-                  
             </div>
         )
     }

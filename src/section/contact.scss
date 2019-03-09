@@ -1,6 +1,32 @@
 @import './variables';
 @import './main';
 
+
+.zzcontact-us-wrapper{
+  background-image:url(../assets/images/contact_us.png);
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center center;
+  position:fixed;
+  width: 100%;
+  height: 100vh;
+
+  .filter-container{
+    position:absolute;
+    height:100vh;
+    width:100%;
+    top:0;
+    left:0;
+    opacity: .9;
+  }
+
+}
+
+h1{
+  font-size: 50px;
+  text-shadow: 3px 5px 15px black;
+}
+
 input::placeholder, textarea::placeholder { 
   color: $input-placeholder; 
 }
@@ -13,4 +39,14 @@ input::placeholder, textarea::placeholder {
   text-align: center;
   width:85%;
   max-width:990px;
+}
+
+.form-box {
+  position: relative;
+  width: 85%;
+  max-width: 1200px;
+  padding: 42px;
+  background: rgba(255, 255, 255, 0.6);
+  margin: 129px auto 0;
+  box-shadow: 2px 2px 8px;
 }

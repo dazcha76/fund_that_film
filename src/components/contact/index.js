@@ -15,9 +15,12 @@ class Contact extends Component {
   render(){
     const {handleSubmit, onSubmit } = this.props;
     return (
+
       <div className='zzwrapper zzcontact-us-wrapper'>
+            <div className='filter-container'></div>
             <div className='zzcontact-us-container'>
-            <h1>Contact Us</h1>
+                <div className='form-box'>
+                   <h1>Contact Us</h1>
                     <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
                           <div className='row'>
                         <div className='col'>
@@ -45,7 +48,8 @@ class Contact extends Component {
                         <button className='input-submit-button first-button page-button'>Submit</button>
                         </div>
                       </div>         
-              </form>
+                </form>
+              </div>
           </div>
       </div>
     )

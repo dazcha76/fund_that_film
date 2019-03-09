@@ -57,7 +57,7 @@ class Nav extends Component{
 
        <div className='nav-bar-container'>
         <div className='nav-bar'>
-        <h1 className="title">Fund My Film</h1> 
+     
             <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                 <span className='hamburger-box'>
                     <span className='hamburger-inner'></span>

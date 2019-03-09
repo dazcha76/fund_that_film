@@ -26,14 +26,6 @@ class InternationalGraphs extends Component{
                   easing: 'easeInCirc',
                   duration:4000
                 },
-               
-                scales:{
-                    yAxes:[{
-                        tickets:{
-                            beginAtZero:true
-                        }
-                    }]
-                },
                 legend:{ 
                     display : false,
                     title:{
