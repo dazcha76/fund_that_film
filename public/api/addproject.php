@@ -36,6 +36,7 @@ if($result){
 }else{
     $output['error']=mysqli_error($db);
 }
+
 $queryTitle=' c.`title`= '.json_encode($request['film1']).' OR  c.`title`= '.json_encode($request['film2']);
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
@@ -43,13 +44,16 @@ $id_query = 'SELECT c.`id`,c.`title`
 $id_result=$db->query($id_query);
 $insert_ids=[];
 $comparables_ids=[];
+
 while($row_id=$id_result->fetch_assoc()){
     $comparables_ids[]=$row_id['id'];
     $insert_query = "INSERT INTO `projects_comparables` SET `projects_id`='{$output["project_id"]}', `comparables_id`='{$row_id["id"]}'";
     $insert_result=$db->query($insert_query);
     $insert_ids[]= mysqli_insert_id($db);
 }
+
 $output['comparables_ids']=$comparables_ids;
+
 $json_output = json_encode($output);
 print($json_output);
 ?>
