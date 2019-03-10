@@ -9,7 +9,7 @@ class Bar extends Component{
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
         var ctx = document.getElementById('barChart');
         var myChart = new Chart (ctx, {
-            type: 'horizontalBar',
+            type: 'bar',
             data: {
                 labels:['Cost', 'Total Earnings'],
                 datasets:[

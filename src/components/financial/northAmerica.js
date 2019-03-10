@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
 class NorthAmerica extends Component {
-
+   
     northAmerica = {
         'north america': {
             'Theatrical': {

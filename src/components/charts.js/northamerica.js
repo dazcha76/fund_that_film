@@ -6,7 +6,7 @@ import Chart from 'chart.js';
 class NorthAmericaHorizontal extends Component{
     async componentDidMount(){
         Chart.defaults.global.defaultFontColor = '#35f837';
-        Chart.defaults.global.defaultFontSize = '25';
+        Chart.defaults.global.defaultFontSize = '30';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
         let ctx = document.getElementById('horizontalChart');
         let myChart = new Chart (ctx, {
@@ -40,6 +40,7 @@ class NorthAmericaHorizontal extends Component{
                 labels:{
                     fontColor:'#35f8c7',
                     padding: 2,
+                    fontSize:18,
                     fontStyle:'normal'
                 }
             }

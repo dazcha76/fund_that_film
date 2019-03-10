@@ -1,4 +1,7 @@
-
+%charts-container{
+    position:relative;
+    width:80%;
+}
 .graphContainer{
     .bar-chart-display{
         width:80%;
@@ -14,4 +17,8 @@
     margin: 0 auto;
     width: 80%;
     height:55vh;
+}
+
+.international-graphs-container{
+    @extend %charts-container;
 }

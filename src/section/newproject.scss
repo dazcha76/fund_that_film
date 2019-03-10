@@ -31,20 +31,25 @@
       background: rgba(255, 255, 255, 0.6);
       margin: 129px auto 0;
       box-shadow: 2px 2px 8px;
+      border-radius:14px;
     }
     .new-project-form {
       width: 70%;
       color: $input-placeholder;
 
-      input::placeholder { 
-        color: $input-placeholder; 
+      input:placeholder { 
+        color:$box-shadow-color; 
       }
-
+      label{
+        font-family: "lato";
+        font-size: 1.25rem;
+        color: $box-shadow-color;
+      }
       #year-input, 
       #mpaa-input, 
       #genre-input, 
       #production-stage-input {
-        color: $input-placeholder;
+        color: $box-shadow-color;
       }
 
       .my-project {
@@ -115,3 +120,4 @@ h3{
   position: relative;
   text-align: center;
 }
+

@@ -11,6 +11,7 @@ import Chart from '../charts.js/main';
 import { getFinancialData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
+import charts from '../../section/external/charts.scss';
 
 class FinancialNorthAmerica extends Component {
   render(){
@@ -20,14 +21,18 @@ class FinancialNorthAmerica extends Component {
       <div>
         <h1>Financial Calculations for 'The Greatest Movie'</h1>
         <Tabs defaultActiveKey='profile' id='uncontrolled-tab-example'>
-          <Tab eventKey='northAmerica' title='North America' className="tab">
-            <NorthAmerica />
-						<NorthAmericaHorizontal/>
+          <Tab eventKey='northAmerica' title='North America' className='tab'>
+            <NorthAmerica/>
+            <div className="northAmerican-graph-container">
+              <NorthAmericaHorizontal/>
+            </div>
           </Tab>
           <Tab eventKey='international' title='International'>
 							<International/>
 						<h1>International Gross Earnings</h1>
-            <InternationalGraphs/>
+            <div className='international-graphs-container'>
+               <InternationalGraphs/>
+            </div>
           </Tab>
           <Tab eventKey='global' title='Global'>
             <Global/>
