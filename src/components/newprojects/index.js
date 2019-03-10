@@ -58,6 +58,7 @@ onChange={input.onChange}
 />
 
 const required = value => value ? undefined : 'Field is Required';
+const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
   
 class NewProject extends Component {
   state = {
@@ -97,7 +98,7 @@ class NewProject extends Component {
             </div>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' validate={required} component = {Input} />
+                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' validate={[required, number]} component = {Input} />
               </div>
               <div className='col'>
                 <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
@@ -105,20 +106,20 @@ class NewProject extends Component {
             </div>
             <div className='multiple-inputs-fields'>
               <div className='row'>
-                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)} validate={required}/>
+                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)}/>
               </div>
               <div className='row'>
-                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)} validate={required}/>
+                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)}/>
               </div>
               <div className='row'>
-                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} validate={required}/>
+                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
               </div>
               <div className='row'>
-                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} validate={required}/>
+                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)}/>
               </div>
             </div>
 
-            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis' validate={required}/>
+            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis'/>
 
             <div className='film-wrapper'>
               <div className='row'>
@@ -147,19 +148,15 @@ class NewProject extends Component {
   }
 }
 
+const year = new Date();
+
 NewProject = reduxForm({  
   form: 'newproject_form',     
-  initialValues: {
-    title: '', 
-    runtime: 0, 
-    logline: '', 
-    releasedYear: 0, 
-    genre: '', 
-    mpaa: '', 
-    developmentStage:'', 
-    synopsis: '', 
-    film1: '', 
-    film2: ''
+  initialValues: { 
+    releasedYear: year.getFullYear(), 
+    mpaa: 'default',
+    genre: 'default',
+    developmentStage: 'default'
   }
 })(NewProject);
 
