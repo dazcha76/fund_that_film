@@ -1,77 +1,59 @@
+@import './variables';
+@import './main';
 
-    @import './variables';
-
-
-
-.movie1_comparison_modal{
-    position:fixed;
-    top:0;
-    left:0;
-    height:100vh;
-    width:100%;
-    background:$dark-background;
-    z-index:5;
-    pointer-events: none;
+.movie1_comparison_modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $dark-background;
+  pointer-events: none;
+  height: 100vh;
+  width: 100%;
+  padding-top: 7vh;
+  color: white;
+  transition: all 0.5s;
+  transform: translateY(100%);
   
-    transition:all 0.5s;
-    transform: translateY(-100%);
-    
-    &.active{
-        display:block;
-        pointer-events: inherit;
-        opacity:1;
-        transition:all 0.5s;
-        transform: translateY(0);
-    }
+  &.active {
+    height: 100vh;
+    display: block;
+    pointer-events: inherit;
+    opacity: 1;
+    transition: all 0.5s;
+    transform: translateY(0);
+  }
 }
 
+.modal-content.details-info-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  background: $dark-background;
+  border: none;
 
-.modal-content{
-    height: 80vh;
-    background-color: $input-background;
-    
-    .modal-movie-img{
-        position: relative;
-        display: flex;
-        margin: 35px;
-        .movie-poster{
-            width: 25%;
-             position: relative;
-             .movie-img-modal{
-                display: table-cell;
-                width: 45%;
-                position: relative;
-                }
-             }
-             .title-genre-wrapper{
-                 position: relative;
-                 text-transform: $text-transform;
-                color: $box-shadow-color;
-                margin: 0 20px;
-            }
-            .movie-detail{
-                vertical-align: middle;
-                position: relative;
-            
-                .movie-details-wrapper{
-                    display: inline-block;
-                    position: relative;
-                    margin: 0px 70px;  
-                    color:$box-shadow-color;
-                }
-            }
-         }
+  .modal-movie-img {
+    width: 25vw;
+    text-align: center;
+
+    .movie-image {
+      width: 40%;
+      margin: 9% 0 3% 0;
     }
 
-    h1{
-        color: $box-shadow-color;
-        padding-right: 30px;
-        text-align:right;
-        font-size:1.5rem;
+    h3 {
+      font-size: 1.3em;
+    } 
+  } 
+} 
 
-    }
+.button-container {
+  height: 20vh;
+  width: 10vw;
+  margin: 0 auto;
+  background: $dark-background;
 
-
-h2{
-  font-size: 1.2rem;
+  .input-submit-button {
+    width: 100%;
+  }
 }

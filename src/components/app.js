@@ -1,5 +1,5 @@
 import { Button } from 'reactstrap';
-import React from 'react';
+import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Test from './test';
 import Home from './home/index';
@@ -11,7 +11,7 @@ import CardsContainer from './aboutus/index';
 import Nav from './navbar/index';
 import Disclaimer from './footer/disclaimer';
 
-class App extends React.Component{
+class App extends Component{
     componentDidMount(){
         setTimeout(() =>{
             let preloader = document.querySelector('.spinner-container');
@@ -21,18 +21,18 @@ class App extends React.Component{
     }
     render(){
         return (    
-    <main>
-         <div>
-             <Route exact path='/' component={ Home }/>
-             <Route  path='/new_project' render={() => <NewProject />}/>
-             <Route  path='/comparisons' component={ MovieComparison }/>
-             <Route  path='/financials' component={ FinancialNorthAmerica }/>
-             <Route  path='/contact' component={() => <Contact /> }/>
-             <Route  path='/about' component={ CardsContainer }/>
-         </div>
-          <Nav/>
-         <Disclaimer/>
-     </main>
+            <main>
+                <div>
+                    <Route exact path='/' component={ Home }/>
+                    <Route  path='/new_project' render={() => <NewProject />}/>
+                    <Route  path='/comparisons' component={ MovieComparison }/>
+                    <Route  path='/financials' component={ FinancialNorthAmerica }/>
+                    <Route  path='/contact' component={() => <Contact /> }/>
+                    <Route  path='/about' component={ CardsContainer }/>
+                </div>
+                <Nav/>
+                <Disclaimer/>
+            </main>
         )
     }
 };

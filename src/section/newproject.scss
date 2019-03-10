@@ -1,50 +1,51 @@
 @import './variables';
 
-
-
-  .new-project-filter{
-    position:absolute;
-    height:100vh;
-    width:100%;
-    top:0;
-    background:black;
-    left:0;
-    opacity: .6;
-  }
+.new-project-filter {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  background: black;
+  left: 0;
+  opacity: .6;
+}
 
 .new-project-wrapper {
-  background-image:url('./assets/images/user_input.jpg');
-  background-size:cover;
-  background-repeat:no-repeat;
-  background-position:center center;
-  position:fixed;
+  // background-image: url('../assets/images/user_input.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: fixed;
   width: 100%;
   height: 100vh;
 
   .new-project-container {
     
-    .new-project-form{
-      position:relative;
-      width:85%;
-      max-width:1200px;
-      padding:42px;
-      background: rgba(255, 255, 255, 0.6);
+    .new-project-form {
+      position: relative;
+      width: 85%;
+      max-width: 1200px;
+      padding: 42px;
+      background: rgba(216, 212, 212, 0.6);
       margin: 129px auto 0;
       box-shadow: 2px 2px 8px;
-      border-radius:14px;
+      border-radius: 14px;
     }
+    
     .new-project-form {
       width: 70%;
-      color: $input-placeholder;
+      color:black;
 
       input:placeholder { 
-        color:$box-shadow-color; 
+        color:black; 
       }
-      label{
+
+      label {
         font-family: "lato";
         font-size: 1.25rem;
         color: $box-shadow-color;
       }
+
       #year-input, 
       #mpaa-input, 
       #genre-input, 
@@ -61,40 +62,39 @@
         padding: 0 1%;
       }
     }
-
-    .first-button {
-
-    }
-
   }
 }
-.user-input-button-container{
+
+.user-input-button-container {
   text-align: center;
-  button{
-    padding:10px;
-    margin:5px 10px;
+  
+  button {
+    padding: 10px;
+    margin: 5px 10px;
     background: #27272F;
     border: none;
     color: white;
-    font-size:1.2rem;
+    font-size: 1.2rem;
 
   }
 }
-.multiple-inputs-fields{
-  display:flex;
+
+.multiple-inputs-fields {
+  display: flex;
   justify-content: space-evenly;
 }
 
-h1{
+h1 {
     color: white;
     bottom: 20px;
     position: relative;
     text-align: center;
 }
 
-h3{
-  color:$box-shadow-color;
+h3 {
+  color: $box-shadow-color;
 }
+
 .form-control {
   display: block;
   width: 100%;
@@ -111,12 +111,11 @@ h3{
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-#message{
-  height:100px;
+#message {
+  height: 100px;
 }
 
-
-.film-capture{
+.film-capture {
   position: relative;
   text-align: center;
 }

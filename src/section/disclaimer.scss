@@ -2,14 +2,14 @@
 
 .disclaimer-content{
     background: $button-color;
-    position:fixed;
-    bottom:0;
-    width:100%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     
     .disclaimer-text{
-        font-size:1rem;
-        color:$box-shadow-color;
-        text-align:center;
-        margin:10px;
+        font-size: 1rem;
+        color: $box-shadow-color;
+        text-align: center;
+        margin: 10px;
     }
 }

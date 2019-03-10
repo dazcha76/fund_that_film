@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
-import contact from '../../section/contact.scss';
+import '../../section/contact.scss';
 
 class Contact extends Component {
-
 
   dummySubmitHandler(values){
     console.log('contact form has been submitted with value: ', values);

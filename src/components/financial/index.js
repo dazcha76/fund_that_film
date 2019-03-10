@@ -10,13 +10,13 @@ import { getFinancialData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 
+
 class FinancialNorthAmerica extends Component {
+
   render(){
-  	const showActive =' show active';
-  	const baseClass = 'tab-pane fade';
     return (
       <div>
-        <h1>Financial Calculations for 'The Greatest Movie'</h1>
+        <h1>Financial Calculations</h1>
         <Tabs defaultActiveKey='profile' id='uncontrolled-tab-example'>
           <Tab eventKey='northAmerica' title='North America' className='tab'>
             <NorthAmerica/>
@@ -43,5 +43,5 @@ class FinancialNorthAmerica extends Component {
     )
   }
 }
- 
+
 export default FinancialNorthAmerica;

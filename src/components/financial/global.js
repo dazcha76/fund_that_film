@@ -1,75 +1,40 @@
-// import React, { Component } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import { Tabs, Tab } from 'react-bootstrap';
-// import financial from '../../section/financial.scss';
+import React, { Component } from 'react';
+import Button from 'react-bootstrap/Button';
+import { Tabs, Tab } from 'react-bootstrap';
+import '../../section/financial.scss';
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
-// import { connect } from 'react-redux';
+class Global extends Component {
 
-// class Global extends Component {
+    componentDidMount(){
+        this.props.getFinancialData();
+    }
 
-//     global = {
-//         'Global': {
-//             'Global Consumer Products': {
-//                 'Royalties Gross': this.props.finance['royalties gross'].toFixed(2),
-//                 'Merchandising Distribution Fee': this.props.finance['merchandising distribution fee'].toFixed(2),
-//                 'Sales Agent Fee': this.props.finance['sales agent fee'].toFixed(2),
-//                 'Distributor\'s Net': this.props.finance['distributor\'s net'].toFixed(2)
-//             }
-//         }
-//     }
+    render(){
+        return(
+            <div className='card-financial-global-wrapper'>
+                <div className='card financial-card'>
+                    <h5 className='financial-header'>Global Consumer Products</h5>
+                    <div className="financial-body">
+                        <p>Royalties Gross:<br/> ${this.props.finance['royalties gross'].toLocalString()}</p>
+                        <p>Merchandising Distribution Fee:<br/> ${this.props.finance['merchandising distribution fee'].toLocalString()}</p>
+                        <p>Sales Agent Fee:<br/> ${this.props.finance['sales agent fee'].toLocalString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['distributor\'s net'].toLocalString()}</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+}
 
-//     buildTableRows = (global) => {
-//         const generateInfo = this.generateInfo(global);
-//         return(
-//             <div className='card financial-card' key={global}>
-//             <h5 className='financial-header'>{global}</h5>
-//             <div className='financial-body'>
-//                 {generateInfo}
-//             </div>
-//         </div>
-//       )
-//     }
 
-//     globalInfo(item, amount){
-//         return (
-//             <p key = {item}> { item }:<br/> ${ amount }</p>
-//         )
-//     }
+const mapStateToProps = state => {
+    return {
+        finance: state.finance.financeList[0]['global consumer products']
+    }
+}
 
-//     generateInfo = (item) =>{
-//         const globalInfo = this.global['Global'][item]
-//         let infoArray = [];
-//         for(let element in globalInfo){
-//             infoArray.push( this.globalInfo(element, globalInfo[ element ]))
-//         }
-//         return infoArray;
-//     }
-
-//     componentDidMount(){
-//         this.props.getFinancialData();
-//     }
-
-//     render(){
-//         const infoArray =  [];
-//         for(let element in this.global['Global']){
-//             infoArray.push( this.buildTableRows(element))
-//         }
-
-//         return(
-//             <div className='card-financial-global-wrapper'>
-//                 {infoArray}
-//             </div>
-//         )
-//     }
-// }
-
-// const mapStateToProps = state => {
-//   return {
-//     finance: state.finance.financeList[0]['global consumer products']
-//   }
-// }
-
-// export default connect(mapStateToProps, {
-//   getFinancialData
-// })(Global);
-
+export default connect(mapStateToProps, {
+    getFinancialData
+})(Global);

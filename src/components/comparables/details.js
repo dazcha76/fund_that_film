@@ -1,102 +1,67 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getMovieData } from '../../actions';
+import '../../section/moviedetails.scss';
+import Nav from '../navbar/index';
 
 class DetailsPage extends Component {
-    state = {
-    movieDetails: [
-            {
-                id:1000,
-                image: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/eA2D86Y6VPWuUzZyatiLBwpTilQ.jpg" ,
-                title: 'The Amazing Spider-Man',
-                genre: 'Adventure',
-                theatrical_release: '2012-07-03',
-                budget: 220000000,
-                distribution: 'Sony Pictures',
-                mpaa: 'PG-13',
-                funding_partners : 'Columbia Pictures, Marvel Studios',
-                audience_satisfaction : 0.77,
-                us_gross: 262030663,
-                intl_gross: 495859604
-            },
-            {  
-                id:2000,
-                image:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/tHpc1118dYWLnHZleGhwZxRbpae.jpg",
-                title: 'The Lake House',
-                genre: 'Drama',
-                theatrical_release: '2006-06-19',
-                budget: 40000000,
-                distribution: 'Warner Bros.',
-                mpaa: 'PG',
-                funding_partners : 'Touchstone',
-                audience_satisfaction : 0.73,
-                us_gross: 52330111,
-                intl_gross: 62500000
-            },
-        ]
+
+    componentDidMount(){
+        this.props.getMovieData();
     }
 
-    buildMovieDetails = (movieDetails) => {
-        return (
-            <div key={ movieDetails.id } className='modal-movie-img'>
-                <div className='movie-poster'>
-                    <img className='movie-img-modal' src= { movieDetails.image } />
-                </div>          
-                <div className='title-genre-container'>
-                    <div className='title-genre-wrapper'>
-                        <div className='comparison-details'>
-                            <h2 id='title' className='movie-modal-info'>{ movieDetails.title }</h2>
-                        </div>
-                    </div>
+    mapThroughObjects(items){
+        return items.map(item => {
+            return item.name
+        })
+    }
+
+    buildMovieDetails(){
+        return this.props.movies.map( movie => {
+            return (
+                <div key={ movie.id } className='modal-movie-img'> 
+                    <img src= { movie.image_url } id='movie-1-img' className='movie-image'/>
+                    <h3 className='title'>{ movie.title }</h3>
+                    <h3 className='genre'>Genre: { movie.genre }</h3>
+                    <h3 className='mpaa'>Rating: { movie.mpaa_rating }</h3>
+                    <h3 className='audience-satisfaction'>Audience Satisfaction: { movie.audience_satisfaction * 100}%</h3>
+                    <h3 className='budget'>Budget: ${ movie.budget.toLocaleString() }</h3>
+                    <h3 className='us-gross'>U.S. Box Office: ${ movie.us_gross_bo.toLocaleString() }</h3>
+                    <h3 className='intl-gross'>International Box Office: ${ movie.intl_gross_bo.toLocaleString()}</h3>
+                    <h3 className='funding-partner'>Funding Partners: { this.mapThroughObjects(movie.funding_partners_info) }</h3>
+                    <h3 className='distribution'>Distribution Company: { this.mapThroughObjects(movie.distribution_companies_info)}</h3>
                 </div>
-                <div className='movie-detail'>
-                    <div className='movie-details-wrapper'>
-                        <div className='comparison-details'>
-                            <h2 id='genre' className='movie-modal-info'>Genre: { movieDetails.genre }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='budget' className='movie-modal-info'>Budget: ${ movieDetails.budget.toLocaleString() }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='mpaa' className='movie-modal-info'>Rating: { movieDetails.mpaa }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='us-theatrical' className='movie-modal-info'>Release Date: { new Date(movieDetails.theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='audience-satisfaction' className='movie-modal-info'>Audience Satisfaction: { movieDetails.audience_satisfaction * 100}%</h2>
-                        </div>
-                    </div>
-                    <div className='movie-details-wrapper'>
-                        <div className='comparison-details'>
-                            <h2 id='funding-partner' className='movie-modal-info'>Funding Partners: { movieDetails.funding_partners }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='us-gross' className='movie-modal-info'>U.S. Box Office: ${ movieDetails.us_gross.toLocaleString() }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='distribution' className='movie-modal-info'>Distribution Comany: { movieDetails.distribution }</h2>
-                        </div>
-                        <div className='comparison-details'>
-                            <h2 id='intl-gross' className='movie-modal-info'>International Box Office: ${ movieDetails.intl_gross.toLocaleString()}</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
+            )
+        })
     }
 
     render(){
-        const individualMovieDetails = this.state.movieDetails.map(this.buildMovieDetails);
         const baseClass = 'movie1_comparison_modal';
-        console.log();
         return ( 
-            <div className={ this.props.detailPageOnclick ? 'active ' + baseClass : baseClass }   id='movie_1'>
-                <h1 onClick = {this.props.toggleDetailPage}>X</h1>
-                <div className='modal-content'>
-                    { individualMovieDetails }
+            <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass } id='movie_1'>
+                <Nav/>
+                <h1>Detailed Information</h1>
+                <div className='modal-content details-info-container'>
+                    { this.buildMovieDetails() }
+                </div>
+
+                <div className='button-container'>
+                    <Link to='/financials'>
+                        <button className="input-submit-button page-button">Confirm</button>
+                    </Link>
                 </div>
             </div>
         )
     }  
 }
 
-export default DetailsPage;
+const mapStateToProps = state => {
+  return {
+    movies: state.movies.movieList
+  }
+}
+
+export default connect(mapStateToProps, {
+  getMovieData
+})(DetailsPage);
