@@ -1,5 +1,5 @@
 @import './variables';
-@import './main';
+
 
 
   .new-project-filter{
@@ -13,7 +13,7 @@
   }
 
 .new-project-wrapper {
-  background-image:url(../assets/images/user_input.jpeg);
+  background-image:url('./assets/images/user_input.jpg');
   background-size:cover;
   background-repeat:no-repeat;
   background-position:center center;

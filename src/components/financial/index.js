@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import scss from '../../section/financial.scss';
 import { Tabs, Tab } from 'react-bootstrap';
-import financial from '../../section/financial.scss';
 import Button from 'react-bootstrap/Button';
 import NorthAmerica from './northAmerica';
 import International from './international';
@@ -11,7 +9,6 @@ import Chart from '../charts.js/main';
 import { getFinancialData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
-import charts from '../../section/external/charts.scss';
 
 class FinancialNorthAmerica extends Component {
   render(){

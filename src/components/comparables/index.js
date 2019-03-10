@@ -1,5 +1,4 @@
-import comparables from '../../section/comparables.scss';
-import animation from '../../section/animation.scss';
+
 import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';

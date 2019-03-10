@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import disclaimer from '../../section/disclaimer.scss';
 
 export default props => {
     return(

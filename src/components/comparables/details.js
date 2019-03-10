@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import moviedetails from '../../section/moviedetails.scss';
 
 class DetailsPage extends Component {
     state = {

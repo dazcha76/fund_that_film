@@ -1,5 +1,4 @@
 import React from 'react';
-import comparables from '../../section/home.scss';
 import {Link} from 'react-router-dom';
 import landingpage from '../../assets/video/landingpage.mp4';
 import example_person_icon from '../../assets/images/example_person_icon.png';

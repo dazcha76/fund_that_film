@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import scss from '../../section/contact.scss';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
-
+import contact from '../../section/contact.scss';
 
 class Contact extends Component {
 

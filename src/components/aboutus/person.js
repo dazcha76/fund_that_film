@@ -1,5 +1,4 @@
 import React from 'react';
-import scss from '../../section/aboutus.scss';
 
 export default props => {
     return (
@@ -14,9 +13,9 @@ export default props => {
                     </div>
                 </div>
                <div className='social-icon-container'>
-                     <a href={ props.github } ><i className='fab fa-github-square'></i></a>
-                     <a href={ props.linkedin } ><i className='fab fa-linkedin'></i></a>
-                     <a href={ props.portfolio } ><i className='fas fa-globe'></i></a>
+                     <a href={ props.github } target='_blank'><i className='fab fa-github-square'></i></a>
+                     <a href={ props.linkedin } target='_blank'><i className='fab fa-linkedin'></i></a>
+                     <a href={ props.portfolio } target='_blank'><i className='fas fa-globe'></i></a>
                </div>          
           </div>
      </div>

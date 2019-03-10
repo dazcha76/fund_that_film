@@ -1,9 +1,6 @@
 @import './variables';
-@import './main';
-
-
 .zzcontact-us-wrapper{
-  background-image:url(../assets/images/contact_us.png);
+  background-image:url('../assets/images/contact_us.png');
   background-size:cover;
   background-repeat:no-repeat;
   background-position:center center;
@@ -17,7 +14,8 @@
     width:100%;
     top:0;
     left:0;
-    opacity: .9;
+    opacity: .5;
+    background:black;
   }
 
 }
@@ -49,4 +47,5 @@ input::placeholder, textarea::placeholder {
   background: rgba(255, 255, 255, 0.6);
   margin: 129px auto 0;
   box-shadow: 2px 2px 8px;
+  border-radius:15px;
 }

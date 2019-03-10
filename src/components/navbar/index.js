@@ -1,4 +1,3 @@
-import scss from '../../section/navbar.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import person from '../../assets/images/example_person_icon.png';
