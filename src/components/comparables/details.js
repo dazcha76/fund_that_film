@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
 import moviedetails from '../../section/moviedetails.scss';
+import Nav from '../navbar/index';
 
 class DetailsPage extends Component {
 
@@ -38,8 +39,9 @@ class DetailsPage extends Component {
     render(){
         const baseClass = 'movie1_comparison_modal';
         return ( 
-            <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass }   id='movie_1'>
-                <h1 onClick = {this.props.toggleDetailPage}>X</h1>
+            <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass } id='movie_1'>
+                <Nav/>
+                <h1>Detailed Information</h1>
                 <div className='modal-content details-info-container'>
                     { this.buildMovieDetails() }
                 </div>
@@ -54,10 +56,7 @@ class DetailsPage extends Component {
     }  
 }
 
-// export default DetailsPage;
-
 const mapStateToProps = state => {
-    console.log(state.movies.movieList)
   return {
     movies: state.movies.movieList
   }

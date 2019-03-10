@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import scss from '../../section/newproject.scss';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { sendProjectData, getMovieData } from '../../actions';
+import { sendProjectData } from '../../actions';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 
@@ -52,6 +52,9 @@ const yearReleased = ({input, data, valueField, textField})=>
   onChange = {input.onChange}/>
   
 class NewProject extends Component {
+  state = {
+    toComparables: false,
+  }
 
   buildOptions(data){
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
@@ -59,13 +62,18 @@ class NewProject extends Component {
 
   submitHandler = (values) => {
     console.log('project form has been submitted with value: ', values);
-    this.props.sendProjectData(values);
-    this.props.getMovieData();
+    this.props.sendProjectData(values).then(() => this.setState(() => ({
+        toComparables: true
+      })));
     return values;
   }
   
   render(){
     const {handleSubmit, onSubmit } = this.props;
+
+    if (this.state.toComparables === true) {
+      return <Redirect to='/comparisons' />
+    }
 
     return (
       <div className='new-project-wrapper'>
@@ -139,10 +147,9 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
-  console.log("NEW PROJECT", state.form)
   return {
     project_form: state.form
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData, getMovieData })(NewProject); 
+export default connect(mapStateToProps, { sendProjectData })(NewProject); 

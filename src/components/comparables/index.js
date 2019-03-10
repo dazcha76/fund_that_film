@@ -11,7 +11,6 @@ class MovieComparison extends Component {
   }
 
   toggleClass = () => {
-    console.log("You clicked me!")
     const currentState = this.state.active;
     this.setState({active : !currentState});
   } 
@@ -52,8 +51,8 @@ class MovieComparison extends Component {
               <i className='fas fa-angle-down'></i>
             </div>
           </div> 
-          <DetailsPage detailPageOnclick = {this.state.active} toggleDetailPage = {() => { this.toggleClass()}}/>
         </div>
+        <DetailsPage detailPageOnclick = {this.state.active} toggleDetailPage = {() => { this.toggleClass()}}/>
       </div> 
     )
   }

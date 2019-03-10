@@ -4,16 +4,17 @@ import { Tabs, Tab } from 'react-bootstrap';
 import financial from '../../section/financial.scss';
 
 import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
 class Global extends Component {
 
     global = {
         'Global': {
             'Global Consumer Products': {
-                'Royalties Gross': this.props.finance['royalties gross'].toFixed(2),
-                'Merchandising Distribution Fee': this.props.finance['merchandising distribution fee'].toFixed(2),
-                'Sales Agent Fee': this.props.finance['sales agent fee'].toFixed(2),
-                'Distributor\'s Net': this.props.finance['distributor\'s net'].toFixed(2)
+                'Royalties Gross': this.props.finance[0]['global consumer products']['royalties gross'].toFixed(2),
+                'Merchandising Distribution Fee': this.props.finance[0]['global consumer products']['merchandising distribution fee'].toFixed(2),
+                'Sales Agent Fee': this.props.finance[0]['global consumer products']['sales agent fee'].toFixed(2),
+                'Distributor\'s Net': this.props.finance[0]['global consumer products']['distributor\'s net'].toFixed(2)
             }
         }
     }
@@ -45,9 +46,10 @@ class Global extends Component {
         return infoArray;
     }
 
-    // componentDidMount(){
-    //     this.props.getFinancialData();
-    // }
+    componentDidMount(){
+    this.props.getFinancialData();
+    console.log("GLOBAL PROPS:", this.props.finance[0]["distributor's net earning to cost ratio"])
+  }
 
     render(){
         const infoArray =  [];
@@ -65,12 +67,10 @@ class Global extends Component {
 
 const mapStateToProps = state => {
   return {
-    finance: state.finance.financeList[0]['global consumer products']
+    finance: state.finance.financeList
   }
 }
 
-// export default connect(mapStateToProps, {
-//   getFinancialData
-// })(Global);
-
-export default connect(mapStateToProps)(Global);
+export default connect(mapStateToProps, {
+    getFinancialData
+})(Global);

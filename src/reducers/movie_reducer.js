@@ -1,59 +1,59 @@
 const DEFAULT_STATE = {
   movieList: [
     {
-      id: 1000,
+      id: 1,
       title:"Wonder Woman",
-      us_theatrical_release: "2006-06-19",
-      us_gross_bo:52330111,
-      intl_gross_bo:62500000,
+      us_theatrical_release: "",
+      us_gross_bo:0,
+      intl_gross_bo:0,
       distribution_companies_info:[
           {
-              id: 965298512,
-              name: "Warner Bros."
+              id: 0,
+              name: ""
           }
       ],
-      budget:40000000,
-      mpaa_rating:"PG",
-      audience_satisfaction:0.73,
+      budget:0,
+      mpaa_rating:"",
+      audience_satisfaction:0,
       funding_partners_info:[
           {
-              id: 18596,
-              name: "Touchstone"
+              id: 0,
+              name: ""
           }
       ],
-      us_theatrical_end:"2006-09-18",
-      genre:"Drama",
-      year:"2006",
+      us_theatrical_end:"",
+      genre:"",
+      year:"",
       image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg"
     },
     {
-      id: 2000,
+      id: 2,
       title:"The Smurfs",
-      us_theatrical_release: "2012-07-03",
-      us_gross_bo:262030663,
-      intl_gross_bo:495859604,
+      us_theatrical_release: "",
+      us_gross_bo:0,
+      intl_gross_bo:0,
       distribution_companies_info:[
           {
-              id:65296528,
-              name:"Sony Pictures"
+              id:0,
+              name:""
           }
       ],
-      budget:220000000,
-      mpaa_rating:"PG-13",
-      audience_satisfaction:0.77,
+      budget:0,
+      mpaa_rating:"",
+      audience_satisfaction:0,
       funding_partners_info:[
           {
-              id:15465,
-              name: "Columbia Pictures"
+              id:0,
+              name: ""
           },
           {
-              id:252596,
-              name: "Marvel Studios"
+              id:0,
+              name: ""
           }
       ],
-      us_theatrical_end:"2012-10-12",
-      genre:"Adventure",
-      year: "2012" ,
+      us_theatrical_end:"",
+      genre:"",
+      year: "" ,
       image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/ntP7anZWyi7TxFARKp78bHTLEVr.jpg"  
     }
   ]
