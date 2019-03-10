@@ -50,6 +50,8 @@ const yearReleased = ({input, data, valueField, textField})=>
   valueField= { valuefield }
   textField = {textfield }
   onChange = {input.onChange}/>
+
+const required = value => value ? undefined : 'Field is Required';
   
 class NewProject extends Component {
   state = {
@@ -82,46 +84,46 @@ class NewProject extends Component {
           <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='user-project-input' name='title' placeholder='Title 'required component = {Input} />
+                <Field type='text' className='user-project-input' name='title' placeholder='Title ' component = {Input} validate={required}/>
               </div>
             </div>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' required component = {Input} />
+                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' validate={required} component = {Input} />
               </div>
               <div className='col'>
-                <Field type='text'  className='logline' name='logline' placeholder='Logline'  required component = {Input} />
+                <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
               </div>
             </div>
             <div className='multiple-inputs-fields'>
               <div className='row'>
-                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)} />
+                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)} validate={required}/>
               </div>
               <div className='row'>
-                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)} />
+                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)} validate={required}/>
               </div>
               <div className='row'>
-                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} />
+                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} validate={required}/>
               </div>
               <div className='row'>
-                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} />
+                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)} validate={required}/>
               </div>
             </div>
 
-            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis'/>
+            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis' validate={required}/>
 
             <div className='film-wrapper'>
               <div className='row'>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputName'>Film 1</label>
-                  <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  required component = {Input} />
+                  <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate={required} component = {Input} />
                 </div>
                 <div className='col'>
                   <h3 className='film-capture'>Meets</h3>
                 </div>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputGroupUsername'>Film 2</label>
-                  <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  required component = {Input} />
+                  <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
                 </div>              
               </div>
            
@@ -139,10 +141,16 @@ class NewProject extends Component {
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: {
-    releasedYear: 'default',
-    mpaa: 'default',
-    genre: 'default',
-    developmentStage: 'default'
+    title: '', 
+    runtime: 0, 
+    logline: '', 
+    releasedYear: 0, 
+    genre: '', 
+    mpaa: '', 
+    developmentStage:'', 
+    synopsis: '', 
+    film1: '', 
+    film2: ''
   }
 })(NewProject);
 
