@@ -2,59 +2,59 @@ const DEFAULT_STATE = {
   movieList: [
     {
       id: 1000,
-      title:"Wonder Woman",
-      us_theatrical_release: "2006-06-19",
+      title:'Wonder Woman',
+      us_theatrical_release: '2006-06-19',
       us_gross_bo:52330111,
       intl_gross_bo:62500000,
       distribution_companies_info:[
           {
               id: 965298512,
-              name: "Warner Bros."
+              name: 'Warner Bros.'
           }
       ],
       budget:40000000,
-      mpaa_rating:"PG",
+      mpaa_rating:'PG',
       audience_satisfaction:0.73,
       funding_partners_info:[
           {
               id: 18596,
-              name: "Touchstone"
+              name: 'Touchstone'
           }
       ],
-      us_theatrical_end:"2006-09-18",
-      genre:"Drama",
-      year:"2006",
-      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg"
+      us_theatrical_end:'2006-09-18',
+      genre:'Drama',
+      year:'2006',
+      image_url:'https://image.tmdb.org/t/p/w600_and_h900_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg'
     },
     {
       id: 2000,
-      title:"The Smurfs",
-      us_theatrical_release: "2012-07-03",
+      title:'The Smurfs',
+      us_theatrical_release: '2012-07-03',
       us_gross_bo:262030663,
       intl_gross_bo:495859604,
       distribution_companies_info:[
           {
               id:65296528,
-              name:"Sony Pictures"
+              name:'Sony Pictures'
           }
       ],
       budget:220000000,
-      mpaa_rating:"PG-13",
+      mpaa_rating:'PG-13',
       audience_satisfaction:0.77,
       funding_partners_info:[
           {
               id:15465,
-              name: "Columbia Pictures"
+              name: 'Columbia Pictures'
           },
           {
               id:252596,
-              name: "Marvel Studios"
+              name: 'Marvel Studios'
           }
       ],
-      us_theatrical_end:"2012-10-12",
-      genre:"Adventure",
-      year: "2012" ,
-      image_url:"https://image.tmdb.org/t/p/w600_and_h900_bestv2/ntP7anZWyi7TxFARKp78bHTLEVr.jpg"  
+      us_theatrical_end:'2012-10-12',
+      genre:'Adventure',
+      year: '2012' ,
+      image_url:'https://image.tmdb.org/t/p/w600_and_h900_bestv2/ntP7anZWyi7TxFARKp78bHTLEVr.jpg'  
     }
   ]
 };
