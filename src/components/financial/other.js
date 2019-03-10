@@ -6,65 +6,33 @@ import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
 class Other extends Component {
-    other = {
-         'other': {  
-            'Other': {
-            'Total Distributor\'s Net': this.props.finance['total distributor\'s net'].toFixed(2),
-            'Global Brand Tie-in Fees': this.props.finance['global brand tie-in fees'].toFixed(2),
-            'Production Financing Expense': this.props.finance['production financing expense'].toFixed(2),
-            'Negative Cost': this.props.finance['negative cost'].toFixed(2),
-            'Studio Burden': this.props.finance['studio burden'].toFixed(2),
-            'Talent Residuals': this.props.finance['talent residuals'].toFixed(2),
-            'Sales Agent Direct Sales Expenses': this.props.finance['sales agent direct sales expenses'].toFixed(2),
-            'Producer\'s Gross': this.props.finance['producer\'s gross'].toFixed(2),
-            'Talent Participation': this.props.finance['talent participation'].toFixed(2),
-            'Producer\'s Net': this.props.finance['producer\'s net'].toFixed(2),
-            'Studio\'s Share': this.props.finance['studio\'s share'].toFixed(2),
-            'Producer\'s Share': this.props.finance['producer\'s share'].toFixed(2),
-            'Distributor\'s Net Earning To Cost Ratio': this.props.finance['distributor\'s net earning to cost ratio'],
-            'Expenses After Distributor\'s Net': this.props.finance['expenses after distributor\'s net'].toFixed(2)
-        }
-    }
-}
-buildTableRows =( other ) => {
-    const generateInfo = this.generateInfo(other);
-    return(
-        <div className='card financial-card' key={ other }>
-        <h5 className='financial-header'>{ other }</h5>
-        <div className='financial-body'>
-            { generateInfo }
-        </div>
-    </div>
-  )
-}
-otherInfo( item, amount ){
-    return (
-
-        <p key = { item }>{ item }:<br/>${ amount }</p>
-
-    )
-}
-generateInfo = ( item ) => {
-    const otherInfo = this.other['other'][item]
-    let infoArray = [];
-    for(let element in otherInfo){
-        infoArray.push( this.otherInfo(element, otherInfo[ element ]))
-    }
-    return infoArray;
-}
 
     componentDidMount(){
         this.props.getFinancialData();
     }
 
     render(){
-        const infoArray = [];
-        for( let element in this.other['other']){
-            infoArray.push( this.buildTableRows( element ))
-        }
         return(
              <div className='card-financial-global-wrapper'>
-                {infoArray}
+                <div className='card financial-card'>
+                    <h5 className='financial-header'>Global Consumer Products</h5>
+                    <div className="financial-body">
+                        <p>Total Distributor's Net:<br/> ${this.props.finance['total distributor\'s net'].toLocaleString()}</p>
+                        <p>Global Brand Tie-in Fees:<br/> ${this.props.finance['global brand tie-in fees'].toLocaleString()}</p>
+                        <p>Production Financing Expense:<br/> ${this.props.finance['production financing expense'].toLocaleString()}</p>
+                        <p>Negative Cost:<br/> ${this.props.finance['negative cost'].toLocaleString()}</p>
+                        <p>Studio Burden:<br/> ${this.props.finance['studio burden'].toLocaleString()}</p>
+                        <p>Talent Residuals:<br/> ${this.props.finance['talent residuals'].toLocaleString()}</p>
+                        <p>Sales Agent Direct Sales Expenses:<br/> ${this.props.finance['sales agent direct sales expenses'].toLocaleString()}</p>
+                        <p>Producer's Gross:<br/> ${this.props.finance['producer\'s gross'].toLocaleString()}</p>
+                        <p>Talent Participation:<br/> ${this.props.finance['talent participation'].toLocaleString()}</p>
+                        <p>Producer's Net:<br/> ${this.props.finance['producer\'s net'].toLocaleString()}</p>
+                        <p>Studio's Share:<br/> ${this.props.finance['studio\'s share'].toLocaleString()}</p>
+                        <p>Producer's Share:<br/> ${this.props.finance['producer\'s share'].toLocaleString()}</p>
+                        <p>Distributor's Net Earning To Cost Ratio:<br/> {this.props.finance['distributor\'s net earning to cost ratio']}</p>
+                        <p>Expenses After Distributor's Net:<br/> ${this.props.finance['expenses after distributor\'s net'].toLocaleString()}</p>
+                    </div>
+                </div>
             </div>
         )
     }
@@ -77,5 +45,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  getFinancialData
+    getFinancialData
 })(Other);

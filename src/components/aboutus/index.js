@@ -29,7 +29,7 @@ class CardsContainer extends Component {
             portfolio:'dianacurtisdev.com'
           },
           {
-        name: 'Danika Quinteros',
+            name: 'Danika Quinteros',
             image: danika,
             title: 'Frontend Developer',
             linkedin:'https://www.linkedin.com/in/danikaquinteros/',

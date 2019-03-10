@@ -7,42 +7,45 @@
 }
 
 body {
-  background-color:$dark-background;
-  position:relative;
-  height: 100vh;
+  background-color: $dark-background;
+  position: relative;
+  // height: 100vh;
   width: 100%;
 }
-#page-button-container{
-  position: absolute;
-  top:40%;
-  left:0;
-  right:0;
-  text-align:center;
-  a{
-    padding:5px 10px;
-    font-size:2rem;
-    button{
-      color:white;
 
-      box-shadow:1px 1px 7px black;
+#page-button-container {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  right: 0;
+  text-align: center;
+  
+  a {
+    padding: 5px 10px;
+    font-size: 2rem;
+    
+    button {
+      color: white;
+      box-shadow: 1px 1px 7px black;
     }
   }
 }
-.background-element{
+
+.background-element {
   background: url(https://images.unsplash.com/photo-1487816426104-08fd29b09ac8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2125&q=80);
-  position:absolute;
-  width:100%;
-  height:100vh;
-  top:0;
-  right:0;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  right: 0;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   background-position: center center;
 }
+
 h1 {
   color: white;
   text-align: center;
-
 }
 
 .page-button {
@@ -53,9 +56,9 @@ h1 {
   border-radius: 3px;
   outline: none;
   color: antiquewhite;
-  background-color:$side-navbar;
+  background-color: $side-navbar;
   cursor: pointer;
-  position: relative;
+  // position: relative;
 }
 
 form {
@@ -69,8 +72,8 @@ textarea {
   width: 100%;
   font-size: 100%;
   background-color: $input-background;
-  border:none;
-  color:white;
+  border: none;
+  color: white;
   border-bottom: 3px solid $input-border;
   margin-bottom: 3%;
   display: block;
