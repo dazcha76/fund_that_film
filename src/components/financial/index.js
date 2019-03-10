@@ -8,19 +8,9 @@ import International from './international';
 import Global from './global';
 import Other from './other';
 
-import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
-
 class FinancialNorthAmerica extends Component {
 
-  componentDidMount(){
-    this.props.getFinancialData();
-    console.log("CALCS PROPS:", this.props.finance[0]["distributor's net earning to cost ratio"])
-  }
-
   render(){
-  	const showActive ='show active';
-  	const baseClass = 'tab-pane fade';
     return (
       <div>
         <h1>Financial Calculations for 'The Greatest Movie'</h1>
@@ -31,7 +21,7 @@ class FinancialNorthAmerica extends Component {
           <Tab eventKey='international' title='International'>
             <International/>
           </Tab>
-          <Tab eventKey='global' title='Global' info={this.props.finance}>
+          <Tab eventKey='global' title='Global'>
             <Global/>
           </Tab>
           <Tab eventKey='other' title='Other'>
@@ -43,12 +33,4 @@ class FinancialNorthAmerica extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    finance: state.finance.financeList
-  }
-}
-
-export default connect(mapStateToProps, {
-  getFinancialData
-})(FinancialNorthAmerica);
+export default FinancialNorthAmerica;
