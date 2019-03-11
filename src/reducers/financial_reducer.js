@@ -81,6 +81,7 @@ const DEFAULT_STATE = {
 const financialReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
     case 'GET_FINANCIAL_DATA':
+        console.log("financialReducer:", action);
       return {financeList: action.payload.data.data}
     default:
       return state

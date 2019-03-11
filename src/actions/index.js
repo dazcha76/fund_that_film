@@ -31,6 +31,7 @@ export const getMovieData = () => {
 }
 
 export const getFinancialData = () => {
+  console.log("You are in the Actions file in the getFinancialData function");
   return async dispatch => {
     const response = await financialApi.get();
 

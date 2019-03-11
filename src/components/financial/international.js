@@ -12,6 +12,11 @@ class International extends Component {
     }
 
     render(){
+
+        return <h1>Temp</h1>;
+
+
+        
         return (
             <div className='card-financial-global-wrapper'>
                 <div className='card financial-card'>
