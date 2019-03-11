@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
 import '../../section/moviedetails.scss';
 import Nav from '../navbar/index';
+import comparables from '../../../dummydata/comparables';
 
 class DetailsPage extends Component {
 
@@ -11,14 +12,14 @@ class DetailsPage extends Component {
         this.props.getMovieData();
     }
 
-    mapThroughObjects(items){
+    mapThroughObjects(items){npm 
         return items.map(item => {
             return item.name
         })
     }
 
     buildMovieDetails(){
-        return this.props.movies.map( movie => {
+        return comparables.data.map( movie => {
             return (
                 <div key={ movie.id } className='modal-movie-img'> 
                     <img src= { movie.image_url } id='movie-1-img' className='movie-image'/>

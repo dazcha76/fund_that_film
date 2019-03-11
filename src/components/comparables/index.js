@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
+import comparables from '../../../dummydata/comparables';
 
 class MovieComparison extends Component {
   state = {
@@ -19,7 +20,7 @@ class MovieComparison extends Component {
   }
 
   renderMovies(){
-    return this.props.movies.map( movie => {
+    return comparables.data.map( movie => {
       return (
         <div key = {movie.title} className='movies'>
           <div className='comparison-movie-display'>
