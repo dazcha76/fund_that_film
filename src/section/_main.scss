@@ -70,14 +70,14 @@ select,
 textarea {
   height: 5vh;
   width: 100%;
-  font-size: 100%;
+  font-size: 1.75rem;
   background-color: $input-background;
   border: none;
   border-bottom: 3px solid $input-border;
   margin-bottom: 3%;
   display: block;
   outline: none;
-  color: $input-text;
+  color: $box-shadow-color;
   padding: 8px 2%;
 }
 

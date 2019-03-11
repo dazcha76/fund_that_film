@@ -25,16 +25,6 @@ class Bar extends Component{
             options:{
                 animation:{
                     duration:1000,
-                    // onProgress: function( animation ){
-                    //     onProgress.value = animation.animationObject.onAnimationProgress;
-                    //     animateRotate: true;
-                    // },
-                    // onComplete: function (){
-                    //     window.setTimeout(function(){
-                    //         onProgress.value = 0;
-                    //     }, 1000);
-                    // }
-                
                 },  
                 scales:{
                     xAxes:[{
