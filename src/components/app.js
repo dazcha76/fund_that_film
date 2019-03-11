@@ -24,11 +24,11 @@ class App extends Component{
             <main>
                 <div>
                     <Route exact path='/' component={ Home }/>
-                    <Route  path='/new_project' render={() => <NewProject />}/>
+                     <Route  path='/new_project' render={() => <NewProject />}/>
                     <Route  path='/comparisons' component={ MovieComparison }/>
-                    <Route  path='/financials' component={ FinancialNorthAmerica }/>
+                    {/* <Route  path='/financials' component={ FinancialNorthAmerica }/>
                     <Route  path='/contact' component={() => <Contact /> }/>
-                    <Route  path='/about' component={ CardsContainer }/>
+                    <Route  path='/about' component={ CardsContainer }/>   */}
                 </div>
                 <Nav/>
                 <Disclaimer/>

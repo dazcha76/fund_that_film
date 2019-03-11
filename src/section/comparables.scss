@@ -23,7 +23,14 @@
                     .movie-image {
                         width: 80%;
                         margin: 9% 0 3% 0;
-                        transition: all 0.25s;
+                        transition: all 1s;
+                        transform: translateX(0px);
+                        &.inactive-left{
+                            transform:translateX(-100vw);
+                        }
+                        &.inactive-right{
+                            transform:translateY(100vw);
+                        }
                         
                         &:hover{
                             filter: drop-shadow(2px 3px 6px $button-color);

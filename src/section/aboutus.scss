@@ -67,6 +67,9 @@
         .fas{
             @extend %icon-properties;
         }
+        // &:hover{
+        //     font-size:50px;
+        // }
     }
     &:visited{
         color:gray;

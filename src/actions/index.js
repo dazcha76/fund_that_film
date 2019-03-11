@@ -1,5 +1,5 @@
-import comparablesApi from '../apis/comparables.js'
-import financialApi from '../apis/financial.js'
+import comparablesApi from '../apis/comparables.js';
+import financialApi from '../apis/financial.js';
 import axios from 'axios';
 
 export const sendProjectData = (values) => {
