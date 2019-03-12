@@ -1,4 +1,5 @@
 <?php
+
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 $output = [
@@ -17,13 +18,24 @@ $incoming_request = json_decode( file_get_contents( 'php://input'),true);
 //     "film1"=> "The Amazing Spider-Man",
 //     "film2"=> "The Lake House"
 // ];
+
+$required_keys=['runtime','logline','title','releasedYear','genre','mpaa','developmentStage','synopsis','film1','film2'];
+$input_keys_array=[];
 $request = $incoming_request['newProject'];
 foreach($request AS $key=>$value){
     $request[$key] = addslashes($value);
-}
-$query = "INSERT INTO `projects` SET `runtime`= '{$request["runtime"]}',
-            `logline`= '{$request["logline"]}',
-            `title`= '{$request["title"]}',
+    $keys_array[]=$key;
+};
+
+foreach($required_keys AS $key){
+    if(!array_key_exists($key,$request)){
+        throw new Exception('missing the '.$key);
+    };
+};
+
+$query = "INSERT INTO `projects` SET `runtime`= '{$request["runtime"]}', 
+            `logline`= '{$request["logline"]}', 
+            `title`= '{$request["title"]}', 
             `year`= '{$request["releasedYear"]}',
             `genre`= '{$request["genre"]}',
             `mpaa_rating`= '{$request["mpaa"]}',
@@ -56,4 +68,5 @@ $output['comparables_ids']=$comparables_ids;
 
 $json_output = json_encode($output);
 print($json_output);
+
 ?>
