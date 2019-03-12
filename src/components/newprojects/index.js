@@ -98,7 +98,7 @@ class NewProject extends Component {
             </div>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime' validate={[required, number]} component = {Input} />
+                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime (minutes)' validate={[required, number]} component = {Input} />
               </div>
               <div className='col'>
                 <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
@@ -153,7 +153,7 @@ const year = new Date();
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: { 
-    releasedYear: year.getFullYear(), 
+    releasedYear: 'default', //year.getFullYear(), 
     mpaa: 'default',
     genre: 'default',
     developmentStage: 'default'
