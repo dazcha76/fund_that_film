@@ -3,8 +3,9 @@
 .video-container{
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  height: 900px;
   width: 100%;
+  max-height: 100vh;
   
   #video-filter{
     position: absolute;
@@ -30,7 +31,7 @@
   }
   
   .title {
-    font-size: 10em;
+    font-size: 5rem;
     padding: 5px;
     text-shadow: 1px 1px 5px black;
   }

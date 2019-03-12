@@ -115,7 +115,7 @@ class NewProject extends Component {
                 <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
               </div>
               <div className='row'>
-                <Field name = 'developementStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)}/>
+                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)}/>
               </div>
             </div>
 

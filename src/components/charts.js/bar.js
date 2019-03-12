@@ -4,23 +4,22 @@ import Chart from 'chart.js';
 
 class Bar extends Component{
     async componentDidMount(){
-        Chart.defaults.global.defaultFontColor = '#35f837';
-        Chart.defaults.global.defaultFontSize = '25';
+        Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
+        Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
         var ctx = document.getElementById('barChart');
         var myChart = new Chart (ctx, {
-            type: 'bar',
+            type: 'horizontalBar',
             data: {
                 labels:['Cost', 'Total Earnings'],
                 datasets:[
                     {
                         label: 'Distributor Net Earning',
-                        backgroundColor: ['rgba(46, 209, 190, 1)', 'rgba(27, 54, 228, 1)'],
                         data: [1, 4.8],
-                       
-                        
-                    }
-                ],
+                        backgroundColor: [  'rgba(255, 99, 132, 0.2)',  'rgba(54, 162, 235, 0.2)'],
+                        borderColor:['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)'],
+                        borderWidth:1                    
+                    }],
             },
             options:{
                 animation:{
@@ -30,15 +29,21 @@ class Bar extends Component{
                     xAxes:[{
                         ticks:{
                             beginAtZero:true
-                        },
-                    }]
+                        }
+                    }],
+                    yAxes:[{
+                        ticks:{
+                            fontSize:20
+                        }
+                    }],
                 },
-                legend:{ display : false },
+                legend:{ display :false},
                 title:{
                     text: 'Distributor Net Earning To Cost'
                 },
                 labels:{
                     fontColor:'#rgba(218, 216, 223, 1)',
+                    fontSize:20
                 }
             }
          }

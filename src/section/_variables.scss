@@ -8,11 +8,22 @@ $input-placeholder:#9d9d9d;
 $button-color:#26373a;
 $icon-font-size: 35px;
 $box-shadow-color:whitesmoke;
-$font-family: 'Lato', sans-serif;
+$font-family: 'Playfair Display SC', serif;
 $text-transform: uppercase;
 $side-navbar:#26373a;
-
-
+$charts-color:#37EFBA;
+$trim-color:#005d57;
 $preloader-z-index:10003;
 $modal-z-index:10002;
 $navbar-z-index:10001;
+
+
+%filter{
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        background: black;
+        left: 0;
+        opacity: .6;
+}

@@ -56,6 +56,7 @@ class MovieComparison extends Component {
     return (
       <div>
         <div className='comparables-wrapper'>
+        <div className="comparables-filter"></div>
           <div className='comparables-container'>
             <h1> Movie Comparisons</h1>
             <div className='movie-info-container'>

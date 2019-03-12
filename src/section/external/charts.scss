@@ -3,6 +3,9 @@
     width:80%;
 }
 .graphContainer{
+        margin: 0 auto;
+        width: 80%;
+        height: 400px;
     .bar-chart-display{
         width:80%;
         h1{
@@ -12,13 +15,41 @@
 }
 
 
-.barChart{
-    position: relative;
-    margin: 0 auto;
-    width: 80%;
-    height:55vh;
+#barChart{
+        display: block;
+        height: 346px;
+        width: 80%;
+        margin: 0 auto;
+        width: 8;
 }
 
-.international-graphs-container{
+.international-graphs-container, .northAmerican-graph-container{
     @extend %charts-container;
+        width: 64%;
+        margin: 0 auto;
+}
+.international-tab-wrapper{
+    padding-top:108px;
+}
+
+.financial-charts-header{
+    text-transform: capitalize;
+    font-family: lato;
+    text-shadow: 2px 2px 2px black;
+    font-weight: 100;
+    padding: 60px;
+    letter-spacing: 8px;
+}
+.chart-header{
+        color:$box-shadow-color;
+        text-shadow: 2px 2px 2px black;
+        font-size: 28px;
+        font-family: 'Playfair Display SC', serif;
+        letter-spacing: 4px;
+}
+ .northAmerican-graph-container {
+        width: 70%;
+        height: 60vh;
+        margin: 0 auto;
+        padding-top:53px;
 }
