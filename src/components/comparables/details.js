@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
 import '../../section/moviedetails.scss';
 import Nav from '../navbar/index';
+import comparables from '../../../dummydata/comparables';
 
 
 class DetailsPage extends Component {

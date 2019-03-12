@@ -26,7 +26,7 @@ class MovieComparison extends Component {
     if(!movies[0]['title']){
         return <h1>Loading Data</h1>;
     }
-    
+
     return this.props.movies.map( movie => {
       return (
         <div key = {movie.title} className='movies'>

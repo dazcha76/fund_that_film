@@ -13,6 +13,8 @@ this file is the endpoint that the client will reach when they submit their proj
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
+
+
 $output = [
     'success'=>false
 ];
@@ -24,7 +26,7 @@ if(!$bodyVars){
     exit();
 }
 
-$title_array=[];
+//$title_array=[];
 $queryTitle=' ';
 $title='';
 
@@ -47,6 +49,7 @@ if($bodyVars){
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
                 WHERE '.$queryTitle.'';
+
 
 $id_result=$db->query($id_query);
 $id_array=[];
@@ -76,6 +79,9 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
             JOIN `comparables_images` AS ci ON ci.`comparables_id` = c.`id`
             WHERE '.$queryPiece.'
             GROUP BY cf.`comparables_id`';
+
+
+            
 $result = $db->query($query);
 
 $data=[];
@@ -83,7 +89,9 @@ $data=[];
 
 
 if ($result){
+  
     if ($result -> num_rows > 0) {
+        
         $output['success']=true;
 
 
