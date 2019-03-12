@@ -13,7 +13,11 @@ class NorthAmerica extends Component {
 
     render(){
 
-        return <h1>Temp</h1>;
+        const { finance } = this.props;
+
+        if(!finance['theatrical']['gross']){
+            return <h1>Loading Data</h1>;
+        }
 
         return (
             <div className='card-financial-global-wrapper'>

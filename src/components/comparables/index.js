@@ -20,7 +20,13 @@ class MovieComparison extends Component {
   }
 
   renderMovies(){
-      console.log("MovieComparison:", this.props);
+    // console.log("MovieComparison:", this.props);
+    const { movies } = this.props;
+
+    if(!movies[0]['title']){
+        return <h1>Loading Data</h1>;
+    }
+    
     return this.props.movies.map( movie => {
       return (
         <div key = {movie.title} className='movies'>
@@ -39,6 +45,13 @@ class MovieComparison extends Component {
 
   render(){
     const arrowActive = 'is-active';
+    console.log("Comparables Index Props:", this.props);
+
+    const { movies } = this.props;
+
+    if(!movies[0]['title']){
+        return <h1>Loading Data</h1>;
+    }
 
     return (
       <div>

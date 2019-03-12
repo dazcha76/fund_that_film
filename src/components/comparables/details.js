@@ -21,6 +21,12 @@ class DetailsPage extends Component {
     //     this.setState({ active: !currentState });
     // }
     buildMovieDetails(){
+        const { movies } = this.props;
+
+        // if(!movies['title']){
+        //     return <h1>Loading Data</h1>;
+        // }
+
         return this.props.movies.map( movie => {
             return (
                 <div key={ movie.id } className='modal-movie-img'> 
