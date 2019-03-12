@@ -21,6 +21,54 @@ $request = $incoming_request['newProject'];
 foreach($request AS $key=>$value){
     $request[$key] = addslashes($value);
 }
+
+
+
+
+if(!array_key_exists('runtime',$request)){ // using gettype give us that runtime is a string
+    throw new Exception('missing runtime');
+}
+// if(!array_key_exists('logline',$request)){
+//     throw new Exception('missing logline');
+// }
+// if(!array_key_exists('title',$request)){
+//     throw new Exception('missing the title');
+// }
+// if(!array_key_exists('releasedYear',$request)){
+//     throw new Exception('missing the releasedYear');
+// }
+// if(!array_key_exists('genre',$request)){
+//     throw new Exception('missing the genre');
+// }
+// if(!array_key_exists('mpaa',$request)){
+//     throw new Exception('missing the mpaa');
+// }
+// if(!array_key_exists('developmentStage',$request)){
+//     throw new Exception('missing the development stage');
+// }
+// if(!array_key_exists('synopsis',$request)){
+//     throw new Exception('missing the synopsis');
+// }
+// if(!array_key_exists('film1',$request)){
+//     throw new Exception('missing film 1');
+// }
+// if(!array_key_exists('film2',$request)){
+//     throw new Exception('missing film 2');
+// }
+
+// foreach($request AS $key){
+//     if(array_key_exists(key($request),$request)){
+//         print($key);
+//         print(' ');
+//         print($request);
+//         throw new Error(key($request).' does not exist');
+//         exit();
+//     };
+// };
+
+
+
+
 $query = "INSERT INTO `projects` SET `runtime`= '{$request["runtime"]}', 
             `logline`= '{$request["logline"]}', 
             `title`= '{$request["title"]}', 
