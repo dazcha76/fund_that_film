@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
-import comparables from '../../../dummydata/comparables';
+// import Comparables from '../../../dummydata/comparables';
 
 class MovieComparison extends Component {
   state = {
@@ -20,7 +20,14 @@ class MovieComparison extends Component {
   }
 
   renderMovies(){
-    return comparables.data.map( movie => {
+    // console.log("MovieComparison:", this.props);
+    const { movies } = this.props;
+
+    // if(!movies[0]['title']){
+    //     return <h1>Loading Data</h1>;
+    // }
+    
+    return this.props.movies.map( movie => {
       return (
         <div key = {movie.title} className='movies'>
           <div className='comparison-movie-display'>
@@ -38,21 +45,29 @@ class MovieComparison extends Component {
 
   render(){
     const arrowActive = 'is-active';
+    console.log("Comparables Index Props:", this.props);
+
+    const { movies } = this.props;
+
+    // if(!movies[0]['title']){
+    //     return <h1>Loading Data</h1>;
+    // }
 
     return (
       <div>
         <div className='comparables-wrapper'>
+        <div className="comparables-filter"></div>
           <div className='comparables-container'>
             <h1> Movie Comparisons</h1>
             <div className='movie-info-container'>
-              {/* this.renderMovies()*/ }
+              { this.renderMovies() }
             </div>  
             <div onClick = { this.toggleClass } id='arrow-icon'>
               <i className='fas fa-angle-down'></i>
             </div>
           </div> 
         </div>
-        <DetailsPage detailPageOnclick = {this.state.active} toggleDetailPage = {() => { this.toggleClass()}}/>
+        <DetailsPage detailPageOnclick={this.state.active} toggleDetailPage={() => { this.toggleClass()}} />
       </div> 
     )
   }

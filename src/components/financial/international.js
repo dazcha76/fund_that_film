@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
-import '../../section/financial.scss';
 import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
@@ -12,6 +11,13 @@ class International extends Component {
     }
 
     render(){
+
+        const { finance } = this.props;
+
+        if(!finance['total net earnings']){
+            return <h1>Loading Data</h1>;
+        }
+        
         return (
             <div className='card-financial-global-wrapper'>
                 <div className='card financial-card'>

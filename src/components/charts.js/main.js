@@ -12,11 +12,9 @@ class Chart extends Component{
     render(){
         return(
             <div className='graphContainer'>
-                    <div className="bar-chart-display">
-                        <h1>Distributors Earnings to Cost Ratio</h1>
+                    <div className='bar-chart-display'>
                        <Bar/>
                     </div>
-                  
             </div>
         )
     }

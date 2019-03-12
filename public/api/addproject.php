@@ -21,10 +21,10 @@ $request = $incoming_request['newProject'];
 foreach($request AS $key=>$value){
     $request[$key] = addslashes($value);
 }
-$query = "INSERT INTO `projects` SET `runtime`= '{$request["runtime"]}', 
-            `logline`= '{$request["logline"]}', 
-            `title`= '{$request["title"]}', 
-            `year`= '{$request["releasedYear"]}', 
+$query = "INSERT INTO `projects` SET `runtime`= '{$request["runtime"]}',
+            `logline`= '{$request["logline"]}',
+            `title`= '{$request["title"]}',
+            `year`= '{$request["releasedYear"]}',
             `genre`= '{$request["genre"]}',
             `mpaa_rating`= '{$request["mpaa"]}',
             `production_stage`= '{$request["developmentStage"]}',

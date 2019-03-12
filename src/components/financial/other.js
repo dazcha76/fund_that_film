@@ -12,9 +12,20 @@ class Other extends Component {
     }
 
     render(){
+
+        const { finance } = this.props;
+
+        if(!finance['total distributor\'s net']){
+            return <h1>Loading Data</h1>;
+        }
+        
         return(
              <div className='card-financial-global-wrapper'>
                 <div className='card financial-card'>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
                     <h5 className='financial-header'>Global Consumer Products</h5>
                     <div className="financial-body">
                         <p>Total Distributor's Net:<br/> ${this.props.finance['total distributor\'s net'].toLocaleString()}</p>

@@ -11,79 +11,79 @@ $output = [
 
 $data=[
     [
-        'north america'=>[
-            'theatrical'=> [
-                'gross'=> 0,
-                'film rental'=> 0,
-                'distribution fee'=> 0,
-                'direct distribution expenses'=> 0,
-                'distributor\'s net'=> 0
+        "north america"=>[
+            "theatrical"=> [
+                "gross"=> 0,
+                "film rental"=> 0,
+                "distribution fee"=> 0,
+                "direct distribution expenses"=> 0,
+                "distributor's net"=> 0
             ],
-            'home entertainment'=> [
-                'gross'=> 0,
-                'expenses'=> 0,
-                'distribution fee'=> 0,
-                'distributor\'s net'=>0
+            "home entertainment"=> [
+                "gross"=> 0,
+                "expenses"=> 0,
+                "distribution fee"=> 0,
+                "distributor's net"=>0
             ],
-            'theatrical and home'=> [
-                'sales agent fee'=> 0,
-                'distributor\'s net'=> 0
+            "theatrical and home"=> [
+                "sales agent fee"=> 0,
+                "distributor's net"=> 0
             ],
-            'pay per view'=> [
-                'gross'=> 0,
-                'distribution fee'=> 0,
-                'direct distribution expenses'=> 0,
-                'sales agent fee'=> 0,
-                'distributor\'s net'=> 0
+            "pay per view"=> [
+                "gross"=> 0,
+                "distribution fee"=> 0,
+                "direct distribution expenses"=> 0,
+                "sales agent fee"=> 0,
+                "distributor's net"=> 0
             ],
-            'premium cable'=>[
-                'gross'=> 0,
-                'distribution fee'=> 0,
-                'direct distribution expenses'=>0,
-                'sales agent fee'=> 0,
-                'distributor\'s net'=>0
+            "premium cable"=>[
+                "gross"=> 0,
+                "distribution fee"=> 0,
+                "direct distribution expenses"=>0,
+                "sales agent fee"=> 0,
+                "distributor's net"=>0
             ],
-            'free tv premiere'=>[
-                'gross'=> 0,
-                'distribution fee'=> 0,
-                'direct distribution expenses'=> 0,
-                'sales agent fee'=> 0,
-                'distributor\'s net'=> 0
+            "free tv premiere"=>[
+                "gross"=> 0,
+                "distribution fee"=> 0,
+                "direct distribution expenses"=> 0,
+                "sales agent fee"=> 0,
+                "distributor's net"=> 0
             ],
-            'cable and syndicated tv'=> [
-                'gross'=> 0,
-                'distribution fee'=> 0,
-                'direct distribution expenses'=> 0,
-                'sales agent fee'=> 0,
-                'distributor\'s net'=> 0
+            "cable and syndicated tv"=> [
+                "gross"=> 0,
+                "distribution fee"=> 0,
+                "direct distribution expenses"=> 0,
+                "sales agent fee"=> 0,
+                "distributor's net"=> 0
             ],
-            'total net earnings'=> 0
+            "total net earnings"=> 0
         ],
-        'international'=>[
-            'theatrical, home, tv gross'=> 0,
-            'sales agent fee'=> 0,
-            'total net earnings'=> 0
+        "international"=>[
+            "theatrical, home, tv gross"=> 0,
+            "sales agent fee"=> 0,
+            "total net earnings"=> 0
         ],
-        'global consumer products'=>[
-            'royalties gross'=> 0,
-            'merchandising distribution fee'=> 0,
-            'sales agent fee'=> 0,
-            'distributor\'s net'=> 0
+        "global consumer products"=>[
+            "royalties gross"=> 0,
+            "merchandising distribution fee"=> 0,
+            "sales agent fee"=> 0,
+            "distributor's net"=> 0
         ],
-        'total distributor\'s net'=>0,
-        'global brand tie-in fees'=> 0,
-        'production financing expense'=> 0,
-        'negative cost'=> 0,
-        'studio burden'=> 0,
-        'talent residuals'=> 0,
-        'sales agent direct sales expenses'=> 0,
-        'producer\'s gross'=> 0,
-        'talent participation'=> 0,
-        'producer\'s net'=> 0,
-        'studio\'s share'=> 0,
-        'producer\'s share'=> 0,
-        'distributor\'s net earning to cost ratio'=> '',
-        'expenses after distributor\'s net'=> 0
+        "total distributor's net"=>0,
+        "global brand tie-in fees"=> 0,
+        "production financing expense"=> 0,
+        "negative cost"=> 0,
+        "studio burden"=> 0,
+        "talent residuals"=> 0,
+        "sales agent direct sales expenses"=> 0,
+        "producer's gross"=> 0,
+        "talent participation"=> 0,
+        "producer's net"=> 0,
+        "studio's share"=> 0,
+        "producer's share"=> 0,
+        "distributor's net earning to cost ratio"=> '',
+        "expenses after distributor's net"=> 0
     ]
 ];
 
@@ -142,7 +142,7 @@ if ($result){
         $data[0]['north america']['theatrical']['film rental'] = $na_theatrical_film_rental;
         $data[0]['north america']['theatrical']['distribution fee'] = $na_theatrical_distrbution_fee;
         $data[0]['north america']['theatrical']['direct distribution expenses'] = $na_theatrical_distribution_expense;
-        $data[0]['north america']['theatrical']['distributor\'s net'] = $na_theatrical_distributor_net;
+        $data[0]['north america']['theatrical']["distributor's net"] = $na_theatrical_distributor_net;
 
         $na_home_ent_sales_gross = $na_theatrical_gross_bo*1.80;
         $na_home_ent_sales_expenses = 3000000+(($na_home_ent_sales_gross*0.47)/10*1)+(($na_home_ent_sales_gross*0.47)/300*1);
@@ -152,13 +152,13 @@ if ($result){
         $data[0]['north america']['home entertainment']['gross'] = $na_home_ent_sales_gross;
         $data[0]['north america']['home entertainment']['expenses'] = $na_home_ent_sales_expenses;
         $data[0]['north america']['home entertainment']['distribution fee'] = $na_home_ent_sales_distribution_fee;
-        $data[0]['north america']['home entertainment']['distributor\'s net'] = $na_home_ent_sales_distributor_net;
+        $data[0]['north america']['home entertainment']["distributor's net"] = $na_home_ent_sales_distributor_net;
 
         $na_theatrical_home_sales_agent_fee = ($na_theatrical_distributor_net + $na_home_ent_sales_distributor_net)*0.05;
         $na_theatrical_home_sales_distributor_net = ($na_theatrical_distributor_net + $na_home_ent_sales_distributor_net) - $na_theatrical_home_sales_agent_fee;
 
         $data[0]['north america']['theatrical and home']['sales agent fee'] = $na_theatrical_home_sales_agent_fee;
-        $data[0]['north america']['theatrical and home']['distributor\'s net'] = $na_theatrical_home_sales_distributor_net;
+        $data[0]['north america']['theatrical and home']["distributor's net"] = $na_theatrical_home_sales_distributor_net;
 
         $na_ppv_gross = $na_theatrical_gross_bo * 0.055;
         $na_ppv_distribution_fee = 0;
@@ -170,7 +170,7 @@ if ($result){
         $data[0]['north america']['pay per view']['distribution fee'] = $na_ppv_distribution_fee;
         $data[0]['north america']['pay per view']['direct distribution expenses'] = $na_ppv_expenses;
         $data[0]['north america']['pay per view']['sales agent fee'] = $na_ppv_sales_agent_fee;
-        $data[0]['north america']['pay per view']['distributor\'s net'] = $na_ppv_distributor_net;
+        $data[0]['north america']['pay per view']["distributor's net"] = $na_ppv_distributor_net;
 
         $na_premium_cable_gross = $na_theatrical_gross_bo * 0.10;
         $na_premium_cable_distribution_fee = 0;
@@ -182,7 +182,7 @@ if ($result){
         $data[0]['north america']['premium cable']['distribution fee'] = $na_premium_cable_distribution_fee;
         $data[0]['north america']['premium cable']['direct distribution expenses'] = $na_premium_cable_expenses;
         $data[0]['north america']['premium cable']['sales agent fee'] = $na_premium_cable_sales_agent_fee;
-        $data[0]['north america']['premium cable']['distributor\'s net'] = $na_premium_cable_distributor_net;
+        $data[0]['north america']['premium cable']["distributor's net"] = $na_premium_cable_distributor_net;
 
         $na_free_tv_gross = $na_theatrical_gross_bo * 0.075;
         $na_free_tv_distribution_fee = 0;
@@ -194,7 +194,7 @@ if ($result){
         $data[0]['north america']['free tv premiere']['distribution fee'] = $na_free_tv_distribution_fee;
         $data[0]['north america']['free tv premiere']['direct distribution expenses'] = $na_free_tv_expenses;
         $data[0]['north america']['free tv premiere']['sales agent fee'] = $na_free_tv_sales_agent_fee;
-        $data[0]['north america']['free tv premiere']['distributor\'s net'] = $na_free_tv_distributor_net;
+        $data[0]['north america']['free tv premiere']["distributor's net"] = $na_free_tv_distributor_net;
 
         $na_cable_syndicated_tv_gross = $na_theatrical_gross_bo * 0.05;
         $na_cable_syndicated_tv_distribution_fee = 0;
@@ -206,7 +206,7 @@ if ($result){
         $data[0]['north america']['cable and syndicated tv']['distribution fee'] = $na_cable_syndicated_tv_distribution_fee;
         $data[0]['north america']['cable and syndicated tv']['direct distribution expenses'] = $na_cable_syndicated_tv_expenses;
         $data[0]['north america']['cable and syndicated tv']['sales agent fee'] = $na_cable_syndicated_tv_sales_agent_fee;
-        $data[0]['north america']['cable and syndicated tv']['distributor\'s net'] = $na_cable_syndicated_tv_distributor_net;
+        $data[0]['north america']['cable and syndicated tv']["distributor's net"] = $na_cable_syndicated_tv_distributor_net;
 
         $na_total_net_earnings = ($na_theatrical_home_sales_distributor_net + $na_ppv_distributor_net + $na_premium_cable_distributor_net + $na_free_tv_distributor_net + $na_cable_syndicated_tv_distributor_net);
 
@@ -229,7 +229,7 @@ if ($result){
         $data[0]['global consumer products']['royalties gross'] = $global_products_royalties_gross;
         $data[0]['global consumer products']['merchandising distribution fee'] = $global_products_merch_distribution_fee;
         $data[0]['global consumer products']['sales agent fee'] = $global_products_sales_agent_fee;
-        $data[0]['global consumer products']['distributor\'s net'] = $global_products_distributor_net;
+        $data[0]['global consumer products']["distributor's net"] = $global_products_distributor_net;
 
         $total_distributor_net = ($na_total_net_earnings + $intl_total_net_earnings + $global_products_distributor_net);
         $total_global_brand_tiein_fees = 0;
@@ -247,20 +247,20 @@ if ($result){
         $total_ratio_rounded = round($total_distributor_net_earning_to_cost_ratio, 2);
         $total_expenses_after_distributor_net = $total_production_financing_expense + $total_negative_cost + $total_studio_burden + $total_talent_residuals + $total_sales_agent_direct_expenses + $total_talent_participation;
 
-        $data[0]['total distributor\'s net'] = $total_distributor_net;
+        $data[0]["total distributor's net"] = $total_distributor_net;
         $data[0]['global brand tie-in fees'] = $total_global_brand_tiein_fees;
         $data[0]['production financing expense'] = $total_production_financing_expense;
         $data[0]['negative cost'] = $total_negative_cost;
         $data[0]['studio burden'] = $total_studio_burden;
         $data[0]['talent residuals'] = $total_talent_residuals;
         $data[0]['sales agent direct sales expenses'] = $total_sales_agent_direct_expenses;
-        $data[0]['producer\'s gross'] = $total_producers_gross;
+        $data[0]["producer's gross"] = $total_producers_gross;
         $data[0]['talent participation'] = $total_talent_participation;
-        $data[0]['producer\'s net'] = $total_producers_net;
-        $data[0]['studio\'s share'] = $total_studios_share;
-        $data[0]['producer\'s share'] = $total_producers_share;
-        $data[0]['distributor\'s net earning to cost ratio'] = $total_ratio_rounded.':1';
-        $data[0]['expenses after distributor\'s net'] = $total_expenses_after_distributor_net;
+        $data[0]["producer's net"] = $total_producers_net;
+        $data[0]["studio's share"] = $total_studios_share;
+        $data[0]["producer's share"] = $total_producers_share;
+        $data[0]["distributor's net earning to cost ratio"] = $total_ratio_rounded.':1';
+        $data[0]["expenses after distributor's net"] = $total_expenses_after_distributor_net;
     } 
 } else {
     throw new Exception('SQL Error');

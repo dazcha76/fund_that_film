@@ -2,14 +2,16 @@
 
 .disclaimer-content{
     background: $button-color;
-    position: fixed;
     bottom: 0;
+    position: fixed;
     width: 100%;
     
     .disclaimer-text{
         font-size: 1rem;
-        color: $box-shadow-color;
+        padding: 10px 0;
+        color: whitesmoke;
         text-align: center;
-        margin: 10px;
+        margin: 0px 0;
+    
     }
 }

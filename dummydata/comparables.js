@@ -58,3 +58,4 @@ var comparables = {
     }
     ]
 } 
+export default comparables;
