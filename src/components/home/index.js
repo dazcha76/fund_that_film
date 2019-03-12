@@ -17,8 +17,8 @@ export default props => {
       </video>
       <div id='video-filter'></div>
       <div id='homepage-content'>
-        <h1 className='title'>Fund My Film</h1> 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h1 className='title'>Fund That Film</h1> 
+        <p>Fund that Film enables producers the necessary tools they need in order to present financial data to potential investors and distributors to secure the funding they need to tell compelling stories. We provide a return analysis on the individual projects to be able to position them correctly in the current film market. Let Fund my Film help you tell incredible stories.</p>
           <Link to='/new_project'>
             <button className='page-button start-project-button'>Start</button>
           </Link>
