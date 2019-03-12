@@ -22,7 +22,7 @@ class App extends Component{
     render(){
         return (    
             <main>
-                <div>
+                <div className='route-container'>
                     <Route exact path='/' component={ Home }/>
                      <Route  path='/new_project' render={() => <NewProject />}/>
                     <Route  path='/comparisons' component={ MovieComparison }/>

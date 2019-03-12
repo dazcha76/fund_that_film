@@ -5,8 +5,9 @@ import { getMovieData } from '../../actions';
 import '../../section/moviedetails.scss';
 import Nav from '../navbar/index';
 
-class DetailsPage extends Component {
 
+class DetailsPage extends Component {
+ 
     componentDidMount(){
         this.props.getMovieData();
     }
@@ -21,6 +22,7 @@ class DetailsPage extends Component {
     //     this.setState({ active: !currentState });
     // }
     buildMovieDetails(){
+        console.log('Props Movies',this.props.movies);
         return this.props.movies.map( movie => {
             return (
                 <div key={ movie.id } className='modal-movie-img'> 
@@ -37,9 +39,16 @@ class DetailsPage extends Component {
                 </div>
             )
         })
-    }
+    }  
 
     render(){
+        const {movies} = this.props;
+      
+        
+
+        if(!movies[0]['title']){
+            return <h1>Loading Data</h1>;
+        }
      
         const baseClass = 'movie1_comparison_modal';
         return ( 
@@ -63,6 +72,7 @@ class DetailsPage extends Component {
 const mapStateToProps = state => {
   return {
     movies: state.movies.movieList
+   
   }
 }
 

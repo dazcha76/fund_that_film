@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
-import '../../section/financial.scss';
 import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
 class Global extends Component {
 
     componentDidMount(){
-        console.log("ComponentDidMount in global.js");
+        console.log('ComponentDidMount in global.js');
         this.props.getFinancialData();
     }
 
     render(){
-        console.log("Global Financial Component Render:",this.props);
 
         const { finance } = this.props;
+
+        let royaltiesGross = 0;
 
         if(!finance['royalties gross']){
             return <h1>Loading Data</h1>;
@@ -25,7 +25,7 @@ class Global extends Component {
             <div className='card-financial-global-wrapper'>
                 <div className='card financial-card'>
                     <h5 className='financial-header'>Global Consumer Products</h5>
-                    <div className="financial-body">
+                    <div className='financial-body'>
                         <p>Royalties Gross:<br/> ${this.props.finance['royalties gross'].toLocaleString()}</p>
                         <p>Merchandising Distribution Fee:<br/> ${this.props.finance['merchandising distribution fee'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['sales agent fee'].toLocaleString()}</p>

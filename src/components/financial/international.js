@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
-import '../../section/financial.scss';
 import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
@@ -12,9 +11,6 @@ class International extends Component {
     }
 
     render(){
-
-        return <h1>Temp</h1>;
-
 
         
         return (

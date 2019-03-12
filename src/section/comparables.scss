@@ -1,9 +1,12 @@
 @import './variables';
 
+
+.comparables-filter{
+    @extend %filter;
+}
 .comparables-wrapper {
     position:relative;
     z-index: 0;
-
     .comparables-container {
         width: 100%;
         padding-top: 7vh;
