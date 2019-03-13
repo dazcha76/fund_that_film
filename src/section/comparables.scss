@@ -2,32 +2,39 @@
 
 
 .comparables-filter{
-    @extend %filter;
+     @extend %filter;
+        opacity:0.8;
+        z-index:-1;
 }
 .comparables-wrapper {
     position:relative;
     z-index: 0;
-    overflow-y:scroll;
-    max-height:100vh;
+    // overflow-y:scroll;
+    // max-height:95vh;
     width:100%;
-    // background-image: url('../assets/images/user_input.jpg');
+    background-image: url('./assets/images/comparison.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    position: fixed;
-   
+    overflow:hidden;
     .comparables-container {
         width: 100%;
-        padding-top: 7vh;
         background-size:cover;
         background-repeat:no-repeat;
-        // background-image:url()
-
+        overflow-y:scroll;
+        max-height:100vh;
+        padding: 20px 0px 36px;
+            h1{
+                font-size: 50px;
+                text-shadow: 3px 3px 5px black;
+                letter-spacing: 2px;
+            }
         .movie-info-container {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
             justify-content: space-evenly;
+            padding: 10px 0 80px;
 
             .movies {
                 width: 25vw;
@@ -36,7 +43,7 @@
                 .comparison-movie-display {
 
                     .movie-image {
-                        width: 80%;
+                        width: 85%;
                         margin: 9% 0 3% 0;
                         transition: all 1s;
                         transform: translateX(0px);
@@ -44,7 +51,7 @@
                             transform:translateX(-100vw);
                         }
                         &.inactive-right{
-                            transform:translateY(100vw);
+                            transform:translateX(100vw);
                         }
                         
                         &:hover{

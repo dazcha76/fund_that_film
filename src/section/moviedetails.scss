@@ -24,13 +24,18 @@
   }
 }
 
-.modal-content.details-info-container {
+.modal-content.details-info-container{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  padding:0px 0px;
   justify-content: space-evenly;
-  background: $dark-background;
+  background:$dark-background;
+  // background: url('./assets/images/comparison.jpg');
   border: none;
+
+}
+
 
   .modal-movie-img {
     width: 25vw;
@@ -40,12 +45,19 @@
       width: 40%;
       margin: 9% 0 3% 0;
     }
+    &:hover{
+      filter: drop-shadow(2px 3px 6px $button-color); 
+    }
 
     h3 {
       font-size: 1.3em;
     } 
   } 
-} 
+h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+  text-shadow: 3px 5px 15px black;
+}
 
 .button-container {
   height: 20vh;

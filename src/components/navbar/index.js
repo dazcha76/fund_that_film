@@ -30,7 +30,12 @@ class Nav extends Component{
             {
                 text: 'About Us',
                 to:'/about'
+            },
+            {
+                text:'Terms & Conditions',
+                to:'/terms'
             }
+
         ]
     }
         constructor(props){

@@ -22,7 +22,6 @@ class NorthAmerica extends Component {
 
         return (
             <div>
-                  <h5 className='financial-header'>North America</h5>
             <div className='card-financial-global-wrapper'>
                 
 

@@ -13,7 +13,7 @@ class InternationalGraphs extends Component{
                 labels:['Theatrical', 'Home', 'TV'],
                 datasets:[{
                     label: 'International Gross Earnings',
-                    data: [182, 182,182],
+                    data: [195,195,195],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",

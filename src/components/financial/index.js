@@ -9,6 +9,7 @@ import Chart from '../charts.js/main';
 import { getFinancialData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
+import Disclaimer from '../footer/disclaimer';
 
 
 class FinancialNorthAmerica extends Component {
@@ -53,8 +54,9 @@ class FinancialNorthAmerica extends Component {
         </div>
 
 
-
+        <Disclaimer/>
       </div>
+      
     )
   }
 }

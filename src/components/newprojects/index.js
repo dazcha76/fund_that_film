@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import { sendProjectData } from '../../actions';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
+import Disclaimer from '../footer/disclaimer';
 
 const years = [
   { text: '2019', value: '2019' },
@@ -90,7 +91,7 @@ class NewProject extends Component {
         <div className='new-project-container'>
           <div className='new-project-form-box'>
           <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
-          <h1>New Project</h1>
+          <h1>Enter New Project</h1>
             <div className='row'>
               <div className='col'>
                 <Field type='text' className='user-project-input' name='title' placeholder='Title ' component = {Input} validate={required}/>
@@ -119,13 +120,13 @@ class NewProject extends Component {
               </div>
             </div>
 
-            <Field component='textarea' type='text' label='Synopsis' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis'/>
+            <Field component='textarea' type='text' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis' validate={ required } component ={ Input }/>
 
             <div className='film-wrapper'>
               <div className='row'>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputName'>Film 1</label>
-                  <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate={required} component = {Input} />
+                  <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
                 </div>
                 <div className='col'>
                   <h3 className='film-capture'>Meets</h3>
@@ -143,7 +144,9 @@ class NewProject extends Component {
           </form> 
           </div>
         </div>
+        <Disclaimer/>
       </div>
+     
     )
   }
 }
