@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { sendProjectData } from '../../actions';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
+
+import { sendProjectData } from '../../actions';
+import { connect } from 'react-redux';
 
 const years = [
   { text: '2019', value: '2019' },
@@ -156,7 +157,7 @@ const year = new Date();
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: { 
-    releasedYear: 'default',
+    releasedYear: year.getFullYear(),
     mpaa: 'default',
     genre: 'default',
     developmentStage: 'default'
@@ -164,7 +165,6 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
-  console.log('NEW PROJECT', state.form)
   return {
     project_form: state.form
   }

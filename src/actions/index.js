@@ -41,3 +41,20 @@ export const getFinancialData = () => {
     });
   }
 }
+
+export const sendContactForm = (values) => {
+  const { firstName, lastName, phoneNumber, email, message } = values;
+
+  return async dispatch => {
+    const response = await axios.post('/api/contact_form.php', {
+      // newEmail: {
+        firstName, lastName, phoneNumber, email, message
+      // }
+    })
+
+  dispatch({
+    type: 'SEND_CONTACT_FORM',
+    payload: response
+  })
+}
+}
