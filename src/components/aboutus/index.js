@@ -16,33 +16,33 @@ class CardsContainer extends Component {
               name: 'John Holman',
               image: john,
               title: 'Project Owner',
-              linkedin:'https://www.linkedin.com/in/johntheholman/',
-              github: 'https://github.com/bearlovesbob',
-              portfolio:'http://johntheholman.com/'
+              linkedin:'//www.linkedin.com/in/johntheholman/',
+              github: '//github.com/bearlovesbob',
+              portfolio:'//johntheholman.com/'
           },
           {
             name: 'Diana Curtis',
             image: diana,
             title: 'Backend Developer',
-            linkedin:'https://www.linkedin.com/in/diana-curtis/',
-            github: 'https://github.com/DianaCurtis',
-            portfolio:'dianacurtisdev.com'
+            linkedin:'//www.linkedin.com/in/diana-curtis/',
+            github: '//github.com/DianaCurtis',
+            portfolio:'//dianacurtisdev.com/'
           },
           {
             name: 'Danika Quinteros',
             image: danika,
             title: 'Frontend Developer',
-            linkedin:'https://www.linkedin.com/in/danikaquinteros/',
-            github: 'https://github.com/dazcha76',
-            portfolio:'http://www.danikaquinteros.com'
+            linkedin:'//www.linkedin.com/in/danikaquinteros/',
+            github: '//github.com/dazcha76',
+            portfolio:'//www.danikaquinteros.com'
           },
           {
             name: 'Christine Than',
             image: christine,
             title: 'Frontend Developer',
-            linkedin:'https://www.linkedin.com/in/christinepthan/',
-            github: 'https://github.com/krispthan',
-            portfolio:'http://www.christinethan.com'
+            linkedin:'//www.linkedin.com/in/christinepthan/',
+            github: '//github.com/krispthan',
+            portfolio:'//www.christinethan.com'
           },
        ]
     }
