@@ -1,25 +1,40 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
-import '../../section/contact.scss';
+import '../../section/contact.scss'; 
+
+import { sendContactForm } from '../../actions';
+import { connect } from 'react-redux';
+import {Link, Redirect} from 'react-router-dom';
 
 class Contact extends Component {
+  state = {
+    messageSent: false,
+  }
 
-  dummySubmitHandler(values){
+  submitHandler = (values) => {
     console.log('contact form has been submitted with value: ', values);
+    this.props.sendContactForm(values).then(() => this.setState(() => ({
+        messageSent: true
+      })));
     return values;
   }
 
   render(){
     const {handleSubmit, onSubmit } = this.props;
+
+    if (this.state.messageSent === true) {
+      return <Redirect to='/confirmation' />
+    }
+
     return (
 
-      <div className='zzwrapper zzcontact-us-wrapper'>
+      <div className='wrapper contact-us-wrapper'>
             <div className='filter-container'></div>
-            <div className='zzcontact-us-container'>
+            <div className='contact-us-container'>
                 <div className='form-box'>
                    <h1>Contact Us</h1>
-                    <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
+                    <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
                           <div className='row'>
                         <div className='col'>
                             <Field type='text' id='firstName' name='firstName' className='contact_input'  placeholder='First Name' component={ Input }/>
@@ -43,7 +58,7 @@ class Contact extends Component {
                       </div></div>
                       <div className='row'>
                         <div className='col'>
-                        <button className='input-submit-button first-button page-button'>Submit</button>
+                        <button type="submit" className='input-submit-button first-button page-button'>Submit</button>
                         </div>
                       </div>         
                 </form>
@@ -54,7 +69,14 @@ class Contact extends Component {
   }
 }
 
-export default 
-  reduxForm({
-    form: 'contact_validate_form',
-  })(Contact) 
+Contact = reduxForm({
+    form: 'contact_form',
+  })(Contact) ;
+
+const mapStateToProps = state => {
+  return {
+    contact_form: state.form
+  }
+}
+
+export default connect(mapStateToProps, { sendContactForm })(Contact); 

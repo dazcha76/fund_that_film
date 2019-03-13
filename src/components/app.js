@@ -7,6 +7,7 @@ import NewProject from './newprojects/index';
 import MovieComparison from './comparables/index';
 import FinancialNorthAmerica from './financial/index';
 import Contact from './contact/index';
+import EmailSent from './contact/messagesent';
 import CardsContainer from './aboutus/index';
 import Nav from './navbar/index';
 import Disclaimer from './footer/disclaimer';
@@ -28,6 +29,7 @@ class App extends Component{
                     <Route  path='/comparisons' component={ MovieComparison }/>
                     <Route  path='/financials' component={ FinancialNorthAmerica }/>
                     <Route  path='/contact' component={() => <Contact /> }/>
+                    <Route  path='/confirmation' component={() => <EmailSent /> }/>
                     <Route  path='/about' component={ CardsContainer }/>   
                 </div>
                 <Nav/>
