@@ -34,9 +34,9 @@ class DetailsPage extends Component {
                     <h3 className='genre'>Genre: { movie.genre }</h3>
                     <h3 className='mpaa'>Rating: { movie.mpaa_rating }</h3>
                     <h3 className='audience-satisfaction'>Audience Satisfaction: { movie.audience_satisfaction * 100}%</h3>
-                    <h3 className='budget'>Budget: ${ movie.budget.toLocaleString() }</h3>
-                    <h3 className='us-gross'>U.S. Box Office: ${ movie.us_gross_bo.toLocaleString() }</h3>
-                    <h3 className='intl-gross'>International Box Office: ${ movie.intl_gross_bo.toLocaleString()}</h3>
+                    <h3 className='budget'>Budget: ${parseInt(movie.budget).toLocaleString()}</h3>
+                    <h3 className='us-gross'>U.S. Box Office: ${parseInt(movie.us_gross_bo).toLocaleString()}</h3>
+                    <h3 className='intl-gross'>International Box Office: ${parseInt(movie.intl_gross_bo).toLocaleString()}</h3>
                     <h3 className='funding-partner'>Funding Partners: { this.mapThroughObjects(movie.funding_partners_info) }</h3>
                     <h3 className='distribution'>Distribution Company: { this.mapThroughObjects(movie.distribution_companies_info)}</h3>
                 </div>
