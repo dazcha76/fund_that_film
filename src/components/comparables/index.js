@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
+import {Link} from 'react-router-dom';
 // import Comparables from '../../../dummydata/comparables';
 
 class MovieComparison extends Component {
@@ -56,14 +57,21 @@ class MovieComparison extends Component {
     return (
       <div>
         <div className='comparables-wrapper'>
-        <div className="comparables-filter"></div>
+          <div className="comparables-filter"></div>
           <div className='comparables-container'>
             <h1> Movie Comparisons</h1>
             <div className='movie-info-container'>
               { this.renderMovies() }
             </div>  
-            <div onClick = { this.toggleClass } id='arrow-icon'>
-              <i className='fas fa-angle-down'></i>
+            <div className='button-container'>
+              <div onClick = {this.toggleClass} id='arrow-icon' className='button-btn'>
+                <button className="input-submit-button page-button">More Details</button>
+              </div>
+              <div className='button-btn'>
+                <Link to='/financials'>
+                  <button className="input-submit-button page-button">Confirm</button>
+                </Link>
+              </div>
             </div>
           </div> 
         </div>
