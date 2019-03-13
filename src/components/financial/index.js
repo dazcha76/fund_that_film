@@ -22,7 +22,7 @@ class FinancialNorthAmerica extends Component {
         </div>
         <div id="financial-container">
           <h1 className='financial-charts-header'>Financial Calculations</h1>
-            <Tabs defaultActiveKey='profile' id='uncontrolled-tab-example'>
+            <Tabs defaultActiveKey='northAmerica' id='uncontrolled-tab-example'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
                   <h1 className='chart-header'>Production Gross in Millions</h1>
