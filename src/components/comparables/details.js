@@ -18,17 +18,13 @@ class DetailsPage extends Component {
             return item.name
         })
     }
-    // pageHasLoaded = () => {
-    //     const currentState = this.state.active;
-    //     this.setState({ active: !currentState });
-    // }
+    toggleClass = () => {
+        const currentState = this.state.active;
+        this.setState({active : !currentState});
+      } 
     buildMovieDetails(){
 
         const { movies } = this.props;
-
-        // if(!movies['title']){
-        //     return <h1>Loading Data</h1>;
-        // }
 
         return this.props.movies.map( movie => {
             return (
@@ -50,15 +46,16 @@ class DetailsPage extends Component {
 
     render(){
         const {movies} = this.props;
-      
-        
-
         if(!movies[0]['title']){
             return <h1>Loading Data</h1>;
         }
      
         const baseClass = 'movie1_comparison_modal';
         return ( 
+            <div>
+            <div onClick = { this.props.toggleDetailPage } id='arrow-icon-up' className= { !this.props.detailPageOnclick ? 'hideArrow' : '' } >
+            <i className='fas fa-angle-up'></i>
+            </div>
             <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass } id='movie_1'>
                 <Nav/>
                 <h1>Detailed Information</h1>
@@ -72,6 +69,7 @@ class DetailsPage extends Component {
                     </Link>
                 </div>
             </div>
+         </div>
         )
     }  
 }

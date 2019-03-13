@@ -16,6 +16,7 @@ $trim-color:#005d57;
 $preloader-z-index:10003;
 $modal-z-index:10002;
 $navbar-z-index:10001;
+$required-form:rgba(199, 3, 0, 1);
 
 
 %filter{
@@ -25,5 +26,4 @@ $navbar-z-index:10001;
         top: 0;
         background: black;
         left: 0;
-        opacity: .6;
 }

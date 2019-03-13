@@ -3,6 +3,10 @@ import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
 import '../../section/contact.scss';
 
+
+
+const required = value => value ? undefined : 'Field is Required';
+
 class Contact extends Component {
 
   dummySubmitHandler(values){
@@ -22,10 +26,10 @@ class Contact extends Component {
                     <form className='contact-us-form' onSubmit={handleSubmit(this.dummySubmitHandler)}>
                           <div className='row'>
                         <div className='col'>
-                            <Field type='text' id='firstName' name='firstName' className='contact_input'  placeholder='First Name' component={ Input }/>
+                            <Field type='text' id='firstName' name='firstName' className='contact_input'  placeholder='First Name' validate={ required } component={ Input }/>
                         </div>
                       <div className='col'>
-                        <Field type='text' id='lastName' name='lastName' className='contact_input'  placeholder='Last Name' component={ Input }/>
+                        <Field type='text' id='lastName' name='lastName' className='contact_input'  placeholder='Last Name' validate={ required } component={ Input }/>
                       </div>
 
                       </div>
@@ -35,10 +39,10 @@ class Contact extends Component {
                           <Field type='text' id='phoneNumber' name='phoneNumber' className='contact_input'  placeholder='Phone Number' component={ Input }/>
                       
                        <div className='col'>
-                         <Field type='email' id='email' name='email' className='contact_input'  placeholder='Email Address' component={ Input }/>
+                         <Field type='email' id='email' name='email' className='contact_input'  placeholder='Email Address' validate={ required } component={ Input }/>
                        </div>
                         <div className='col'>
-                           <Field component='textarea' type='text' id='message' name='message' className='contact_text' placeholder='Enter Message'/>
+                           <Field component='textarea' type='text' id='message' name='message' className='contact_text' validate={ required } placeholder='Enter Message' component={ Input }/>
                         </div>
                       </div></div>
                       <div className='row'>

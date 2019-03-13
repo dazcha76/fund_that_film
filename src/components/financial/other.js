@@ -22,12 +22,8 @@ class Other extends Component {
         return(
              <div className='card-financial-global-wrapper'>
                 <div className='card financial-card'>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
                     <h5 className='financial-header'>Global Consumer Products</h5>
-                    <div className="financial-body">
+                    <div className='financial-body'>
                         <p>Total Distributor's Net:<br/> ${this.props.finance['total distributor\'s net'].toLocaleString()}</p>
                         <p>Global Brand Tie-in Fees:<br/> ${this.props.finance['global brand tie-in fees'].toLocaleString()}</p>
                         <p>Production Financing Expense:<br/> ${this.props.finance['production financing expense'].toLocaleString()}</p>
@@ -36,14 +32,19 @@ class Other extends Component {
                         <p>Talent Residuals:<br/> ${this.props.finance['talent residuals'].toLocaleString()}</p>
                         <p>Sales Agent Direct Sales Expenses:<br/> ${this.props.finance['sales agent direct sales expenses'].toLocaleString()}</p>
                         <p>Producer's Gross:<br/> ${this.props.finance['producer\'s gross'].toLocaleString()}</p>
+                    </div>
+                 </div>
+                        <div className='card financial-card'>
+                            <h5 className='financial-header'>Global Consumer Products</h5>
+                            <div className="financial-body">
                         <p>Talent Participation:<br/> ${this.props.finance['talent participation'].toLocaleString()}</p>
                         <p>Producer's Net:<br/> ${this.props.finance['producer\'s net'].toLocaleString()}</p>
                         <p>Studio's Share:<br/> ${this.props.finance['studio\'s share'].toLocaleString()}</p>
                         <p>Producer's Share:<br/> ${this.props.finance['producer\'s share'].toLocaleString()}</p>
                         <p>Distributor's Net Earning To Cost Ratio:<br/> {this.props.finance['distributor\'s net earning to cost ratio']}</p>
                         <p>Expenses After Distributor's Net:<br/> ${this.props.finance['expenses after distributor\'s net'].toLocaleString()}</p>
-                    </div>
-                </div>
+                        </div>
+                      </div>    
             </div>
         )
     }

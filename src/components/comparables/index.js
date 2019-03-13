@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
-// import Comparables from '../../../dummydata/comparables';
+import Disclaimer from '../footer/disclaimer';
 
 class MovieComparison extends Component {
   state = {
-    active: false
+    active: false,
+    pageHasLoaded:false
   }
 
   toggleClass = () => {
@@ -17,6 +18,9 @@ class MovieComparison extends Component {
 
   componentDidMount(){
     this.props.getMovieData();
+     setTimeout(()=>{
+      this.setState({ pageHasLoaded: true })
+    },1000)
   }
 
   renderMovies(){
@@ -26,12 +30,28 @@ class MovieComparison extends Component {
     if(!movies[0]['title']){
         return <h1>Loading Data</h1>;
     }
+  
+    
+    return this.props.movies.map( (movie, index) => {
+      let inactiveClass = "";
+      if(!this.state.pageHasLoaded){
+        if(index === 0){
+          inactiveClass = "movie-image inactive-left";
+        } else {
+          inactiveClass = "movie-image inactive-right";
+        }
+      }
+      else{
+        inactiveClass = 'movie-image';
+      }
+   
+    
 
-    return this.props.movies.map( movie => {
+
       return (
         <div key = {movie.title} className='movies'>
           <div className='comparison-movie-display'>
-            <img src= { movie.image_url } id='movie-1-img' className='movie-image'/>
+            <img src= { movie.image_url } id='movie-1-img' className={ inactiveClass }/>
             <div className='movie-title-wrapper'>
               <h3 className='movie-title-subheader'>{ movie.title } </h3>
               <h3 className='movie-subheader'>Release Date: { new Date(movie.us_theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}</h3>
@@ -68,6 +88,7 @@ class MovieComparison extends Component {
           </div> 
         </div>
         <DetailsPage detailPageOnclick={this.state.active} toggleDetailPage={() => { this.toggleClass()}} />
+        <Disclaimer/>
       </div> 
     )
   }

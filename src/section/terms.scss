@@ -1,0 +1,45 @@
+@import './variables';
+
+%terms-positioning{
+    overflow-y:scroll;
+    position:fixed;
+    width:100%;
+    
+}
+
+.conditions-wrapper{
+    @extend %terms-positioning;
+        max-height: 80%;
+        padding: 70px 88px;
+    // background-image:url('../assets/images/terms.jpeg');
+    max-height:80%;
+    .conditions-container-scrolling{
+        // width:80%;
+        // overflow-y:scroll;
+        // position:fixed;
+        text-align:left;
+        .header{
+            h1{
+                font-size:50px;
+                color:$box-shadow-color;
+                letter-spacing:2px;
+                text-align:center;
+                padding: 4px 0;
+            }
+          
+        }
+    }
+}
+h3{
+    padding-left: 45px;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+
+
+
+

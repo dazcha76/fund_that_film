@@ -10,6 +10,7 @@ import Contact from './contact/index';
 import CardsContainer from './aboutus/index';
 import Nav from './navbar/index';
 import Disclaimer from './footer/disclaimer';
+import Terms from './terms/index';
 
 class App extends Component{
     componentDidMount(){
@@ -28,10 +29,10 @@ class App extends Component{
                     <Route  path='/comparisons' component={ MovieComparison }/>
                     <Route  path='/financials' component={ FinancialNorthAmerica }/>
                     <Route  path='/contact' component={() => <Contact /> }/>
-                    <Route  path='/about' component={ CardsContainer }/>   
+                    <Route  path='/about' component={ CardsContainer }/>  
+                    <Route path='/terms' component={ Terms } />
                 </div>
                 <Nav/>
-                <Disclaimer/>
             </main>
         )
     }
