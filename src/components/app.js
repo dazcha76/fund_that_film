@@ -13,19 +13,19 @@ import Disclaimer from './footer/disclaimer';
 import Terms from './terms/index';
 
 class App extends Component{
-    componentDidMount(){
-        setTimeout(() =>{
-            let preloader = document.querySelector('.spinner-container');
-            preloader.className = 'spinner-container spinner-disappear';
-        }, 1000)
+    // componentDidMount(){
+    //     setTimeout(() =>{
+    //         let preloader = document.querySelector('.spinner-container');
+    //         preloader.className = 'spinner-container spinner-disappear';
+    //     }, 1000)
 
-    }
+
     render(){
         return (    
             <main>
                 <div className='route-container'>
                     <Route exact path='/' component={ Home }/>
-                     <Route  path='/new_project' render={() => <NewProject />}/>
+                    <Route  path='/new_project' render={() => <NewProject />}/>
                     <Route  path='/comparisons' component={ MovieComparison }/>
                     <Route  path='/financials' component={ FinancialNorthAmerica }/>
                     <Route  path='/contact' component={() => <Contact /> }/>

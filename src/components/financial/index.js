@@ -10,13 +10,16 @@ import { getFinancialData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
+import Preloader from '../preloader/index';
 
 
 class FinancialNorthAmerica extends Component {
 
   render(){
     return (
+     
       <div>
+         <Preloader/>
         <div id="financials-background-container">
           <div id="financials-background"></div>
           <div id="financials-background-filter"></div>
