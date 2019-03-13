@@ -70,3 +70,18 @@
         }
     }
 }
+
+.button-container {
+    height: 20vh;
+    width: 10vw;
+    margin: 0 auto;
+    background: $dark-background;
+
+    .button-btn {
+        display: inline-block;
+    }
+  
+    button {
+        width:100%;
+      }
+}
