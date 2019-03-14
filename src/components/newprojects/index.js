@@ -4,7 +4,6 @@ import { Field, reduxForm, reset } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
-
 import Nav from '../navbar/index';
 
 import { sendProjectData, getProjectTitle } from '../../actions';

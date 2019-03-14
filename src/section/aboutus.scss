@@ -38,7 +38,7 @@
         height:65%;
     }
     .card-body{
-        background-color:$button-color;
+        background-color:#005d57;
         text-align: center;
 
         .social-icon-container {
@@ -76,4 +76,6 @@
     }
 }
 
-
+.about-us-header {
+    margin: 3% 0 5% 0;
+}
