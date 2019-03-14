@@ -8,8 +8,8 @@ if(!function_exists(('handle_error'))){
             line: {$error_object -> getLine()}
         "]));
     }
+    set_exception_handler('handle_error');
 }
 
-set_exception_handler('handle_error');
 
 ?>

@@ -10,46 +10,58 @@ this file is the endpoint that the client will reach when they submit their proj
 
 */
 
+
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
-
-
 
 $output = [
     'success'=>false
 ];
-
-
-// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
-$bodyVars = [["title"=>"The Amazing Spider-Man"],["title"=>"The Lake House"]]; // TODO: Make sure the frontend is passing in the actual data from the form fields
+$params = json_decode( file_get_contents( 'php://input'),true);
+print_r($params);
+$bodyVars = $params['params'];
+//$bodyVars = ["title1"=>"The Amazing Spider-Man","title2"=>"The Lake House"]; // TODO: Make sure the frontend is passing in the actual data from the form fields
 if(!$bodyVars){
-    exit();
+    exit(500);
 }
 
+//exit(500);
 //$title_array=[];
 $queryTitle=' ';
 $title='';
 
-
-if($bodyVars){
-    for($index=0;$index<count($bodyVars);$index++){
-        if(array_key_exists('title',$bodyVars[$index])){
-            $title= addslashes($bodyVars[$index]['title']);
-            $queryTitle.='c.`title`=' .json_encode($title);
-            if($index<count($bodyVars)-1){
-                $queryTitle.=' OR ';
-            }
-        }else{
-            exit();
+if ($bodyVars){
+    foreach ($bodyVars as $key => $value) {
+        $queryTitle.='c.`title`='.json_encode($value);
+        if($key === 'title1'){
+            $queryTitle.=' OR ';
         }
     }
+} else {
+    exit(500);
 }
+
+// if($bodyVars){
+//     for($index=1;$index<count($bodyVars);$index++){
+//         if(array_key_exists('title'.$index,$bodyVars['title'.$index])){
+//             $title = addslashes($bodyVars['title'.$index]);
+//             print($title);
+//             //$title= addslashes($bodyVars[$index]['title']);
+//             $queryTitle.='c.`title`=' .json_encode($title);
+//             if($index<count($bodyVars)-1){
+//                 $queryTitle.=' OR ';
+//             }
+//         }else{
+//             print("no title");
+//             exit();
+//         }
+//     }
+// }
 
 
 $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
                 WHERE '.$queryTitle.'';
-
 
 $id_result=$db->query($id_query);
 $id_array=[];

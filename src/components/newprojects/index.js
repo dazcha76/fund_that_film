@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import { sendProjectData } from '../../actions';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
+
+import { connect } from 'react-redux';
+import { sendProjectData, getMovieData } from '../../actions';
 
 const years = [
   { text: '2019', value: '2019' },
@@ -69,11 +70,14 @@ class NewProject extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  submitHandler = (values) => {
-    console.log('project form has been submitted with value: ', values);
-    this.props.sendProjectData(values).then(() => this.setState(() => ({
-        toComparables: true
-      })));
+  submitHandler = async (values) => {
+    console.log('FORM VALUES:', values);
+    await this.props.getMovieData(values.film1, values.film2);
+    await this.props.sendProjectData(values);
+    this.setState({toComparables: true})
+    // this.props.sendProjectData(values).then(() => this.setState(() => ({
+    //     toComparables: true
+    //   })));
     return values;
   }
   
@@ -167,4 +171,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData })(NewProject); 
+export default connect(mapStateToProps, { sendProjectData, getMovieData })(NewProject); 

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
-import { getMovieData } from '../../actions';
+// import { getMovieData } from '../../actions';
 // import Comparables from '../../../dummydata/comparables';
 
 class MovieComparison extends Component {
@@ -15,9 +15,9 @@ class MovieComparison extends Component {
     this.setState({active : !currentState});
   } 
 
-  componentDidMount(){
-    this.props.getMovieData();
-  }
+  // componentDidMount(){
+  //   this.props.getMovieData();
+  // }
 
   renderMovies(){
     // console.log("MovieComparison:", this.props);
@@ -80,5 +80,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  getMovieData
+  // getMovieData
 })(MovieComparison);

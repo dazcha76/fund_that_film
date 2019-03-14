@@ -19,9 +19,16 @@ export const sendProjectData = (values) => {
   }
 }
 
-export const getMovieData = () => {
+export const getMovieData = (film1, film2) => {
   return async dispatch => {
-    const response = await comparablesApi.get();
+    const response = await axios.post('/api/comparables.php', {
+      params: {
+        title1: film1,
+        title2: film2
+      }
+    });
+
+    console.log('ACTION RESPONSE:', response)
 
     dispatch({
       type: 'GET_MOVIE_DATA',
