@@ -26,20 +26,33 @@ foreach($_GET AS $key=>$value){
 
 $bodyVars = ['title1'=>$_GET['title1'],'title2'=>$_GET['title2']]; 
 
-
 if(!$bodyVars){
     exit(500);
 }
 
-//exit(500);
-//$title_array=[];
+if( intval($bodyVars['title1'])!==0 || intval($bodyVars['title2'])!==0){
+    throw new Exception('Can not have integer as a movie title...for now.');
+}
+
+if($bodyVars['title1']==='' || $bodyVars['title2']===''){
+    throw new Exception('Missing film title');
+}
+
+if($bodyVars['title1'] === $bodyVars['title2']){
+    throw new Exception('The comparables are the same. Choose two different films!');
+}
+
+if(strlen($bodyVars['title1']) >100 || strlen($bodyVars['title2'])>100){
+    throw new Exception('The name of the comparables films are too long. Choose others.');
+}
+
+
 $queryTitle=' ';
 $title='';
 
-if ($bodyVars){
-    
+if($bodyVars){
     foreach ($bodyVars as $key => $value) {
-        $queryTitle.='c.`title`='.'$value';
+        $queryTitle.='c.`title`= "'.$value.'"';
         if($key === 'title1'){
             $queryTitle.=' OR ';
         }
@@ -48,7 +61,6 @@ if ($bodyVars){
     exit(500);
 }
 
-print_r($queryTitle);
 
 
 $id_query = 'SELECT c.`id`,c.`title`
@@ -59,10 +71,13 @@ $id_result=$db->query($id_query);
 $id_array=[];
 
 
-
 while($row_id=$id_result->fetch_assoc()){
     $id_array[]=$row_id['id'];
+    $incoming_title[]=$row_id['title'];
 }
+
+
+
 
 $queryPiece='';
 
@@ -88,16 +103,17 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
 
             
 $result = $db->query($query);
-
-
 $data=[];
 
 
-
 if ($result){
-  
+    
+    if($result ->num_rows===1){
+        throw new Exception('One of the comparables in our database does not exist');
+    }
+
     if ($result -> num_rows > 0) {
-        
+
         $output['success']=true;
 
 
