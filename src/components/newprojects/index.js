@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
@@ -71,6 +71,10 @@ class NewProject extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
+  clearFields = () => {
+    dispatch(reset('newproject_form'));
+  }
+
   submitHandler = (values) => {
     console.log('project form has been submitted with value: ', values);
     this.props.sendProjectData(values).then(() => this.setState(() => ({
@@ -80,7 +84,7 @@ class NewProject extends Component {
   }
   
   render(){
-    const {handleSubmit, onSubmit } = this.props;
+    const {handleSubmit, reset, onSubmit } = this.props;
 
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
@@ -92,7 +96,7 @@ class NewProject extends Component {
         <div className='new-project-container'>
           <div className='new-project-form-box'>
           <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
-          <h1>Enter New Project</h1>
+          <h1>Enter Your Project Info</h1>
             <div className='row'>
               <div className='col'>
                 <Field type='text' className='user-project-input' name='title' placeholder='Title ' component = {Input} validate={required}/>
@@ -138,8 +142,8 @@ class NewProject extends Component {
                 </div>              
               </div>
                 <div className="user-input-button-container">
+                <button onClick={reset} type='button' className='new-project-form-button'>Clear</button>
                 <button className='new-project-form-button'>Submit</button>
-                <button type='button' className='new-project-form-button'>Cancel</button>
                 </div> 
             </div>
           </form> 
@@ -157,7 +161,7 @@ const year = new Date();
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: { 
-    releasedYear: year.getFullYear(),
+    releasedYear: 'default',
     mpaa: 'default',
     genre: 'default',
     developmentStage: 'default'
