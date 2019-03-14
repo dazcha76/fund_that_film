@@ -67,9 +67,6 @@
         .fas{
             @extend %icon-properties;
         }
-        // &:hover{
-        //     font-size:50px;
-        // }
     }
     &:visited{
         color:gray;
@@ -78,4 +75,20 @@
 
 .about-us-header {
     margin: 3% 0 5% 0;
+}
+
+.about-us-filter{
+    @extend %filter;
+    opacity:0.6;
+    
+}
+
+.about-us-wrapper{
+    background-image: url('../src/assets/images/aboutus.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: fixed;
+    width: 100%;
+    height: 100vh;  
 }

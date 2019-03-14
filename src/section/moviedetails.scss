@@ -26,7 +26,6 @@
 .details-filter{
 @extend %filter;
 opacity:0.6;
-overflow-y:scroll;
 }
 .modal-content.details-info-container{
   display: flex;

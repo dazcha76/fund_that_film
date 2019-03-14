@@ -9,8 +9,6 @@
 .comparables-wrapper {
     position:relative;
     z-index: 0;
-/*    // overflow-y:scroll;
-    // max-height:95vh;*/
     width:100%;
     background-image: url('./assets/images/comparison.jpg');
     background-size: cover;
@@ -22,7 +20,6 @@
         width: 100%;
         background-size:cover;
         background-repeat:no-repeat;
-        overflow-y:scroll;
         max-height:100vh;
         padding: 20px 0px 36px;
         
@@ -75,24 +72,18 @@
 }
 
 .comparables-button-container {
-/*    // height: 20vh;
-    // display:flex;
-    // width: 10vw;
-    // margin: 0 auto;
-    // background: transparent;*/
     display: inline-flex;
     position: relative;
-    left: 42%;
-    bottom: 69px;
+    left: 44%;
+    bottom: 150px;
 
     .comparables-button-btn {
         display: inline-block;
         margin: 1px 31px;
-        padding: 0 16p;
+        padding: 0 16px;
     }
     .input-submit-button{
         margin: 1px 0px;
         outline: none
-    }
- 
+    } 
 }

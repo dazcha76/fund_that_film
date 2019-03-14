@@ -7,6 +7,7 @@ class Bar extends Component{
         Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
+        Chart.defaults.global.tooltips = false;
         var ctx = document.getElementById('barChart');
         var myChart = new Chart (ctx, {
             type: 'horizontalBar',

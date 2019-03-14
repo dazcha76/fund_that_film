@@ -61,6 +61,7 @@ class CardsContainer extends Component {
 
         return(
             <div className= 'about-us-wrapper'>
+            <div className='about-us-filter'></div>
                 <div className='about-us-container'>
                   <Nav/>
                       <h1 className='about-us-header'>Our Team</h1>
