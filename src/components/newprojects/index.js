@@ -4,8 +4,9 @@ import { Field, reduxForm, reset } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
+import Nav from '../navbar/index';
 
-import { sendProjectData } from '../../actions';
+import { sendProjectData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
 
 const years = [
@@ -76,7 +77,7 @@ class NewProject extends Component {
   }
 
   submitHandler = (values) => {
-    console.log('project form has been submitted with value: ', values);
+    this.props.getProjectTitle(values.title),
     this.props.sendProjectData(values).then(() => this.setState(() => ({
         toComparables: true
       })));
@@ -91,15 +92,18 @@ class NewProject extends Component {
     }
 
     return (
+
+      
       <div className='new-project-wrapper'>
       <div className='new-project-filter'></div>
         <div className='new-project-container'>
+        <Nav/>
           <div className='new-project-form-box'>
           <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
           <h1>Enter Your Project Info</h1>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='user-project-input' name='title' placeholder='Title ' component = {Input} validate={required}/>
+                <Field type='text' className='user-project-input' id="title" name='title' placeholder='Title ' component = {Input} validate={required}/>
               </div>
             </div>
             <div className='row'>
@@ -121,7 +125,7 @@ class NewProject extends Component {
                 <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
               </div>
               <div className='row'>
-                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)}/>
+                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)}/>
               </div>
             </div>
 
@@ -151,7 +155,6 @@ class NewProject extends Component {
         </div>
         <Disclaimer/>
       </div>
-     
     )
   }
 }
@@ -174,4 +177,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData })(NewProject); 
+export default connect(mapStateToProps, { sendProjectData, getProjectTitle })(NewProject); 

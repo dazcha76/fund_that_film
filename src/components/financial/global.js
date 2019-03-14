@@ -7,7 +7,6 @@ import { getFinancialData } from '../../actions';
 class Global extends Component {
 
     componentDidMount(){
-        console.log('ComponentDidMount in global.js');
         this.props.getFinancialData();
     }
 
@@ -23,9 +22,9 @@ class Global extends Component {
 
         return(
             <div className='card-financial-global-wrapper'>
-                <div className='card financial-card'>
+                <div className='card financial-card global-card'>
                     <h5 className='financial-header'>Global Consumer Products</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body global-body'>
                         <p>Royalties Gross:<br/> ${this.props.finance['royalties gross'].toLocaleString()}</p>
                         <p>Merchandising Distribution Fee:<br/> ${this.props.finance['merchandising distribution fee'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['sales agent fee'].toLocaleString()}</p>

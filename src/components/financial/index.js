@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
+import {Redirect} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import NorthAmerica from './northAmerica';
 import International from './international';
@@ -11,15 +12,33 @@ import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
-
+import Nav from '../navbar/index';
+import { connect } from 'react-redux';
 
 class FinancialNorthAmerica extends Component {
+  state = {
+    toShareable: false,
+  }
+
+  getSharables = () => {
+    this.props.getFinancialData().then(() => this.setState(() => ({
+        toShareable: true
+      })));
+  }
 
   render(){
+
+    if (this.state.toShareable === true) {
+      // return <Redirect to={`/invest/${token}`} />
+      return <Redirect to={'/invest'} />
+    }
+
     return (
      
       <div>
          <Preloader/>
+         <Nav/>
+         <button onClick={this.getSharables} className="share_button">Share</button>
         <div id="financials-background-container">
           <div id="financials-background"></div>
           <div id="financials-background-filter"></div>
@@ -64,4 +83,14 @@ class FinancialNorthAmerica extends Component {
   }
 }
 
-export default FinancialNorthAmerica;
+// export default FinancialNorthAmerica;
+
+const mapStateToProps = state => {
+    return {
+        finance: state.finance.financeList
+    }
+}
+
+export default connect(mapStateToProps, {
+    getFinancialData
+})(FinancialNorthAmerica);

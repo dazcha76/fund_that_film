@@ -48,8 +48,8 @@ h1 {
 }
 
 .page-button {
-  // height: 5vh;
-  // width: 10%;
+/*  // height: 5vh;
+  // width: 10%;*/
   font-size: 150%;
   border: none;
   border-radius: 3px;
@@ -58,7 +58,7 @@ h1 {
   background-color: $side-navbar;
   cursor: pointer;
   padding: 5px 8px;
-  // position: relative;
+/*  // position: relative;*/
 }
 
 form {
@@ -74,21 +74,8 @@ textarea {
   background-color: $input-background;
   border: none;
   border-bottom: 3px solid $input-border;
-  margin-bottom: 3%;
   display: block;
   outline: none;
   color: $box-shadow-color;
   padding: 8px 2%;
-}
-
-.multiple-inputs {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.multiple-inputs .user-project-input,
-.multiple-inputs .contact_input,
-.multiple-inputs select {
-  width: 49%;
 }

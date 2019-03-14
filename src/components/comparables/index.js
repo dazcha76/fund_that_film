@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
 import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
+import Nav from '../navbar/index';
 
 class MovieComparison extends Component {
   state = {
@@ -62,7 +63,6 @@ class MovieComparison extends Component {
 
   render(){
     const arrowActive = 'is-active';
-    console.log("Comparables Index Props:", this.props);
 
     const { movies } = this.props;
 
@@ -75,6 +75,7 @@ class MovieComparison extends Component {
         <div className='comparables-wrapper'>
           <div className="comparables-filter"></div>
           <div className='comparables-container'>
+          <Nav/>
             <h1> Movie Comparisons</h1>
             <div className='movie-info-container'>
               { this.renderMovies() }

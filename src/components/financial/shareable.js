@@ -6,18 +6,17 @@ import International from './international';
 import Global from './global';
 import Other from './other';
 import Chart from '../charts.js/main';
-import { getFinancialData } from '../../actions';
+import { getFinancialData, getProjectTitle } from '../../actions';
+import { connect } from 'react-redux';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 
-
-class ShareCalculations extends Component {
+class Shareable extends Component {
 
   render(){
     return (
-     
       <div>
          <Preloader/>
         <div id="financials-background-container">
@@ -25,7 +24,7 @@ class ShareCalculations extends Component {
           <div id="financials-background-filter"></div>
         </div>
         <div id="financial-container">
-          <h1 className='financial-charts-header'>Financial Calculations</h1>
+          <h1 className='financial-charts-header'>Financial Calculations for {this.props.projectTitle}</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
@@ -55,13 +54,18 @@ class ShareCalculations extends Component {
               </Tab>
             </Tabs>
         </div>
-
-
         <Disclaimer/>
       </div>
-      
     )
   }
 }
 
-export default ShareCalculations;
+const mapStateToProps = state => {
+    return {
+        projectTitle: state.project.project
+    }
+}
+
+export default connect(mapStateToProps, {
+    getFinancialData, getProjectTitle
+})(Shareable);

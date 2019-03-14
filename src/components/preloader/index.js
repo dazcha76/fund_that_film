@@ -14,10 +14,10 @@ class Preloader extends Component {
     render(){
         return(
             <div>
-              <div class='spinner-container'>
-                 <div class='spinner'></div>
+              <div className='spinner-container'>
+                 <div className='spinner'></div>
                 </div>
-             <div class='spinner-disappear'></div>
+             <div className='spinner-disappear'></div>
             </div>
         )
     }

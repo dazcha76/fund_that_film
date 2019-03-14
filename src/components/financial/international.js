@@ -20,9 +20,9 @@ class International extends Component {
         
         return (
             <div className='card-financial-global-wrapper'>
-                <div className='card financial-card'>
+                <div className='card financial-card international-card'>
                     <h5 className='financial-header'>International</h5>
-                    <div className="financial-body">
+                    <div className="financial-body international-body">
                         <p>Theatrical, Home, TV Gross:<br/> ${this.props.finance['theatrical, home, tv gross'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['sales agent fee'].toLocaleString()}</p>
                         <p>Total Net Earnings:<br/> ${this.props.finance['total net earnings'].toLocaleString()}</p>

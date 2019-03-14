@@ -1,5 +1,18 @@
 @import './variables';
 
+.share_button {
+  position: absolute;
+  top: 5px;
+  right: 2%;
+  background-color: #005d57;
+  color: white;
+  padding: 0.5% 1%;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 2;
+  outline: none;
+}
+
 
 .nav.nav-tabs {
   display: flex;
@@ -9,7 +22,7 @@
   margin-bottom: 3%;
 
   .nav-item.nav-link {
-    width: 15%;
+    width: 20%;
     text-align: center;
     background-color: $trim-color;
     border-radius: 25px;
@@ -70,6 +83,7 @@
   
   .card.financial-card {
     margin: 0 auto;
+
   
     .financial-header {
       font-size: 1.2rem;
@@ -83,11 +97,41 @@
 
     .financial-body {
       height: 100%;
+      font-size: 1.2rem;
       color: $box-shadow-color;
       background-color: $dark-background;
-      padding: 4% 2% 1% 4%;
+      padding: 2% 2% 1% 2%;
+    }
+
+    .international-body,
+    .global-body,
+    .other-body,
+    .northamerica-body {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .tne,
+    .tnh {
+      justify-content: space-evenly;
     }
   }
+
+  .international-card,
+  .global-card,
+  .other-card,
+  .northamerica-card {
+    width: 80%;
+  }
+}
+
+.northamerica-wrapper {
+  display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: space-between;
 }
 
 

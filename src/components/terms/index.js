@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from '../navbar/index';
 
 
 export default props => {
@@ -6,6 +7,7 @@ export default props => {
         <div className='conditions-wrapper'>
                 <div className='terms-filter'></div>
             <div className='conditions-container-scrolling'>
+            <Nav/>
                 <div className='header'>
                     <h1>Terms & Conditions</h1>
                 </div>
