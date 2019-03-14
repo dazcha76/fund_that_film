@@ -13,11 +13,11 @@ $bodyVars = [intval($_GET['comp1']),intval($_GET['comp2'])];
 //$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
 
 if($bodyVars[0] === 0 && $bodyVars[1] === 0){
-    throw new Error ('Expected two valid films, none were entered.');
+    throw new Exception ('Expected two valid films, none were entered.');
 }
 
 if($bodyVars[0] === 0 || $bodyVars[1] === 0){
-    throw new Error ('Expected at least two valid films to calculate relevant financial data.');
+    throw new Exception ('Expected at least two valid films to calculate relevant financial data.');
 }
 
 $queryIDPiece='';
@@ -47,7 +47,7 @@ $intl_gross=[];
 
 if ($result){
     if ($result -> num_rows === 1){
-        throw new Error ('Could not find all films in the database. We need at least two valid films to calculate relevant financial data.');
+        throw new Exception ('Could not find all films in the database. We need at least two valid films to calculate relevant financial data.');
     }
     
     if ($result -> num_rows > 0) {
@@ -271,7 +271,7 @@ if ($result){
         $output['data']=$data;
     } 
 } else {
-    throw new Error('SQL Error');
+    throw new Exception('SQL Error');
 }
 
 $json_data =json_encode($output);
