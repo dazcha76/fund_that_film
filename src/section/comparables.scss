@@ -71,17 +71,25 @@
     }
 }
 
-.button-container {
-    height: 20vh;
-    width: 10vw;
-    margin: 0 auto;
-    background: $dark-background;
+.comparables-button-container {
+    // height: 20vh;
+    // display:flex;
+    // width: 10vw;
+    // margin: 0 auto;
+    // background: transparent;
+    display: inline-flex;
+    position: relative;
+    left: 42%;
+    bottom: 69px;
 
-    .button-btn {
+    .comparables-button-btn {
         display: inline-block;
+        margin: 1px 31px;
+        padding: 0 16p;
     }
-  
-    button {
-        width:100%;
-      }
+    .input-submit-button{
+        margin: 1px 0px;
+    }
+ 
 }
+

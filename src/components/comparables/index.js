@@ -83,11 +83,11 @@ class MovieComparison extends Component {
             <div className='movie-info-container'>
               { this.renderMovies() }
             </div>  
-            <div className='button-container'>
+            <div className='comparables-button-container'>
               <div onClick = {this.toggleClass} id='arrow-icon' className='button-btn'>
                 <button className="input-submit-button page-button">More Details</button>
               </div>
-              <div className='button-btn'>
+              <div className='comparables-button-btn'>
                 <Link to='/financials'>
                   <button className="input-submit-button page-button">Confirm</button>
                 </Link>
