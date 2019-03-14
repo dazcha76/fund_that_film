@@ -157,7 +157,7 @@ const year = new Date();
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: { 
-    releasedYear: year.getFullYear(),
+    releasedYear: 'default',
     mpaa: 'default',
     genre: 'default',
     developmentStage: 'default'
