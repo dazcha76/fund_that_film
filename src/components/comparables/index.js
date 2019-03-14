@@ -2,10 +2,12 @@
 import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
+
 import { getMovieData } from '../../actions';
 import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
 import Nav from '../navbar/index';
+
 
 class MovieComparison extends Component {
   state = {
@@ -19,11 +21,12 @@ class MovieComparison extends Component {
   } 
 
   componentDidMount(){
-    this.props.getMovieData();
+    //this.props.getMovieData();
      setTimeout(()=>{
       this.setState({ pageHasLoaded: true })
     },1000)
   }
+
 
   renderMovies(){
     const { movies } = this.props;
@@ -106,5 +109,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  getMovieData
+  // getMovieData
 })(MovieComparison);

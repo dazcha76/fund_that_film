@@ -5,9 +5,9 @@ import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
-
-import { sendProjectData, getProjectTitle } from '../../actions';
+import { sendProjectData, getProjectTitle,getMovieData } from '../../actions';
 import { connect } from 'react-redux';
+
 
 const years = [
   { text: '2019', value: '2019' },
@@ -72,15 +72,11 @@ class NewProject extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  clearFields = () => {
-    dispatch(reset('newproject_form'));
-  }
-
-  submitHandler = (values) => {
+  submitHandler = async (values) => {
     this.props.getProjectTitle(values.title),
-    this.props.sendProjectData(values).then(() => this.setState(() => ({
-        toComparables: true
-      })));
+    await this.props.getMovieData(values.film1, values.film2);
+    await this.props.sendProjectData(values);
+    this.setState({toComparables: true})
     return values;
   }
   
@@ -177,4 +173,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData, getProjectTitle })(NewProject); 
+export default connect(mapStateToProps, { sendProjectData, getProjectTitle,getMovieData })(NewProject); 
+
