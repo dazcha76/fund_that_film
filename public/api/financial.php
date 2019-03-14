@@ -9,89 +9,15 @@ $output = [
     'success'=> false
 ];
 
-$data=[
-    [
-        "north america"=>[
-            "theatrical"=> [
-                "gross"=> 0,
-                "film rental"=> 0,
-                "distribution fee"=> 0,
-                "direct distribution expenses"=> 0,
-                "distributor's net"=> 0
-            ],
-            "home entertainment"=> [
-                "gross"=> 0,
-                "expenses"=> 0,
-                "distribution fee"=> 0,
-                "distributor's net"=>0
-            ],
-            "theatrical and home"=> [
-                "sales agent fee"=> 0,
-                "distributor's net"=> 0
-            ],
-            "pay per view"=> [
-                "gross"=> 0,
-                "distribution fee"=> 0,
-                "direct distribution expenses"=> 0,
-                "sales agent fee"=> 0,
-                "distributor's net"=> 0
-            ],
-            "premium cable"=>[
-                "gross"=> 0,
-                "distribution fee"=> 0,
-                "direct distribution expenses"=>0,
-                "sales agent fee"=> 0,
-                "distributor's net"=>0
-            ],
-            "free tv premiere"=>[
-                "gross"=> 0,
-                "distribution fee"=> 0,
-                "direct distribution expenses"=> 0,
-                "sales agent fee"=> 0,
-                "distributor's net"=> 0
-            ],
-            "cable and syndicated tv"=> [
-                "gross"=> 0,
-                "distribution fee"=> 0,
-                "direct distribution expenses"=> 0,
-                "sales agent fee"=> 0,
-                "distributor's net"=> 0
-            ],
-            "total net earnings"=> 0
-        ],
-        "international"=>[
-            "theatrical, home, tv gross"=> 0,
-            "sales agent fee"=> 0,
-            "total net earnings"=> 0
-        ],
-        "global consumer products"=>[
-            "royalties gross"=> 0,
-            "merchandising distribution fee"=> 0,
-            "sales agent fee"=> 0,
-            "distributor's net"=> 0
-        ],
-        "total distributor's net"=>0,
-        "global brand tie-in fees"=> 0,
-        "production financing expense"=> 0,
-        "negative cost"=> 0,
-        "studio burden"=> 0,
-        "talent residuals"=> 0,
-        "sales agent direct sales expenses"=> 0,
-        "producer's gross"=> 0,
-        "talent participation"=> 0,
-        "producer's net"=> 0,
-        "studio's share"=> 0,
-        "producer's share"=> 0,
-        "distributor's net earning to cost ratio"=> '',
-        "expenses after distributor's net"=> 0
-    ]
-];
-
-$bodyVars = [$_GET['comp1'],$_GET['comp2']];
+$bodyVars = [intval($_GET['comp1']),intval($_GET['comp2'])];
 //$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
 
-if(!$bodyVars){
-    exit();
+if($bodyVars[0] === 0 && $bodyVars[1] === 0){
+    throw new Error ('Expected two valid films, none were entered.');
+}
+
+if($bodyVars[0] === 0 || $bodyVars[1] === 0){
+    throw new Error ('Expected at least two valid films to calculate relevant financial data.');
 }
 
 $queryIDPiece='';
@@ -110,8 +36,6 @@ if($bodyVars){
     }
 }
 
-
-
 $query = 'SELECT c.`id`,c.`title`,c.`us_gross_bo`,c.`intl_gross_bo`
             FROM `comparables` AS c
             WHERE '.$queryIDPiece.'';
@@ -122,7 +46,89 @@ $us_gross=[];
 $intl_gross=[];
 
 if ($result){
+    if ($result -> num_rows === 1){
+        throw new Error ('Could not find all films in the database. We need at least two valid films to calculate relevant financial data.');
+    }
+    
     if ($result -> num_rows > 0) {
+        $data=[
+            [
+                "north america"=>[
+                    "theatrical"=> [
+                        "gross"=> 0,
+                        "film rental"=> 0,
+                        "distribution fee"=> 0,
+                        "direct distribution expenses"=> 0,
+                        "distributor's net"=> 0
+                    ],
+                    "home entertainment"=> [
+                        "gross"=> 0,
+                        "expenses"=> 0,
+                        "distribution fee"=> 0,
+                        "distributor's net"=>0
+                    ],
+                    "theatrical and home"=> [
+                        "sales agent fee"=> 0,
+                        "distributor's net"=> 0
+                    ],
+                    "pay per view"=> [
+                        "gross"=> 0,
+                        "distribution fee"=> 0,
+                        "direct distribution expenses"=> 0,
+                        "sales agent fee"=> 0,
+                        "distributor's net"=> 0
+                    ],
+                    "premium cable"=>[
+                        "gross"=> 0,
+                        "distribution fee"=> 0,
+                        "direct distribution expenses"=>0,
+                        "sales agent fee"=> 0,
+                        "distributor's net"=>0
+                    ],
+                    "free tv premiere"=>[
+                        "gross"=> 0,
+                        "distribution fee"=> 0,
+                        "direct distribution expenses"=> 0,
+                        "sales agent fee"=> 0,
+                        "distributor's net"=> 0
+                    ],
+                    "cable and syndicated tv"=> [
+                        "gross"=> 0,
+                        "distribution fee"=> 0,
+                        "direct distribution expenses"=> 0,
+                        "sales agent fee"=> 0,
+                        "distributor's net"=> 0
+                    ],
+                    "total net earnings"=> 0
+                ],
+                "international"=>[
+                    "theatrical, home, tv gross"=> 0,
+                    "sales agent fee"=> 0,
+                    "total net earnings"=> 0
+                ],
+                "global consumer products"=>[
+                    "royalties gross"=> 0,
+                    "merchandising distribution fee"=> 0,
+                    "sales agent fee"=> 0,
+                    "distributor's net"=> 0
+                ],
+                "total distributor's net"=>0,
+                "global brand tie-in fees"=> 0,
+                "production financing expense"=> 0,
+                "negative cost"=> 0,
+                "studio burden"=> 0,
+                "talent residuals"=> 0,
+                "sales agent direct sales expenses"=> 0,
+                "producer's gross"=> 0,
+                "talent participation"=> 0,
+                "producer's net"=> 0,
+                "studio's share"=> 0,
+                "producer's share"=> 0,
+                "distributor's net earning to cost ratio"=> '',
+                "expenses after distributor's net"=> 0
+            ]
+        ];
+
         $output = [
             'success'=> true
         ];
@@ -261,12 +267,13 @@ if ($result){
         $data[0]["producer's share"] = $total_producers_share;
         $data[0]["distributor's net earning to cost ratio"] = $total_ratio_rounded.':1';
         $data[0]["expenses after distributor's net"] = $total_expenses_after_distributor_net;
+
+        $output['data']=$data;
     } 
 } else {
-    throw new Exception('SQL Error');
+    throw new Error('SQL Error');
 }
 
-$output['data']=$data;
 $json_data =json_encode($output);
 print($json_data);
 
