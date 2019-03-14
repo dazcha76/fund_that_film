@@ -20,7 +20,11 @@ $output = [
 
 //$params=$_GET['title1'].', '.$_GET['title2'];
 
-$bodyVars = ["title1"=>$_GET['title1'],"title2"=>$_GET['title2']]; 
+foreach($_GET AS $key=>$value){
+    $_GET[$key]=addslashes($value);
+}
+
+$bodyVars = ['title1'=>$_GET['title1'],'title2'=>$_GET['title2']]; 
 
 
 if(!$bodyVars){
@@ -33,8 +37,9 @@ $queryTitle=' ';
 $title='';
 
 if ($bodyVars){
+    
     foreach ($bodyVars as $key => $value) {
-        $queryTitle.='c.`title`='.json_encode($value);
+        $queryTitle.='c.`title`='.'$value';
         if($key === 'title1'){
             $queryTitle.=' OR ';
         }
@@ -43,22 +48,7 @@ if ($bodyVars){
     exit(500);
 }
 
-// if($bodyVars){
-//     for($index=1;$index<count($bodyVars);$index++){
-//         if(array_key_exists('title'.$index,$bodyVars['title'.$index])){
-//             $title = addslashes($bodyVars['title'.$index]);
-//             print($title);
-//             //$title= addslashes($bodyVars[$index]['title']);
-//             $queryTitle.='c.`title`=' .json_encode($title);
-//             if($index<count($bodyVars)-1){
-//                 $queryTitle.=' OR ';
-//             }
-//         }else{
-//             print("no title");
-//             exit();
-//         }
-//     }
-// }
+print_r($queryTitle);
 
 
 $id_query = 'SELECT c.`id`,c.`title`
@@ -67,6 +57,7 @@ $id_query = 'SELECT c.`id`,c.`title`
 
 $id_result=$db->query($id_query);
 $id_array=[];
+
 
 
 while($row_id=$id_result->fetch_assoc()){
