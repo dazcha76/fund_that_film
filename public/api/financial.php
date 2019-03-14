@@ -87,8 +87,8 @@ $data=[
     ]
 ];
 
-// $bodyVars = json_decode( file_get_contents( 'php://input'),true);
-$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
+$bodyVars = [$_GET['comp1'],$_GET['comp2']];
+//$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
 
 if(!$bodyVars){
     exit();
