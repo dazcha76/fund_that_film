@@ -21,17 +21,22 @@
 
 }
 
-h1 {
+.contact-title {
   font-size: 50px;
   text-shadow: 3px 5px 15px black;
+  margin-bottom: 5%;
 }
 
-  p {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    color:white;
-    position: relative;
-  
+.name-inputs p,
+.message-inputs p {
+    color:red;  
+    text-align: left;
+    line-height: 0;
+    
+}
+
+.name-inputs p {
+  margin-top: -4%;
 }
 
 input::placeholder, textarea::placeholder { 
@@ -45,16 +50,42 @@ input::placeholder, textarea::placeholder {
 .contact-us-form {
   text-align: center;
   width: 85%;
-  max-width: 990px;
 }
 
 .form-box {
   position: relative;
-  width: 85%;
   max-width: 1200px;
   padding: 42px;
   background: rgba(255, 255, 255, 0.6);
   margin: 129px auto 0;
   box-shadow: 2px 2px 8px;
   border-radius: 15px;
+}
+
+.name-inputs {
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-between;
+  margin-bottom: 3%;
+}
+
+.message-inputs {
+  margin-bottom: 4%;
+}
+
+.message-inputs p {
+  margin-top: -1.5%;
+}
+
+.contact-form {
+  height: 80vh;
+}
+
+.form-box.contact-form {
+  width: 70vw;
+}
+
+#firstName,
+#lastName {
+  width: 26vw;
 }

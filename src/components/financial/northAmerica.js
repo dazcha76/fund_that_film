@@ -22,41 +22,40 @@ class NorthAmerica extends Component {
 
         return (
             <div>
-            <div className='card-financial-global-wrapper'>
-                
-
-                <div className='card financial-card'>
-                    <h5 className='financial-header'>Theatrical</h5>
-                    <div className='financial-body'>
-                        <p>Gross:<br/> ${this.props.finance['theatrical']['gross'].toLocaleString()}</p>
-                        <p>Film Rental:<br/> ${this.props.finance['theatrical']['film rental'].toLocaleString()}</p>
-                        <p>Distribution Fee:<br/> ${this.props.finance['theatrical']['distribution fee'].toLocaleString()}</p>
-                        <p>Direct Distribution Expenses:<br/> ${this.props.finance['theatrical']['direct distribution expenses'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['theatrical']['distributor\'s net'].toLocaleString()}</p>
+                <div className='card-financial-global-wrapper northamerica-wrapper'>
+                    <div className='card financial-card northamerica-card'>
+                        <h5 className='financial-header'>Theatrical</h5>
+                        <div className='financial-body northamerica-body'>
+                            <p>Gross:<br/> ${this.props.finance['theatrical']['gross'].toLocaleString()}</p>
+                            <p>Film Rental:<br/> ${this.props.finance['theatrical']['film rental'].toLocaleString()}</p>
+                            <p>Distribution Fee:<br/> ${this.props.finance['theatrical']['distribution fee'].toLocaleString()}</p>
+                            <p>Direct Distribution Expenses:<br/> ${this.props.finance['theatrical']['direct distribution expenses'].toLocaleString()}</p>
+                            <p>Distributor's Net:<br/> ${this.props.finance['theatrical']['distributor\'s net'].toLocaleString()}</p>  
+                        </div>
                     </div>
-                </div>
 
-                <div className='card financial-card'>
-                    <h5 className='financial-header'>Home Entertainment</h5>
-                    <div className='financial-body'>
-                        <p>Gross:<br/> ${this.props.finance['home entertainment']['gross'].toLocaleString()}</p>
-                        <p>Expenses:<br/> ${this.props.finance['home entertainment']['expenses'].toLocaleString()}</p>
-                        <p>Distribution Fee:<br/> ${this.props.finance['home entertainment']['distribution fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['home entertainment']['distributor\'s net'].toLocaleString()}</p>
+                    <div className='card financial-card northamerica-card'>
+                        <h5 className='financial-header'>Home Entertainment</h5>
+                        <div className='financial-body northamerica-body'>
+                            <p>Gross:<br/> ${this.props.finance['home entertainment']['gross'].toLocaleString()}</p>
+                            <p>Expenses:<br/> ${this.props.finance['home entertainment']['expenses'].toLocaleString()}</p>
+                            <p>Distribution Fee:<br/> ${this.props.finance['home entertainment']['distribution fee'].toLocaleString()}</p>
+                            <p>Distributor's Net:<br/> ${this.props.finance['home entertainment']['distributor\'s net'].toLocaleString()}</p>
+                        </div>
                     </div>
-                </div>
+         
 
-                <div className='card financial-card'>
+                <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Theatrical and Home</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body northamerica-body tnh'>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['theatrical and home']['sales agent fee'].toLocaleString()}</p>
                         <p>Distributor's Net:<br/> ${this.props.finance['theatrical and home']['distributor\'s net'].toLocaleString()}</p>
                     </div>
                 </div>
 
-                <div className='card financial-card'>
+                <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Pay Per View</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body northamerica-body'>
                         <p>Gross:<br/> ${this.props.finance['pay per view']['gross'].toLocaleString()}</p>
                         <p>Distribution Fee:<br/> ${this.props.finance['pay per view']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['pay per view']['direct distribution expenses'].toLocaleString()}</p>
@@ -65,9 +64,9 @@ class NorthAmerica extends Component {
                     </div>
                 </div>
 
-                <div className='card financial-card'>
+                <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Premium Cable</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body northamerica-body'>
                         <p>Gross:<br/> ${this.props.finance['premium cable']['gross'].toLocaleString()}</p>
                         <p>Distribution Fee:<br/> ${this.props.finance['premium cable']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['premium cable']['direct distribution expenses'].toLocaleString()}</p>
@@ -76,9 +75,9 @@ class NorthAmerica extends Component {
                     </div>
                 </div>
 
-                <div className='card financial-card'>
+                <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Free TV Premiere</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body northamerica-body'>
                         <p>Gross:<br/> ${this.props.finance['free tv premiere']['gross'].toLocaleString()}</p>
                         <p>Distribution Fee:<br/> ${this.props.finance['free tv premiere']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['free tv premiere']['direct distribution expenses'].toLocaleString()}</p>
@@ -87,9 +86,9 @@ class NorthAmerica extends Component {
                     </div>
                 </div>
 
-                <div className='card financial-card'>
-                    <h5 className='financial-header'>Cable & Syndicated TV</h5>
-                    <div className='financial-body'>
+                <div className='card financial-card northamerica-card'>
+                    <h5 className='financial-header'>Cable and Syndicated TV</h5>
+                    <div className='financial-body northamerica-body'>
                         <p>Gross:<br/> ${this.props.finance['cable and syndicated tv']['gross'].toLocaleString()}</p>
                         <p>Distribution Fee:<br/> ${this.props.finance['cable and syndicated tv']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['cable and syndicated tv']['direct distribution expenses'].toLocaleString()}</p>
@@ -98,9 +97,9 @@ class NorthAmerica extends Component {
                     </div>
                 </div>
 
-                <div className='card financial-card'>
+                <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Total Net Earnings</h5>
-                    <div className='financial-body'>
+                    <div className='financial-body northamerica-body tne'>
                         <p>Total Net Earnings:<br/> ${this.props.finance['total net earnings'].toLocaleString()}</p>
                     </div>
                 </div>

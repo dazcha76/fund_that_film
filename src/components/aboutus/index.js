@@ -7,7 +7,7 @@ import diana from '../../assets/images/diana_profile.png';
 import christine from '../../assets/images/christine_profile.png';
 import { strictEqual } from 'assert';
 import { link } from 'react-router-dom';
-
+import Nav from '../navbar/index';
 
 class CardsContainer extends Component {
     state = { 
@@ -62,6 +62,7 @@ class CardsContainer extends Component {
         return(
             <div className= 'about-us-wrapper'>
                 <div className='about-us-container'>
+                <Nav/>
                     <h1 className='about-us-header'>About Us</h1>
                 </div>
                 <div className= 'card-container'> 

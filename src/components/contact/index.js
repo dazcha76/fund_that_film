@@ -6,6 +6,7 @@ import '../../section/contact.scss';
 import { sendContactForm } from '../../actions';
 import { connect } from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import Nav from '../navbar/index';
 
 
 
@@ -36,30 +37,26 @@ class Contact extends Component {
       <div className='wrapper contact-us-wrapper'>
             <div className='filter-container'></div>
             <div className='contact-us-container'>
-                <div className='form-box'>
-                   <h1>Contact Us</h1>
+            <Nav/>
+                <div className='form-box contact-form'>
+                   <h1 className="contact-title">Contact Us</h1>
                     <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
-                          <div className='row'>
-                        <div className='col'>
-                            <Field type='text' id='firstName' name='firstName' className='contact_input'  placeholder='First Name' validate={ required } component={ Input }/>
-                        </div>
-                      <div className='col'>
-                        <Field type='text' id='lastName' name='lastName' className='contact_input'  placeholder='Last Name' validate={ required } component={ Input }/>
+                      <div className="name-inputs">
+                        <Field type='text' id='firstName' name='firstName' className='first-name-input'  placeholder='First Name' validate={ required } component={ Input }/>
+             
+                        <Field type='text' id='lastName' name='lastName' className='last-name-input'  placeholder='Last Name' validate={ required } component={ Input }/>
                       </div>
 
-                      </div>
-                      <div className='row'>
-                                       
-                      <div className='col'>
-                          <Field type='text' id='phoneNumber' name='phoneNumber' className='contact_input'  placeholder='Phone Number' component={ Input }/>
-                      
-                       <div className='col'>
-                         <Field type='email' id='email' name='email' className='contact_input'  placeholder='Email Address' validate={ required } component={ Input }/>
-                       </div>
-                        <div className='col'>
-                           <Field component='textarea' type='text' id='message' name='message' className='contact_text' validate={ required } placeholder='Enter Message' component={ Input }/>
+                      <div className="message-inputs">
+                        <Field type='text' id='phoneNumber' name='phoneNumber' className='contact-input'  placeholder='Phone Number' validate={ required } component={ Input }/>
                         </div>
-                      </div></div>
+                      <div className="message-inputs">
+                        <Field type='email' id='email' name='email' className='contact-input'  placeholder='Email Address' validate={ required } component={ Input }/>
+                      </div>
+                      <div className="message-inputs">
+                        <Field component='textarea' type='text' id='message' name='message' className='contact-text' validate={ required } placeholder='Enter Message' component={ Input }/>
+                      </div>
+      
                       <div className='row'>
                         <div className='col'>
                         <button type="submit" className='input-submit-button first-button page-button'>Submit</button>
