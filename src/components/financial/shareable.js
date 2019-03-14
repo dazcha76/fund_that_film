@@ -24,7 +24,7 @@ class Shareable extends Component {
           <div id="financials-background-filter"></div>
         </div>
         <div id="financial-container">
-          <h1 className='financial-charts-header'>Financial Calculations for {this.props.projectTitle[0].title}</h1>
+          <h1 className='financial-charts-header'>Financial Calculations for {this.props.projectTitle}</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
@@ -64,7 +64,6 @@ const mapStateToProps = state => {
   console.log("SHARE:", state)
     return {
         projectTitle: state.project.project
-
     }
 }
 

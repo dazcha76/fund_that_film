@@ -63,6 +63,8 @@ export const getProjectTitle = (title) => {
   console.log("TITLE:", title)
   return {
     type: 'GET_PROJECT_TITLE',
-    title: title
+    project: {
+      title: title
+    }
   }
 }

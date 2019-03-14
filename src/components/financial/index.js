@@ -29,7 +29,8 @@ class FinancialNorthAmerica extends Component {
   render(){
 
     if (this.state.toShareable === true) {
-      return <Redirect to='/invest' />
+      // return <Redirect to={`/invest/${token}`} />
+      return <Redirect to={'/invest'} />
     }
 
     return (
