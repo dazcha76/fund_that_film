@@ -6,7 +6,6 @@
     
 }
 .conditions-wrapper{
-    // @extend %terms-positioning;
         overflow-y:scroll;
         width:100%;
         max-height: 80%;
@@ -16,7 +15,7 @@
     max-height:80%;
     .terms-filter{
         @extend %filter;
-        opacity: .6;
+        opacity: .7;
         position: fixed;
     }
     .conditions-container-scrolling{

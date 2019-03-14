@@ -23,34 +23,37 @@
     transform: translateY(0);
   }
 }
-
+.details-filter{
+@extend %filter;
+opacity:0.6;
+overflow-y:scroll;
+}
 .modal-content.details-info-container{
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   padding:0px 0px;
   justify-content: space-evenly;
-  background:$dark-background;
-  // background: url('./assets/images/comparison.jpg');
+ 
+  background: url('./assets/images/details.jpg');
   border: none;
 
 }
-
-
   .modal-movie-img {
-    width: 25vw;
+    width: 35vw;
+    margin:2px 0;
     text-align: center;
 
     .movie-image {
-      width: 40%;
-      margin: 9% 0 3% 0;
+      width: 248px;
+      margin:0% 0 1% 14px;
     }
     &:hover{
       filter: drop-shadow(2px 3px 6px $button-color); 
     }
 
     h3 {
-      font-size: 1.3em;
+      font-size: 1.2rem;
     } 
   } 
 h1 {
@@ -59,13 +62,31 @@ h1 {
   text-shadow: 3px 5px 15px black;
 }
 
-.button-container {
+.movies-button-container {
   height: 20vh;
   width: 10vw;
   margin: 0 auto;
   background: $dark-background;
 
-  .input-submit-button {
-    width: 100%;
+  .details-submit-button {
+   color:$box-shadow-color;
+  background: $dark-background;
   }
+}
+
+.details-page-button{
+  color: antiquewhite;
+  background-color: $side-navbar;
+    font-size: 150%;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 8px;
+}
+
+.details-button-container{
+  position: absolute;
+  left: 47%;
+  bottom: 22%;
 }

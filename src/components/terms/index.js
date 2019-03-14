@@ -3,12 +3,13 @@ import React from 'react';
 
 export default props => {
     return (
-        <div className="conditions-wrapper">
-            <div className="conditions-container-scrolling">
-                <div className="header">
+        <div className='conditions-wrapper'>
+                <div className='terms-filter'></div>
+            <div className='conditions-container-scrolling'>
+                <div className='header'>
                     <h1>Terms & Conditions</h1>
                 </div>
-                <div className="legal">
+                <div className='legal'>
                     <p>Updated as of March 15, 2019</p>
 
                     <p>Movie Funding, Inc. (“Movie Funding,” “Company,” “we” or “us”) welcomes you.  We provide the website at www.Movie Funding.com (the “Site”) to you, subject to the terms and conditions contained in this Terms of Service (this “TOS”).  This TOS governs the relationship between Company and you, the user of the Site.  </p>

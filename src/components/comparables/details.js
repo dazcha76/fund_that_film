@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getMovieData } from '../../actions';
-import '../../section/moviedetails.scss';
 import Nav from '../navbar/index';
-import comparables from '../../../dummydata/comparables';
+// import comparables from '../../../dummydata/comparables';
 
 
 class DetailsPage extends Component {
@@ -56,16 +55,17 @@ class DetailsPage extends Component {
             <div onClick = { this.props.toggleDetailPage } id='arrow-icon-up' className= { !this.props.detailPageOnclick ? 'hideArrow' : '' } >
             <i className='fas fa-angle-up'></i>
             </div>
-            <div className={ this.props.detailPageOnclick ? "active " + baseClass : baseClass } id='movie_1'>
+            <div className={ this.props.detailPageOnclick ? 'active ' + baseClass : baseClass } id='movie_1'>
                 <Nav/>
                 <h1>Detailed Information</h1>
+                <div className='details-filter'></div>
                 <div className='modal-content details-info-container'>
                     { this.buildMovieDetails()}
                 </div>
 
-                <div className='button-container'>
+                <div className='details-button-container'>
                     <Link to='/financials'>
-                        <button className="input-submit-button page-button">Confirm</button>
+                        <button className='input-submit-button details-page-button'>Confirm</button>
                     </Link>
                 </div>
             </div>
