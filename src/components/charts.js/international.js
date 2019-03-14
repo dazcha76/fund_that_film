@@ -5,6 +5,7 @@ class InternationalGraphs extends Component{
     async componentDidMount(){
         Chart.defaults.global.defaultFontColor = '#37EFBA';
         Chart.defaults.global.defaultFontSize = '20';
+        Chart.defaults.global.tooltips = false;
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
         let ctx =document.getElementById('graphChart');
         let graphChart = new Chart (ctx, {

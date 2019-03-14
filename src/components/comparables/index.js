@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
-
 import { getMovieData } from '../../actions';
 import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
@@ -20,22 +19,22 @@ class MovieComparison extends Component {
     this.setState({active : !currentState});
   } 
 
-  componentDidMount(){
-    //this.props.getMovieData();
-     setTimeout(()=>{
+  async componentDidMount(){
+    const { title1, title2 } = this.props.comparables;
+
+    setTimeout(()=>{
       this.setState({ pageHasLoaded: true })
     },1000)
+    await this.props.getMovieData(title1, title2);
   }
-
 
   renderMovies(){
     const { movies } = this.props;
 
-    if(!movies[0]['title']){
+    if(!movies[0]){
         return <h1>Loading Data</h1>;
     }
   
-    
     return this.props.movies.map( (movie, index) => {
       let inactiveClass = "";
       if(!this.state.pageHasLoaded){
@@ -103,11 +102,13 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("COMPARABLES STATE:", state)
   return {
+    comparables: state.comparables,
     movies: state.movies.movieList
   }
-}
+} 
 
 export default connect(mapStateToProps, {
-  // getMovieData
+  getMovieData
 })(MovieComparison);

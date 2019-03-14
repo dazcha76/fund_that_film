@@ -5,6 +5,7 @@ class NorthAmericaHorizontal extends Component {
   async componentDidMount() {
     Chart.defaults.global.defaultFontColor = '#37EFBA';
     Chart.defaults.global.defaultFontSize = '20';
+    Chart.defaults.global.tooltips = false;
     Chart.defaults.global.defaultFontFamily = 'San-Serif';
     let ctx = document.getElementById('horizontalChart');
     let myChart = new Chart(ctx, {
