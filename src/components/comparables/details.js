@@ -9,7 +9,7 @@ import Nav from '../navbar/index';
 class DetailsPage extends Component {
  
     componentDidMount(){
-        this.props.getMovieData();
+        // this.props.getMovieData();
     }
 
     mapThroughObjects(items){

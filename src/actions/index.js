@@ -6,15 +6,20 @@ export const sendProjectData = (values) => {
   const { title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2 } = values;
 
   return async dispatch => {
-    const response = await axios.post('/api/addproject.php', {
+    await axios.post('/api/addproject.php', {
       newProject: {
         title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2
       } 
     });
 
+    const compare = {
+      title1: film1,
+      title2: film2
+    }
+
     dispatch({
-      type: 'SEND_PROJECT_DATA',
-      payload: response
+      type: 'STORE_MOVIE_COMPARISONS',
+      payload: compare
     });
   }
 }

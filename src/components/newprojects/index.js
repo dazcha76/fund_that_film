@@ -5,7 +5,7 @@ import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
-import { sendProjectData, getProjectTitle,getMovieData } from '../../actions';
+import { sendProjectData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
 
 
@@ -74,7 +74,6 @@ class NewProject extends Component {
 
   submitHandler = async (values) => {
     this.props.getProjectTitle(values.title),
-    await this.props.getMovieData(values.film1, values.film2);
     await this.props.sendProjectData(values);
     this.setState({toComparables: true})
     return values;
@@ -173,5 +172,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData, getProjectTitle,getMovieData })(NewProject); 
+export default connect(mapStateToProps, { sendProjectData, getProjectTitle })(NewProject); 
 
