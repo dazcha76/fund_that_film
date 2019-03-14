@@ -25,7 +25,6 @@ class MovieComparison extends Component {
   }
 
   renderMovies(){
-    // console.log("MovieComparison:", this.props);
     const { movies } = this.props;
 
     if(!movies[0]['title']){
@@ -45,9 +44,6 @@ class MovieComparison extends Component {
       else{
         inactiveClass = 'movie-image';
       }
-   
-    
-
 
       return (
         <div key = {movie.title} className='movies'>
