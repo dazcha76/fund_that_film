@@ -100,7 +100,7 @@ class NewProject extends Component {
             </div>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime (minutes)' validate={[required, number]} component = {Input} />
+                <Field type='number' className='input-runtime' name='runtime' placeholder='Runtime (minutes)' validate={[required, number]} component = {Input} />
               </div>
               <div className='col'>
                 <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
@@ -117,7 +117,7 @@ class NewProject extends Component {
                 <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
               </div>
               <div className='row'>
-                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Stages' options={this.buildOptions(developmentStage)}/>
+                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)}/>
               </div>
             </div>
 
