@@ -61,7 +61,6 @@ class Shareable extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("SHARE:", state)
     return {
         projectTitle: state.project.project
     }

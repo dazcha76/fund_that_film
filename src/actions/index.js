@@ -31,7 +31,6 @@ export const getMovieData = () => {
 }
 
 export const getFinancialData = () => {
-  console.log("You are in the Actions file in the getFinancialData function");
   return async dispatch => {
     const response = await financialApi.get();
 
@@ -47,9 +46,7 @@ export const sendContactForm = (values) => {
 
   return async dispatch => {
     const response = await axios.post('/api/contact_form.php', {
-      // newEmail: {
         firstName, lastName, phoneNumber, email, message
-      // }
     })
 
   dispatch({
@@ -60,11 +57,8 @@ export const sendContactForm = (values) => {
 }
 
 export const getProjectTitle = (title) => {
-  console.log("TITLE:", title)
   return {
     type: 'GET_PROJECT_TITLE',
-    project: {
-      title: title
-    }
+    title: title
   }
 }

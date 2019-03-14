@@ -77,7 +77,6 @@ class NewProject extends Component {
   }
 
   submitHandler = (values) => {
-    console.log('project form has been submitted with value: ', values);
     this.props.getProjectTitle(values.title),
     this.props.sendProjectData(values).then(() => this.setState(() => ({
         toComparables: true

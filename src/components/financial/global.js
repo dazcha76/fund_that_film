@@ -7,7 +7,6 @@ import { getFinancialData } from '../../actions';
 class Global extends Component {
 
     componentDidMount(){
-        console.log('ComponentDidMount in global.js');
         this.props.getFinancialData();
     }
 

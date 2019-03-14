@@ -63,7 +63,6 @@ class MovieComparison extends Component {
 
   render(){
     const arrowActive = 'is-active';
-    console.log("Comparables Index Props:", this.props);
 
     const { movies } = this.props;
 
