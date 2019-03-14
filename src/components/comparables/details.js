@@ -14,10 +14,14 @@ class DetailsPage extends Component {
     }
 
     mapThroughObjects(items){
-        return items.map(item => {
-            return item.name
-        })
+        let newArray = []
+        for(let i = 0; i < items.length; i++){
+            newArray.push(items[i].name + '')
+        }
+
+        return newArray.join(', ')  
     }
+
     toggleClass = () => {
         const currentState = this.state.active;
         this.setState({active : !currentState});
