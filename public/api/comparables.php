@@ -94,8 +94,6 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
             WHERE '.$queryPiece.'
             GROUP BY cf.`comparables_id`';
 
-
-            
 $result = $db->query($query);
 
 
