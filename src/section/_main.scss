@@ -64,12 +64,12 @@ h1 {
 .page-button {
   font-size: 150%;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   outline: none;
   color: antiquewhite;
   background-color: $side-navbar;
   cursor: pointer;
-  padding: 5px 8px;
+  padding: 5px 13px;
 }
 
 form {
@@ -90,3 +90,94 @@ textarea {
   color: $box-shadow-color;
   padding: 8px 2%;
 }
+
+
+
+
+
+
+@media only screen and (max-width:1200px){
+  input,
+select,
+textarea {
+  font-size: 1.3rem;
+  padding: 8px 2%;
+}
+   .page-button {
+  font-size: 128%;
+  padding: 3px 13px;
+  position:relative;
+  bottom: 29%;
+  }
+}
+
+
+@media only screen and (min-width:1200px){
+  input,
+select,
+textarea {
+  font-size: 1.5rem;
+}
+   .page-button {
+  font-size: 128%;
+  padding: 3px 13px;
+  position:relative;
+  bottom: 29%;
+  }
+}
+
+@media only screen and (max-width:992px){
+  input,
+select,
+textarea {
+  font-size: 1.5rem;
+}
+   .page-button {
+  font-size: 145%;
+  padding: 6px 12px;
+  }
+}
+
+
+@media only screen and (max-width:768px){
+  input,
+select,
+textarea {
+  font-size: 1.3rem;
+}
+   .page-button {
+  font-size: 128%;
+  padding: 5px 11px;
+  }
+}
+
+@media only screen and (max-width:500px){
+  input,
+select,
+textarea {
+  font-size: 1.2rem;
+  padding: 8px 2%;
+}
+.page-button {
+  font-size: 128%;
+  padding: 5px 11px;
+  }
+}
+
+
+@media only screen and (max-width:350px){
+  input,
+select,
+textarea {
+  height:4vh;
+  font-size: 0.9rem;
+  
+}
+.page-button {
+    font-size: 105%;
+    padding: 3px 13px;
+    position: relative;
+    bottom: 110%;
+  }
+}
+

@@ -3,7 +3,7 @@
 
 .comparables-filter{
      @extend %filter;
-        opacity:0.8;
+        opacity:0.7;
         z-index:-1;
 }
 .comparables-wrapper {
@@ -73,9 +73,9 @@
 
 .comparables-button-container {
    /* display: inline-flex;
-    position: relative;
-    left: 44%;
-    bottom: 150px;*/
+    position: relative;*/
+    left: 42%;
+    bottom: 150px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
