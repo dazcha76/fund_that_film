@@ -9,8 +9,8 @@ $output = [
     'success'=> false
 ];
 
-$bodyVars = [intval($_GET['comp1']),intval($_GET['comp2'])];
-//$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
+//$bodyVars = [intval($_GET['comp1']),intval($_GET['comp2'])];
+$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
 
 if($bodyVars[0] === 0 && $bodyVars[1] === 0){
     throw new Exception ('Expected two valid films, none were entered.');
