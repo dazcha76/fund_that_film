@@ -15,13 +15,15 @@ import Preloader from '../preloader/index';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
 
+const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
+
 class FinancialNorthAmerica extends Component {
   state = {
     toShareable: false,
   }
 
   getSharables = () => {
-    this.props.sendToken('f1f3aabffb332762c3c9c0cd87f9e280380d0a8b')
+    this.props.sendToken(token)
     .then(() => this.setState(() => ({
         toShareable: true
       })));
@@ -30,7 +32,8 @@ class FinancialNorthAmerica extends Component {
   render(){
 
     if (this.state.toShareable === true) {
-      return <Redirect target='_blank' to={'/invest'} />
+      return <Redirect to={`/invest/${token}`} />
+      // return <Redirect to={'/invest'} />
     }
 
     return (

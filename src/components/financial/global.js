@@ -8,7 +8,6 @@ class Global extends Component {
 
     render(){
         const { finance } = this.props;
-        let royaltiesGross = 0;
 
         if(!finance['royalties gross']){
             return <h1>Loading Data</h1>;
