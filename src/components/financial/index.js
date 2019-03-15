@@ -7,7 +7,7 @@ import International from './international';
 import Global from './global';
 import Other from './other';
 import Chart from '../charts.js/main';
-import { getFinancialData } from '../../actions';
+import { getFinancialData, getMovieData } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
@@ -21,7 +21,8 @@ class FinancialNorthAmerica extends Component {
   }
 
   getSharables = () => {
-    this.props.getFinancialData().then(() => this.setState(() => ({
+    this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id)
+    .then(() => this.setState(() => ({
         toShareable: true
       })));
   }
@@ -29,7 +30,7 @@ class FinancialNorthAmerica extends Component {
   render(){
 
     if (this.state.toShareable === true) {
-      return <Redirect to={'/invest'} />
+      return <Redirect target='_blank' to={'/invest'} />
     }
 
     return (
@@ -82,8 +83,6 @@ class FinancialNorthAmerica extends Component {
   }
 }
 
-// export default FinancialNorthAmerica;
-
 const mapStateToProps = state => {
   return {
     movies: state.movies.movieList,
@@ -92,5 +91,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
+    getFinancialData, getMovieData
 })(FinancialNorthAmerica);

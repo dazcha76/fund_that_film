@@ -30,6 +30,20 @@ body {
   }
 }
 
+.new-project-form-button {
+  width: 20%;
+}
+
+.new-project-form-button:hover {
+  background-color: rgb(0, 93, 87);
+}
+
+.form-control {
+  font-size: 1.3em;
+  margin-bottom: 5%;
+}
+
+
 .background-element {
   background: url(https://images.unsplash.com/photo-1487816426104-08fd29b09ac8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2125&q=80);
   position: absolute;
