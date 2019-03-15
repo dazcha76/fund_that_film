@@ -14,7 +14,7 @@ export const sendProjectData = (values) => {
 
     const compare = {
       title1: film1,
-      title2: film2
+      title2: film2,
     }
 
     dispatch({
@@ -33,8 +33,6 @@ export const getMovieData = (film1, film2) => {
       }
     });
 
-    console.log('ACTION RESPONSE:', response)
-
     dispatch({
       type: 'GET_MOVIE_DATA',
       payload: response
@@ -42,9 +40,14 @@ export const getMovieData = (film1, film2) => {
   }
 }
 
-export const getFinancialData = () => {
+export const getFinancialData = (id1, id2) => {
   return async dispatch => {
-    const response = await financialApi.get();
+    const response = await axios.get('/api/financial.php', {
+      params: {
+        id1,
+        id2
+      }
+    });
 
     dispatch({
       type: 'GET_FINANCIAL_DATA',

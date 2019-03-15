@@ -62,7 +62,6 @@ const DEFAULT_STATE = {
 const movieReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
     case 'GET_MOVIE_DATA':
-      console.log("MOVIE REDUCER:", action.payload.data.data)
       return {movieList: action.payload.data.data}
     default:
       return state

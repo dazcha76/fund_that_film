@@ -85,9 +85,10 @@ class FinancialNorthAmerica extends Component {
 // export default FinancialNorthAmerica;
 
 const mapStateToProps = state => {
-    return {
-        finance: state.finance.financeList
-    }
+  return {
+    movies: state.movies.movieList,
+    finance: state.finance.financeList
+  }
 }
 
 export default connect(mapStateToProps, {

@@ -6,14 +6,8 @@ import { getFinancialData } from '../../actions';
 
 class NorthAmerica extends Component {
 
-    componentDidMount(){
-        this.props.getFinancialData();
-    }
-
     render(){
-
         const { finance } = this.props;
-        
         let theatricalGross = 0;
         
         if(!finance['theatrical']['gross']){

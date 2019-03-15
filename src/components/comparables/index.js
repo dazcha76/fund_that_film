@@ -1,8 +1,7 @@
-
 import React, { Component } from 'react';
 import DetailsPage  from './details';
 import { connect } from 'react-redux';
-import { getMovieData } from '../../actions';
+import { getFinancialData, getMovieData } from '../../actions';
 import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
 import Nav from '../navbar/index';
@@ -26,6 +25,10 @@ class MovieComparison extends Component {
       this.setState({ pageHasLoaded: true })
     },1000)
     await this.props.getMovieData(title1, title2);
+  }
+
+  handleConfirm = () => {
+    this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id);
   }
 
   renderMovies(){
@@ -88,7 +91,7 @@ class MovieComparison extends Component {
               </div>
               <div className='comparables-button-btn'>
                 <Link to='/financials'>
-                  <button className="input-submit-button page-button">Confirm</button>
+                  <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
                 </Link>
               </div>
             </div>
@@ -102,7 +105,6 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("COMPARABLES STATE:", state)
   return {
     comparables: state.comparables,
     movies: state.movies.movieList
@@ -110,5 +112,5 @@ const mapStateToProps = state => {
 } 
 
 export default connect(mapStateToProps, {
-  getMovieData
+  getMovieData, getFinancialData
 })(MovieComparison);

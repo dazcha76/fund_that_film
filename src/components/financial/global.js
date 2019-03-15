@@ -6,14 +6,8 @@ import { getFinancialData } from '../../actions';
 
 class Global extends Component {
 
-    componentDidMount(){
-        this.props.getFinancialData();
-    }
-
     render(){
-
         const { finance } = this.props;
-
         let royaltiesGross = 0;
 
         if(!finance['royalties gross']){

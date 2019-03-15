@@ -6,12 +6,7 @@ import { getFinancialData } from '../../actions';
 
 class International extends Component {
 
-    componentDidMount(){
-        this.props.getFinancialData();
-    }
-
     render(){
-
         const { finance } = this.props;
 
         if(!finance['total net earnings']){

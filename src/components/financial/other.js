@@ -7,12 +7,7 @@ import { getFinancialData } from '../../actions';
 
 class Other extends Component {
 
-    componentDidMount(){
-        this.props.getFinancialData();
-    }
-
     render(){
-
         const { finance } = this.props;
 
         if(!finance['total distributor\'s net']){
