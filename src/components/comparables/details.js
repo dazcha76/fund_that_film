@@ -1,34 +1,26 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getMovieData } from '../../actions';
+import { getFinancialData, getMovieData } from '../../actions';
 import Nav from '../navbar/index';
-// import comparables from '../../../dummydata/comparables';
-
 
 class DetailsPage extends Component {
- 
-    componentDidMount(){
-        // this.props.getMovieData();
-    }
 
     mapThroughObjects(items){
         let newArray = []
         for(let i = 0; i < items.length; i++){
             newArray.push(items[i].name + '')
         }
-
         return newArray.join(', ')  
     }
 
     toggleClass = () => {
         const currentState = this.state.active;
         this.setState({active : !currentState});
-      } 
+    } 
+
     buildMovieDetails(){
-
         const { movies } = this.props;
-
         return this.props.movies.map( movie => {
             return (
                 <div key={ movie.id } className='modal-movie-img'> 
@@ -61,7 +53,7 @@ class DetailsPage extends Component {
             </div>
             <div className={ this.props.detailPageOnclick ? 'active ' + baseClass : baseClass } id='movie_1'>
                 <Nav/>
-                <h1>Detailed Information</h1>
+                {/*<h1>Detailed Information</h1>*/}
                 <div className='details-filter'></div>
                 <div className='modal-content details-info-container'>
                     { this.buildMovieDetails()}
@@ -69,7 +61,7 @@ class DetailsPage extends Component {
 
                 <div className='details-button-container'>
                     <Link to='/financials'>
-                        <button className='input-submit-button details-page-button'>Confirm</button>
+                        <button onClick={this.handleConfirm} className='input-submit-button details-page-button'>Confirm</button>
                     </Link>
                 </div>
             </div>
@@ -86,5 +78,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-  getMovieData
+  getMovieData, getFinancialData
 })(DetailsPage);

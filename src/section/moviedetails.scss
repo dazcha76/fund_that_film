@@ -5,6 +5,7 @@
   position: fixed;
   top: 0;
   left: 0;
+
   background: $dark-background;
   pointer-events: none;
   height: 100vh;
@@ -15,7 +16,7 @@
   transform: translateY(100%);
   
   &.active {
-    height: 100vh;
+    height: 110vh;
     display: block;
     pointer-events: inherit;
     opacity: 1;
