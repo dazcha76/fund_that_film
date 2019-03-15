@@ -1,5 +1,3 @@
-import comparablesApi from '../apis/comparables.js';
-import financialApi from '../apis/financial.js';
 import axios from 'axios';
 
 export const sendProjectData = (values) => {
@@ -75,5 +73,18 @@ export const getProjectTitle = (title) => {
   return {
     type: 'GET_PROJECT_TITLE',
     title: title
+  }
+}
+
+export const sendToken = (token) => {
+  return async dispatch => {
+    const response = await axios.get('/api/sharable.php', {
+      token: token
+    });
+
+    dispatch({
+      type: 'SEND_TOKEN',
+      payload: response
+    });
   }
 }

@@ -7,7 +7,7 @@ import International from './international';
 import Global from './global';
 import Other from './other';
 import Chart from '../charts.js/main';
-import { getFinancialData, getMovieData } from '../../actions';
+import { getFinancialData, getMovieData, sendToken } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
@@ -21,7 +21,7 @@ class FinancialNorthAmerica extends Component {
   }
 
   getSharables = () => {
-    this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id)
+    this.props.sendToken('f1f3aabffb332762c3c9c0cd87f9e280380d0a8b')
     .then(() => this.setState(() => ({
         toShareable: true
       })));
@@ -91,5 +91,5 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData, getMovieData
+    getFinancialData, getMovieData, sendToken
 })(FinancialNorthAmerica);
