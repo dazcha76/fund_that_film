@@ -9,44 +9,32 @@ foreach($_GET AS $key=>$value){
     $_GET[$key]=addslashes($value);
 }
 
-$token = ['token'=>$_GET['token']];
+$token = $_GET[$key];
 
-//$sharable_comps = json_decode( file_get_contents( 'php://input'),true);
-//$token = sha1($sharable_comps);
-//$query_token = json_encode($token);
-// $sharable_comps = [3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
+if(!$token){
+    throw new Exception ('You must enter a valid sharable ID to access this link.');
+}
 
-// if (!$sharable_comps) {
-//     exit();
-// }
-
-// $sharable_ids = '';
-
-// if($sharable_comps){
-//     for($share_index=0;$share_index<count($sharable_comps);$share_index++){
-//         if(is_numeric($sharable_comps[$share_index])){
-//             $share_id=floatVal($sharable_comps[$share_index]);
-//             $sharable_ids.='c.`id`= '.$share_id;
-//             if($share_index<count($sharable_comps)-1){
-//                 $sharable_ids.= ' OR ';
-//             }
-//         }else{
-//             exit();
-//         }
-//     }
-// }
-
-$sharable_query = 'SELECT s.`comparables_id` 
+$sharable_query = 'SELECT s.`id`, s.`comparables_id`
             FROM `sharable` AS s 
             WHERE s.`token` = "'.$token.'"';
 
 $sharable_result = $db->query($sharable_query);
 
-while($row_id=$sharable_result->fetch_assoc()){
-    $bodyVars[]=$row_id['id'];
+if(!$sharable_result){
+    throw new Exception ('There is no sharable ID associated with what you have sent.');
 }
 
-$bodyVars = [];
+$sharable_comps = [];
+
+while($row_id=$sharable_result->fetch_assoc()){
+    $sharable_comps[]=$row_id['comparables_id'];
+}
+
+$_GET = [
+    'id1' => $sharable_comps[0],
+    'id2' => $sharable_comps[1]
+];
 
 require_once('./financial.php');
 
