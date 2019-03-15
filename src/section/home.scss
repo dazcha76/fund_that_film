@@ -57,3 +57,61 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+
+
+
+
+@media only screen and (max-width:900px){
+  .video-container .title {
+    font-size: 5rem;
+    padding: 5px;
+    text-shadow: 1px 1px 5px black;
+  }
+}
+
+
+
+@media only screen and (max-width:768px){
+  .video-container .title {
+    font-size: 4rem;
+    padding: 5px;
+    text-shadow: 1px 1px 5px black;
+  }
+.page-button {
+    font-size: 105%;
+    padding: 3px 13px;
+    position: relative;
+    bottom: 110%;
+  }
+}
+
+
+
+@media only screen and (max-width:500px){
+  .video-container .title {
+    font-size: 4rem;
+    padding: 5px;
+    text-shadow: 1px 1px 5px black;
+  }
+.page-button {
+    font-size: 105%;
+    padding: 3px 13px;
+    position: relative;
+    bottom: 110%;
+  }
+}
+
+
+@media only screen and (max-width:350px){
+  .video-container .title {
+    font-size: 2rem;
+    padding: 5px;
+    text-shadow: 1px 1px 5px black;
+  }
+.page-button {
+    font-size: 105%;
+    padding: 3px 13px;
+    position: relative;
+    bottom: 110%;
+  }
+}
