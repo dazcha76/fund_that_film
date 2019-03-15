@@ -79,7 +79,6 @@ const DEFAULT_STATE = {
 };
 
 const tokenReducer = (state = DEFAULT_STATE, action) => {
-      console.log("TOKEN:", action.payload.data.data)
   switch(action.type) {
     case 'SEND_TOKEN':
       return {shareableList: action.payload.data.data}

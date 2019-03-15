@@ -18,7 +18,6 @@ class Contact extends Component {
   }
 
   submitHandler = (values) => {
-    console.log('contact form has been submitted with value: ', values);
     this.props.sendContactForm(values).then(() => this.setState(() => ({
         messageSent: true
       })));

@@ -4,8 +4,6 @@ import axios from 'axios';
 class Test extends Component {
 	async componentDidMount(){
 		const resp = await axios.get('/api/test.php');
-
-		console.log('Test Resp:', resp);
 	}
 
 	render(){
