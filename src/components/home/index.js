@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import landingpage from '../../assets/video/landingpage.mp4';
-import example_person_icon from '../../assets/images/example_person_icon.png';
+import backdrop_image from '../../assets/images/backdrop.jpg';
 
 export default props => {
 
@@ -12,7 +12,7 @@ export default props => {
   
   return (
     <div className='video-container'>
-      <video autoPlay='{true}' loop='loop' muted poster={example_person_icon} className='backgroundVideo'>
+      <video autoPlay='{true}' loop='loop' muted poster={backdrop_image} className='backgroundVideo'>
         <source src={landingpage} type='video/mp4'  />
       </video>
       <div id='video-filter'></div>
