@@ -79,7 +79,7 @@ export const getProjectTitle = (title) => {
 export const sendToken = (token) => {
   return async dispatch => {
     const response = await axios.get('/api/sharable.php', {
-      token: token
+      params: {token: token}
     });
 
     dispatch({

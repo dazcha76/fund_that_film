@@ -1,5 +1,5 @@
 const DEFAULT_STATE = {
-    shareableList: [
+    financeList: [
     {
         'north america': {
             'theatrical': {
@@ -87,4 +87,4 @@ const tokenReducer = (state = DEFAULT_STATE, action) => {
   }
 }
 
-export default toeknReducer;
+export default tokenReducer;
