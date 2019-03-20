@@ -4,7 +4,7 @@ import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import '../../section/signin.scss'; 
 
-import { signIn } from '../../actions';
+import { sendSignInData } from '../../actions';
 import { connect } from 'react-redux';
 
 const required = value => value ? undefined : 'Field is Required';
@@ -12,6 +12,7 @@ const required = value => value ? undefined : 'Field is Required';
 class SignIn extends Component {
   loginHandler = (values) => {
     console.log('LOGIN: ', values);
+    this.props.sendSignInData(values);
     return values;
   }
 
