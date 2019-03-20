@@ -52,4 +52,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { signIn })(SignIn); 
+export default connect(mapStateToProps, { sendSignInData })(SignIn); 
