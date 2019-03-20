@@ -77,3 +77,9 @@ export const getProjectTitle = (title) => {
     title: title
   }
 }
+
+export const signIn = () => {
+  return {
+    type: 'SIGN_IN'
+  }
+}

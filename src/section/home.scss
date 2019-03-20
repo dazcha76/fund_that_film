@@ -29,6 +29,16 @@
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
   }
+
+  .login-button {
+    position: absolute;
+    top: -25%;
+    right: -8%;
+    font-size: 1.2em;
+    background-color: $button-color;
+    padding: 1% 2%;
+    color: white;
+  }
   
   .title {
     font-size: 5rem;
