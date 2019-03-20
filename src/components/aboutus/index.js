@@ -17,7 +17,7 @@ class CardsContainer extends Component {
               image: john,
               title: 'Backend Developer',
               linkedin:'//www.linkedin.com/in/johntheholman/',
-              github: '//github.com/bearlovesbob',
+              github: '//github.com/johntheholman',
               portfolio:'//johntheholman.com/'
           },
           {
