@@ -6,6 +6,7 @@
     position: absolute;
     top: 5px;
     filter: drop-shadow(1px 1px 8px);
+    z-index: 1;
     
     .hamburger-inner { 
         background-color: white;  

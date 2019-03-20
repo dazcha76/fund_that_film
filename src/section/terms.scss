@@ -1,19 +1,16 @@
 @import './variables';
 
 .conditions-wrapper {
-    
-    .terms-filter {
-        @extend %filter;
-        opacity: .6;
-        position: fixed;
-    }
+    background-color: $dark-background;
 
     .terms-header {
-        margin: 3% 0 4% 0;
+        padding: 5% 0;
+        background-color: $dark-background;
     }
 
     .legal {
         color: white;
+        margin-top: 12%;
         padding: 3%;
         text-align: justify;
         font-size: 1.3em;
@@ -25,8 +22,27 @@
     .conditions-wrapper {
 
         .legal {
-            padding: 3% 5%;
-        }  
+            padding: 6% 5%;
+        } 
+
+    }
+     
+}
+
+
+@media (max-width: 465px){
+
+    .conditions-wrapper {
+
+        .terms-header {
+            padding-top: 10%;
+            font-size: 170%;
+        }
+
+        .legal {
+            padding-top: 18%;
+        } 
+
     }
      
 }

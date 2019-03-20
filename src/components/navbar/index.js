@@ -68,6 +68,8 @@ class Nav extends Component{
                 </span>
             </button>
 
+            <h1 className='terms-header'>{this.props.title}</h1>
+
         </div>
         <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
         <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>

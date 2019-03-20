@@ -5,12 +5,9 @@ import Nav from '../navbar/index';
 export default props => {
     return (
         <div className='conditions-wrapper'>
-            <div className='terms-filter'></div>
 
-            <Nav/>
-            <div className='terms-header'>
-                <h1>Terms & Conditions</h1>
-            </div>
+            <Nav title='Terms & Conditions'/>
+         
             <div className='legal'>
                 <p>Updated as of March 15, 2019</p>
 
