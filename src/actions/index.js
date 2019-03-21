@@ -80,7 +80,7 @@ export const sendSignInData = values => {
   const { email, password } = values;
 
   return async dispatch => {
-    await axios.post('/api/sign_in.php', {
+    const response = await axios.post('/api/sign_in.php', {
       login: {
         email, password
       } 

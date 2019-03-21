@@ -11,7 +11,6 @@ const required = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
   loginHandler = (values) => {
-    console.log('LOGIN: ', values);
     this.props.sendSignInData(values);
     return values;
   }

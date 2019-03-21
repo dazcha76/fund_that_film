@@ -1,11 +1,11 @@
 const DEFAULT_STATE = {
-  signedIn: false
+  login: false
 };
 
 const signInReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
     case 'SIGN_IN':
-      return {project: action.title}
+      return {project: action.login}
     default:
       return state
   }

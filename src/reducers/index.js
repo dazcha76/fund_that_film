@@ -11,7 +11,8 @@ const rootReducer = combineReducers({
   movies: movie_reducer,
   finance: financial_reducer,
   project: project_reducer,
-  form: formReducer
+  form: formReducer,
+  signin: signin_reducer
 });
 
 export default rootReducer; 
