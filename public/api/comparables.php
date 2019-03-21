@@ -18,7 +18,7 @@ $output = [
     'success'=>false
 ];
 
-//$params=$_GET['title1'].', '.$_GET['title2'];
+
 
 foreach($_GET AS $key=>$value){
     $_GET[$key]=addslashes($value);

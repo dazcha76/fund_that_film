@@ -10,7 +10,7 @@ $output = [
 ];
 
 $bodyVars = [intval($_GET['id1']),intval($_GET['id2'])];
-//$bodyVars=[3,4];// TODO: Make sure the frontend is passing in the actual data from the form fields
+
 
 if($bodyVars[0] === 0 && $bodyVars[1] === 0){
     throw new Exception ('Expected two valid films, none were entered.');
