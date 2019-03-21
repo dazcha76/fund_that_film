@@ -48,9 +48,11 @@ class Nav extends Component{
     }
     buildLink = (link) => {
         return (
-            <li key= { link.to }   onClick= { this.toggleClass }>
-                <Link to= { link.to }> { link.text }</Link>
-            </li>
+            <Link to= { link.to} key= { link.to } onClick= { this.toggleClass }>
+                <li>
+                    { link.text }
+                </li>
+            </Link>
         )
     }
     render(){

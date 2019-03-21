@@ -148,21 +148,11 @@
             padding: 14px 16px;
             background: transparent;
             transition: background 0.25s;
-            
-        a {
             color: white;
             font-size: 1.2rem;
-            
-        }
 
             &:hover {
-                
-                a {
-                    text-decoration: none;
-                    color: $input-border;
-                    width: 100%;
-                }
-
+                color: $button-color;
                 background-color: $input-text;
             }
         }
