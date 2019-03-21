@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import '../../section/signin.scss'; 
+import {Redirect} from 'react-router-dom';
 
 import { sendSignInData } from '../../actions';
 import { connect } from 'react-redux';
@@ -10,13 +11,24 @@ import { connect } from 'react-redux';
 const required = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
+
+  state = {
+    newProject: false,
+  }
+
   loginHandler = (values) => {
-    this.props.sendSignInData(values);
+    this.props.sendSignInData(values).then(() => this.setState(() => ({
+      newProject: true
+    })));
     return values;
   }
 
   render(){
     const {handleSubmit, onSubmit } = this.props;
+
+    if (this.state.newProject === true) {
+      return <Redirect to='/new_project' />
+    }
 
     return (
       <div className='signin-wrapper'>

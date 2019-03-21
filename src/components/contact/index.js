@@ -5,7 +5,7 @@ import '../../section/contact.scss';
 
 import { sendContactForm } from '../../actions';
 import { connect } from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import Nav from '../navbar/index';
 
 
