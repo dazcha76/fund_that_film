@@ -1,16 +1,17 @@
 
 import React, { Component } from 'react';
 import Person from './person';
-import john from '../../assets/images/john_profile.png';
-import danika from '../../assets/images/danika_profile.png';
-import diana from '../../assets/images/diana_profile.png';
-import christine from '../../assets/images/christine_profile.png';
+import john from '../../assets/images/john.png';
+import danika from '../../assets/images/danika.png';
+import diana from '../../assets/images/diana.png';
+import christine from '../../assets/images/christine.png';
+import '../../section/aboutus.scss'; 
 import { strictEqual } from 'assert';
 import { link } from 'react-router-dom';
 import Nav from '../navbar/index';
 
 class CardsContainer extends Component {
-    state = { 
+    info = { 
         people:  [
           {
               name: 'John Holman',
@@ -57,16 +58,14 @@ class CardsContainer extends Component {
         )
     }
     render(){
-        const personCard = this.state.people.map(this.buildPersonInfo);
+        const personCard = this.info.people.map(this.buildPersonInfo);
 
         return(
             <div className= 'about-us-wrapper'>
-            <div className='about-us-filter'></div>
                 <div className='about-us-container'>
-                  <Nav/>
-                      <h1 className='about-us-header'>Our Team</h1>
+                  <Nav title='Meet Our Team'/>
                   
-                  <div className= 'card-container'> 
+                  <div className= 'person-container'> 
                           { personCard }
                   </div>
                 </div>

@@ -6,6 +6,7 @@
     position: absolute;
     top: 5px;
     filter: drop-shadow(1px 1px 8px);
+    z-index: 1;
     
     .hamburger-inner { 
         background-color: white;  
@@ -147,21 +148,11 @@
             padding: 14px 16px;
             background: transparent;
             transition: background 0.25s;
-            
-        a {
             color: white;
             font-size: 1.2rem;
-            
-        }
 
             &:hover {
-                
-                a {
-                    text-decoration: none;
-                    color: $input-border;
-                    width: 100%;
-                }
-
+                color: $button-color;
                 background-color: $input-text;
             }
         }

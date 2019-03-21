@@ -48,9 +48,11 @@ class Nav extends Component{
     }
     buildLink = (link) => {
         return (
-            <li key= { link.to }   onClick= { this.toggleClass }>
-                <Link to= { link.to }> { link.text }</Link>
-            </li>
+            <Link to= { link.to} key= { link.to } onClick= { this.toggleClass }>
+                <li>
+                    { link.text }
+                </li>
+            </Link>
         )
     }
     render(){
@@ -67,6 +69,8 @@ class Nav extends Component{
                     <span className='hamburger-inner'></span>
                 </span>
             </button>
+
+            <h1 className='terms-header about-header'>{this.props.title}</h1>
 
         </div>
         <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>

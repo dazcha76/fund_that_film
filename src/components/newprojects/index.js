@@ -103,7 +103,7 @@ class NewProject extends Component {
             </div>
             <div className='row'>
               <div className='col'>
-                <Field type='text' className='input-runtime' name='runtime' placeholder='Runtime (minutes)' validate={[required, number]} component = {Input} />
+                <Field type='text' className='input-runtime' name='runtime' placeholder='Estimated Runtime (minutes)' validate={[required, number]} component = {Input} />
               </div>
               <div className='col'>
                 <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
@@ -111,20 +111,20 @@ class NewProject extends Component {
             </div>
             <div className='multiple-inputs-fields'>
               <div className='row'>
-                <Field name = 'releasedYear' component = { Select } label = 'Year' defaultText = 'Select Year' options={this.buildOptions(years)}/>
+                <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
               </div>
               <div className='row'>
-                <Field name = 'genre' component = { Select } label = 'Genre' defaultText = 'Select Genre' options={this.buildOptions(genre)}/>
+                <Field name = 'genre' component = { Select } label = 'Genre:' defaultText = 'Select Genre' options={this.buildOptions(genre)}/>
               </div>
               <div className='row'>
-                <Field name = 'mpaa' component = { Select } label = 'MPAA' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
+                <Field name = 'mpaa' component = { Select } label = 'Target MPAA Rating:' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
               </div>
               <div className='row'>
-                <Field name = 'developmentStage' component = { Select } label = 'Development Stage' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)}/>
+                <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)}/>
               </div>
             </div>
 
-            <Field component='textarea' type='text' id='synopsis' name='synopsis' className='contact_text' placeholder='Synopsis' validate={ required } component ={ Input }/>
+            <Field component='textarea' type='text' id='synopsis' name='synopsis' placeholder='Synopsis' validate={ required } />
 
             <div className='film-wrapper'>
               <div className='row'>
@@ -133,7 +133,7 @@ class NewProject extends Component {
                   <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
                 </div>
                 <div className='col'>
-                  <h3 className='film-capture'>Meets</h3>
+                  <h4 className='film-capture'>Meets</h4>
                 </div>
                 <div className='col'>
                   <label className='sr-only' htmlFor='inlineFormInputGroupUsername'>Film 2</label>
