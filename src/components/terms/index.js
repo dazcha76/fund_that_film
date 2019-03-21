@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from '../navbar/index';
 
-
 export default props => {
     return (
         <div className='conditions-wrapper'>

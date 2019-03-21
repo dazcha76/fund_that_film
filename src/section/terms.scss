@@ -4,14 +4,14 @@
     background-color: $dark-background;
 
     .terms-header {
-        padding: 5% 0;
+        padding: 5% 0 1% 0;
         background-color: $dark-background;
     }
 
     .legal {
         color: white;
         margin-top: 12%;
-        padding: 3%;
+        padding: 1%;
         text-align: justify;
         font-size: 1.3em;
     }   
@@ -30,17 +30,17 @@
 }
 
 
-@media (max-width: 465px){
+@media (max-width: 415px){
 
     .conditions-wrapper {
 
         .terms-header {
-            padding-top: 10%;
-            font-size: 170%;
+            padding-top: 15%;
+            padding-bottom: 5%;
         }
 
         .legal {
-            padding-top: 18%;
+            padding-top: 37%;
         } 
 
     }

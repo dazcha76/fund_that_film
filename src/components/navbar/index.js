@@ -68,7 +68,7 @@ class Nav extends Component{
                 </span>
             </button>
 
-            <h1 className='terms-header'>{this.props.title}</h1>
+            <h1 className='terms-header about-header'>{this.props.title}</h1>
 
         </div>
         <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
