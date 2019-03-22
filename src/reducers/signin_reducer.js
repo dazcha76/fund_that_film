@@ -1,4 +1,5 @@
 const DEFAULT_STATE = {
+  success: false,
   login: false
 };
 

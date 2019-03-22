@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import { Field, reduxForm, reset } from 'redux-form';
+import { Field, reduxForm, clearFields } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
@@ -74,24 +74,22 @@ class NewProject extends Component {
 
   submitHandler = async (values) => {
     console.log("VALUES:", values)
-    if(values.developmentStage !== 'default'){
+    // if(values.developmentStage !== 'default'){
       this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(values);
       this.setState({toComparables: true})
-    }
+    // }
     return values;
   }
   
   render(){
-    const {handleSubmit, reset, onSubmit } = this.props;
+    const {handleSubmit, onSubmit, clearFields } = this.props;
 
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
     }
 
-    return (
-
-      
+    return (  
       <div className='new-project-wrapper'>
         <div className='new-project-filter'></div>
         <div className='new-project-container'>
@@ -151,7 +149,7 @@ class NewProject extends Component {
               </div>              
             </div>
             <div className="user-input-button-container">
-              <button onClick={reset} type='button' className='new-project-form-button'>Clear</button>
+              <button onClick={clearFields} type='button' className='new-project-form-button'>Clear</button>
               <button className='new-project-form-button'>Submit</button>
             </div> 
           </form> 
