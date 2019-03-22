@@ -4,10 +4,17 @@ session_start();
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
-$output = [
-    'success'=>false,
-    'login'=>false
-];
+if(isset($_SESSION['user_id'])){ //if is set, user is logged in
+    $output['success']=true;
+    $output['login']=true;
+    $output['check']=false;
+    $json_output=json_encode($output);
+
+}else{//if user is not logged in
+    $output = [
+        'success'=>false,
+        'login'=>false
+    ];
 
     $data = json_decode( file_get_contents( 'php://input'),true);
 
@@ -55,13 +62,10 @@ $output = [
         } 
     }else{
         throw new Exception('SQL Error');
-    }
+    }  
+}
 
     $json_output=json_encode($output);
     print_r($json_output);
-
-
-
-
 
 ?>
