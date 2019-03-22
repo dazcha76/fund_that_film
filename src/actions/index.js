@@ -43,7 +43,7 @@ export const sendContactForm = values => {
   const { firstName, lastName, phoneNumber, email, message } = values;
 
   return async dispatch => {
-    const response = await axios.post('/api/contact_form.php', {
+    const response = await axios.post('/api/contactform.php', {
         firstName, lastName, phoneNumber, email, message
     })
 
@@ -80,7 +80,7 @@ export const sendSignInData = values => {
   const { email, password } = values;
 
   return async dispatch => {
-    const response = await axios.post('/api/sign_in.php', {
+    const response = await axios.post('/api/signin.php', {
       login: {
         email, password
       } 
