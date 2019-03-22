@@ -73,9 +73,12 @@ class NewProject extends Component {
   }
 
   submitHandler = async (values) => {
-    this.props.getProjectTitle(values.title),
-    await this.props.sendProjectData(values);
-    this.setState({toComparables: true})
+    console.log("VALUES:", values)
+    if(values.developmentStage !== 'default'){
+      this.props.getProjectTitle(values.title),
+      await this.props.sendProjectData(values);
+      this.setState({toComparables: true})
+    }
     return values;
   }
   
@@ -115,19 +118,19 @@ class NewProject extends Component {
               <div className='multiple-inputs-fields'>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Estimated Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
-                  <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
+                  <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)} validate={required}/>
                 </div>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Genre: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the genre of your movie</span></i></p>
-                  <Field name = 'genre' component = { Select } label = 'Genre:' defaultText = 'Select Genre' options={this.buildOptions(genre)}/>
+                  <Field name = 'genre' component = { Select } label = 'Genre:' defaultText = 'Select Genre' options={this.buildOptions(genre)} validate={required}/>
                 </div>
                 <div className='four-input-grouping'>
                   <p id='title-label'>MPAA Rating: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the target MPAA rating of your movie</span></i></p>
-                  <Field name = 'mpaa' component = { Select } label = 'Target MPAA Rating:' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)}/>
+                  <Field name = 'mpaa' component = { Select } label = 'Target MPAA Rating:' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} validate={required}/>
                 </div>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Production Stage: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the production stage your movie is currently in</span></i></p>
-                  <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)}/>
+                  <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)} validate={required}/>
                 </div>
               </div>
 
