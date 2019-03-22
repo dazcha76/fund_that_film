@@ -61,23 +61,17 @@ if($bodyVars){
     exit(500);
 }
 
-
-
-$id_query = 'SELECT c.`id`,c.`title`
+$id_query = 'SELECT c.`id`, c.`title`
                 FROM `comparables` AS c
                 WHERE '.$queryTitle.'';
 
 $id_result=$db->query($id_query);
 $id_array=[];
 
-
 while($row_id=$id_result->fetch_assoc()){
     $id_array[]=$row_id['id'];
     $incoming_title[]=$row_id['title'];
 }
-
-
-
 
 $queryPiece='';
 
@@ -87,8 +81,6 @@ for($index=0;$index<count($id_array);$index++){
         $queryPiece.= ' OR ';
     }
 }
-
-
 
 $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_name, GROUP_CONCAT(fp.`id`) AS funding_partners_ids, GROUP_CONCAT(fp.`name`)  AS funding_partners_names, ci.`image_url`
             FROM `comparables` AS c
@@ -102,7 +94,6 @@ $query = 'SELECT c.*, fp.`name` AS fp_name, dc.`id` AS dc_id, dc.`name` AS dc_na
 
 $result = $db->query($query);
 $data=[];
-
 
 if ($result){
     
