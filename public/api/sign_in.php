@@ -4,12 +4,13 @@ session_start();
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
+
+
 if(isset($_SESSION['user_id'])){ //if is set, user is logged in
     $output['success']=true;
     $output['login']=true;
-    $output['check']=false;
+    $output['check-sigin']=true;
     $json_output=json_encode($output);
-
 }else{//if user is not logged in
     $output = [
         'success'=>false,
