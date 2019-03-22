@@ -63,7 +63,7 @@ class CardsContainer extends Component {
         return(
             <div className= 'about-us-wrapper'>
                 <div className='about-us-container'>
-                  <Nav title='Meet Our Team'/>
+                  <Nav title='Meet The Team'/>
                   
                   <div className= 'person-container'> 
                           { personCard }

@@ -13,7 +13,7 @@ export default props => {
   return (
     <div className='video-container'>
       <video autoPlay='{true}' loop='loop' muted poster={backdrop_image} className='backgroundVideo'>
-        <source src={landingpage} type='video/mp4'  />
+        {/* <source src={landingpage} type='video/mp4'  /> */}
       </video>
       <div id='video-filter'></div>
       <div id='homepage-content'>
