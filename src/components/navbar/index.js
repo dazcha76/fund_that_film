@@ -12,9 +12,13 @@ class Nav extends Component{
                 to:'/'
             }, 
             {
-                text: 'New Projects',
+                text: 'New Project',
                 to:'/new_project'
             }, 
+            {
+                text: 'My Projects',
+                to:'/my_projects'
+            },
             {
                 text: 'Comparisons',
                 to:'/comparisons'
