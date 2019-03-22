@@ -114,7 +114,7 @@ class NewProject extends Component {
               </div>
               <div className='multiple-inputs-fields'>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>Estimated Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
+                  <p id='title-label'>Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
                   <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
                 </div>
                 <div className='four-input-grouping'>

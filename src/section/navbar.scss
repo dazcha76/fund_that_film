@@ -21,24 +21,7 @@
     }
 }
 
-#homepage-content {
-    position: relative;
-    top: 15%;
-    width: 85%;
-    max-width: 1200px;
-    padding: 20px;
-    background:  rgba(0, 93, 87, 0.6);
-    margin: 0 auto;
-    box-shadow: 2px 2px 8px;
 
-    p {
-        margin: 0 auto;
-        color: white;
-        font-size: 1.5rem;
-        padding: 20px 20px 30px;
-        text-shadow: 2px 2px 8px black;
-    }
-}
 
 
 .nav-bar-container {
@@ -161,37 +144,5 @@
     &.active {
         transform: translateX(0%);
         transition: all 0.25s ease;
-    }
-}
-
-
-
-
-
-@media only screen and (max-width:768px){
-    #homepage-content{
-        width:89%;
-    }
-    #homepage-content > p{
-        font-size:1.2rem;
-    }
-}
-
-@media only screen and (max-width:500px){
-    #homepage-content{
-        width:87%;
-    }
-    #homepage-content > p{
-        font-size:1.2rem;
-    }
-}
-
-
-@media only screen and (max-width:350px){
-    #homepage-content{
-        width:91%;
-    }
-    #homepage-content > p{
-        font-size:1rem;
     }
 }
