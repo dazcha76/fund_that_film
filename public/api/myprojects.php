@@ -28,13 +28,19 @@ print_r($id_array);
 $idPiece='';
 
 for($index=0;$index<count($id_array);$index++){
-    $idPiece.='c.`id`= '.$id_array[$index];
+    $idPiece.='`id`= '.$id_array[$index];
     if($index<count($id_array)-1){
         $idPiece.= ' OR ';
     }
 }
 
-print($idPiece);
 
+
+
+$proj_query='SELECT *
+                FROM `projects`
+                WHERE '.$idPiece.'';
+
+print($proj_query);
 
 ?>
