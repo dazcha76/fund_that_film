@@ -34,9 +34,6 @@ for($index=0;$index<count($id_array);$index++){
     }
 }
 
-
-
-
 $proj_query='SELECT *
                 FROM `projects`
                 WHERE '.$idPiece.'';
