@@ -16,14 +16,25 @@ $id_query ="SELECT `projects_id`
 
 
 $id_result = $db->query($id_query);
-$id_output=[];
+$id_array=[];
 
 while($row=$id_result->fetch_assoc()){
-    $id_output[]=$row['projects_id'];
+    $id_array[]=$row['projects_id'];
 };
 
-print_r($id_output);
+print_r($id_array);
 
+
+$idPiece='';
+
+for($index=0;$index<count($id_array);$index++){
+    $idPiece.='c.`id`= '.$id_array[$index];
+    if($index<count($id_array)-1){
+        $idPiece.= ' OR ';
+    }
+}
+
+print($idPiece);
 
 
 ?>
