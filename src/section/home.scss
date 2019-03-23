@@ -20,29 +20,39 @@
       text-shadow: 1px 1px 5px black;
     } 
     
-    .ftf-paragraph {
+    .desktop-paragraph,
+    .mobile-paragraph {
       margin: 0 auto;
       color: white;
       font-size: 1.5rem;
       padding: 20px 20px 30px;
       text-shadow: 2px 2px 8px black;
+      text-align: justify;
+    }
+
+    .desktop-paragraph {
+      display: inline-block;
+    }
+
+    .mobile-paragraph {
+      display: none;
     }
 
     .home-button-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+      margin-bottom: 1%;
+      text-align: center;
 
         .page-button.start-project-button,
         .page-button.login-button {
-          padding: 9px 31px;
-          margin: 0 auto;
           color:white;
           border: 2px solid white;
-          text-shadow:2px 2px 8px black;
           outline: none;
         }
 
+        .login-button {
+          margin-right: 5%;
+        }
+        
         a:link,
         a:visited,
         a:hover,
@@ -52,13 +62,45 @@
 
         .login-button:hover,
         .start-project-button:hover {
-          background-color: white;
+          background-color: rgba(255, 255, 255, 0.8);
           color: rgb(0, 93, 87);
         }
     }
   }        
 }
 
-.login-link {
-  margin-right: 5%;
+@media (max-width: 450px){
+  .home-container {
+    background-size: auto;
+
+    .homepage-content {
+      top: 5%;
+      width: 80%;
+      padding: 10px;
+
+      .home-title {
+        font-size: 2rem;
+        margin: 5% 1%;
+      } 
+      
+      .desktop-paragraph {
+        display: none;
+      }
+
+      .mobile-paragraph {
+        display: inline-block;
+      }
+
+      .home-button-container {
+        margin-bottom: 5%;
+
+        .page-button.start-project-button,
+        .page-button.login-button {
+          width: 30vw;
+          background-color: rgba(255, 255, 255, 0.8);
+          color: rgb(0, 93, 87);
+        }
+      }
+    }        
+  }    
 }
