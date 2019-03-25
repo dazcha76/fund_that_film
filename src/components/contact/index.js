@@ -34,7 +34,7 @@ class Contact extends Component {
         <Nav/> 
         <div className='contact-us-container'>
             <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
-              <h1 className="contact-title">Contact Us</h1>
+              <h1 className='contact-title'>Contact Us</h1>
 
             <div className='multiple-inputs-fields'>
               <div className="two-input-grouping">

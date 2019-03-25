@@ -1,7 +1,49 @@
 @import './variables';
 
-.sign-in-form {
-  width: 30%;
-  margin: 5% auto 0 auto;
-  text-align: center;
+.signin-wrapper {
+  width: 100%; 
+  height: 100vh;
+  padding-top: 8%;
+  background-image: url('../assets/images/contact_us.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  .signin-container {
+
+    .sign-in-form {
+      width: 70vw;
+      padding: 42px;
+      background: rgba(212, 212, 212, 0.8);
+      box-shadow: 2px 2px 8px;
+      border-radius: 14px;
+      margin: 0 auto;
+
+      .signin-title {
+        margin-bottom: 5%;
+      }
+
+      .sign-in-inputs {
+        width: 31vw;
+        margin: 0 auto;
+
+        div {
+          height: 10vh;
+
+          p {
+            color: red;
+            text-align: left;
+          }
+        }
+      }
+      
+      .login-button-container {
+        text-align: center; 
+        margin-top: 3%;
+      }
+    }
+  }
 }
+
+    
+      
