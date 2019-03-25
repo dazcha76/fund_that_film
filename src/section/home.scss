@@ -4,17 +4,20 @@
   height: 100vh;
   background-image: url('./assets/images/backdrop.jpg');
   background-size: cover;
+  color: rgb(0, 93, 87);
+  font-weight: 900;
 
   .homepage-content {
     position: relative;
     top: 25%;
     width: 85%;
     padding: 20px;
-    background: rgba(0, 93, 87, 0.6);
+    background: rgba(212, 212, 212, 0.8);
     margin: 0 auto;
     box-shadow: 2px 2px 8px;
 
     .home-title {
+      color: rgb(0, 93, 87);
       font-size: 5rem;
       padding: 5px;
       text-shadow: 1px 1px 5px black;
@@ -23,10 +26,8 @@
     .desktop-paragraph,
     .mobile-paragraph {
       margin: 0 auto;
-      color: white;
       font-size: 1.5rem;
       padding: 20px 20px 30px;
-      text-shadow: 2px 2px 8px black;
       text-align: justify;
     }
 
