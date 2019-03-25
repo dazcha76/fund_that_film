@@ -5,7 +5,6 @@ require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
 
-
 if(isset($_SESSION['user_id'])){ //if is set, user is logged in
     $output['success']=true;
     $output['login']=true;
