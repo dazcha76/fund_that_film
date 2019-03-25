@@ -30,7 +30,6 @@
 #film1-label,
 #film2-label,
 label {
-  font-family: "lato";
   color: $box-shadow-color;
   text-shadow:1px 1px 1px black;
   margin-bottom: 0.1%;
@@ -188,6 +187,16 @@ label {
   .two-input-grouping,
   .four-input-grouping {
     width: 100%;
+  }
+
+  .fa-question-circle .tooltiptext {
+    display: inline-block;
+    width: 43vw;   
+    bottom: -95%;
+  }
+
+  .meets {
+    display: none; 
   }
 }
 

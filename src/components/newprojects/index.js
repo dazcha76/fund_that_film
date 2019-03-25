@@ -131,14 +131,14 @@ class NewProject extends Component {
 
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
-                <p id='film1-label'>Film 1:</p>
+                <p id='film1-label'>Film 1: <i className="fas fa-question-circle"><span className="tooltiptext">Your movie can best be described as a combination of:</span></i></p>
                 <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
               </div>
               <div className='meets-container'>
-                <h4 className='meets'>Meets</h4><i className="fas fa-question-circle"><span className="tooltiptext">Enter the names of two movies that if combined would be an accurate description of your movie</span></i>
+                <h4 className='meets'>Meets</h4>
               </div>
               <div className='film-input-grouping'>
-                <p id='film2-label'>Film 2:</p>
+                <p id='film2-label'>Film 2: <i className="fas fa-question-circle"><span className="tooltiptext">and:</span></i></p>
                 <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
               </div>              
             </div>

@@ -23,16 +23,15 @@
           margin-bottom: 5%;
         }
         
-        .double-inputs {
-          width: 100%;
+        .multiple-inputs-fields {
           display: flex;
-          flex-direction: row ;
-          flex-wrap: wrap; 
+          flex-direction: row;
+          flex-wrap: wrap;
           justify-content: space-between;
 
-          div {
+          .two-input-grouping {
             height: 10vh;
-            width: 48%;
+            width: 31vw;
             min-width: 310px;
 
             p {
@@ -58,37 +57,18 @@
   }
 }
 
-@media (max-width: 1010px){
+@media (max-width: 1100px){
   .contact-us-wrapper {
     .contact-us-container {
       .contact-us-form {
-        .double-inputs {
-          div {
-            width: 100%;
+        .multiple-inputs-fields {
+          .two-input-grouping {
+            min-width: 100%;
           }    
         }
       }
     }
   }   
-}
-
-@media (max-width: 559px){
-  .contact-us-wrapper {
-    .contact-us-container {
-      .contact-us-form {   
-        .double-inputs {
-          div {
-            #firstName,
-            #lastName,
-            #phoneNumber,
-            #email {
-              width: 95%;
-            }
-          }    
-        }
-      }
-    }
-  }
 }
 
 @media (max-width: 450px){
@@ -104,55 +84,17 @@
           margin-bottom: 10%;
           font-size: 2em;
         }
-
-        .double-inputs {
-          div {
-            #firstName,
-            #lastName,
-            #phoneNumber,
-            #email {
-              width: 99%;
-            }
-          }    
-        }
       }
     }
   }
 }
 
-@media (max-width: 375px){
-  .contact-us-wrapper {
-    .contact-us-container {
-      .contact-us-form {   
-        .double-inputs {
-          div {
-            #firstName,
-            #lastName,
-            #phoneNumber,
-            #email {
-              width: 90%;
-            }
-          }    
-        }
-      }
-    }
-  }
-}
+
 
 @media (max-width: 360px){
   .contact-us-wrapper {
     .contact-us-container {
       .contact-us-form {   
-        .double-inputs {
-          div {
-            #firstName,
-            #lastName,
-            #phoneNumber,
-            #email {
-              width: 87%;
-            }
-          }    
-        }
 
         .contact-button-container {
           .input-submit-button {
@@ -171,17 +113,6 @@
         .contact-title {
           font-size: 1.8em;
         } 
-
-        .double-inputs {
-          div {
-            #firstName,
-            #lastName,
-            #phoneNumber,
-            #email {
-              width: 77%;
-            }
-          }    
-        }
       }
     }
   } 
