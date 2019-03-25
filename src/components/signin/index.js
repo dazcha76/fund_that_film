@@ -17,9 +17,15 @@ class SignIn extends Component {
   }
 
   loginHandler = (values) => {
-    this.props.sendSignInData(values).then(() => this.setState(() => ({
-      newProject: true
-    })));
+    console.log("PROPS", this.props)
+    this.props.sendSignInData(values).then(() => 
+      // if(state.signin.success){
+        this.setState(() => ({
+          newProject: true
+        })));
+      // }
+      
+    
     return values;
   }
 
@@ -58,6 +64,7 @@ SignIn = reduxForm({
   })(SignIn) ;
 
 const mapStateToProps = state => {
+  console.log("SIGIN", state.signin.success)
   return {
     sign_in_form: state.form
   }
