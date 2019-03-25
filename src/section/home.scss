@@ -1,129 +1,114 @@
 @import './variables';
 
-.video-container{
-  position: relative;
-  overflow: hidden;
-  height: 900px;
-  width: 100%;
-  max-height: 100vh;
-  
-  #video-filter{
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height: 100vh;
-    background: white;
-    opacity: 0.2;
-  }
-  
-  .backgroundVideo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    width: auto;
-    height: auto;
-    min-width: 100%;
-    min-height: 100%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-  }
-
-  .login-button {
-    position: absolute;
-    top: -25%;
-    right: -8%;
-    font-size: 1.2em;
-    background-color: $button-color;
-    padding: 1% 2%;
-    color: white;
-  }
-  
-  .title {
-    font-size: 5rem;
-    padding: 5px;
-    text-shadow: 1px 1px 5px black;
-  }
-}
-
-button.start-project-button {
-  left:0;
-  right:0;
-  padding: 9px 31px;
-  margin: 0 auto;
-  color:white;
-  position: relative;
-  display: block;
-  background: transparent;
-  border: 2px solid white;
-  text-shadow:2px 2px 8px black;
-  outline: none
-}
-
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-}
-
-.start-project-button:hover {
-  background-color: white;
+.home-container {
+  height: 100vh;
+  background-image: url('./assets/images/backdrop.jpg');
+  background-size: cover;
   color: rgb(0, 93, 87);
-}
+  font-weight: 900;
 
-@media only screen and (max-width:900px){
-  .video-container .title {
-    font-size: 5rem;
-    padding: 5px;
-    text-shadow: 1px 1px 5px black;
-  }
-}
-
-
-
-@media only screen and (max-width:768px){
-  .video-container .title {
-    font-size: 4rem;
-    padding: 5px;
-    text-shadow: 1px 1px 5px black;
-  }
-.page-button {
-    font-size: 105%;
-    padding: 3px 13px;
+  .homepage-content {
     position: relative;
-    bottom: 110%;
-  }
+    top: 25%;
+    width: 85%;
+    padding: 20px;
+    background: rgba(212, 212, 212, 0.8);
+    margin: 0 auto;
+    box-shadow: 2px 2px 8px;
+
+    .home-title {
+      color: rgb(0, 93, 87);
+      font-size: 5rem;
+      padding: 5px;
+      text-shadow: none;
+    } 
+    
+    .desktop-paragraph,
+    .mobile-paragraph {
+      margin: 0 auto;
+      font-size: 1.5rem;
+      padding: 20px 20px 30px;
+      text-align: justify;
+    }
+
+    .desktop-paragraph {
+      display: inline-block;
+    }
+
+    .mobile-paragraph {
+      display: none;
+    }
+
+    .home-button-container {
+      margin-bottom: 1%;
+      text-align: center;
+
+        .login-button {
+          margin-right: 5%;
+        }
+    }
+  }        
 }
 
+@media (max-width: 450px){
+  .home-container {
+    background-size: auto;
 
+    .homepage-content {
+      top: 5%;
+      width: 80%;
+      padding: 10px;
 
-@media only screen and (max-width:500px){
-  .video-container .title {
-    font-size: 4rem;
-    padding: 5px;
-    text-shadow: 1px 1px 5px black;
-  }
-.page-button {
-    font-size: 105%;
-    padding: 3px 13px;
-    position: relative;
-    bottom: 110%;
-  }
+      .home-title {
+        font-size: 2rem;
+        margin: 5% 1%;
+      } 
+      
+      .desktop-paragraph {
+        display: none;
+      }
+
+      .mobile-paragraph {
+        display: inline-block;
+      }
+
+      .home-button-container {
+        margin-bottom: 5%;
+      }
+    }        
+  }    
 }
 
+@media (max-width: 375px){
+  .home-container {
+    .homepage-content {
+      .mobile-paragraph {
+        font-size: 1.3em;
+      }
+    }        
+  }    
+}
 
-@media only screen and (max-width:350px){
-  .video-container .title {
-    font-size: 2rem;
-    padding: 5px;
-    text-shadow: 1px 1px 5px black;
-  }
-.page-button {
-    font-size: 105%;
-    padding: 3px 13px;
-    position: relative;
-    bottom: 110%;
-  }
+@media (max-width: 360px){
+  .home-container {
+    .homepage-content {
+      .mobile-paragraph {
+        font-size: 1.2em;
+      }
+    }        
+  }    
+}
+
+@media (max-width: 320px){
+  .home-container {
+    .homepage-content {
+      .home-title {
+        font-size: 1.5rem;
+      }
+
+      .mobile-paragraph {
+        font-size: 1.1em;
+      }
+    }        
+  }    
 }

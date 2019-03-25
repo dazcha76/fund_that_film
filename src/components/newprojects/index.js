@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import { Field, reduxForm, clearFields } from 'redux-form';
+import { Field, reduxForm, reset } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
 import { sendProjectData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
-
 
 const years = [
   { text: '2019', value: '2019' },
@@ -91,12 +90,10 @@ class NewProject extends Component {
 
     return (  
       <div className='new-project-wrapper'>
-        <div className='new-project-filter'></div>
+        <Nav/>
         <div className='new-project-container'>
-          <Nav/>
-          <div className='new-project-form-box'>
             <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
-              <h1>Enter Project Information</h1>
+              <h1 className='new-project-title'>Enter Project Information</h1>
      
               <div>
                 <p id='title-label'>Movie Title: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the name of your movie</span></i></p>
@@ -115,8 +112,8 @@ class NewProject extends Component {
               </div>
               <div className='multiple-inputs-fields'>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>Estimated Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
-                  <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)} validate={required}/>
+                  <p id='title-label'>Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
+                  <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
                 </div>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Genre: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the genre of your movie</span></i></p>
@@ -137,24 +134,23 @@ class NewProject extends Component {
 
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
-                <p id='film1-label'>Film 1:</p>
+                <p id='film1-label'>Film 1: <i className="fas fa-question-circle"><span className="tooltiptext">Your movie can best be described as a combination of:</span></i></p>
                 <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
               </div>
               <div className='meets-container'>
-                <h4 className='meets'>Meets</h4><i className="fas fa-question-circle"><span className="tooltiptext">Enter the names of two movies that if combined would be an accurate description of your movie</span></i>
+                <h4 className='meets'>Meets</h4>
               </div>
               <div className='film-input-grouping'>
-                <p id='film2-label'>Film 2:</p>
+                <p id='film2-label'>Film 2: <i className="fas fa-question-circle"><span className="tooltiptext">and:</span></i></p>
                 <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
               </div>              
             </div>
             <div className="user-input-button-container">
-              <button onClick={clearFields} type='button' className='new-project-form-button'>Clear</button>
-              <button className='new-project-form-button'>Submit</button>
+              <button onClick={reset} type='button' className='new-project-clear-button page-button'>Clear</button>
+              <button className='new-project-submit-button page-button'>Submit</button>
             </div> 
           </form> 
           </div>
-        </div>
         <Disclaimer/>
       </div>
     )

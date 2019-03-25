@@ -4,7 +4,6 @@ import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import '../../section/signin.scss'; 
 import {Redirect} from 'react-router-dom';
-
 import { sendSignInData } from '../../actions';
 import { connect } from 'react-redux';
 
@@ -39,18 +38,17 @@ class SignIn extends Component {
     return (
       <div className='signin-wrapper'>
         <Nav/>
-        <div className='form-box'>
-          <div className='signin-header'>
-            <h1>Sign In</h1>
-          </div>
-
+        <div className='signin-container'>
           <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
+            <h1 className='signin-title'>Sign In</h1>
             <div className="sign-in-inputs">
               <Field type='email' id='email' name='email' className='email-input'  placeholder='Email Address' validate={ required } component={ Input }/>
    
               <Field type='password' id='password' name='password' className='password-input'  placeholder='Password' validate={ required } component={ Input }/>
             </div>
+            <div className='login-button-container'>
             <button type="submit" className='login-submit-button page-button'>Login</button>
+            </div>
           </form>
         </div>
         
