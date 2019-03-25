@@ -90,10 +90,8 @@ class NewProject extends Component {
 
       
       <div className='new-project-wrapper'>
-        <div className='new-project-filter'></div>
+        <Nav/>
         <div className='new-project-container'>
-          <Nav/>
-          <div className='new-project-form-box'>
             <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
               <h1>Enter Project Information</h1>
      
@@ -148,12 +146,11 @@ class NewProject extends Component {
               </div>              
             </div>
             <div className="user-input-button-container">
-              <button onClick={reset} type='button' className='new-project-form-button'>Clear</button>
-              <button className='new-project-form-button'>Submit</button>
+              <button onClick={reset} type='button' className='new-project-clear-button page-button'>Clear</button>
+              <button className='new-project-submit-button page-button'>Submit</button>
             </div> 
           </form> 
           </div>
-        </div>
         <Disclaimer/>
       </div>
     )

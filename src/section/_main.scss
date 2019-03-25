@@ -8,51 +8,7 @@
 
 body {
   background-color: $dark-background;
-  position: relative;
   width: 100%;
-}
-
-#page-button-container {
-  position: absolute;
-  top: 40%;
-  left: 0;
-  right: 0;
-  text-align: center;
-  
-  a {
-    padding: 5px 10px;
-    font-size: 2rem;
-    
-    button {
-      color: white;
-      box-shadow: 1px 1px 7px black;
-    }
-  }
-}
-
-.new-project-form-button {
-  width: 20%;
-}
-
-.new-project-form-button:hover {
-  background-color: rgb(0, 93, 87);
-}
-
-.form-control {
-  margin-bottom: 5%;
-}
-
-
-.background-element {
-  background: url(https://images.unsplash.com/photo-1487816426104-08fd29b09ac8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2125&q=80);
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  right: 0;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 }
 
 h1 {
@@ -61,21 +17,11 @@ h1 {
   font-size: 300%;
 }
 
-.page-button {
-  width: 20%;
-  display: inline-block;
-  font-size: 150%;
-  border: none;
-  border-radius: 4px;
-  outline: none;
-  color: antiquewhite;
-  background-color: $side-navbar;
-  cursor: pointer;
-  padding: 5px 13px;
-}
-
-form {
-  margin: 2% auto;
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
 }
 
 input,
@@ -91,59 +37,19 @@ textarea {
   padding: 8px 2%;
 }
 
-
-@media only screen and (max-width:992px){
-  input,
-select,
-textarea {
-  font-size: 1.5rem;
-}
-   .page-button {
-  font-size: 145%;
-  padding: 6px 12px;
-  }
-}
-
-
-@media only screen and (max-width:768px){
-  input,
-select,
-textarea {
-  font-size: 1.3rem;
-}
-   .page-button {
-  font-size: 128%;
-  padding: 5px 11px;
-  }
-}
-
-@media only screen and (max-width:500px){
-  input,
-select,
-textarea {
-  font-size: 1.2rem;
-  padding: 8px 2%;
-}
 .page-button {
-  font-size: 128%;
-  padding: 5px 11px;
-  }
+  width: 20%;
+  display: inline-block;
+  font-size: 150%;
+  border: 2px solid white;
+  border-radius: 4px;
+  color: white;
+  background-color: $side-navbar;
+  cursor: pointer;
+  padding: 5px 13px;
 }
 
-
-@media only screen and (max-width:350px){
-  input,
-select,
-textarea {
-  height:4vh;
-  font-size: 0.9rem;
-  
+.page-button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgb(0, 93, 87);
 }
-.page-button {
-    font-size: 105%;
-    padding: 3px 13px;
-    position: relative;
-    bottom: 110%;
-  }
-}
-

@@ -42,28 +42,8 @@
       margin-bottom: 1%;
       text-align: center;
 
-        .page-button.start-project-button,
-        .page-button.login-button {
-          color:white;
-          border: 2px solid white;
-          outline: none;
-        }
-
         .login-button {
           margin-right: 5%;
-        }
-        
-        a:link,
-        a:visited,
-        a:hover,
-        a:active {
-          text-decoration: none;
-        }
-
-        .login-button:hover,
-        .start-project-button:hover {
-          background-color: rgba(255, 255, 255, 0.8);
-          color: rgb(0, 93, 87);
         }
     }
   }        
@@ -107,9 +87,7 @@
 
 @media (max-width: 375px){
   .home-container {
-
     .homepage-content {
-
       .mobile-paragraph {
         font-size: 1.3em;
       }
@@ -119,9 +97,7 @@
 
 @media (max-width: 360px){
   .home-container {
-
     .homepage-content {
-
       .mobile-paragraph {
         font-size: 1.2em;
       }
@@ -131,9 +107,7 @@
 
 @media (max-width: 320px){
   .home-container {
-
     .homepage-content {
-
       .home-title {
         font-size: 1.5rem;
       }

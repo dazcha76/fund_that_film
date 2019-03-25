@@ -15,7 +15,7 @@ export default props => {
             <button className='page-button login-button'>Log In</button>
           </Link>
           <Link to='/new_project'>
-            <button className='page-button start-project-button'>Start</button>
+            <button className='page-button start-project-button'>Try It</button>
           </Link>
         </div>
       </div>
