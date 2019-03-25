@@ -14,7 +14,7 @@
       .contact-us-form {
         width: 70vw;
         padding: 42px;
-        background: rgba(212, 212, 212, 0.6);
+        background: rgba(212, 212, 212, 0.8);
         box-shadow: 2px 2px 8px;
         border-radius: 14px;
         margin: 0 auto;
@@ -70,6 +70,25 @@
       }
     }
   }   
+}
+
+@media (max-width: 559px){
+  .contact-us-wrapper {
+    .contact-us-container {
+      .contact-us-form {   
+        .double-inputs {
+          div {
+            #firstName,
+            #lastName,
+            #phoneNumber,
+            #email {
+              width: 95%;
+            }
+          }    
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 450px){

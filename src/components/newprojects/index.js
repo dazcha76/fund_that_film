@@ -8,7 +8,6 @@ import Nav from '../navbar/index';
 import { sendProjectData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
 
-
 const years = [
   { text: '2019', value: '2019' },
   { text: '2020', value: '2020' },
@@ -87,13 +86,11 @@ class NewProject extends Component {
     }
 
     return (
-
-      
       <div className='new-project-wrapper'>
         <Nav/>
         <div className='new-project-container'>
             <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
-              <h1>Enter Project Information</h1>
+              <h1 className='new-project-title'>Enter Project Information</h1>
      
               <div>
                 <p id='title-label'>Movie Title: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the name of your movie</span></i></p>
