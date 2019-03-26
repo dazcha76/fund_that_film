@@ -1,21 +1,34 @@
 import { Button } from 'reactstrap';
+import auth from '../hoc/auth'
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Test from './test';
-import CardsContainer from './aboutus/index';
-import Contact from './contact/index';
+import CardsContainer from './aboutus';
+import Contact from './contact';
 import Disclaimer from './footer/disclaimer';
 import EmailSent from './contact/messagesent';
-import FinancialNorthAmerica from './financial/index';
-import Home from './home/index';
-import MovieComparison from './comparables/index';
-import NewProject from './newprojects/index';
+import FinancialNorthAmerica from './financial';
+import Home from './home';
+import MovieComparison from './comparables';
+import NewProject from './newprojects';
 import MyProjects from './projects';
 import Shareable from './financial/shareable';
-import SignIn from './signin/index';
-import Terms from './terms/index';
+import SignIn from './signin';
+import Terms from './terms';
 
-class App extends Component{
+class App extends Component {
+    // state = {
+    //     userAuth: false
+    // }
+
+    // signIn = () => {
+    //     this.setState({userAuth: true})
+    // };
+
+    // signOut = () => {
+    //     this.setState({userAuth: false})
+    // };
+
     componentDidMount(){
         setTimeout(() =>{
             let preloader = document.querySelector('.spinner-container');
@@ -30,7 +43,8 @@ class App extends Component{
                     <Route exact path='/' component={ Home }/>
                     <Route path='/sign_in' render={() => <SignIn />}/>
                     <Route path='/new_project' render={() => <NewProject />}/>
-                    <Route path='/my_projects' component={ MyProjects }/>
+                    {/*<Route path='/my_projects' component={auth(MyProjects, this.state.userAuth) }/>*/}
+                    <Route path='/my_projects' component={MyProjects}/>
                     <Route path='/comparisons' component={ MovieComparison }/>
                     <Route path='/financials' component={ FinancialNorthAmerica }/>
                     <Route path='/invest/' component={ Shareable }/>

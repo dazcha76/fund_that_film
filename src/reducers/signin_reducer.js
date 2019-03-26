@@ -1,12 +1,13 @@
 const DEFAULT_STATE = {
-  success: false,
-  login: false
+    success: false, 
+    login: false, 
+    'check-signin': false
 };
 
 const signInReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
     case 'SIGN_IN':
-      return {project: action.login}
+      return action.payload.data
     default:
       return state
   }

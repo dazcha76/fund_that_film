@@ -4,40 +4,25 @@ import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import '../../section/signin.scss'; 
 import {Redirect} from 'react-router-dom';
-import { sendSignInData } from '../../actions';
+import { signIn } from '../../actions';
 import { connect } from 'react-redux';
 
 const required = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
 
-  state = {
-    newProject: false,
-  }
-
   loginHandler = (values) => {
     console.log("PROPS", this.props)
-    this.props.sendSignInData(values).then(() => 
-      // if(state.signin.success){
-        this.setState(() => ({
-          newProject: true
-        })));
-      // }
+    this.props.signIn(values);
       
-    
     return values;
   }
 
   render(){
     const {handleSubmit, onSubmit } = this.props;
 
-    if (this.state.newProject === true) {
-      return <Redirect to='/new_project' />
-    }
-
     return (
       <div className='signin-wrapper'>
-        <Nav/>
         <div className='signin-container'>
           <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
             <h1 className='signin-title'>Sign In</h1>
@@ -62,10 +47,10 @@ SignIn = reduxForm({
   })(SignIn) ;
 
 const mapStateToProps = state => {
-  console.log("SIGIN", state.signin.success)
+  console.log("SIGNIN STATE", state.signin)
   return {
     sign_in_form: state.form
   }
 }
 
-export default connect(mapStateToProps, { sendSignInData })(SignIn); 
+export default connect(mapStateToProps, { signIn })(SignIn); 

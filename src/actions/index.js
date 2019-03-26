@@ -36,6 +36,8 @@ export const getMyProjects = () => {
   return async dispatch => {
     const response = await axios.get('/api/myprojects.php');
 
+    console.log("MY PROJECT RESPONSE:", response)
+
     dispatch({
       type: 'GET_MY_PROJECTS',
       payload: response
@@ -87,7 +89,7 @@ export const sendProjectData = values => {
   }
 }
 
-export const sendSignInData = values => {
+export const signIn = values => {
   const { email, password } = values;
 
   return async dispatch => {
@@ -96,7 +98,7 @@ export const sendSignInData = values => {
         email, password
       } 
     });
-    
+
     dispatch({
       type: 'SIGN_IN',
       payload: response

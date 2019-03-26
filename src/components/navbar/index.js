@@ -15,7 +15,7 @@ class Nav extends Component{
                 to:'/new_project'
             }
         ],
-        loggedLinks: [
+        loggedInLinks: [
             {
                 text: 'My Projects',
                 to:'/my_projects'
@@ -53,14 +53,16 @@ class Nav extends Component{
     }
 
     renderLinks(){
-        const logged = true;
-        const {topLinks, loggedLinks, bottomLinks} = this.state;
+        // const {login, logout} = this.props;
+        const login = true;
+
+        const {topLinks, loggedInLinks, bottomLinks} = this.state;
 
         let activeLinks = [];
         let linkElements = [];
 
-        if(logged){
-            activeLinks = [...topLinks, ...loggedLinks, ...bottomLinks];
+        if(login){
+            activeLinks = [...topLinks, ...loggedInLinks, ...bottomLinks];
 
             linkElements = activeLinks.map(this.buildLink);
 
