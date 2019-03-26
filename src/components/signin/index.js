@@ -6,20 +6,33 @@ import '../../section/signin.scss';
 import {Redirect} from 'react-router-dom';
 import { signIn } from '../../actions';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom'
 
 const required = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
+  state = {
+    toDashboard: false,
+  }
 
   loginHandler = (values) => {
-    console.log("PROPS", this.props)
-    this.props.signIn(values);
-      
+    this.props.signIn(values).then(()=>{
+      if(this.props.sign_in){
+        this.setState({
+          toDashboard: true,
+        })
+      }
+    });
+    
     return values;
   }
 
   render(){
     const {handleSubmit, onSubmit } = this.props;
+
+    if (this.state.toDashboard === true) {
+      return <Redirect to='/my_projects' />
+    }
 
     return (
       <div className='signin-wrapper'>
@@ -47,8 +60,9 @@ SignIn = reduxForm({
   })(SignIn) ;
 
 const mapStateToProps = state => {
-  console.log("SIGNIN STATE", state.signin)
+  console.log("SIGNIN STATE", state)
   return {
+    sign_in: state.signin.success,
     sign_in_form: state.form
   }
 }

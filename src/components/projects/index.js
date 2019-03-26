@@ -12,6 +12,14 @@ class Projects extends Component {
     this.props.getMyProjects();
   }
 
+  seeComparables = () => {
+    console.log('See Comparables')
+  }
+
+  seeFinancials = () => {
+    console.log('See Financials')
+  }
+
   buildProject(project){
     return (
         <div key={project.id} className='project-container'>
@@ -26,31 +34,30 @@ class Projects extends Component {
           <p className='project-detail'><span>Logline:</span> {project.logline}</p>
           <p className='project-detail'><span>Synopsis:</span> {project.synopsis}</p>
           <div className="my-projects-button-container">
-              <button className='my-project-comparables-button page-button'>Comparables</button>
-              <button className='my-project-financial-button page-button'>Financials</button>
-            </div> 
+            <button className='my-project-comparables-button page-button'>Comparables</button>
+            <button className='my-project-financial-button page-button'>Financials</button>
+          </div> 
         </div>
     )
   }
 
   render(){
-    console.log("PROPS:", this.props.my_projects)
     const projectCard = this.props.my_projects.map(this.buildProject);
-
 
     return (
       <div className='my-projects-wrapper'>
         {/*<Nav auth={this.state.userAuth}/>*/}
         <Nav />
         <h1>My Projects</h1>
-        {projectCard}
+        <div>
+          {projectCard}
+        </div>
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
-  console.log("PROJECT STATE:", state.myprojects.my_projects)
   return {
     my_projects: state.myprojects.my_projects
   }

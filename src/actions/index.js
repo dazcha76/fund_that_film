@@ -36,8 +36,6 @@ export const getMyProjects = () => {
   return async dispatch => {
     const response = await axios.get('/api/myprojects.php');
 
-    console.log("MY PROJECT RESPONSE:", response)
-
     dispatch({
       type: 'GET_MY_PROJECTS',
       payload: response
