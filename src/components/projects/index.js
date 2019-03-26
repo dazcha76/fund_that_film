@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import Nav from '../navbar/index';
 import '../../section/projects.scss'; 
-
 import { connect } from 'react-redux';
 import { getMyProjects } from '../../actions';
 
-
 class Projects extends Component {
   componentDidMount(){
-    // setTimeout(()=>{
-    //   this.setState({ pageHasLoaded: true })
-    // },1000)
+    setTimeout(()=>{
+      this.setState({ pageHasLoaded: true })
+    },1000)
     this.props.getMyProjects();
   }
 
@@ -19,7 +17,6 @@ class Projects extends Component {
       <div className='my-projects-wrapper'>
         <Nav />
         <h1>My Projects</h1>
-
       </div>
     )
   }

@@ -5,7 +5,7 @@ import person from '../../assets/images/example_person_icon.png';
 class Nav extends Component{
     state = {
         active: false,
-        commonLinks: [
+        topLinks: [
             {
                 text: 'Home',
                 to:'/'
@@ -13,8 +13,15 @@ class Nav extends Component{
             {
                 text: 'New Project',
                 to:'/new_project'
-            }, 
-           
+            }
+        ],
+        loggedLinks: [
+            {
+                text: 'My Projects',
+                to:'/my_projects'
+            }
+        ],
+        bottomLinks: [
             {
                 text: 'Contact',
                 to:'/contact'
@@ -26,13 +33,6 @@ class Nav extends Component{
             {
                 text:'Terms & Conditions',
                 to:'/terms'
-            }
-
-        ],
-        loggedLinks: [
-            {
-                text: 'My Projects',
-                to:'/my_projects'
             }
         ]
     }
@@ -54,13 +54,13 @@ class Nav extends Component{
 
     renderLinks(){
         const logged = true;
-        const {commonLinks, loggedLinks} = this.state;
+        const {topLinks, loggedLinks, bottomLinks} = this.state;
 
         let activeLinks = [];
         let linkElements = [];
 
         if(logged){
-            activeLinks = [...commonLinks, ...loggedLinks];
+            activeLinks = [...topLinks, ...loggedLinks, ...bottomLinks];
 
             linkElements = activeLinks.map(this.buildLink);
 
@@ -70,7 +70,7 @@ class Nav extends Component{
                 </li>
             );
         } else {
-            activeLinks = [...commonLinks];
+            activeLinks = [...topLinks, ...bottomLinks];
 
             linkElements = activeLinks.map(this.buildLink)
         }
