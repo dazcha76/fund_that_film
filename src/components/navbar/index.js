@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import person from '../../assets/images/example_person_icon.png';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions';
+import { signIn, signOut } from '../../actions';
 
 class Nav extends Component{
     state = {
+        toHome: false,
         active: false,
         topLinks: [
             {
@@ -44,6 +45,10 @@ class Nav extends Component{
         this.setState({ active: !currentState });
     }
 
+    logout = () => {
+        this.props.signOut();
+    }
+
     buildLink(link){
         return (
             <Link to= { link.to} key= { link.to } >
@@ -67,7 +72,7 @@ class Nav extends Component{
             linkElements = activeLinks.map(this.buildLink);
 
             linkElements.push(
-                <li key='/sign_out' onClick={this.logOut}>
+                <li key='/sign_out' onClick={this.logout} className='signout-button'>
                   Sign Out      
                 </li>
             );
@@ -83,6 +88,10 @@ class Nav extends Component{
     render(){
         const hamburgerBaseClass = 'hamburger hamburger--spin ';
         const hamburgerActive = 'is-active';
+
+        if (!this.props.sign_out) {
+          return <Redirect to='/' />
+        }
 
         return(
             <div className='nav-bar-container'>
@@ -123,11 +132,13 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
+    console.log("SIGNOUT STATE:", state)
   return {
-    sign_in: state.signin.login
+    sign_in: state.signin.login,
+    sign_out: state.signin.login
   }
 }
 
 export default connect(mapStateToProps, { 
-    signIn 
+    signIn, signOut 
 })(Nav); 
