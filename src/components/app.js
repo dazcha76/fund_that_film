@@ -15,20 +15,10 @@ import MyProjects from './projects';
 import Shareable from './financial/shareable';
 import SignIn from './signin';
 import Terms from './terms';
+import { signIn } from '../actions';
+import { connect } from 'react-redux';
 
 class App extends Component {
-    // state = {
-    //     userAuth: false
-    // }
-
-    // signIn = () => {
-    //     this.setState({userAuth: true})
-    // };
-
-    // signOut = () => {
-    //     this.setState({userAuth: false})
-    // };
-
     componentDidMount(){
         setTimeout(() =>{
             let preloader = document.querySelector('.spinner-container');
@@ -43,8 +33,9 @@ class App extends Component {
                     <Route exact path='/' component={ Home }/>
                     <Route path='/sign_in' render={() => <SignIn />}/>
                     <Route path='/new_project' render={() => <NewProject />}/>
-                    {/*<Route path='/my_projects' component={auth(MyProjects, this.state.userAuth) }/>*/}
-                    <Route path='/my_projects' component={MyProjects}/>
+
+                    <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
+
                     <Route path='/comparisons' component={ MovieComparison }/>
                     <Route path='/financials' component={ FinancialNorthAmerica }/>
                     <Route path='/invest/' component={ Shareable }/>
@@ -58,4 +49,12 @@ class App extends Component {
     }
 };
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        sign_in: state.signin.login
+    }
+}
+
+export default connect(mapStateToProps, {
+    signIn
+})(App);

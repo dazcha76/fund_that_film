@@ -12,8 +12,8 @@ const rootReducer = combineReducers({
   movies: movie_reducer,
   finance: financial_reducer,
   project: project_reducer,
-  signin: signin_reducer,
   myprojects: myprojects_reducer,
+  signin: signin_reducer,
   form: formReducer
 });
 

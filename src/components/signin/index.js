@@ -3,23 +3,22 @@ import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import '../../section/signin.scss'; 
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signIn } from '../../actions';
 import { connect } from 'react-redux';
-import {withRouter} from 'react-router-dom'
 
 const required = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
   state = {
-    toDashboard: false,
+    toMyProjects: false
   }
 
   loginHandler = (values) => {
     this.props.signIn(values).then(()=>{
       if(this.props.sign_in){
         this.setState({
-          toDashboard: true,
+          toMyProjects: true,
         })
       }
     });
@@ -30,7 +29,7 @@ class SignIn extends Component {
   render(){
     const {handleSubmit, onSubmit } = this.props;
 
-    if (this.state.toDashboard === true) {
+    if (this.state.toMyProjects === true) {
       return <Redirect to='/my_projects' />
     }
 
