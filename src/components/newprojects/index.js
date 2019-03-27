@@ -35,7 +35,7 @@ const genre = [
   { text: 'Fantasy', value: 'Fantasy' }, 
   { text: 'History', value: 'History' },
   { text: 'Horror', value: 'Horror' },
-  { text: 'Music', value: 'Music' },
+  { text: 'Musical', value: 'Musical' },
   { text: 'Mystery', value: 'Mystery' },
   { text: 'Romance', value: 'Romance' },
   { text: 'Science Fiction', value: 'Science Fiction'},
@@ -53,10 +53,10 @@ const developmentStage = [
 
 const yearReleased = ({input, data, valueField, textField})=>
 <DropdownList {...input}
-data={ data }
-valueField={ valueField }
-textField={textField }
-onChange={input.onChange}
+  data={ data }
+  valueField={ valueField }
+  textField={textField }
+  onChange={input.onChange}
 />
 
 const required = value => value ? undefined : 'Field is Required';
@@ -72,17 +72,16 @@ class NewProject extends Component {
   }
 
   submitHandler = async (values) => {
-    console.log("VALUES:", values)
-    // if(values.developmentStage !== 'default'){
+    if(values.developmentStage !== 'default'){
       this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(values);
       this.setState({toComparables: true})
-    // }
+    }
     return values;
   }
   
   render(){
-    const {handleSubmit, onSubmit, clearFields } = this.props;
+    const {handleSubmit, onSubmit, reset } = this.props;
 
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />

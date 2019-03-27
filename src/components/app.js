@@ -1,21 +1,24 @@
 import { Button } from 'reactstrap';
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Test from './test';
-import CardsContainer from './aboutus/index';
-import Contact from './contact/index';
+import CardsContainer from './aboutus';
+import Contact from './contact';
 import Disclaimer from './footer/disclaimer';
 import EmailSent from './contact/messagesent';
-import FinancialNorthAmerica from './financial/index';
-import Home from './home/index';
-import MovieComparison from './comparables/index';
-import NewProject from './newprojects/index';
-import Projects from './projects';
+import FinancialNorthAmerica from './financial';
+import Home from './home';
+import MovieComparison from './comparables';
+import NewProject from './newprojects';
+import MyProjects from './projects';
 import Shareable from './financial/shareable';
-import SignIn from './signin/index';
-import Terms from './terms/index';
+import SignIn from './signin';
+import Terms from './terms';
+import { signIn } from '../actions';
+import { connect } from 'react-redux';
+import auth from '../hoc/auth';
 
-class App extends Component{
+class App extends Component {
     componentDidMount(){
         setTimeout(() =>{
             let preloader = document.querySelector('.spinner-container');
@@ -28,9 +31,11 @@ class App extends Component{
             <main>
                 <div className='route-container'>
                     <Route exact path='/' component={ Home }/>
-                    <Route path='/sign_in' render={() => <SignIn />}/>
-                    <Route path='/new_project' render={() => <NewProject />}/>
-                    <Route path='/my_projects' component={ Projects }/>
+                    <Route path='/sign_in' component={() => <SignIn />}/>
+                    <Route path='/new_project' component={() => <NewProject />}/>
+
+                    <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
+
                     <Route path='/comparisons' component={ MovieComparison }/>
                     <Route path='/financials' component={ FinancialNorthAmerica }/>
                     <Route path='/invest/' component={ Shareable }/>
@@ -44,4 +49,12 @@ class App extends Component{
     }
 };
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        sign_in: state.signin.login
+    }
+}
+
+export default withRouter(connect(mapStateToProps, {
+    signIn
+})(App));

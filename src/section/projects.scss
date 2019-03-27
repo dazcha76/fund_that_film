@@ -1,1 +1,47 @@
 @import './variables';
+
+.my-projects-wrapper {
+  padding-top: 5%;
+  
+  .project-container {
+    width: 70vw;
+    margin: 3% auto 0 auto;
+    padding: 2% 3%;
+    background-color: rgba(212, 212, 212, 0.8);
+
+    .project-title {
+      font-size: 2.3em;
+      margin-bottom: 4%;
+      color: $side-navbar;
+    }
+
+    .multiple-fields {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .project-detail {
+      color: white;
+      font-size: 1.2em;
+
+      span {
+        color: $side-navbar;
+      }
+    }
+    
+    .my-projects-button-container {
+      text-align: center;
+      margin-top: 4%;
+
+      .my-project-comparables-button {
+        margin-right: 5%;
+      }
+      .my-project-financial-button {
+
+      }
+    }   
+  }
+}
+

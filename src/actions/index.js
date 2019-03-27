@@ -87,7 +87,7 @@ export const sendProjectData = values => {
   }
 }
 
-export const sendSignInData = values => {
+export const signIn = values => {
   const { email, password } = values;
 
   return async dispatch => {
@@ -96,9 +96,20 @@ export const sendSignInData = values => {
         email, password
       } 
     });
-    
+
     dispatch({
       type: 'SIGN_IN',
+      payload: response
+    });
+  }
+}
+
+export const signOut = values => {
+  return async dispatch => {
+    const response = await axios.get('/api/signout.php');
+
+    dispatch({
+      type: 'SIGN_OUT',
       payload: response
     });
   }

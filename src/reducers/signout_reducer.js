@@ -4,13 +4,13 @@ const DEFAULT_STATE = {
     'check-signin': false
 };
 
-const signInReducer = (state = DEFAULT_STATE, action) => {
+const signOutReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
-    case 'SIGN_IN':
+    case 'SIGN_OUT':
       return action.payload.data
     default:
       return state
   }
 };
 
-export default signInReducer; 
+export default signOutReducer; 
