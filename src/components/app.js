@@ -1,7 +1,6 @@
 import { Button } from 'reactstrap';
-import auth from '../hoc/auth'
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import Test from './test';
 import CardsContainer from './aboutus';
 import Contact from './contact';
@@ -17,6 +16,7 @@ import SignIn from './signin';
 import Terms from './terms';
 import { signIn } from '../actions';
 import { connect } from 'react-redux';
+import auth from '../hoc/auth';
 
 class App extends Component {
     componentDidMount(){
@@ -31,8 +31,8 @@ class App extends Component {
             <main>
                 <div className='route-container'>
                     <Route exact path='/' component={ Home }/>
-                    <Route path='/sign_in' render={() => <SignIn />}/>
-                    <Route path='/new_project' render={() => <NewProject />}/>
+                    <Route path='/sign_in' component={() => <SignIn />}/>
+                    <Route path='/new_project' component={() => <NewProject />}/>
 
                     <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
 
@@ -55,6 +55,6 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {
+export default withRouter(connect(mapStateToProps, {
     signIn
-})(App);
+})(App));

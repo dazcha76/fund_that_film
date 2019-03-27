@@ -72,7 +72,6 @@ class NewProject extends Component {
   }
 
   submitHandler = async (values) => {
-    console.log("VALUES:", values)
     if(values.developmentStage !== 'default'){
       this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(values);

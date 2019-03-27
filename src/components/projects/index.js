@@ -46,12 +46,9 @@ class Projects extends Component {
 
     return (
       <div className='my-projects-wrapper'>
-        {/*<Nav auth={this.state.userAuth}/>*/}
         <Nav />
         <h1>My Projects</h1>
-        <div>
-          {projectCard}
-        </div>
+        {projectCard}
       </div>
     )
   }
