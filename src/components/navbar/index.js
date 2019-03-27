@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import person from '../../assets/images/example_person_icon.png';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
@@ -89,10 +89,6 @@ class Nav extends Component{
         const hamburgerBaseClass = 'hamburger hamburger--spin ';
         const hamburgerActive = 'is-active';
 
-        if (!this.props.sign_out) {
-          return <Redirect to='/' />
-        }
-
         return(
             <div className='nav-bar-container'>
                 <div className='nav-bar'>
@@ -135,7 +131,7 @@ const mapStateToProps = state => {
     console.log("SIGNOUT STATE:", state)
   return {
     sign_in: state.signin.login,
-    sign_out: state.signin.login
+    sign_out: state.signout.login
   }
 }
 
