@@ -10,10 +10,6 @@ class Nav extends Component{
         active: false,
         topLinks: [
             {
-                text: 'Home',
-                to:'/'
-            }, 
-            {
                 text: 'New Project',
                 to:'/new_project'
             }
@@ -108,12 +104,13 @@ class Nav extends Component{
                         </span>
                     </button>
                     <div className='login-img-container'>
-                        <img className='login-img' src= { person }/>
+                        {/*<img className='login-img' src= { person }/>*/}
                     </div>
                     <div className='welcome-login-header'>
                     {/* h1  will have to be done dynmically once we are able to create a login system
                     that then will be used to pull the users name and email address from the database to the browser */}
-                            <h2>Welcome John!</h2> 
+                            {/*<h2>Welcome John!</h2>*/}
+                            <h2>Welcome!</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
                         <div className='slide-out-menu-content'>
@@ -128,7 +125,6 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
-    console.log("SIGNOUT STATE:", state)
   return {
     sign_in: state.signin.login,
     sign_out: state.signout.login

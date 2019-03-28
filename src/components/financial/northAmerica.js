@@ -24,7 +24,7 @@ class NorthAmerica extends Component {
                             <p>Film Rental:<br/> ${this.props.finance['theatrical']['film rental'].toLocaleString()}</p>
                             <p>Distribution Fee:<br/> ${this.props.finance['theatrical']['distribution fee'].toLocaleString()}</p>
                             <p>Direct Distribution Expenses:<br/> ${this.props.finance['theatrical']['direct distribution expenses'].toLocaleString()}</p>
-                            <p>Distributor's Net:<br/> ${this.props.finance['theatrical']['distributor\'s net'].toLocaleString()}</p>  
+                            <p>Distributor's Net:<br/> ${this.props.finance['theatrical']["distributor's net"].toLocaleString()}</p>  
                         </div>
                     </div>
 
@@ -34,7 +34,7 @@ class NorthAmerica extends Component {
                             <p>Gross:<br/> ${this.props.finance['home entertainment']['gross'].toLocaleString()}</p>
                             <p>Expenses:<br/> ${this.props.finance['home entertainment']['expenses'].toLocaleString()}</p>
                             <p>Distribution Fee:<br/> ${this.props.finance['home entertainment']['distribution fee'].toLocaleString()}</p>
-                            <p>Distributor's Net:<br/> ${this.props.finance['home entertainment']['distributor\'s net'].toLocaleString()}</p>
+                            <p>Distributor's Net:<br/> ${this.props.finance['home entertainment']["distributor's net"].toLocaleString()}</p>
                         </div>
                     </div>
          
@@ -43,7 +43,7 @@ class NorthAmerica extends Component {
                     <h5 className='financial-header'>Theatrical and Home</h5>
                     <div className='financial-body northamerica-body tnh'>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['theatrical and home']['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['theatrical and home']['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['theatrical and home']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@ class NorthAmerica extends Component {
                         <p>Distribution Fee:<br/> ${this.props.finance['pay per view']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['pay per view']['direct distribution expenses'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['pay per view']['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['pay per view']['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['pay per view']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -65,7 +65,7 @@ class NorthAmerica extends Component {
                         <p>Distribution Fee:<br/> ${this.props.finance['premium cable']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['premium cable']['direct distribution expenses'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['premium cable']['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['premium cable']['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['premium cable']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -76,7 +76,7 @@ class NorthAmerica extends Component {
                         <p>Distribution Fee:<br/> ${this.props.finance['free tv premiere']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['free tv premiere']['direct distribution expenses'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['free tv premiere']['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['free tv premiere']['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['free tv premiere']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -87,7 +87,7 @@ class NorthAmerica extends Component {
                         <p>Distribution Fee:<br/> ${this.props.finance['cable and syndicated tv']['distribution fee'].toLocaleString()}</p>
                         <p>Direct Distribution Expenses:<br/> ${this.props.finance['cable and syndicated tv']['direct distribution expenses'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['cable and syndicated tv']['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['cable and syndicated tv']['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance['cable and syndicated tv']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
 

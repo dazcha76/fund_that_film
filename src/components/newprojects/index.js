@@ -95,56 +95,62 @@ class NewProject extends Component {
               <h1 className='new-project-title'>Enter Project Information</h1>
      
               <div>
-                <p id='title-label'>Movie Title: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the name of your movie</span></i></p>
-                <Field type='text' className='user-project-input' id="title" name='title' placeholder='Title ' component = {Input} validate={required}/>
+                <p id='title-label'>Movie Title: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the working title of your movie</span></i></p>
+                <Field type='text' className='user-project-input' id='title' name='title' placeholder='Title ' component = {Input} validate={required}/>
               </div>
    
               <div className='multiple-inputs-fields'>
                   <div className='two-input-grouping'>
-                    <p id='runtime-label'>Estimated Runtime: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the estimated runtime in minutes</span></i></p>
+                    <p id='runtime-label'>Estimated Runtime: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the estimated runtime in minutes</span></i></p>
                     <Field type='text' className='input-runtime' name='runtime' placeholder='Estimated Runtime (minutes)' validate={[required, number]} component = {Input} />
                   </div>
                   <div className='two-input-grouping'>
-                    <p id='logline-label'>Logline: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the logline for your movie</span></i></p>
+                    <p id='logline-label'>Logline: <i className='fas fa-question-circle'><span className='tooltiptext logline-tooltip'>Describe the core conflict of the story in one sentence</span></i></p>
                     <Field type='text'  className='logline' name='logline' placeholder='Logline'  validate={required} component = {Input} />
                   </div>
               </div>
               <div className='multiple-inputs-fields'>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>Year of Release: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the year you expect to release the movie</span></i></p>
+                  <p id='title-label'>Year of Release: <i className='fas fa-question-circle'><span className='tooltiptext year-tooltip'>Enter the year you expect to release the movie</span></i></p>
                   <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
                 </div>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>Genre: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the genre of your movie</span></i></p>
+                  <p id='title-label'>Genre: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the genre of your movie</span></i></p>
                   <Field name = 'genre' component = { Select } label = 'Genre:' defaultText = 'Select Genre' options={this.buildOptions(genre)} validate={required}/>
                 </div>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>MPAA Rating: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the target MPAA rating of your movie</span></i></p>
+                  <p id='title-label'>MPAA Rating: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the target MPAA rating of your movie</span></i></p>
                   <Field name = 'mpaa' component = { Select } label = 'Target MPAA Rating:' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} validate={required}/>
                 </div>
                 <div className='four-input-grouping'>
-                  <p id='title-label'>Production Stage: <i className="fas fa-question-circle"><span className="tooltiptext">Enter the production stage your movie is currently in</span></i></p>
+                  <p id='title-label'>Production Stage:<i className='fas fa-question-circle'>
+                    <span className='tooltiptext production-tooltip'>
+                      <span className='definition'>Pre-Production: Planning the schedule, budget, location and cast</span>
+                      <span className='definition'>Production: Filming has started</span>
+                      <span className='definition'>Post-Production: Reviewing the footage and assembling the movie</span>
+                      <span className='definition'>Distribution: Getting your film to cinemas, television networks and online platforms</span>
+                    </span></i></p>
                   <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)} validate={required}/>
                 </div>
               </div>
 
-              <p id='synopsis-label'>Synopsis: <i className="fas fa-question-circle"><span className="tooltiptext">Enter a brief summary of what your movie is about</span></i></p>
+              <p id='synopsis-label'>Synopsis: <i className='fas fa-question-circle'><span className='tooltiptext synopsis-tooltip'>Enter a brief summary of what your movie is about</span></i></p>
               <Field component='textarea' type='text' id='synopsis' name='synopsis' placeholder='Synopsis' validate={ required } />
 
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
-                <p id='film1-label'>Film 1: <i className="fas fa-question-circle"><span className="tooltiptext">Your movie can best be described as a combination of:</span></i></p>
+                <p id='film1-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
                 <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
               </div>
               <div className='meets-container'>
                 <h4 className='meets'>Meets</h4>
               </div>
               <div className='film-input-grouping'>
-                <p id='film2-label'>Film 2: <i className="fas fa-question-circle"><span className="tooltiptext">and:</span></i></p>
+                <p id='film2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
                 <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
               </div>              
             </div>
-            <div className="user-input-button-container">
+            <div className='user-input-button-container'>
               <button onClick={reset} type='button' className='new-project-clear-button page-button'>Clear</button>
               <button className='new-project-submit-button page-button'>Submit</button>
             </div> 

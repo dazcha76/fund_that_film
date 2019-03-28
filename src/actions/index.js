@@ -27,7 +27,7 @@ export const getMovieData = (film1, film2) => {
 
     dispatch({
       type: 'GET_MOVIE_DATA',
-      payload: response
+      payload: response.data
     });
   }
 }

@@ -21,7 +21,7 @@ class Global extends Component {
                         <p>Royalties Gross:<br/> ${this.props.finance['royalties gross'].toLocaleString()}</p>
                         <p>Merchandising Distribution Fee:<br/> ${this.props.finance['merchandising distribution fee'].toLocaleString()}</p>
                         <p>Sales Agent Fee:<br/> ${this.props.finance['sales agent fee'].toLocaleString()}</p>
-                        <p>Distributor's Net:<br/> ${this.props.finance['distributor\'s net'].toLocaleString()}</p>
+                        <p>Distributor's Net:<br/> ${this.props.finance["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
             </div>

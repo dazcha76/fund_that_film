@@ -35,13 +35,63 @@
       text-align: center;
       margin-top: 4%;
 
-      .my-project-comparables-button {
-        margin-right: 5%;
-      }
-      .my-project-financial-button {
-
+      .my-project-comparables-button,
+      .my-project-financial-button  {
+        min-width: 200px;
       }
     }   
   }
 }
 
+@media (max-width: 414px){
+  .my-projects-wrapper {
+    padding-top: 0;
+
+    .my-projects-title {
+      font-size: 2.5em;
+      padding: 3.8% 0 0 0;
+    }
+
+    .project-container {
+      width: 85vw;
+      padding: 5% 4%;
+      margin-bottom: 5%;
+
+      .project-title {
+        font-size: 1.8em;
+        padding-bottom: 8%;
+      }
+
+      .my-projects-button-container {
+        margin-top: 8%;
+      }
+    }
+  }
+}
+
+@media (max-width: 411px){
+  .my-projects-wrapper {
+    .my-projects-title {
+      padding: 3.7% 0 0 0;
+    }
+  }
+}
+
+@media (max-width: 360px){
+  .my-projects-wrapper {
+
+    .my-projects-title {
+      padding: 4.5% 0 0 5%;
+    }
+  }
+}
+
+@media (max-width: 360px){
+  .my-projects-wrapper {
+
+    .my-projects-title {
+      font-size: 2.3em;
+      padding: 5.5% 0 0 10%;
+    }
+  }
+}

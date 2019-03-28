@@ -47,7 +47,7 @@ class Projects extends Component {
     return (
       <div className='my-projects-wrapper'>
         <Nav />
-        <h1>My Projects</h1>
+        <h1 className='my-projects-title'>My Projects</h1>
         {projectCard}
       </div>
     )

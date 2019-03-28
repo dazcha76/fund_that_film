@@ -15,7 +15,6 @@
             margin-top: 13%;
 
             .person {
-                height: 500px;
                 width: 20%;
                 min-width: 300px;
                 color: white;
@@ -32,6 +31,7 @@
                     flex-direction: row;
                     justify-content: space-evenly;
                     font-size: 2.2em;
+                    margin-bottom: 5%;
 
                     .fab, 
                     .fas {
@@ -49,33 +49,84 @@
                    
 }
 
-@media (max-width: 415px){
+@media (max-width: 414px){
     .about-us-wrapper {
-
         .about-us-container {
-
             .about-header {
-                padding-top: 15%;
+              font-size: 2.5em;
+              padding: 2% 0 0 5%;
             }
 
             .person-container {
-                margin-top: 35%;
+                margin-top: 20%;
+
+                .person {
+                    min-width: 360px;
+                }
             }
         }
-    }
-         
+    }  
+}
+
+@media (max-width: 411px){
+    .about-us-wrapper {
+        .about-us-container {
+            .about-header {
+                font-size: 2em;
+                padding: 3.4% 0 0 5%;
+            }
+
+            .person-container {
+
+                .person {
+                    min-width: 350px;
+                }
+            }
+        }
+    }      
+}
+
+@media (max-width: 375px){
+    .about-us-wrapper {
+        .about-us-container {
+            .person-container {
+                .person {
+                    min-width: 300px;
+                }
+            }
+        }
+    }     
 }
 
 @media (max-width: 360px){
     .about-us-wrapper {
-
         .about-us-container {
-
             .person-container {
-                margin-top: 50%;
+                margin-top: 20%;
+
+                .person {
+                    min-width: 300px;
+                }
             }
         }
-    }
-         
+    }      
+}
+
+@media (max-width: 320px){
+    .about-us-wrapper {
+        .about-us-container {
+            .about-header {
+                font-size: 1.75em;
+                padding: 5% 0 0 5%;
+            }
+
+            .person-container {
+                
+                .person {
+                    min-width: 250px;
+                }
+            }
+        }
+    }       
 }
                 

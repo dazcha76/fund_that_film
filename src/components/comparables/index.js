@@ -24,6 +24,7 @@ class MovieComparison extends Component {
     setTimeout(()=>{
       this.setState({ pageHasLoaded: true })
     },1000)
+
     await this.props.getMovieData(title1, title2);
   }
 
@@ -68,7 +69,6 @@ class MovieComparison extends Component {
 
   render(){
     const arrowActive = 'is-active';
-
     const { movies } = this.props;
 
     if(!movies[0]['title']){
@@ -105,6 +105,7 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("STATE TO PROPS:", state)
   return {
     comparables: state.comparables,
     movies: state.movies.movieList
