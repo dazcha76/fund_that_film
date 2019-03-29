@@ -47,13 +47,10 @@ class InternationalGraphs extends Component{
                 responsive: true,
                 animation: {
                   easing: 'easeInCirc',
-                  duration:4000
+                  duration:2000
                 },
                 legend:{ 
                     display : false,
-                    title:{
-                        text: 'International Gross Earnings'
-                    },
                     labels:{
                         fontColor:'#35f8c7',
                         padding: 3,
