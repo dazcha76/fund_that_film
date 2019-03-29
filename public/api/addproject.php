@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 $output = [
@@ -45,6 +45,7 @@ $result = $db -> query($query);
 if($result){
     $output['success']=true;
     $output['project_id']=mysqli_insert_id($db);
+    $_SESSION['project_id']=mysqli_insert_id($db);
 }else{
     $output['error']=mysqli_error($db);
 }
@@ -65,6 +66,17 @@ while($row_id=$id_result->fetch_assoc()){
 }
 
 $output['comparables_ids']=$comparables_ids;
+
+
+$insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$_SESSION["user_id"]}', `projects_id`='{$_SESSION["project_id"]}' ";
+$result_user_projects =$db->query($insert_users_projects_query);
+
+if($result_user_projects){
+    $output['insert new project'] = true;
+}else{
+    throw new Exception('failed to insert new project');
+};
+
 
 $json_output = json_encode($output);
 print($json_output);
