@@ -84,19 +84,33 @@ if($id_result -> num_rows === 1){
     $movies_title_data = json_decode($movies_title, true);
     if($movies_title_data['results'][0]['title'] === $bodyVars['title1'] || $movies_title_data['results'][0]['title'] === $bodyVars['title2']){
         $movies_id = 'https://api.themoviedb.org/3/movie/'.intval($movies_title_data['results'][0]['id']).'?api_key='.urlencode($movie_key);
+        $movies_mpaa_rating = 'https://api.themoviedb.org/3/movie/'.intval($movies_title_data['results'][0]['id']).'/release_dates?api_key='.urlencode($movie_key);
         $movies_detail = file_get_contents($movies_id);
+        $movies_mpaa_detail = file_get_contents($movies_mpaa_rating);
         $movies_detail_data = json_decode($movies_detail, true);
+        $movies_mpaa_data = json_decode($movies_mpaa_detail, true);
+        $mpaa_certification='';
+        if(count($movies_mpaa_data['results'])>0){
+            for($mpaaindex=0;$mpaaindex<count($movies_mpaa_data['results']);$mpaaindex++){
+                if($movies_mpaa_data['results'][$mpaaindex]['iso_3166_1'] === 'US'){
+                    $mpaa_certification = $movies_mpaa_data['results'][$mpaaindex]['release_dates'][0]['certification'];
+                }
+            }
+        }
+
         $insert_us_gross_bo = floor($movies_detail_data["revenue"]*.6);
         $insert_intl_gross_bo = floor($movies_detail_data["revenue"]*.4);
         $insert_audience_satisfaction = $movies_detail_data["vote_average"]/10;
+        $Date = $movies_detail_data["release_date"];
+        $insert_us_theatrical_end = date('Y-m-d', strtotime($Date. ' + 90 days'));
         $insert_comp_query = "INSERT INTO `comparables` SET `title`= '{$movies_detail_data["title"]}', 
             `us_theatrical_release`= '{$movies_detail_data["release_date"]}', 
             `us_gross_bo`= '{$insert_us_gross_bo}', 
             `intl_gross_bo`= '{$insert_intl_gross_bo}',
             `budget`= '{$movies_detail_data["budget"]}',
-            `mpaa_rating`= 'PG-13',
+            `mpaa_rating`= '{$mpaa_certification}',
             `audience_satisfaction`= '{$insert_audience_satisfaction}',
-            `us_theatrical_end`= '{$movies_detail_data["release_date"]}',
+            `us_theatrical_end`= '{$insert_us_theatrical_end}',
             `genre`= '{$movies_detail_data["genres"][0]["name"]}'";
         
         $insert_comp_result = $db -> query($insert_comp_query);
@@ -184,8 +198,15 @@ if($id_result -> num_rows === 1){
             throw new Exception('The distribution company you were trying to add was not added.');
         }
     }
-    exit(); 
-    $id_array[] = $insert_comp_id; //if everything works you need to make sure to push the comp id to the id array
+    // $distribution_title = ' ';
+
+    // $movies_detail_data["title"]
+    // $distribution_url = 'https://en.wikipedia.org/api/rest_v1/page/mobile-html/'.$distribution_title.'_film';
+    // $distribution_company_name = file_get_contents($distribution_url);
+    // $distribution_company_data = json_decode($distribution_company_name);
+    // print_r($distribution_company_data);
+    // exit(); 
+    // $id_array[] = $insert_comp_id; //if everything works you need to make sure to push the comp id to the id array
 }
 
 $queryPiece='';
