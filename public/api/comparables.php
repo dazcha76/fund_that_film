@@ -163,10 +163,25 @@ if($id_result -> num_rows === 1){
                 ".$compFundPiece.";";
 
             $insert_comp_fund_result = $db -> query($insert_comp_fund_query);
-
-            print_r($insert_comp_fund_query);
         }else{
             throw new Exception('There was an issue adding funding partners.');
+        }
+
+        $insert_distribution_query = "INSERT INTO `distribution_companies` SET `name`= 'Universal Pictures'";
+
+        $insert_distribution_result = $db -> query($insert_distribution_query);
+        
+        if($insert_distribution_result){
+            $insert_distribution_id = mysqli_insert_id($db);
+            
+            $insert_comp_dist_query = "INSERT INTO `comparables_distribution` (`comparables_id`, `distribution_companies_id`) VALUES
+                (".$insert_comp_id.", ".$insert_distribution_id.");";
+
+            $insert_comp_dist_result = $db -> query($insert_comp_dist_query);
+
+            print_r($insert_comp_dist_query);
+        }else{
+            throw new Exception('The distribution company you were trying to add was not added.');
         }
     }
     exit(); 
