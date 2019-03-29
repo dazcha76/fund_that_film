@@ -5,6 +5,10 @@ import { getFinancialData } from '../../actions';
 
 class OtherGraphs extends Component{
     componentDidUpdate(){
+        let ratio = (this.props.finance["distributor's net earning to cost ratio"]).split('');
+        let cost = ratio[2];
+        let earnings = ratio[0]
+
         Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
@@ -17,7 +21,7 @@ class OtherGraphs extends Component{
                 datasets:[
                     {
                         label: 'Distributor Net Earning',
-                        data: [1, 4.8],
+                        data: [cost, earnings],
                         backgroundColor: [  'rgba(255, 99, 132, 0.2)',  'rgba(54, 162, 235, 0.2)'],
                         borderColor:['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)'],
                         borderWidth:1                    
@@ -61,7 +65,7 @@ class OtherGraphs extends Component{
 const mapStateToProps = state => {
     console.log("INTERNATIONAL:", state)
     return {
-        finance: state.finance.financeList[0]['international']
+        finance: state.finance.financeList[0]
     }
 }
 
