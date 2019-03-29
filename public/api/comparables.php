@@ -149,12 +149,28 @@ if($id_result -> num_rows === 1){
             while($row_id=$funding_select_result->fetch_assoc()){
                 $funding_id_array[]=$row_id['id'];
             }
-            print_r($funding_id_array);
+
+            $compFundPiece='';
+
+            for($compFundIndex=0;$compFundIndex<count($funding_id_array);$compFundIndex++){
+                $compFundPiece.='('.$insert_comp_id.', '.$funding_id_array[$compFundIndex].')';
+                if($compFundIndex<count($funding_id_array)-1){
+                    $compFundPiece.= ', ';
+                }
+            }
+
+            $insert_comp_fund_query = "INSERT INTO `comparables_funding` (`comparables_id`, `funding_partners_id`) VALUES
+                ".$compFundPiece.";";
+
+            $insert_comp_fund_result = $db -> query($insert_comp_fund_query);
+
+            print_r($insert_comp_fund_query);
         }else{
             throw new Exception('There was an issue adding funding partners.');
         }
     }
-    exit();   
+    exit(); 
+    $id_array[] = $insert_comp_id; //if everything works you need to make sure to push the comp id to the id array
 }
 
 $queryPiece='';
