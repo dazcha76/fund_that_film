@@ -13,6 +13,7 @@ this file is the endpoint that the client will reach when they submit their proj
 
 require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
+require_once('../../config/tmdbcredentials.php');
 
 $output = [
     'success'=>false
@@ -31,7 +32,7 @@ if(!$bodyVars){
 }
 
 if( intval($bodyVars['title1'])!==0 || intval($bodyVars['title2'])!==0){
-    throw new Exception('Can not have integer as a movie title...for now.');
+    throw new Exception('Can not have an integer as a movie title...for now.');
 }
 
 if($bodyVars['title1']==='' || $bodyVars['title2']===''){
@@ -73,6 +74,89 @@ while($row_id=$id_result->fetch_assoc()){
     $incoming_title[]=$row_id['title'];
 }
 
+if($id_result -> num_rows === 1){
+    if($incoming_title[0] == $bodyVars['title1']){
+        $movies_url = 'https://api.themoviedb.org/3/search/movie?api_key='.urlencode($movie_key).'&query='.urlencode($bodyVars['title2']);
+    } else {
+        $movies_url = 'https://api.themoviedb.org/3/search/movie?api_key='.urlencode($movie_key).'&query='.urlencode($bodyVars['title1']);
+    }
+    $movies_title = file_get_contents($movies_url);
+    $movies_title_data = json_decode($movies_title, true);
+    if($movies_title_data['results'][0]['title'] === $bodyVars['title1'] || $movies_title_data['results'][0]['title'] === $bodyVars['title2']){
+        $movies_id = 'https://api.themoviedb.org/3/movie/'.intval($movies_title_data['results'][0]['id']).'?api_key='.urlencode($movie_key);
+        $movies_detail = file_get_contents($movies_id);
+        $movies_detail_data = json_decode($movies_detail, true);
+        $insert_us_gross_bo = floor($movies_detail_data["revenue"]*.6);
+        $insert_intl_gross_bo = floor($movies_detail_data["revenue"]*.4);
+        $insert_audience_satisfaction = $movies_detail_data["vote_average"]/10;
+        $insert_comp_query = "INSERT INTO `comparables` SET `title`= '{$movies_detail_data["title"]}', 
+            `us_theatrical_release`= '{$movies_detail_data["release_date"]}', 
+            `us_gross_bo`= '{$insert_us_gross_bo}', 
+            `intl_gross_bo`= '{$insert_intl_gross_bo}',
+            `budget`= '{$movies_detail_data["budget"]}',
+            `mpaa_rating`= 'PG-13',
+            `audience_satisfaction`= '{$insert_audience_satisfaction}',
+            `us_theatrical_end`= '{$movies_detail_data["release_date"]}',
+            `genre`= '{$movies_detail_data["genres"][0]["name"]}'";
+        
+        $insert_comp_result = $db -> query($insert_comp_query);
+        if($insert_comp_result){
+            $insert_comp_id = mysqli_insert_id($db);
+        }else{
+            throw new Exception('There was an error with the film that you are trying to enter.');
+        }
+
+        $insert_poster_query = "INSERT INTO `comparables_images` SET `comparables_id`= '{$insert_comp_id}', 
+            `image_url`= 'https://image.tmdb.org/t/p/w600_and_h900_bestv2{$movies_detail_data["poster_path"]}'";
+
+        $insert_poster_result = $db -> query($insert_poster_query);
+        if($insert_poster_result){
+            $insert_poster_id = mysqli_insert_id($db);
+        }else{
+            throw new Exception('The poster you were trying to add was not added.');
+        }
+
+        $fundingPiece='';
+
+        for($fundingindex=0;$fundingindex<count($movies_detail_data['production_companies']);$fundingindex++){
+            $fundingPiece.='("'.$movies_detail_data['production_companies'][$fundingindex]['name'].'")';
+            if($fundingindex<count($movies_detail_data['production_companies'])-1){
+                $fundingPiece.= ', ';
+            }
+        }
+
+        $insert_funding_query = "INSERT INTO `funding_partners` (`name`) VALUES
+            ".$fundingPiece.";";
+
+        $insert_funding_result = $db -> query($insert_funding_query);
+        if($insert_funding_result){
+            $fundingNames=' ';
+
+            for($fundingSelectIndex=0;$fundingSelectIndex<count($movies_detail_data['production_companies']);$fundingSelectIndex++){
+                $fundingNames.='fp.`name`= "'.$movies_detail_data['production_companies'][$fundingSelectIndex]['name'].'"';
+                if($fundingSelectIndex<count($movies_detail_data['production_companies'])-1){
+                    $fundingNames.= ' OR ';
+                }
+            }
+
+            $funding_select_query = 'SELECT fp.`id`, fp.`name`
+                            FROM `funding_partners` AS fp
+                            WHERE '.$fundingNames.'';
+
+            $funding_select_result=$db->query($funding_select_query);
+            $funding_id_array=[];
+
+            while($row_id=$funding_select_result->fetch_assoc()){
+                $funding_id_array[]=$row_id['id'];
+            }
+            print_r($funding_id_array);
+        }else{
+            throw new Exception('There was an issue adding funding partners.');
+        }
+    }
+    exit();   
+}
+
 $queryPiece='';
 
 for($index=0;$index<count($id_array);$index++){
@@ -97,8 +181,8 @@ $data=[];
 
 if ($result){
     
-    if($result ->num_rows===1){
-        throw new Exception('One of the comparables in our database does not exist');
+    if($result -> num_rows===1){
+        throw new Exception('One of the comparables does not exist in our database.');
     }
 
     if ($result -> num_rows > 0) {
