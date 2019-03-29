@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
-
-class Bar extends Component{
-    async componentDidMount(){
+class OtherGraphs extends Component{
+    componentDidUpdate(){
         Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
@@ -57,8 +58,14 @@ class Bar extends Component{
     }
 }
 
-  export default Bar;
+const mapStateToProps = state => {
+    console.log("INTERNATIONAL:", state)
+    return {
+        finance: state.finance.financeList[0]['international']
+    }
+}
 
-
-
+export default connect(mapStateToProps, {
+    getFinancialData
+})(OtherGraphs);
 

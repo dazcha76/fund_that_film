@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
+import { connect } from 'react-redux';
+import { getFinancialData } from '../../actions';
 
 class InternationalGraphs extends Component{
-    async componentDidMount(){
+    componentDidUpdate(){
         Chart.defaults.global.defaultFontColor = '#37EFBA';
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.tooltips = false;
@@ -14,7 +16,11 @@ class InternationalGraphs extends Component{
                 labels:['Theatrical', 'Home', 'TV'],
                 datasets:[{
                     label: 'International Gross Earnings',
-                    data: [195,195,195],
+                    data: [
+                        this.props.finance['theatrical, home, tv gross'],
+                        this.props.finance['sales agent fee'],
+                        this.props.finance['total net earnings']
+                    ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
@@ -55,7 +61,7 @@ class InternationalGraphs extends Component{
                     }
                 },
                 title:{
-                    display:false,
+                    display:true,
                     padding:5,
                     fontColor:'#35f8c7',
                     fontFamily: 'sans-serif'
@@ -63,9 +69,19 @@ class InternationalGraphs extends Component{
             }
         })
     }
+
     render(){
         return  <canvas id='graphChart' width='200' height ='50'></canvas>;
     }
 }
 
-export default InternationalGraphs;
+const mapStateToProps = state => {
+    console.log("INTERNATIONAL:", state)
+    return {
+        finance: state.finance.financeList[0]['international']
+    }
+}
+
+export default connect(mapStateToProps, {
+    getFinancialData
+})(InternationalGraphs);

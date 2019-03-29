@@ -112,7 +112,7 @@ class NewProject extends Component {
               <div className='multiple-inputs-fields'>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Year of Release: <i className='fas fa-question-circle'><span className='tooltiptext year-tooltip'>Enter the year you expect to release the movie</span></i></p>
-                  <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
+                  <Field name = 'releaseYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)}/>
                 </div>
                 <div className='four-input-grouping'>
                   <p id='title-label'>Genre: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the genre of your movie</span></i></p>
@@ -167,10 +167,16 @@ const year = new Date();
 NewProject = reduxForm({  
   form: 'newproject_form',     
   initialValues: { 
-    releasedYear: 'default',
-    mpaa: 'default',
-    genre: 'default',
-    developmentStage: 'default'
+    title: 'Spiderwoman',
+    runtime: 120,
+    logline: 'Girl Power',
+    synopsis: 'Stuff happens',
+    film1: 'The Lake House',
+    film2: 'The Amazing Spider-Man',
+    releaseYear: '2019',
+    mpaa: 'G',
+    genre: 'Action',
+    developmentStage: 'Pre-Production'
   }
 })(NewProject);
 

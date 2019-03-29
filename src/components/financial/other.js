@@ -10,7 +10,7 @@ class Other extends Component {
     render(){
         const { finance } = this.props;
 
-        if(!finance['total distributor\'s net']){
+        if(!finance["total distributor's net"]){
             return <h1>Loading Data</h1>;
         }
         

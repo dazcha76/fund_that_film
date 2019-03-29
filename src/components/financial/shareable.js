@@ -5,7 +5,7 @@ import NorthAmerica from './northAmerica';
 import International from './international';
 import Global from './global';
 import Other from './other';
-import Chart from '../charts.js/main';
+import OtherGraphs from '../charts.js/other';
 import { getFinancialData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
 import InternationalGraphs from '../charts.js/international';

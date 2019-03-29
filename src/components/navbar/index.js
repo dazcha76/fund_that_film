@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import person from '../../assets/images/example_person_icon.png';
+import logo from '../../assets/images/ftf_logo_150.png';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 
@@ -104,13 +104,12 @@ class Nav extends Component{
                         </span>
                     </button>
                     <div className='login-img-container'>
-                        {/*<img className='login-img' src= { person }/>*/}
+                        <img className='login-img' src= { logo }/>
                     </div>
                     <div className='welcome-login-header'>
                     {/* h1  will have to be done dynmically once we are able to create a login system
                     that then will be used to pull the users name and email address from the database to the browser */}
-                            {/*<h2>Welcome John!</h2>*/}
-                            <h2>Welcome!</h2>
+                        <h2>Fund That Film</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
                         <div className='slide-out-menu-content'>

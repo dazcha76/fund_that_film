@@ -6,7 +6,7 @@ import NorthAmerica from './northAmerica';
 import International from './international';
 import Global from './global';
 import Other from './other';
-import Chart from '../charts.js/main';
+import OtherGraphs from '../charts.js/other';
 import { getFinancialData, getMovieData, sendToken } from '../../actions';
 import InternationalGraphs from '../charts.js/international';
 import NorthAmericaHorizontal from './../charts.js/northamerica';
@@ -71,7 +71,7 @@ class FinancialNorthAmerica extends Component {
               <Tab eventKey='other' title='Other'>
               <div className='other-northAmerican-graph-container'>
                   <h1 className='chart-header'>Distributors To Cost Ratio</h1>
-                <Chart/>
+                <OtherGraphs/>
                 <Other/>
               </div>
               </Tab>
