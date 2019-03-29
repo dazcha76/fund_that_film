@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2019 at 08:16 PM
+-- Generation Time: Mar 29, 2019 at 07:22 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -68,7 +68,8 @@ CREATE TABLE `comparables_distribution` (
 
 INSERT INTO `comparables_distribution` (`id`, `comparables_id`, `distribution_companies_id`) VALUES
 (1, 3, 1),
-(2, 4, 2);
+(2, 4, 2),
+(3, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,11 @@ CREATE TABLE `comparables_funding` (
 INSERT INTO `comparables_funding` (`id`, `comparables_id`, `funding_partners_id`) VALUES
 (1, 3, 1),
 (2, 4, 2),
-(3, 4, 3);
+(3, 4, 3),
+(4, 5, 4),
+(5, 5, 5),
+(6, 5, 6),
+(7, 5, 7);
 
 -- --------------------------------------------------------
 
@@ -142,7 +147,7 @@ CREATE TABLE `distribution_companies` (
 --
 
 INSERT INTO `distribution_companies` (`id`, `name`) VALUES
-(1, 'Warner Bros.'),
+(1, 'Warner Bros. Pictures'),
 (2, 'Sony Pictures');
 
 -- --------------------------------------------------------
@@ -163,7 +168,11 @@ CREATE TABLE `funding_partners` (
 INSERT INTO `funding_partners` (`id`, `name`) VALUES
 (1, 'Touchstone'),
 (2, 'Columbia Pictures'),
-(3, 'Marvel Studious');
+(3, 'Marvel Studios'),
+(4, 'DC Films'),
+(5, 'RatPac Entertainment'),
+(6, 'Atlas Entertainment'),
+(7, 'Cruel and Unusual Films');
 
 -- --------------------------------------------------------
 
@@ -264,6 +273,26 @@ CREATE TABLE `projects_images` (
   `projects_id` bigint(20) UNSIGNED NOT NULL,
   `image_url` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sharable`
+--
+
+CREATE TABLE `sharable` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `comparables_id` bigint(20) UNSIGNED NOT NULL,
+  `token` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sharable`
+--
+
+INSERT INTO `sharable` (`id`, `comparables_id`, `token`) VALUES
+(1, 3, 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b'),
+(2, 4, 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b');
 
 -- --------------------------------------------------------
 
@@ -388,6 +417,12 @@ ALTER TABLE `projects_images`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sharable`
+--
+ALTER TABLE `sharable`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -414,13 +449,13 @@ ALTER TABLE `comparables`
 -- AUTO_INCREMENT for table `comparables_distribution`
 --
 ALTER TABLE `comparables_distribution`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `comparables_funding`
 --
 ALTER TABLE `comparables_funding`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `comparables_images`
@@ -444,7 +479,7 @@ ALTER TABLE `distribution_companies`
 -- AUTO_INCREMENT for table `funding_partners`
 --
 ALTER TABLE `funding_partners`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `inflation`
@@ -462,19 +497,25 @@ ALTER TABLE `percentages`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `projects_comparables`
 --
 ALTER TABLE `projects_comparables`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT for table `projects_images`
 --
 ALTER TABLE `projects_images`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `sharable`
+--
+ALTER TABLE `sharable`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -486,7 +527,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users_projects`
 --
 ALTER TABLE `users_projects`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
