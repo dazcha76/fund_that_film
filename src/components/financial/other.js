@@ -17,7 +17,7 @@ class Other extends Component {
         return(
              <div className='card-financial-global-wrapper'>
                 <div className='card financial-card other-card'>
-                    <h5 className='financial-header'>Global Consumer Products</h5>
+                    <h5 className='financial-header'>Other</h5>
                     <div className='financial-body other-body'>
                         <div>
                             <p>Total Distributor's Net:<br/> ${this.props.finance["total distributor's net"].toLocaleString()}</p>

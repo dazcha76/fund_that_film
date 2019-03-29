@@ -16,7 +16,7 @@ class Global extends Component {
         return(
             <div className='card-financial-global-wrapper'>
                 <div className='card financial-card global-card'>
-                    <h5 className='financial-header'>Global Consumer Products</h5>
+                    <h5 className='financial-header'>Global</h5>
                     <div className='financial-body global-body'>
                         <p>Royalties Gross:<br/> ${this.props.finance['royalties gross'].toLocaleString()}</p>
                         <p>Merchandising Distribution Fee:<br/> ${this.props.finance['merchandising distribution fee'].toLocaleString()}</p>

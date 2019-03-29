@@ -9,8 +9,8 @@ class NorthAmericaGraphs extends Component {
     Chart.defaults.global.defaultFontSize = '20';
     Chart.defaults.global.tooltips = false;
     Chart.defaults.global.defaultFontFamily = 'San-Serif';
-    let ctx = document.getElementById('horizontalChart');
-    let myChart = new Chart(ctx, {
+    let ctx = document.getElementById('northAmericaChart');
+    let northAmericaChart = new Chart(ctx, {
       type: 'bar',
       data: {
         labels: [
@@ -80,7 +80,7 @@ class NorthAmericaGraphs extends Component {
     });
   }
   render() {
-    return <canvas id='horizontalChart' width='200' height='50' />;
+    return <canvas id='northAmericaChart' width='200' height='50' />;
   }
 }
 

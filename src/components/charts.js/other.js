@@ -13,8 +13,8 @@ class OtherGraphs extends Component{
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
         Chart.defaults.global.tooltips = false;
-        var ctx = document.getElementById('barChart');
-        var myChart = new Chart (ctx, {
+        var ctx = document.getElementById('otherChart');
+        var otherChart = new Chart (ctx, {
             type: 'horizontalBar',
             data: {
                 labels:['Cost', 'Total Earnings'],
@@ -57,7 +57,7 @@ class OtherGraphs extends Component{
  } 
     render(){
         return(
-            <canvas id='barChart' width='200' height ='50'></canvas>
+            <canvas id='otherChart' width='200' height ='50'></canvas>
         )
     }
 }

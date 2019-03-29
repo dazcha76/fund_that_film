@@ -3,23 +3,23 @@ import Chart from 'chart.js';
 import { connect } from 'react-redux';
 import { getFinancialData } from '../../actions';
 
-class InternationalGraphs extends Component{
+class GlobalGraphs extends Component{
     componentDidUpdate(){
         Chart.defaults.global.defaultFontColor = '#37EFBA';
         Chart.defaults.global.defaultFontSize = '20';
         Chart.defaults.global.tooltips = false;
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
-        let ctx =document.getElementById('internationalChart');
-        let internationalChart = new Chart (ctx, {
+        let ctx =document.getElementById('globalChart');
+        let globalChart = new Chart (ctx, {
             type: 'bar',
             data: {
-                labels:['Theatrical', 'Home', 'TV'],
+                labels:['Royalties Gross', 'Sales Agent Fee', "Distributor's Net"],
                 datasets:[{
-                    label: 'International Gross Earnings',
+                    label: 'Global Consumer Products',
                     data: [
-                        this.props.finance['theatrical, home, tv gross'],
+                        this.props.finance['royalties gross'],
                         this.props.finance['sales agent fee'],
-                        this.props.finance['total net earnings']
+                        this.props.finance["distributor's net"]
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
@@ -68,16 +68,16 @@ class InternationalGraphs extends Component{
     }
 
     render(){
-        return  <canvas id='internationalChart' width='200' height ='50'></canvas>;
+        return  <canvas id='globalChart' width='200' height ='50'></canvas>;
     }
 }
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['international']
+        finance: state.finance.financeList[0]['global consumer products']
     }
 }
 
 export default connect(mapStateToProps, {
     getFinancialData
-})(InternationalGraphs);
+})(GlobalGraphs);
