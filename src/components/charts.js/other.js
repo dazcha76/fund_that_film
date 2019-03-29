@@ -63,7 +63,6 @@ class OtherGraphs extends Component{
 }
 
 const mapStateToProps = state => {
-    console.log("INTERNATIONAL:", state)
     return {
         finance: state.finance.financeList[0]
     }

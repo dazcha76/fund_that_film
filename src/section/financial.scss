@@ -113,9 +113,15 @@
       justify-content: space-between;
     }
 
-    .tne,
     .tnh {
-      justify-content: space-evenly;
+      justify-content: flex-end;
+      .first-paragraph {
+        margin-right: 5%;
+      }
+    }
+
+    .tne {
+      justify-content: center;
     }
   }
 

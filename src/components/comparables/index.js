@@ -105,7 +105,6 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE TO PROPS:", state)
   return {
     comparables: state.comparables,
     movies: state.movies.movieList

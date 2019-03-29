@@ -85,7 +85,6 @@ class NorthAmericaGraphs extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("INTERNATIONAL:", state)
     return {
         finance: state.finance.financeList[0]['north america']
     }

@@ -42,7 +42,7 @@ class NorthAmerica extends Component {
                 <div className='card financial-card northamerica-card'>
                     <h5 className='financial-header'>Theatrical and Home</h5>
                     <div className='financial-body northamerica-body tnh'>
-                        <p>Sales Agent Fee:<br/> ${this.props.finance['theatrical and home']['sales agent fee'].toLocaleString()}</p>
+                        <p className='first-paragraph'>Sales Agent Fee:<br/> ${this.props.finance['theatrical and home']['sales agent fee'].toLocaleString()}</p>
                         <p>Distributor's Net:<br/> ${this.props.finance['theatrical and home']["distributor's net"].toLocaleString()}</p>
                     </div>
                 </div>
