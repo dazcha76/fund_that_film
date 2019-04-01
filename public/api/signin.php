@@ -5,10 +5,45 @@ require_once('../../config/setup.php');
 require_once('../../config/mysqlconnect.php');
 
 
+/*
+success: true,
+user: {
+	id: 2,
+	name: "Bill S. Preston, Esq.",
+	projects: [{
+		id: 3,
+		comparables: [3, 4]
+	},
+	{
+		id: 5,
+		comparables: [20, 30]
+	}]
+}
+*/
+
+
 if(isset($_SESSION['user_id'])){ //if is set, user is logged in
+  
+
+    
+    $proj_id_query ="SELECT `projects_id` 
+                FROM  `users_projects` AS up
+                WHERE  up.`users_id`='{$_SESSION["user_id"]}' ";
+
+    $proj_id_result = $db->query($proj_id_query);
+
+    while($row=$proj_id_result->fetch_assoc()){
+        $proj_id=$row['id'];
+    }
+
+
+
+    $output['id']=$_SESSION['user_id'];
+    $output['user'];
     $output['success']=true;
     $output['login']=true;
     $output['check-signin']=true;
+
     $json_output=json_encode($output);
 }else{//if user is not logged in
     $output = [
