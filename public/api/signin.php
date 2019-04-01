@@ -33,13 +33,12 @@ if(isset($_SESSION['user_id'])){ //if is set, user is logged in
     $proj_id_result = $db->query($proj_id_query);
 
     while($row=$proj_id_result->fetch_assoc()){
-        $proj_id=$row['id'];
+        $proj_ids[]=$row['projects_id'];
     }
 
-
+    $output['project ids'] =$proj_ids;
 
     $output['id']=$_SESSION['user_id'];
-    $output['user'];
     $output['success']=true;
     $output['login']=true;
     $output['check-signin']=true;
