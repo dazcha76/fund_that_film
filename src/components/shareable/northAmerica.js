@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 import Preloader from '../preloader/index';
 
 class NorthAmerica extends Component {
@@ -107,10 +107,10 @@ class NorthAmerica extends Component {
 
 const mapStateToProps = state => {
   return {
-    finance: state.finance.financeList[0]['north america']
+    finance: state.token.shareableList[0]['north america']
   }
 }
 
 export default connect(mapStateToProps, {
-  getFinancialData
+  sendToken
 })(NorthAmerica);

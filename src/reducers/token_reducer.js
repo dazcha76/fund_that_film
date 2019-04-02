@@ -1,5 +1,5 @@
 const DEFAULT_STATE = {
-    financeList: [
+    shareableList: [
     {
         'north america': {
             'theatrical': {

@@ -5,15 +5,23 @@ import NorthAmerica from './northAmerica';
 import International from './international';
 import Global from './global';
 import Other from './other';
-import OtherGraphs from '../charts.js/other';
-import { getFinancialData, getProjectTitle } from '../../actions';
-import { connect } from 'react-redux';
-import InternationalGraphs from '../charts.js/international';
-import NorthAmericaHorizontal from './../charts.js/northamerica';
+import OtherGraphs from '../shareablecharts/other';
+import GlobalGraphs from '../shareablecharts/global';
+import InternationalGraphs from '../shareablecharts/international';
+import NorthAmericaGraphs from './../shareablecharts/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
+import { connect } from 'react-redux';
+// import { getFinancialData, getProjectTitle } from '../../actions';
+import { sendToken, getProjectTitle } from '../../actions';
+
+const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
 class Shareable extends Component {
+  componentDidMount(){
+    console.log("shareable component MOUNTED")
+    this.props.sendToken(token);
+  }
 
   render(){
     return (
@@ -29,7 +37,7 @@ class Shareable extends Component {
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
                   <h1 className='chart-header'>Production Gross in Millions</h1>
-                  <NorthAmericaHorizontal/>
+                  <NorthAmericaGraphs/>
                 </div>
                 <NorthAmerica/>
               </Tab>
@@ -43,12 +51,14 @@ class Shareable extends Component {
                 </div>
               </Tab>
               <Tab eventKey='global' title='Global'>
+                <h1 className='chart-header'>Global Consumer Products</h1>
+                <GlobalGraphs/>
                 <Global/>
               </Tab>
               <Tab eventKey='other' title='Other'>
               <div className='other-northAmerican-graph-container'>
                   <h1 className='chart-header'>Distributors To Cost Ratio</h1>
-                <Chart/>
+                <OtherGraphs/>
                 <Other/>
               </div>
               </Tab>
@@ -61,11 +71,14 @@ class Shareable extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("SHAREABLE STATE:", state)
     return {
         projectTitle: state.project.project
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData, getProjectTitle
+    // getFinancialData, 
+    getProjectTitle, 
+    sendToken
 })(Shareable);

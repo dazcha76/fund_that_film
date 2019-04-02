@@ -11,7 +11,7 @@ import Home from './home';
 import MovieComparison from './comparables';
 import NewProject from './newprojects';
 import MyProjects from './projects';
-import Shareable from './financial/shareable';
+import Shareable from './shareable/shareable';
 import SignIn from './signin';
 import Terms from './terms';
 import { signIn } from '../actions';

@@ -34,10 +34,6 @@ class MovieComparison extends Component {
 
   renderMovies(){
     const { movies } = this.props;
-
-    if(!movies[0]){
-        return <h1>Loading Data</h1>;
-    }
   
     return this.props.movies.map( (movie, index) => {
       let inactiveClass = "";
@@ -72,7 +68,6 @@ class MovieComparison extends Component {
     const { movies } = this.props;
 
     if(!movies[0]['title']){
-        // return <h1>Loading Data</h1>;
         return <Preloader/>
     }
 
