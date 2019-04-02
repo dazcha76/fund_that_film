@@ -32,13 +32,32 @@ class Nav extends Component{
                 text:'Terms & Conditions',
                 to:'/terms'
             }
-        ]
+        ],
+        signInLink: [{
+            text: 'Sign In',
+            to:'/sign_in'
+        }]
     }
 
-    toggleClass = () => {
-        const currentState = this.state.active;
-        this.setState({ active: !currentState });
+    showNavbar = () => {
+        this.setState({
+            active: true
+        })
     }
+
+    hideNavbar = () => {
+        this.setState({
+            active: false
+        })
+    }
+
+    componentWillMount(){
+        window.addEventListener('click', this.hideNavbar, true);
+    }
+
+    // componentWillUnmount(){
+    //     window.removeEventListener('click', this.toggleClass, true);
+    // }
 
     logout = () => {
         this.props.signOut();
@@ -56,7 +75,7 @@ class Nav extends Component{
 
     renderLinks(){
         const login = this.props.sign_in;
-        const {topLinks, loggedInLinks, bottomLinks} = this.state;
+        const {topLinks, loggedInLinks, bottomLinks, signInLink} = this.state;
 
         let activeLinks = [];
         let linkElements = [];
@@ -72,7 +91,7 @@ class Nav extends Component{
                 </li>
             );
         } else {
-            activeLinks = [...topLinks, ...bottomLinks];
+            activeLinks = [...topLinks, ...bottomLinks, ...signInLink];
 
             linkElements = activeLinks.map(this.buildLink)
         }
@@ -87,7 +106,7 @@ class Nav extends Component{
         return(
             <div className='nav-bar-container'>
                 <div className='nav-bar'>
-                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.showNavbar } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
@@ -97,7 +116,7 @@ class Nav extends Component{
 
                 </div>
                 <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
-                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.showNavbar } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>

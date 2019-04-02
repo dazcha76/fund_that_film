@@ -19,6 +19,10 @@ class DetailsPage extends Component {
         this.setState({active : !currentState});
     } 
 
+    handleConfirm = () => {
+        this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id);
+    }
+
     buildMovieDetails(){
         const { movies } = this.props;
         return this.props.movies.map( movie => {
@@ -71,6 +75,7 @@ class DetailsPage extends Component {
 }
 
 const mapStateToProps = state => {
+    console.log("DETAILS STATE:", state)
   return {
     movies: state.movies.movieList
    

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
 import '../../section/contact.scss'; 
-
 import { sendContactForm } from '../../actions';
 import { connect } from 'react-redux';
 import {Redirect} from 'react-router-dom';
@@ -12,7 +11,7 @@ const required = value => value ? undefined : 'Field is Required';
 
 class Contact extends Component {
   state = {
-    messageSent: false,
+    messageSent: false
   }
 
   submitHandler = (values) => {
