@@ -31,7 +31,7 @@ $output=[
 
 
 if(isset($_SESSION['user_id'])){ //if is set, user is logged in
-
+    $output['user']['id']=$_SESSION['user_id'];
     $output['success']=true; 
     $output['login']=true;
     $output['check-signin']=true;
