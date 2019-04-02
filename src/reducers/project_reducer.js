@@ -1,5 +1,5 @@
 const DEFAULT_STATE = {
-  title: "Spiderwoman"
+  title: ''
 };
 
 const projectReducer = (state = DEFAULT_STATE, action) => {

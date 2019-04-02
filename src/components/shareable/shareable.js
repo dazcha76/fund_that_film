@@ -12,14 +12,12 @@ import NorthAmericaGraphs from './../shareablecharts/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 import { connect } from 'react-redux';
-// import { getFinancialData, getProjectTitle } from '../../actions';
 import { sendToken, getProjectTitle } from '../../actions';
 
 const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
 class Shareable extends Component {
   componentDidMount(){
-    console.log("shareable component MOUNTED")
     this.props.sendToken(token);
   }
 
@@ -32,7 +30,7 @@ class Shareable extends Component {
           <div id="financials-background-filter"></div>
         </div>
         <div id="financial-container">
-          <h1 className='financial-charts-header'>Financial Calculations for {this.props.projectTitle}</h1>
+          <h1 className='shareable-header'>Financial Calculations {this.props.projectTitle}</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
@@ -71,14 +69,12 @@ class Shareable extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("SHAREABLE STATE:", state)
     return {
         projectTitle: state.project.project
     }
 }
 
 export default connect(mapStateToProps, {
-    // getFinancialData, 
     getProjectTitle, 
     sendToken
 })(Shareable);

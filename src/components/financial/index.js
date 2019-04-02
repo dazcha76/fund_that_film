@@ -23,25 +23,12 @@ class FinancialNorthAmerica extends Component {
     toShareable: false,
   }
 
-  // getSharables = () => {
-  //   this.props.sendToken(token)
-  //   .then(() => this.setState(() => ({
-  //       toShareable: true
-  //     })));
-  // }
-
   render(){
-
-    // if (this.state.toShareable === true) {
-    //   return <Redirect to={`/invest/${token}`} />
-    //   // return <Redirect to={'/invest'} />
-    // }
-
     return (
       <div>
         <Preloader/>
         <Nav/>
-        <Link to={`/invest/${token}`}>
+        <Link to={`/invest/${token}`} target="_blank">
           <button className="share_button">Share</button>
         </Link>
         <div id="financials-background-container">
@@ -88,7 +75,6 @@ class FinancialNorthAmerica extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("FINANCIAL STATE:", state)
   return {
     movies: state.movies.movieList,
     finance: state.finance.financeList
