@@ -5,10 +5,10 @@ import { getFinancialData } from '../../actions';
 
 class NorthAmericaGraphs extends Component {
   componentDidUpdate() {
-    Chart.defaults.global.defaultFontColor = '#37EFBA';
-    Chart.defaults.global.defaultFontSize = '20';
-    Chart.defaults.global.tooltips = false;
-    Chart.defaults.global.defaultFontFamily = 'San-Serif';
+    // Chart.defaults.global.defaultFontColor = '#37EFBA';
+    // Chart.defaults.global.defaultFontSize = '20';
+    // Chart.defaults.global.tooltips = false;
+    // Chart.defaults.global.defaultFontFamily = 'San-Serif';
     let ctx = document.getElementById('northAmericaChart');
     let northAmericaChart = new Chart(ctx, {
       type: 'bar',
@@ -58,10 +58,10 @@ class NorthAmericaGraphs extends Component {
       },
       options: {
                 responsive: true,
-                animation: {
-                  easing: 'easeInCirc',
-                  duration:2000
-                },
+                // animation: {
+                //   easing: 'easeInCirc',
+                //   duration:1000
+                // },
                 legend:{ 
                     display : false,
                     labels:{

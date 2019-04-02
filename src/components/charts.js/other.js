@@ -9,10 +9,10 @@ class OtherGraphs extends Component{
         let cost = ratio[2];
         let earnings = ratio[0]
 
-        Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
-        Chart.defaults.global.defaultFontSize = '20';
-        Chart.defaults.global.defaultFontFamily = 'San-Serif';
-        Chart.defaults.global.tooltips = false;
+        // Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
+        // Chart.defaults.global.defaultFontSize = '20';
+        // Chart.defaults.global.defaultFontFamily = 'San-Serif';
+        // Chart.defaults.global.tooltips = false;
         var ctx = document.getElementById('otherChart');
         var otherChart = new Chart (ctx, {
             type: 'horizontalBar',
@@ -28,9 +28,14 @@ class OtherGraphs extends Component{
                     }],
             },
             options:{
-                animation:{
-                    duration:1000,
-                },  
+                // animation:{
+                //     duration:1000,
+                // },
+                // tooltips:{
+                //     enabled: true,
+                //     intersect: false,
+                //     mode: 'dataset'
+                // } , 
                 scales:{
                     xAxes:[{
                         ticks:{
@@ -43,10 +48,11 @@ class OtherGraphs extends Component{
                         }
                     }],
                 },
+                
                 legend:{ display :false},
-                title:{
-                    text: 'Distributor Net Earning To Cost'
-                },
+                // title:{
+                //     text: 'Distributor Net Earning To Cost'
+                // },
                 labels:{
                     fontColor:'#rgba(218, 216, 223, 1)',
                     fontSize:20

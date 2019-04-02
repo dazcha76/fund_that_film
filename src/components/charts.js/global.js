@@ -5,10 +5,10 @@ import { getFinancialData } from '../../actions';
 
 class GlobalGraphs extends Component{
     componentDidUpdate(){
-        Chart.defaults.global.defaultFontColor = '#37EFBA';
-        Chart.defaults.global.defaultFontSize = '20';
-        Chart.defaults.global.tooltips = false;
-        Chart.defaults.global.defaultFontFamily = 'San-Serif';
+        // Chart.defaults.global.defaultFontColor = '#37EFBA';
+        // Chart.defaults.global.defaultFontSize = '20';
+        // Chart.defaults.global.tooltips = false;
+        // Chart.defaults.global.defaultFontFamily = 'San-Serif';
         let ctx =document.getElementById('globalChart');
         let globalChart = new Chart (ctx, {
             type: 'bar',
