@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../navbar/index';
 import '../../section/projects.scss'; 
 import { connect } from 'react-redux';
-import { getMyProjects } from '../../actions';
+import { getMyProjects, signIn } from '../../actions';
 
 class Projects extends Component {
   componentDidMount(){
@@ -13,14 +13,14 @@ class Projects extends Component {
   }
 
   seeComparables = () => {
-    console.log('See Comparables')
+    this.props.getMovieData(title1, title2);
   }
 
   seeFinancials = () => {
-    console.log('See Financials')
+    this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id);
   }
 
-  buildProject(project){
+  buildProject = (project) => {
     return (
         <div key={project.id} className='project-container'>
           <h1 className='project-title'>{project.title}</h1>
@@ -34,8 +34,8 @@ class Projects extends Component {
           <p className='project-detail'><span>Logline:</span> {project.logline}</p>
           <p className='project-detail'><span>Synopsis:</span> {project.synopsis}</p>
           <div className="my-projects-button-container">
-            <button className='my-project-comparables-button page-button'>Comparables</button>
-            <button className='my-project-financial-button page-button'>Financials</button>
+            <button className='my-project-comparables-button page-button' onClick={this.seeComparables}>Comparables</button>
+            <button className='my-project-financial-button page-button' onClick={this.seeFinancials}>Financials</button>
           </div> 
         </div>
     )
@@ -55,11 +55,16 @@ class Projects extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("SESSION:", state)
   return {
-    my_projects: state.myprojects.my_projects
+    my_projects: state.myprojects.my_projects,
+    // user_object: state.session.user.projects
+    // user_object[project.id][0]
+    // user_object[project.id][1]
   }
 }
 
 export default connect(mapStateToProps, {
-    getMyProjects
+    getMyProjects,
+    signIn
 })(Projects);

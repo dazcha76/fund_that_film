@@ -6,7 +6,6 @@ import { signIn, signOut } from '../../actions';
 
 class Nav extends Component{
     state = {
-        toHome: false,
         active: false,
         topLinks: [
             {
@@ -47,7 +46,7 @@ class Nav extends Component{
 
     buildLink(link){
         return (
-            <Link to= { link.to} key= { link.to } >
+            <Link to={link.to} key= { link.to } >
                 <li>
                     { link.text }
                 </li>
@@ -125,8 +124,7 @@ class Nav extends Component{
 
 const mapStateToProps = state => {
   return {
-    sign_in: state.signin.login,
-    sign_out: state.signout.login
+    sign_in: state.session.login
   }
 }
 

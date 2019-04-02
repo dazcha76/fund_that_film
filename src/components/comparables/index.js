@@ -6,7 +6,6 @@ import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
 import Nav from '../navbar/index';
 
-
 class MovieComparison extends Component {
   state = {
     active: false,
@@ -26,6 +25,10 @@ class MovieComparison extends Component {
     },1000)
 
     await this.props.getMovieData(title1, title2);
+  }
+
+  componentDidUpdate(){
+    
   }
 
   handleConfirm = () => {
