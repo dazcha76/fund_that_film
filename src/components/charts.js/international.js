@@ -7,10 +7,7 @@ class InternationalGraphs extends Component{
     componentDidUpdate(){
         Chart.defaults.global.defaultFontColor = '#37EFBA';
         Chart.defaults.global.defaultFontSize = '20';
-
         Chart.defaults.global.defaultFontFamily = 'San-Serif';
-
-
         Chart.defaults.global.hover.mode = 'nearest';
 
         let ctx =document.getElementById('internationalChart');

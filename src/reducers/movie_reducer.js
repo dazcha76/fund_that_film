@@ -1,60 +1,60 @@
 const DEFAULT_STATE = {
   movieList: [
     {
-      id: 1,
-      title:'Wonder Woman',
+      id: null,
+      title:'',
       us_theatrical_release: '',
-      us_gross_bo:0,
-      intl_gross_bo:0,
+      us_gross_bo:null,
+      intl_gross_bo:null,
       distribution_companies_info:[
           {
-              id: 0,
+              id: null,
               name: ''
           }
       ],
-      budget:0,
+      budget:null,
       mpaa_rating:'',
-      audience_satisfaction:0,
+      audience_satisfaction:null,
       funding_partners_info:[
           {
-              id: 0,
+              id: null,
               name: ''
           }
       ],
       us_theatrical_end:'',
       genre:'',
       year:'',
-      image_url:'https://image.tmdb.org/t/p/w600_and_h900_bestv2/imekS7f1OuHyUP2LAiTEM0zBzUz.jpg'
+      image_url:''
     },
     {
-      id: 2,
-      title:'The Smurfs',
+      id: null,
+      title:'',
       us_theatrical_release: '',
-      us_gross_bo:0,
-      intl_gross_bo:0,
+      us_gross_bo:null,
+      intl_gross_bo:null,
       distribution_companies_info:[
           {
-              id:0,
+              id:null,
               name:''
           }
       ],
-      budget:0,
+      budget:null,
       mpaa_rating:'',
-      audience_satisfaction:0,
+      audience_satisfaction:null,
       funding_partners_info:[
           {
-              id:0,
+              id:null,
               name: ''
           },
           {
-              id:0,
+              id:null,
               name: ''
           }
       ],
       us_theatrical_end:'',
       genre:'',
       year: '' ,
-      image_url:'https://image.tmdb.org/t/p/w600_and_h900_bestv2/ntP7anZWyi7TxFARKp78bHTLEVr.jpg'  
+      image_url:''  
     }
   ]
 };
