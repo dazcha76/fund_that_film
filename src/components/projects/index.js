@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Nav from '../navbar/index';
 import '../../section/projects.scss'; 
 import { connect } from 'react-redux';
-import { getMyProjects, signIn } from '../../actions';
+import { getMyProjects, signIn, getMovieData, getFinancialData } from '../../actions';
+
+const id1 = null;
+const id2 = null;
 
 class Projects extends Component {
   componentDidMount(){
@@ -12,12 +15,12 @@ class Projects extends Component {
     this.props.getMyProjects();
   }
 
-  seeComparables = () => {
-    this.props.getMovieData(title1, title2);
+  seeComparables = (projectId) => {
+    // this.props.getMovieData(id1, id2);
   }
 
-  seeFinancials = () => {
-    this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id);
+  seeFinancials = (projectId) => {
+    // this.props.getFinancialData(this.props.comparables[projectId][0], this.props.comparables[projectId][1]);
   }
 
   buildProject = (project) => {
@@ -34,8 +37,8 @@ class Projects extends Component {
           <p className='project-detail'><span>Logline:</span> {project.logline}</p>
           <p className='project-detail'><span>Synopsis:</span> {project.synopsis}</p>
           <div className="my-projects-button-container">
-            <button className='my-project-comparables-button page-button' onClick={this.seeComparables}>Comparables</button>
-            <button className='my-project-financial-button page-button' onClick={this.seeFinancials}>Financials</button>
+            <button className='my-project-comparables-button page-button' onClick={this.seeComparables(project.id)}>Comparables</button>
+            <button className='my-project-financial-button page-button' onClick={this.seeFinancials(project.id)}>Financials</button>
           </div> 
         </div>
     )
@@ -58,13 +61,13 @@ const mapStateToProps = state => {
   console.log("SESSION:", state)
   return {
     my_projects: state.myprojects.my_projects,
-    // user_object: state.session.user.projects
-    // user_object[project.id][0]
-    // user_object[project.id][1]
+    comparables: state.session.user.projects
   }
 }
 
 export default connect(mapStateToProps, {
     getMyProjects,
-    signIn
+    signIn,
+    getMovieData, 
+    getFinancialData 
 })(Projects);

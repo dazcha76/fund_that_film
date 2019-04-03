@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
 class GlobalGraphs extends Component{
     componentDidUpdate(){
@@ -70,10 +70,10 @@ class GlobalGraphs extends Component{
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['global consumer products']
+        finance: state.token.shareableList[0]['global consumer products']
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
+    sendToken
 })(GlobalGraphs);
