@@ -32,6 +32,14 @@ export const getMovieData = (film1, film2) => {
   }
 }
 
+export const getMovieTitles = (title1, title2) => {
+  console.log("TITLES", title1, title2)
+  return {
+    type: 'PROJECT_COMPARABLES',
+    payload: {title1, title2}
+  };
+}
+
 export const getMyProjects = () => {
   return async dispatch => {
     const response = await axios.get('/api/myprojects.php');
