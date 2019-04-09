@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 import { signIn } from '../../actions';
 import { connect } from 'react-redux';
 
-const required = value => value ? undefined : 'Field is Required';
+const validate = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
   state = {
@@ -24,7 +24,7 @@ class SignIn extends Component {
 
     if (this.props.sign_in) {
       return <Redirect to='/my_projects' />
-    }
+    } 
 
     return (
       <div className='signin-wrapper'>
@@ -33,9 +33,9 @@ class SignIn extends Component {
           <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
             <h1 className='signin-title'>Sign In</h1>
             <div className="sign-in-inputs">
-              <Field type='email' id='email' name='email' className='email-input'  placeholder='Email Address' validate={ required } component={ Input }/>
+              <Field type='email' id='email' name='email' className='email-input'  placeholder='Email Address' validate={ validate } component={ Input }/>
    
-              <Field type='password' id='password' name='password' className='password-input'  placeholder='Password' validate={ required } component={ Input }/>
+              <Field type='password' id='password' name='password' className='password-input'  placeholder='Password' validate={ validate } component={ Input }/>
             </div>
             <div className='login-button-container'>
             <button type="submit" className='login-submit-button page-button'>Login</button>
@@ -50,11 +50,12 @@ class SignIn extends Component {
 
 SignIn = reduxForm({
     form: 'sign_in_form',
+    validate
   })(SignIn) ;
 
 const mapStateToProps = state => {
   return {
-    sign_in: state.session.login,
+    sign_in: state.session.success,
     sign_in_form: state.form
   }
 }
