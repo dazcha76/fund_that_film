@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
 class NorthAmericaGraphs extends Component {
   componentDidUpdate() {
@@ -82,10 +82,10 @@ class NorthAmericaGraphs extends Component {
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['north america']
+        finance: state.token.shareableList[0]['north america']
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData 
+    sendToken
 })(NorthAmericaGraphs);

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
 class NorthAmericaGraphs extends Component {
   componentDidUpdate() {
+    Chart.defaults.global.defaultFontColor = '#37EFBA';
+    Chart.defaults.global.defaultFontSize = '20';
+    Chart.defaults.global.tooltips = false;
+    Chart.defaults.global.defaultFontFamily = 'San-Serif';
     let ctx = document.getElementById('northAmericaChart');
     let northAmericaChart = new Chart(ctx, {
       type: 'bar',
@@ -56,7 +60,7 @@ class NorthAmericaGraphs extends Component {
                 responsive: true,
                 animation: {
                   easing: 'easeInCirc',
-                  duration:1000
+                  duration:2000
                 },
                 legend:{ 
                     display : false,
@@ -82,10 +86,10 @@ class NorthAmericaGraphs extends Component {
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['north america']
+        finance: state.token.shareableList[0]['north america']
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData 
+    sendToken
 })(NorthAmericaGraphs);

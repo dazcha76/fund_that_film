@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
 class GlobalGraphs extends Component{
     componentDidUpdate(){
+        Chart.defaults.global.defaultFontColor = '#37EFBA';
+        Chart.defaults.global.defaultFontSize = '20';
+        Chart.defaults.global.tooltips = false;
+        Chart.defaults.global.defaultFontFamily = 'San-Serif';
         let ctx =document.getElementById('globalChart');
         let globalChart = new Chart (ctx, {
             type: 'bar',
@@ -70,10 +74,10 @@ class GlobalGraphs extends Component{
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['global consumer products']
+        finance: state.token.shareableList[0]['global consumer products']
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
+    sendToken
 })(GlobalGraphs);

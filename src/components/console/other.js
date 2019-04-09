@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
 class OtherGraphs extends Component{
     componentDidUpdate(){
@@ -9,6 +9,10 @@ class OtherGraphs extends Component{
         let cost = ratio[2];
         let earnings = ratio[0]
 
+        Chart.defaults.global.defaultFontColor = 'rgba(255,255,255, 0.9)';
+        Chart.defaults.global.defaultFontSize = '20';
+        Chart.defaults.global.defaultFontFamily = 'San-Serif';
+        Chart.defaults.global.tooltips = false;
         var ctx = document.getElementById('otherChart');
         var otherChart = new Chart (ctx, {
             type: 'horizontalBar',
@@ -26,7 +30,7 @@ class OtherGraphs extends Component{
             options:{
                 animation:{
                     duration:1000,
-                },
+                },  
                 scales:{
                     xAxes:[{
                         ticks:{
@@ -39,7 +43,6 @@ class OtherGraphs extends Component{
                         }
                     }],
                 },
-                
                 legend:{ display :false},
                 title:{
                     text: 'Distributor Net Earning To Cost'
@@ -61,11 +64,11 @@ class OtherGraphs extends Component{
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]
+        finance: state.token.shareableList[0]
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
+    sendToken
 })(OtherGraphs);
 

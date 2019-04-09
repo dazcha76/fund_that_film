@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import logo from '../../assets/images/ftf_logo_150.png';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
 
 class Nav extends Component{
     state = {
-        toHome: false,
         active: false,
         topLinks: [
             {
@@ -33,6 +32,12 @@ class Nav extends Component{
                 text:'Terms & Conditions',
                 to:'/terms'
             }
+        ],
+        signIn: [
+            {
+                text: 'Sign In',
+                to:'/sign_in'
+            }
         ]
     }
 
@@ -41,8 +46,17 @@ class Nav extends Component{
         this.setState({ active: !currentState });
     }
 
+    hideNavbar = () => {
+        this.setState({ active: false });
+    }
+
+    componentWillMount(){
+        window.addEventListener('click', this.hideNavbar, true);
+    }
+
     logout = () => {
         this.props.signOut();
+        this.props.history.push('/');
     }
 
     buildLink(link){
@@ -56,8 +70,8 @@ class Nav extends Component{
     }
 
     renderLinks(){
-        const login = this.props.sign_in;
-        const {topLinks, loggedInLinks, bottomLinks} = this.state;
+        const login = this.props.sign_in.login;
+        const {topLinks, loggedInLinks, bottomLinks, signIn} = this.state;
 
         let activeLinks = [];
         let linkElements = [];
@@ -73,7 +87,7 @@ class Nav extends Component{
                 </li>
             );
         } else {
-            activeLinks = [...topLinks, ...bottomLinks];
+            activeLinks = [...topLinks, ...bottomLinks, ...signIn];
 
             linkElements = activeLinks.map(this.buildLink)
         }
@@ -84,6 +98,7 @@ class Nav extends Component{
     render(){
         const hamburgerBaseClass = 'hamburger hamburger--spin ';
         const hamburgerActive = 'is-active';
+        const login = this.props.sign_in.login;
 
         return(
             <div className='nav-bar-container'>
@@ -109,7 +124,7 @@ class Nav extends Component{
                     <div className='welcome-login-header'>
                     {/* h1  will have to be done dynmically once we are able to create a login system
                     that then will be used to pull the users name and email address from the database to the browser */}
-                        <h2>Fund That Film</h2>
+                        <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'Fund That Film'}</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
                         <div className='slide-out-menu-content'>
@@ -124,12 +139,13 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
+    console.log("SIGN IN STATE", state)
   return {
-    sign_in: state.signin.login,
-    sign_out: state.signout.login
+    sign_in: state.session,
+    sign_out: state.session.login
   }
 }
 
-export default connect(mapStateToProps, { 
+export default withRouter(connect(mapStateToProps, { 
     signIn, signOut 
-})(Nav); 
+})(Nav)); 

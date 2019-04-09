@@ -5,7 +5,7 @@ import { getFinancialData, getMovieData } from '../../actions';
 import Disclaimer from '../footer/disclaimer';
 import {Link} from 'react-router-dom';
 import Nav from '../navbar/index';
-
+import Preloader from '../preloader/index';
 
 class MovieComparison extends Component {
   state = {
@@ -35,10 +35,6 @@ class MovieComparison extends Component {
   renderMovies(){
     const { movies } = this.props;
 
-    if(!movies[0]){
-      return <h1>Loading Data</h1>;
-    }
-  
     return this.props.movies.map( (movie, index) => {
       let inactiveClass = "";
       if(!this.state.pageHasLoaded){
@@ -53,7 +49,7 @@ class MovieComparison extends Component {
       }
 
       return (
-        <div key = {movie.title} className='movies'>
+        <div key = {movie.id} className='movies'>
           <div className='comparison-movie-display'>
             <img src= { movie.image_url } id='movie-1-img' className={ inactiveClass }/>
             <div className='movie-title-wrapper'>
@@ -105,6 +101,7 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("COMPARABLE STATE:", state)
   return {
     comparables: state.comparables,
     movies: state.movies.movieList

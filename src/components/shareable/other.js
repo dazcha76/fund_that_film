@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
 import { Tabs, Tab } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 import Preloader from '../preloader/index';
 
 class Other extends Component {
+    componentDidMount(){
+        this.props.finance;
+    }
 
     render(){
         const { finance } = this.props;
@@ -48,10 +51,10 @@ class Other extends Component {
 
 const mapStateToProps = state => {
   return {
-    finance: state.finance.financeList[0]
+    finance: state.token.shareableList[0]
   }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
+    sendToken
 })(Other);

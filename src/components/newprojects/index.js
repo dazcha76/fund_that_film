@@ -81,7 +81,7 @@ class NewProject extends Component {
   }
   
   render(){
-    const {handleSubmit, onSubmit, reset } = this.props;
+    const {handleSubmit, onSubmit, pristine, reset, submitting } = this.props;
 
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
@@ -151,8 +151,8 @@ class NewProject extends Component {
               </div>              
             </div>
             <div className='user-input-button-container'>
-              <button onClick={reset} type='button' className='new-project-clear-button page-button'>Clear</button>
-              <button className='new-project-submit-button page-button'>Submit</button>
+              <button onClick={reset} type='button' disabled={pristine || submitting} className='new-project-clear-button page-button'>Clear</button>
+              <button type='submit' disabled={submitting} className='new-project-submit-button page-button'>Submit</button>
             </div> 
           </form> 
           </div>
@@ -166,7 +166,7 @@ const year = new Date();
 
 
 // Hardcoded values for testing
-//
+
 // NewProject = reduxForm({  
 //   form: 'newproject_form',     
 //   initialValues: { 

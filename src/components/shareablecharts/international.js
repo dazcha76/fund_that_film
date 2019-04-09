@@ -1,40 +1,32 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import { connect } from 'react-redux';
-import { getFinancialData } from '../../actions';
+import { sendToken } from '../../actions';
 
-class GlobalGraphs extends Component{
+class InternationalGraphs extends Component{
     componentDidUpdate(){
-        let ctx =document.getElementById('globalChart');
-        let globalChart = new Chart (ctx, {
+        let ctx =document.getElementById('internationalChart');
+        let internationalChart = new Chart (ctx, {
             type: 'bar',
             data: {
-                labels:['Royalties Gross', 'Sales Agent Fee', "Distributor's Net"],
+                labels:['Theatrical', 'Home', 'TV'],
                 datasets:[{
-                    label: 'Global Consumer Products',
+                    label: 'International Gross Earnings',
                     data: [
-                        this.props.finance['royalties gross'],
+                        this.props.finance['theatrical, home, tv gross'],
                         this.props.finance['sales agent fee'],
-                        this.props.finance["distributor's net"]
+                        this.props.finance['total net earnings']
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
                         "rgba(255, 99, 132, 0.2)",
                         "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)",
-                        "rgba(75, 192, 192, 0.2)",
-                        "rgba(153, 102, 255, 0.2)",
-                        "rgba(255, 159, 64, 0.2)",
-                        "rgba(255, 99, 132, 0.2)"
+                        "rgba(255, 206, 86, 0.2)"
                       ],
                       borderColor: [
                         "rgba(255,99,132,1)",
                         "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)",
-                        "rgba(75, 192, 192, 1)",
-                        "rgba(153, 102, 255, 1)",
-                        "rgba(255, 159, 64, 1)",
-                        "rgba(255,99,132,1)"
+                        "rgba(255, 206, 86, 1)"
                       ],
                     borderWidth: 1,
                 }]
@@ -64,16 +56,16 @@ class GlobalGraphs extends Component{
     }
 
     render(){
-        return  <canvas id='globalChart' width='200' height ='50'></canvas>;
+        return  <canvas id='internationalChart' width='200' height ='50'></canvas>;
     }
 }
 
 const mapStateToProps = state => {
     return {
-        finance: state.finance.financeList[0]['global consumer products']
+        finance: state.token.shareableList[0]['international']
     }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData
-})(GlobalGraphs);
+    sendToken
+})(InternationalGraphs);

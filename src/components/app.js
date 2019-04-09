@@ -11,7 +11,7 @@ import Home from './home';
 import MovieComparison from './comparables';
 import NewProject from './newprojects';
 import MyProjects from './projects';
-import Shareable from './financial/shareable';
+import Shareable from './shareable/shareable';
 import SignIn from './signin';
 import Terms from './terms';
 import { signIn } from '../actions';
@@ -33,9 +33,7 @@ class App extends Component {
                     <Route exact path='/' component={ Home }/>
                     <Route path='/sign_in' component={() => <SignIn />}/>
                     <Route path='/new_project' component={() => <NewProject />}/>
-
                     <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
-
                     <Route path='/comparisons' component={ MovieComparison }/>
                     <Route path='/financials' component={ FinancialNorthAmerica }/>
                     <Route path='/invest/' component={ Shareable }/>
@@ -51,7 +49,7 @@ class App extends Component {
 
 const mapStateToProps = state => {
     return {
-        sign_in: state.signin.login
+        sign_in: state.session.login
     }
 }
 

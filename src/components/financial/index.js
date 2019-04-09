@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import NorthAmerica from './northAmerica';
 import International from './international';
@@ -23,26 +23,14 @@ class FinancialNorthAmerica extends Component {
     toShareable: false,
   }
 
-  getSharables = () => {
-    this.props.sendToken(token)
-    .then(() => this.setState(() => ({
-        toShareable: true
-      })));
-  }
-
   render(){
-
-    if (this.state.toShareable === true) {
-      return <Redirect to={`/invest/${token}`} />
-      // return <Redirect to={'/invest'} />
-    }
-
     return (
-     
       <div>
-         <Preloader/>
-         <Nav/>
-         <button onClick={this.getSharables} className="share_button">Share</button>
+        <Preloader/>
+        <Nav/>
+        <Link to={`/invest/${token}`} target="_blank">
+          <button className="share_button">Share</button>
+        </Link>
         <div id="financials-background-container">
           <div id="financials-background"></div>
           <div id="financials-background-filter"></div>
@@ -82,7 +70,6 @@ class FinancialNorthAmerica extends Component {
         </div>
         <Disclaimer/>
       </div>
-      
     )
   }
 }
