@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 import logo from '../../assets/images/ftf_logo_150.png';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../../actions';
@@ -33,39 +33,27 @@ class Nav extends Component{
                 to:'/terms'
             }
         ],
-        signInLink: [{
-            text: 'Sign In',
-            to:'/sign_in'
-        }]
+        signIn: [
+            {
+                text: 'Sign In',
+                to:'/sign_in'
+            }
+        ]
     }
 
-    showNavbar = () => {
-        this.setState({
-            active: true
-        })
+    toggleClass = () => {
+        const currentState = this.state.active;
+        this.setState({ active: !currentState });
     }
-
-    hideNavbar = () => {
-        this.setState({
-            active: false
-        })
-    }
-
-    componentWillMount(){
-        window.addEventListener('click', this.hideNavbar, true);
-    }
-
-    // componentWillUnmount(){
-    //     window.removeEventListener('click', this.toggleClass, true);
-    // }
 
     logout = () => {
         this.props.signOut();
+        this.props.history.push('/');
     }
 
     buildLink(link){
         return (
-            <Link to={link.to} key= { link.to } >
+            <Link to= { link.to} key= { link.to } >
                 <li>
                     { link.text }
                 </li>
@@ -75,7 +63,7 @@ class Nav extends Component{
 
     renderLinks(){
         const login = this.props.sign_in;
-        const {topLinks, loggedInLinks, bottomLinks, signInLink} = this.state;
+        const {topLinks, loggedInLinks, bottomLinks, signIn} = this.state;
 
         let activeLinks = [];
         let linkElements = [];
@@ -91,7 +79,7 @@ class Nav extends Component{
                 </li>
             );
         } else {
-            activeLinks = [...topLinks, ...bottomLinks, ...signInLink];
+            activeLinks = [...topLinks, ...bottomLinks, ...signIn];
 
             linkElements = activeLinks.map(this.buildLink)
         }
@@ -106,7 +94,7 @@ class Nav extends Component{
         return(
             <div className='nav-bar-container'>
                 <div className='nav-bar'>
-                    <button onClick= { this.showNavbar } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
@@ -116,7 +104,7 @@ class Nav extends Component{
 
                 </div>
                 <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
-                    <button onClick= { this.showNavbar } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
@@ -142,11 +130,13 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
+    console.log("SIGN IN STATE", state)
   return {
-    sign_in: state.session.login
+    sign_in: state.session.login,
+    sign_out: state.session.login
   }
 }
 
-export default connect(mapStateToProps, { 
+export default withRouter(connect(mapStateToProps, { 
     signIn, signOut 
-})(Nav); 
+})(Nav)); 

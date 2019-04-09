@@ -167,31 +167,31 @@ const year = new Date();
 
 // Hardcoded values for testing
 
-NewProject = reduxForm({  
-  form: 'newproject_form',     
-  initialValues: { 
-    title: 'Spiderwoman',
-    runtime: 120,
-    logline: 'Girl Power',
-    synopsis: 'Stuff happens',
-    film1: 'The Lake House',
-    film2: 'The Amazing Spider-Man',
-    releasedYear: '2019',
-    mpaa: 'G',
-    genre: 'Action',
-    developmentStage: 'Pre-Production'
-  }
-})(NewProject);
-
 // NewProject = reduxForm({  
 //   form: 'newproject_form',     
 //   initialValues: { 
-//     releasedYear: 'default',
-//     mpaa: 'default',
-//     genre: 'default',
-//     developmentStage: 'default'
+//     title: 'Spiderwoman',
+//     runtime: 120,
+//     logline: 'Girl Power',
+//     synopsis: 'Stuff happens',
+//     film1: 'The Lake House',
+//     film2: 'The Amazing Spider-Man',
+//     releasedYear: '2019',
+//     mpaa: 'G',
+//     genre: 'Action',
+//     developmentStage: 'Pre-Production'
 //   }
 // })(NewProject);
+
+NewProject = reduxForm({  
+  form: 'newproject_form',     
+  initialValues: { 
+    releasedYear: 'default',
+    mpaa: 'default',
+    genre: 'default',
+    developmentStage: 'default'
+  }
+})(NewProject);
 
 const mapStateToProps = state => {
   return {
