@@ -36,7 +36,7 @@ class MovieComparison extends Component {
     const { movies } = this.props;
 
     if(!movies[0]){
-        return <h1>Loading Data</h1>;
+      return <h1>Loading Data</h1>;
     }
   
     return this.props.movies.map( (movie, index) => {
@@ -71,7 +71,7 @@ class MovieComparison extends Component {
     const arrowActive = 'is-active';
     const { movies } = this.props;
 
-    if(!movies[0]['title']){
+    if(movies.length === 0){
         return <h1>Loading Data</h1>;
     }
 
