@@ -46,6 +46,14 @@ class Nav extends Component{
         this.setState({ active: !currentState });
     }
 
+    hideNavbar = () => {
+        this.setState({ active: false });
+    }
+
+    componentWillMount(){
+        window.addEventListener('click', this.hideNavbar, true);
+    }
+
     logout = () => {
         this.props.signOut();
         this.props.history.push('/');
