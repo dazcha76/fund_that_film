@@ -70,7 +70,7 @@ class Nav extends Component{
     }
 
     renderLinks(){
-        const login = this.props.sign_in;
+        const login = this.props.sign_in.login;
         const {topLinks, loggedInLinks, bottomLinks, signIn} = this.state;
 
         let activeLinks = [];
@@ -98,6 +98,7 @@ class Nav extends Component{
     render(){
         const hamburgerBaseClass = 'hamburger hamburger--spin ';
         const hamburgerActive = 'is-active';
+        const login = this.props.sign_in.login;
 
         return(
             <div className='nav-bar-container'>
@@ -123,7 +124,7 @@ class Nav extends Component{
                     <div className='welcome-login-header'>
                     {/* h1  will have to be done dynmically once we are able to create a login system
                     that then will be used to pull the users name and email address from the database to the browser */}
-                        <h2>Fund That Film</h2>
+                        <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'Fund That Film'}</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
                         <div className='slide-out-menu-content'>
@@ -140,7 +141,7 @@ class Nav extends Component{
 const mapStateToProps = state => {
     console.log("SIGN IN STATE", state)
   return {
-    sign_in: state.session.login,
+    sign_in: state.session,
     sign_out: state.session.login
   }
 }
