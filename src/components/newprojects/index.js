@@ -5,7 +5,7 @@ import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
-import { sendProjectData, getProjectTitle } from '../../actions';
+import { sendProjectData, getProjectTitle, typeahead } from '../../actions';
 import { connect } from 'react-redux';
 
 const years = [
@@ -69,6 +69,15 @@ class NewProject extends Component {
 
   buildOptions(data){
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
+  }
+
+  onChange = (title) => {
+    console.log("ON CHANGE", title.target.value);
+    this.props.typeahead(title.target.value);
+  }
+
+  componentDidUpdate(){
+
   }
 
   submitHandler = async (values) => {
@@ -140,14 +149,14 @@ class NewProject extends Component {
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
                 <p id='film1-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
-                <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
+                <Field name='film1' component={Input} type='text' className='user-project-input film' placeholder='Film One' validate={required } onChange={this.onChange} />
               </div>
               <div className='meets-container'>
                 <h4 className='meets'>Meets</h4>
               </div>
               <div className='film-input-grouping'>
                 <p id='film2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
-                <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
+                <Field name='film2' component={Input} type='text' className='user-project-input film' placeholder='Film Two' validate={required} onChange={this.onChange}/>
               </div>              
             </div>
             <div className='user-input-button-container'>
@@ -161,9 +170,6 @@ class NewProject extends Component {
     )
   }
 }
-
-const year = new Date();
-
 
 // Hardcoded values for testing
 
@@ -194,10 +200,16 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
+  console.log("STATE", state)
   return {
-    project_form: state.form
+    project_form: state.form,
+    title_suggestions: state
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData, getProjectTitle })(NewProject); 
+export default connect(mapStateToProps, { 
+  sendProjectData, 
+  getProjectTitle, 
+  typeahead 
+})(NewProject); 
 

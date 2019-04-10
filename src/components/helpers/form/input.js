@@ -6,7 +6,7 @@ export default ({ label, meta:{touched, error}, input, type='text', placeholder,
 
     return(
         <div>
-            <input {...input} type={type} id={input.name} placeholder={placeholder} />
+            <input {...input} type={type} id={input.name} placeholder={placeholder} onChange={input.onChange}/>
             <label htmlFor={ input.name }>{ label }</label>
             <p> { touched && error } </p>
       </div>

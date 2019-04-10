@@ -7,6 +7,7 @@ import movie_reducer from './movie_reducer';
 import project_reducer from './project_reducer';
 import session_reducer from './session_reducer';
 import myprojects_reducer from './myprojects_reducer';
+import typeahead_reducer from './typeahead_reducer';
 
 const rootReducer = combineReducers({
   comparables: comparables_reducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   project: project_reducer,
   myprojects: myprojects_reducer,
   session: session_reducer,
+  typeahead: typeahead_reducer,
   form: formReducer
 });
 
