@@ -65,6 +65,7 @@ const yearReleased = ({input, data, valueField, textField})=>
 // ==================================
 
 const movieSuggestions = [];
+const imgURL = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
 
 const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
@@ -79,7 +80,7 @@ const getSuggestionValue = suggestion => suggestion.title;
 
 const renderSuggestion = suggestion => (
   <div>
-    {suggestion.title}
+    <img className='suggested-film' src={imgURL + suggestion.poster_path} /> {suggestion.title}
   </div>
 );
 
@@ -103,12 +104,11 @@ class NewProject extends Component {
 
   onChange = (event, { newValue }) => {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=bcd721fc6daffb5b9ce90b1a291791cc&query=` + newValue).then(response => {
-
         console.log("RESPONSE", response.data.results);
-
+        let top5 = response.data.results.splice(0, 5)
         this.setState({
           value: newValue, 
-          suggestions: response.data.results
+          suggestions: top5
         });
       })
       
@@ -127,17 +127,6 @@ class NewProject extends Component {
   };
 
   // ==================================
-
-  buildSuggestions = (movie) => {
-    return (
-      <div key={movie.id}>
-        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/" />
-        <p>{movie.title}</p>
-      </div>
-    )
-  }
-
-  // {${movie.poster_path}}
 
   submitHandler = async (values) => {
     if(values.developmentStage !== 'default'){
@@ -166,8 +155,6 @@ class NewProject extends Component {
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
     }
-
-    // const movieSuggestion = this.props.title_suggestions.map(this.buildSuggestions);
 
     return (  
       <div className='new-project-wrapper'>
