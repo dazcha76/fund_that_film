@@ -1,5 +1,11 @@
 @import './variables';
 
+.react-autosuggest__suggestions-list {
+  list-style-type: none;
+  background-color: white;
+  padding-left: 2%;
+}
+
 .new-project-wrapper {
   background-image: url('./assets/images/user.jpeg');
   background-size: cover;

@@ -135,23 +135,23 @@ export const sendToken = (token) => {
   }
 }
 
-export const typeahead = (title) => {
-  return async dispatch => {
+// export const typeahead = (title) => {
+//   return async dispatch => {
     // const response = await axios.post('https://api.themoviedb.org/3/search/movie', {
     //     film1, film2, apiKey
     // })
 
     // how to make it a post request?
 
-    const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
-      params: {api_key: 'bcd721fc6daffb5b9ce90b1a291791cc', query: title}
-    });
+//     const response = await axios.get('https://api.themoviedb.org/3/search/movie', {
+//       params: {api_key: 'bcd721fc6daffb5b9ce90b1a291791cc', query: title}
+//     });
 
-    console.log("TYPEAHEAD:", response)
+//     console.log("TYPEAHEAD:", response)
 
-    dispatch({
-      type: 'TITLE_SUGGESTIONS',
-      payload: response
-    })
-  }
-}
+//     dispatch({
+//       type: 'TITLE_SUGGESTIONS',
+//       payload: response
+//     })
+//   }
+// }

@@ -5,8 +5,11 @@ import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
-import { sendProjectData, getProjectTitle, typeahead } from '../../actions';
+import { sendProjectData, getProjectTitle } from '../../actions';
 import { connect } from 'react-redux';
+import Autosuggest from 'react-autosuggest';
+import axios from 'axios';
+import apiKey from '../../config/tmdb.js';
 
 const years = [
   { text: '2019', value: '2019' },
@@ -59,26 +62,82 @@ const yearReleased = ({input, data, valueField, textField})=>
   onChange={input.onChange}
 />
 
+// ==================================
+
+const movieSuggestions = [];
+
+const getSuggestions = value => {
+  const inputValue = value.trim().toLowerCase();
+  const inputLength = inputValue.length;
+
+  return inputLength === 0 ? [] : movieSuggestions.filter(movie =>
+    movie.title.toLowerCase().slice(0, inputLength) === inputValue
+  );
+};
+
+const getSuggestionValue = suggestion => suggestion.title;
+
+const renderSuggestion = suggestion => (
+  <div>
+    {suggestion.title}
+  </div>
+);
+
+// ==================================
+
 const required = value => value ? undefined : 'Field is Required';
 const number = value => value && isNaN(Number(value)) ? 'Must be a number' : undefined;
   
 class NewProject extends Component {
   state = {
     toComparables: false,
+    value: '',
+    suggestions: []
   }
 
   buildOptions(data){
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  onChange = (title) => {
-    console.log("ON CHANGE", title.target.value);
-    this.props.typeahead(title.target.value);
+  // ==================================
+
+  onChange = (event, { newValue }) => {
+    axios.get(`https://api.themoviedb.org/3/search/movie?api_key=bcd721fc6daffb5b9ce90b1a291791cc&query=` + newValue).then(response => {
+
+        console.log("RESPONSE", response.data.results);
+
+        this.setState({
+          value: newValue, 
+          suggestions: response.data.results
+        });
+      })
+      
+  };
+
+  onSuggestionsFetchRequested = ({ value }) => {
+    this.setState({
+      suggestions: getSuggestions(value)
+    });
+  };
+
+  onSuggestionsClearRequested = () => {
+    this.setState({
+      suggestions: []
+    });
+  };
+
+  // ==================================
+
+  buildSuggestions = (movie) => {
+    return (
+      <div key={movie.id}>
+        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/" />
+        <p>{movie.title}</p>
+      </div>
+    )
   }
 
-  componentDidUpdate(){
-
-  }
+  // {${movie.poster_path}}
 
   submitHandler = async (values) => {
     if(values.developmentStage !== 'default'){
@@ -92,9 +151,23 @@ class NewProject extends Component {
   render(){
     const {handleSubmit, onSubmit, pristine, reset, submitting } = this.props;
 
+    // ==================================
+
+    const { value, suggestions } = this.state;
+
+    const inputProps = {
+      placeholder: 'Type a programming language',
+      value,
+      onChange: this.onChange
+    };
+
+    // ==================================
+
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
     }
+
+    // const movieSuggestion = this.props.title_suggestions.map(this.buildSuggestions);
 
     return (  
       <div className='new-project-wrapper'>
@@ -149,7 +222,7 @@ class NewProject extends Component {
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
                 <p id='film1-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
-                <Field name='film1' component={Input} type='text' className='user-project-input film' placeholder='Film One' validate={required } onChange={this.onChange} />
+                <Field name='film1' component={Input} type='text' className='user-project-input film' placeholder='Film One' validate={required } onChange={this.onChange}/>
               </div>
               <div className='meets-container'>
                 <h4 className='meets'>Meets</h4>
@@ -157,6 +230,16 @@ class NewProject extends Component {
               <div className='film-input-grouping'>
                 <p id='film2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
                 <Field name='film2' component={Input} type='text' className='user-project-input film' placeholder='Film Two' validate={required} onChange={this.onChange}/>
+
+                <Autosuggest
+                  suggestions={suggestions}
+                  onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+                  onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                  getSuggestionValue={getSuggestionValue}
+                  renderSuggestion={renderSuggestion}
+                  inputProps={inputProps}
+                />
+
               </div>              
             </div>
             <div className='user-input-button-container'>
@@ -200,16 +283,13 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
-  console.log("STATE", state)
   return {
-    project_form: state.form,
-    title_suggestions: state
+    project_form: state.form
   }
 }
 
 export default connect(mapStateToProps, { 
   sendProjectData, 
-  getProjectTitle, 
-  typeahead 
+  getProjectTitle
 })(NewProject); 
 
