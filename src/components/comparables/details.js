@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getFinancialData, getMovieData } from '../../actions';
 import Nav from '../navbar/index';
+import Preloader from '../preloader/index';
 
 class DetailsPage extends Component {
 
@@ -45,8 +46,8 @@ class DetailsPage extends Component {
 
     render(){
         const {movies} = this.props;
-        if(!movies[0]['title']){
-            return <h1>Loading Data</h1>;
+        if(!movies){
+            return <Preloader/>
         }
      
         const baseClass = 'movie1_comparison_modal';
@@ -57,7 +58,7 @@ class DetailsPage extends Component {
             </div>
             <div className={ this.props.detailPageOnclick ? 'active ' + baseClass : baseClass } id='movie_1'>
                 <Nav/>
-                {/*<h1>Detailed Information</h1>*/}
+     
                 <div className='details-filter'></div>
                 <div className='modal-content details-info-container'>
                     { this.buildMovieDetails()}
@@ -75,7 +76,6 @@ class DetailsPage extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log("DETAILS STATE:", state)
   return {
     movies: state.movies.movieList
    

@@ -1,5 +1,16 @@
 @import './variables';
 
+.suggestion-list {
+  list-style-type: none;
+  background-color: white;
+  padding-left: 2%;
+}
+
+.movie-poster {
+  height: 50px;
+  margin: 1% 0;
+}
+
 .new-project-wrapper {
   background-image: url('./assets/images/user.jpeg');
   background-size: cover;
@@ -7,6 +18,7 @@
   background-position: center center;
   width: 100%;
   padding: 2% 0;
+  z-index: 5;
 }
 
 .new-project-form {

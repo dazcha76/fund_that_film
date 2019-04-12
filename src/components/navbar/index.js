@@ -122,8 +122,6 @@ class Nav extends Component{
                         <img className='login-img' src= { logo }/>
                     </div>
                     <div className='welcome-login-header'>
-                    {/* h1  will have to be done dynmically once we are able to create a login system
-                    that then will be used to pull the users name and email address from the database to the browser */}
                         <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'Fund That Film'}</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
@@ -139,7 +137,6 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
-    console.log("SIGN IN STATE", state)
   return {
     sign_in: state.session,
     sign_out: state.session.login

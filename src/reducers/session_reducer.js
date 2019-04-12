@@ -1,7 +1,4 @@
 const DEFAULT_STATE = {
-    success: false, 
-    login: false, 
-    'check-signin': false,
     user: {
       id: null,
       name: null,

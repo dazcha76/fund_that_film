@@ -33,7 +33,6 @@ export const getMovieData = (film1, film2) => {
 }
 
 export const getMovieTitles = (title1, title2) => {
-  console.log("TITLES", title1, title2)
   return {
     type: 'PROJECT_COMPARABLES',
     payload: {title1, title2}
@@ -66,11 +65,11 @@ export const sendContactForm = values => {
         firstName, lastName, phoneNumber, email, message
     })
 
-  dispatch({
-    type: 'SEND_CONTACT_FORM',
-    payload: response
-  })
-}
+    dispatch({
+      type: 'SEND_CONTACT_FORM',
+      payload: response
+    })
+  }
 }
 
 export const sendProjectData = values => {
@@ -135,3 +134,18 @@ export const sendToken = (token) => {
     });
   }
 }
+
+// export const film1Suggestion = (title) => {
+//   return {
+//     type: 'FILM_1',
+//     title
+//   }
+// }
+
+// export const film2Suggestion = (title) => {
+//   return {
+//     type: 'FILM_2',
+//     title
+//   }
+// }
+

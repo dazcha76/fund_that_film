@@ -6,6 +6,7 @@ import token_reducer from './token_reducer';
 import movie_reducer from './movie_reducer';
 import project_reducer from './project_reducer';
 import session_reducer from './session_reducer';
+// import search_reducer from './search_reducer';
 import myprojects_reducer from './myprojects_reducer';
 
 const rootReducer = combineReducers({
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   project: project_reducer,
   myprojects: myprojects_reducer,
   session: session_reducer,
+  // search: search_reducer,
   form: formReducer
 });
 

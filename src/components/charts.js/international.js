@@ -13,9 +13,9 @@ class InternationalGraphs extends Component{
                 datasets:[{
                     label: 'International Gross Earnings',
                     data: [
-                        this.props.finance['theatrical, home, tv gross'],
-                        this.props.finance['sales agent fee'],
-                        this.props.finance['total net earnings']
+                        this.props.finance['theatrical, home, tv gross']/1000000,
+                        this.props.finance['sales agent fee']/1000000,
+                        this.props.finance['total net earnings']/1000000
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [

@@ -3,6 +3,7 @@ import {Link, Redirect} from 'react-router-dom';
 import { Field, reduxForm, reset } from 'redux-form';
 import Select from '../helpers/form/drop_down';
 import Input from '../helpers/form/input';
+import Autosuggest from './autosuggest';
 import Disclaimer from '../footer/disclaimer';
 import Nav from '../navbar/index';
 import { sendProjectData, getProjectTitle } from '../../actions';
@@ -65,13 +66,32 @@ const number = value => value && isNaN(Number(value)) ? 'Must be a number' : und
 class NewProject extends Component {
   state = {
     toComparables: false,
+    filmOneValue: '',
+    filmTwoValue: '',
+    filmOneSuggestions: [],
+    filmTwoSuggestions: []
   }
 
   buildOptions(data){
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  submitHandler = async (values) => {
+  filmOneSelected = (value) => {
+    this.setState({
+      filmOneValue: value,
+      filmOneSuggestions: []
+    })
+  }
+
+  filmTwoSelected = (value) => {
+    this.setState({
+      filmTwoValue: value,
+      filmTwoSuggestions: []
+    })
+  }
+
+  submitHandler = async (values) => { 
+    console.log("VALUES", values)
     if(values.developmentStage !== 'default'){
       this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(values);
@@ -93,12 +113,10 @@ class NewProject extends Component {
         <div className='new-project-container'>
             <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
               <h1 className='new-project-title'>Enter Project Information</h1>
-     
               <div>
                 <p id='title-label'>Movie Title: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the working title of your movie</span></i></p>
                 <Field type='text' className='user-project-input' id='title' name='title' placeholder='Title ' component = {Input} validate={required}/>
               </div>
-   
               <div className='multiple-inputs-fields'>
                   <div className='two-input-grouping'>
                     <p id='runtime-label'>Estimated Runtime: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the estimated runtime in minutes</span></i></p>
@@ -133,26 +151,28 @@ class NewProject extends Component {
                   <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)} validate={required}/>
                 </div>
               </div>
-
               <p id='synopsis-label'>Synopsis: <i className='fas fa-question-circle'><span className='tooltiptext synopsis-tooltip'>Enter a brief summary of what your movie is about</span></i></p>
               <Field component='textarea' type='text' id='synopsis' name='synopsis' placeholder='Synopsis' validate={ required } />
-
             <div className='multiple-inputs-fields'>
               <div className='film-input-grouping'>
                 <p id='film1-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
-                <Field type='text'  className='user-project-input film'  name='film1' placeholder='Film One'  validate= {required } component = {Input} />
+                
+                 <Field component={Autosuggest} name='film1' placeholder='Film 1' />
+
               </div>
               <div className='meets-container'>
                 <h4 className='meets'>Meets</h4>
               </div>
               <div className='film-input-grouping'>
                 <p id='film2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
-                <Field type='text' className='user-project-input film' name='film2' placeholder='Film Two'  validate={required} component = {Input} />
+
+                <Field component={Autosuggest} name='film2' placeholder='Film 2' />
+
               </div>              
             </div>
             <div className='user-input-button-container'>
               <button onClick={reset} type='button' disabled={pristine || submitting} className='new-project-clear-button page-button'>Clear</button>
-              <button type='submit' disabled={submitting} className='new-project-submit-button page-button'>Submit</button>
+              <button type='submit' className='new-project-submit-button page-button'>Submit</button>
             </div> 
           </form> 
           </div>
@@ -161,27 +181,6 @@ class NewProject extends Component {
     )
   }
 }
-
-const year = new Date();
-
-
-// Hardcoded values for testing
-
-// NewProject = reduxForm({  
-//   form: 'newproject_form',     
-//   initialValues: { 
-//     title: 'Spiderwoman',
-//     runtime: 120,
-//     logline: 'Girl Power',
-//     synopsis: 'Stuff happens',
-//     film1: 'The Lake House',
-//     film2: 'The Amazing Spider-Man',
-//     releasedYear: '2019',
-//     mpaa: 'G',
-//     genre: 'Action',
-//     developmentStage: 'Pre-Production'
-//   }
-// })(NewProject);
 
 NewProject = reduxForm({  
   form: 'newproject_form',     
@@ -199,5 +198,8 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { sendProjectData, getProjectTitle })(NewProject); 
+export default connect(mapStateToProps, { 
+  sendProjectData, 
+  getProjectTitle
+})(NewProject); 
 

@@ -67,8 +67,8 @@ class MovieComparison extends Component {
     const arrowActive = 'is-active';
     const { movies } = this.props;
 
-    if(movies.length === 0){
-        return <h1>Loading Data</h1>;
+    if(!movies){
+      return <Preloader/>
     }
 
     return (
@@ -101,7 +101,6 @@ class MovieComparison extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("COMPARABLE STATE:", state)
   return {
     comparables: state.comparables,
     movies: state.movies.movieList
