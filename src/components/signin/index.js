@@ -54,6 +54,7 @@ SignIn = reduxForm({
   })(SignIn) ;
 
 const mapStateToProps = state => {
+  console.log("SIGNIN", state)
   return {
     sign_in: state.session.success,
     sign_in_form: state.form

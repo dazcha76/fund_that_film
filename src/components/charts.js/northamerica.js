@@ -22,13 +22,13 @@ class NorthAmericaGraphs extends Component {
           {
             label: 'Production Gross in Millions',
             data: [
-              this.props.finance['theatrical']['gross'],
-              this.props.finance['home entertainment']['gross'],
-              this.props.finance['pay per view']['gross'],
-              this.props.finance['premium cable']['gross'],
-              this.props.finance['free tv premiere']['gross'],
-              this.props.finance['cable and syndicated tv']['gross'],
-              this.props.finance['total net earnings']
+              this.props.finance['theatrical']['gross']/1000000,
+              this.props.finance['home entertainment']['gross']/1000000,
+              this.props.finance['pay per view']['gross']/1000000,
+              this.props.finance['premium cable']['gross']/1000000,
+              this.props.finance['free tv premiere']['gross']/1000000,
+              this.props.finance['cable and syndicated tv']['gross']/1000000,
+              this.props.finance['total net earnings']/1000000
             ],
             backgroundColor: [
               'rgba(255, 99, 132, 0.2)',

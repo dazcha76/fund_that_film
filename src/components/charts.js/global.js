@@ -13,9 +13,9 @@ class GlobalGraphs extends Component{
                 datasets:[{
                     label: 'Global Consumer Products',
                     data: [
-                        this.props.finance['royalties gross'],
-                        this.props.finance['sales agent fee'],
-                        this.props.finance["distributor's net"]
+                        this.props.finance['royalties gross']/1000000,
+                        this.props.finance['sales agent fee']/1000000,
+                        this.props.finance["distributor's net"]/1000000
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
