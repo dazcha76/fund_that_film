@@ -41,7 +41,7 @@ $user_id = mysqli_insert_id($db);
 print_r($user_id);
 
 
-if($result_insert_user ){
+if($result_insert_user){
     $output['insert new user'] = true;
 }else{
     throw new Exception('failed to add user');
