@@ -8,7 +8,6 @@ require_once('../../config/mysqlconnect.php');
 $output=[
     'success'=>false,
     'user'=>[
-        'id'=>0,
         'name'=>'',
         'projects'=>[]
     ]
