@@ -38,11 +38,10 @@ class SignIn extends Component {
               <Field type='password' id='password' name='password' className='password-input'  placeholder='Password' validate={ validate } component={ Input }/>
             </div>
             <div className='login-button-container'>
-            <button type="submit" className='login-submit-button page-button'>Login</button>
+              <button type="submit" className='login-submit-button page-button'>Login</button>
             </div>
           </form>
         </div>
-        
       </div>
     )
   }

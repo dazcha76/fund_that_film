@@ -12,21 +12,12 @@
 }
 
 .new-project-wrapper {
-  background-image: url('./assets/images/user.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   width: 100%;
-  padding: 2% 0;
-  z-index: 5;
 }
 
 .new-project-form {
   width: 70%;
   padding: 42px;
-  background: rgba(212, 212, 212, 0.8);
-  box-shadow: 2px 2px 8px;
-  border-radius: 14px;
   margin: 0 auto;
 
   p {
@@ -200,10 +191,6 @@ label {
   .new-project-form {
     width: 85vw;
     padding: 6% 5%;
-  }
-
-  .new-project-title {
-    font-size: 2em;
   }
 
   .two-input-grouping,

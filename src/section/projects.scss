@@ -1,7 +1,6 @@
 @import './variables';
 
 .my-projects-wrapper {
-  padding-top: 5%;
   
   .project-container {
     width: 70vw;
@@ -46,11 +45,6 @@
 @media (max-width: 414px){
   .my-projects-wrapper {
     padding-top: 0;
-
-    .my-projects-title {
-      font-size: 2.5em;
-      padding: 3.8% 0 0 0;
-    }
 
     .project-container {
       width: 85vw;

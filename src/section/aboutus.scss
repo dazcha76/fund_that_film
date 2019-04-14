@@ -2,10 +2,6 @@
 
 .about-us-wrapper {
     .about-us-container {
-        .about-header {
-            padding-top: 5%;
-            background-color: $dark-background;
-        }
                   
         .person-container {
             display: flex;
@@ -18,7 +14,7 @@
                 width: 20%;
                 min-width: 300px;
                 color: white;
-                background-color: rgb(0, 93, 87);
+                background-color: $blue;
                 text-align: center;
                 margin-bottom: 8%;
 

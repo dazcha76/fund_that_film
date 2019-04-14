@@ -4,8 +4,7 @@
   height: 100vh;
   background-image: url('./assets/images/backdrop.jpg');
   background-size: cover;
-  color: rgb(0, 93, 87);
-  font-weight: 900;
+  color: $blue;
 
   .homepage-content {
     position: relative;
@@ -17,7 +16,7 @@
     box-shadow: 2px 2px 8px;
 
     .home-title {
-      color: rgb(0, 93, 87);
+      color: $blue;
       font-size: 5rem;
       padding: 5px;
       text-shadow: none;

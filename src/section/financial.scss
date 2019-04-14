@@ -58,19 +58,8 @@
     height: 100%;
     top:0;
     left:0;
-    background: url('./assets/images/contact_us.png');
-    background-size:cover;
-    background-repeat: no-repeat;
-    background-position:center center;
     position: absolute;
   }
-  #financials-background-filter{
-    width:100%;
-    height:100%;
-    background:rgba(#373740, 0.9);
-    position: absolute;
-  }
-
 }
 #financial-container{
   width: 90%;
@@ -103,7 +92,6 @@
       height: 100%;
       font-size: 1.2rem;
       color: $box-shadow-color;
-      background-color: $dark-background;
       padding: 2% 2% 1% 2%;
     }
 

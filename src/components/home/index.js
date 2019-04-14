@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import landingpage from '../../assets/video/landingpage.mp4';
 
 export default props => {
   

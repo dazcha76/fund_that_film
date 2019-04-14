@@ -65,6 +65,7 @@ class Nav extends Component{
                 <li>
                     { link.text }
                 </li>
+                <hr />
             </Link>
         )
     }
@@ -122,11 +123,11 @@ class Nav extends Component{
                         <img className='login-img' src= { logo }/>
                     </div>
                     <div className='welcome-login-header'>
-                        <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'Fund That Film'}</h2>
+                        <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'FUND THAT FILM'}</h2>
                     </div>
                     <div className='slide-out-menu-content-container'>
                         <div className='slide-out-menu-content'>
-                            <hr/>
+                            <hr className='main-hr'/>
                             { this.renderLinks() }
                         </div>
                     </div>

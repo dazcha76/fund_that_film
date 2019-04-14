@@ -1,3 +1,9 @@
+$blue: #007ffe;
+$green: rgb(98, 227, 100);
+$black: #000000;
+
+
+$dark-gray: #676767;
 
 
 $dark-background:#27272F;
@@ -17,13 +23,3 @@ $preloader-z-index:10003;
 $modal-z-index:10002;
 $navbar-z-index:10001;
 $required-form:rgba(199, 3, 0, 1);
-
-
-%filter{
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        background: black;
-        left: 0;
-}

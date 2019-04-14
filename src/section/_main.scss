@@ -3,18 +3,20 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
 }
 
 body {
-  background-color: $dark-background;
-  width: 100%;
+  background-image: url('./assets/images/black_background.jpg');
+  font-weight: 500;
 }
 
 h1 {
-  color: white;
+  color: $green;
   text-align: center;
   font-size: 300%;
+  margin-bottom: 8%;
+  padding-top: 5%;
+  letter-spacing: 5px;
 }
 
 a:link,
@@ -30,11 +32,12 @@ textarea {
   font-size: 1em;
   height: 5vh;
   width: 100%;
-  background-color: $input-background;
+  background-color: transparent;
   border: none;
+  border-bottom: 2px solid $green;
   outline: none;
-  color: $box-shadow-color;
-  padding: 8px 2%;
+  color: white;
+  padding: 8px 0;
 }
 
 .page-button {
@@ -42,18 +45,20 @@ textarea {
   min-width: 123px;
   display: inline-block;
   font-size: 150%;
-  border: 2px solid white;
+  font-weight: 500;
+  border: 2px solid $green;
   border-radius: 4px;
-  color: white;
-  background-color: $side-navbar;
+  color: $green;
+  background-color: transparent;
   cursor: pointer;
   padding: 5px 13px;
   margin: 2%;
 }
 
 .page-button:hover {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: rgb(0, 93, 87);
+  background-image: url('./assets/images/light_green.jpg');
+  background-color: $green;
+  color: black;
 }
 
 @media (max-width: 450px){

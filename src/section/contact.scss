@@ -1,27 +1,21 @@
 @import './variables';
+
+.reel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
  
 .contact-us-wrapper {
   width: 100%; 
   height: 100vh;
-  padding-top: 8%;
-  background-image: url('../assets/images/contact_us.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
 
   .contact-us-container {
 
       .contact-us-form {
         width: 70vw;
         padding: 42px;
-        background: rgba(212, 212, 212, 0.8);
-        box-shadow: 2px 2px 8px;
-        border-radius: 14px;
         margin: 0 auto;
-
-        .contact-title {
-          margin-bottom: 5%;
-        }
         
         .multiple-inputs-fields {
           display: flex;
@@ -79,11 +73,6 @@
       .contact-us-form {
         width: 85vw;
         padding: 8% 5%;
-
-        .contact-title {
-          margin-bottom: 10%;
-          font-size: 2em;
-        }
       }
     }
   }
@@ -104,16 +93,4 @@
       }
     }
   }
-}
-
-@media (max-width: 320px){
-  .contact-us-wrapper {
-    .contact-us-container {
-      .contact-us-form {  
-        .contact-title {
-          font-size: 1.8em;
-        } 
-      }
-    }
-  } 
 }

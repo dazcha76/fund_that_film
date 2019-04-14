@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import Person from './person';
 import john from '../../assets/images/john.png';
