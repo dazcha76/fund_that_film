@@ -7,8 +7,6 @@
 
     .comparables-container {
         width: 100%;
-        background-size:cover;
-        background-repeat:no-repeat;
         max-height:100vh;
         padding: 20px 0px 36px;
 
@@ -28,7 +26,7 @@
                     .movie-image {
                         width: 75%;
                         margin: 9% 0 3% 0;
-                        transition: all 1s;
+                       /* transition: all 1s;
                         transform: translateX(0px);
                         &.inactive-left{
                             transform:translateX(-100vw);
@@ -36,7 +34,7 @@
                         &.inactive-right{
                             transform:translateX(100vw);
                         }
-                        
+                        */
                         &:hover{
                             filter: drop-shadow(2px 3px 6px $button-color);
                         }
