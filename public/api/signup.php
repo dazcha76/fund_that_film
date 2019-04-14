@@ -15,10 +15,10 @@ if(!$data){
     throw new Exception('No data was sent');
 }
 
-$email = $data["email"];
 $password = sha1($data["password"]);
-$dateJoined = date("y-m-d h:i:s");
 unset($data["password"]);
+$email = $data["email"];
+$dateJoined = date("y-m-d h:i:s");
 
 
 /*
@@ -29,10 +29,10 @@ INSERT INTO `users` SET `name` = "madeup",
 
 */
 
-$query_insert_user = "INSERT INTO `users` SET `name` = {$data["name"]},
-            `last_login` = {$dateJoined},
-            `email` = {$email},
-            `password` = {$password} ";
+$query_insert_user = "INSERT INTO `users` SET `name` = '{$data["name"]}',
+            `last_login` = '{$dateJoined}',
+            `email` = '{$email}',
+            `password` = '{$password}'";
 
 
 $result_insert_user = $db->query($query_insert_user);
