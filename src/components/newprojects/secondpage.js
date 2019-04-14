@@ -71,7 +71,7 @@ class NewProjectSecondPage extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  submitHandler = async (values) => { 
+  submitHandler = async (values) => {  
     console.log("VALUES", values)
     if(values.developmentStage !== 'default'){
       this.props.getProjectTitle(values.title),
@@ -136,9 +136,9 @@ class NewProjectSecondPage extends Component {
           </div>
 
           <div>
-            {/*<button type="button" className="previous" onClick={previousPage}>
+            <button type="button" className="previous page-button" onClick={previousPage}>
             Previous
-          </button>*/}
+          </button>
           <button type="submit" className='new-project-submit-button page-button' disabled={pristine || submitting}>
             Submit
           </button>

@@ -29,9 +29,9 @@ class SignIn extends Component {
     return (
       <div className='signin-wrapper'>
       <Nav/> 
-        <div className='signin-container'>
+        <h1 className='signin-title'>Sign In</h1>
           <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
-            <h1 className='signin-title'>Sign In</h1>
+            
             <div className="sign-in-inputs">
               <Field type='email' id='email' name='email' className='email-input'  placeholder='Email Address' validate={ validate } component={ Input }/>
    
@@ -42,7 +42,6 @@ class SignIn extends Component {
             </div>
           </form>
         </div>
-      </div>
     )
   }
 }

@@ -4,7 +4,7 @@
   position: absolute;
   top: 5px;
   right: 2%;
-  background-color: #005d57;
+  background-color: $green;
   color: white;
   padding: 0.5% 1%;
   font-size: 1.5em;
@@ -28,7 +28,7 @@
   .nav-item.nav-link {
     width: 20%;
     text-align: center;
-    background-color: $trim-color;
+    background-color: $green;
     border-radius: 25px;
     font-size:1.5rem;
     letter-spacing:2px;
@@ -63,7 +63,6 @@
 }
 #financial-container{
   width: 90%;
-  background:rgba(#373740, 0.9);
   height: 100%;
   min-height: 100vh;
   margin: 20px auto 75px;
@@ -82,16 +81,16 @@
       font-size: 1.2rem;
       height: 8vh;
       line-height: 8vh;
-      color:$box-shadow-color;
+      color:$black;
       text-align: center;
-      background-color: $trim-color;
+      background-color: $green;
       margin: 0;
     }
 
     .financial-body {
       height: 100%;
       font-size: 1.2rem;
-      color: $box-shadow-color;
+      color: $black;
       padding: 2% 2% 1% 2%;
     }
 

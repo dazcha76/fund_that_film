@@ -26,17 +26,8 @@
                     .movie-image {
                         width: 75%;
                         margin: 9% 0 3% 0;
-                       /* transition: all 1s;
-                        transform: translateX(0px);
-                        &.inactive-left{
-                            transform:translateX(-100vw);
-                        }
-                        &.inactive-right{
-                            transform:translateX(100vw);
-                        }
-                        */
                         &:hover{
-                            filter: drop-shadow(2px 3px 6px $button-color);
+                            filter: drop-shadow(2px 3px 6px $green);
                         }
                     }
 

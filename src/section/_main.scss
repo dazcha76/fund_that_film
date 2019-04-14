@@ -16,6 +16,7 @@ h1 {
   text-align: center;
   font-size: 300%;
   letter-spacing: 5px;
+  margin: 5% 0;
 }
 
 a:link,
@@ -60,8 +61,8 @@ textarea {
   color: black;
 }
 
-@media (max-width: 450px){
+/*@media (max-width: 450px){
   .page-button {
       width: 30vw;
     }
-}
+}*/

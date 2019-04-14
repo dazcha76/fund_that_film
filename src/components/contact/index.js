@@ -30,36 +30,33 @@ class Contact extends Component {
 
     return (
       <div className='contact-us-wrapper'>
-        <Nav/> 
-        <div className='contact-us-container'>
-            <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
-              <h1 className='contact-title'>Contact Us</h1>
-
-            <div className='multiple-inputs-fields'>
-              <div className="two-input-grouping">
-                <Field type='text' id='firstName' name='firstName' className='first-name-input'  placeholder='First Name' validate={ required } component={ Input }/>
-              </div>
-              <div className='two-input-grouping'>
-                <Field type='text' id='lastName' name='lastName' className='last-name-input'  placeholder='Last Name' validate={ required } component={ Input }/>
-              </div>
+        <Nav/>
+        <h1>Contact Us</h1>
+        <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
+          <div className='multiple-inputs-fields'>
+            <div className="two-input-grouping">
+              <Field type='text' id='firstName' name='firstName' className='first-name-input'  placeholder='First Name' validate={ required } component={ Input }/>
             </div>
-            <div className="multiple-inputs-fields">
-              <div className='two-input-grouping'>
-                <Field type='text' id='phoneNumber' name='phoneNumber' className='contact-input'  placeholder='Phone Number' validate={ required } component={ Input }/>
-              </div>
-              <div className='two-input-grouping'>
-                <Field type='email' id='email' name='email' className='contact-input'  placeholder='Email Address' validate={ required } component={ Input }/>
-              </div>
+            <div className='two-input-grouping'>
+              <Field type='text' id='lastName' name='lastName' className='last-name-input'  placeholder='Last Name' validate={ required } component={ Input }/>
             </div>
-              <div className="message-input">
-                <Field component='textarea' type='text' name='message' id='message' validate={ required } placeholder='Enter Message'/>
-              </div>
-      
-              <div className='contact-button-container'>
-                <button type="submit" className='input-submit-button page-button'>Send</button>
-              </div>         
-            </form>
-        </div>
+          </div>
+          <div className="multiple-inputs-fields">
+            <div className='two-input-grouping'>
+              <Field type='text' id='phoneNumber' name='phoneNumber' className='contact-input'  placeholder='Phone Number' validate={ required } component={ Input }/>
+            </div>
+            <div className='two-input-grouping'>
+              <Field type='email' id='email' name='email' className='contact-input'  placeholder='Email Address' validate={ required } component={ Input }/>
+            </div>
+          </div>
+          <div className="message-input">
+            <Field component='textarea' type='text' name='message' id='message' validate={ required } placeholder='Enter Message'/>
+          </div>
+  
+          <div className='contact-button-container'>
+            <button type="submit" className='input-submit-button page-button'>Send</button>
+          </div>         
+        </form>
       </div>
     )
   }

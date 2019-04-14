@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default props => {
-  
   return (
     <div className='home-container'>
       <div className='homepage-content'>

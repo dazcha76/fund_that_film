@@ -6,6 +6,10 @@
   padding-left: 2%;
 }
 
+.suggestion-list li {
+  cursor: pointer;
+}
+
 .movie-poster {
   height: 50px;
   margin: 1% 0;
@@ -148,7 +152,7 @@ label {
   margin-right: 5%;
 }
 
-@media (max-width: 1100px){
+/*@media (max-width: 1100px){
   .two-input-grouping {
     min-width: 100%;
   }    
@@ -219,4 +223,4 @@ label {
   .new-project-wrapper {
     padding: 4% 0 23% 0;
   }
-}
+}*/

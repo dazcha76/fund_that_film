@@ -25,10 +25,6 @@ class Shareable extends Component {
     return (
       <div>
          <Preloader/>
-        <div id="financials-background-container">
-          <div id="financials-background"></div>
-          <div id="financials-background-filter"></div>
-        </div>
         <div id="financial-container">
           <h1 className='shareable-header'>Financial Calculations {this.props.projectTitle}</h1>
             <Tabs defaultActiveKey='northAmerica'>

@@ -31,11 +31,6 @@ class FinancialNorthAmerica extends Component {
         <Link to={`/invest/${token}`} target="_blank">
           <button className="share_button">Share</button>
         </Link>
-        <div id="financials-background-container">
-          <div id="financials-background"></div>
-          <div id="financials-background-filter"></div>
-        </div>
-        <div id="financial-container">
           <h1 className='financial-charts-header'>Financial Calculations</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
@@ -67,7 +62,6 @@ class FinancialNorthAmerica extends Component {
               </div>
               </Tab>
             </Tabs>
-        </div>
         <Disclaimer/>
       </div>
     )

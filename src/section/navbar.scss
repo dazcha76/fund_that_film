@@ -21,6 +21,7 @@
 .hamburger.is-active {
     position: absolute;
     top: 5px;
+    outline: none;
     
     .hamburger-inner { 
         background-color: $black;  

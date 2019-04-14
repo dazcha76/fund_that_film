@@ -109,9 +109,6 @@ class Nav extends Component{
                             <span className='hamburger-inner'></span>
                         </span>
                     </button>
-
-                    <h1 className='terms-header about-header'>{this.props.title}</h1>
-
                 </div>
                 <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
                     <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>

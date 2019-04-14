@@ -5,16 +5,12 @@
 }
 
 .conditions-wrapper {
-
-    .conditions-container {
-        color: white;
-        padding: 1% 75px;
-        text-align: justify;
-        font-size: 1.3em;
-    }   
+    color: white;
+    padding: 0 75px;
+    text-align: justify;
 }
 
-@media (max-width: 800px){
+/*@media (max-width: 800px){
     .conditions-wrapper {
         .legal {
             padding: 6% 5%;
@@ -68,4 +64,4 @@
             font-size: 1.2em;
         } 
     }
-}
+}*/

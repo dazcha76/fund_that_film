@@ -21,8 +21,7 @@
     .home-title {
       color: $green;
       font-size: 5rem;
-      padding: 5px;
-      margin-bottom: 2%;
+      margin: 3% 0 2% 0;
     } 
     
     .desktop-paragraph,
@@ -48,7 +47,7 @@
   }        
 }
 
-@media (max-width: 450px){
+/*@media (max-width: 450px){
   .home-container {
     background-size: auto;
 
@@ -109,4 +108,4 @@
       }
     }        
   }    
-}
+}*/

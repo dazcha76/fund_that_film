@@ -4,20 +4,17 @@ import NewProjectFirstPage from './firstpage';
 import NewProjectSecondPage from './secondpage';
 
 class NewProject extends Component {
-  constructor(props) {
-    super(props)
-    this.nextPage = this.nextPage.bind(this)
-    this.previousPage = this.previousPage.bind(this)
-    this.state = {
-      page: 1
-    }
+  state = {
+    page: 1
   }
 
-  nextPage() {
-    this.setState({ page: this.state.page + 1 })
+  nextPage = (values) => {
+    console.log("PAGE 1 VALUES:", values)
+    this.setState({ page: this.state.page + 1 });
+
   }
 
-  previousPage() {
+  previousPage = () => {
     this.setState({ page: this.state.page - 1 })
   }
 
@@ -43,7 +40,7 @@ NewProject.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 
-export default NewProject
+export default NewProject;
 
 
 // import React, { Component } from 'react';
