@@ -4,22 +4,25 @@
   height: 100vh;
   background-image: url('./assets/images/backdrop.jpg');
   background-size: cover;
-  color: $blue;
+  color: $green;
+  position: relative;
 
   .homepage-content {
-    position: relative;
-    top: 25%;
     width: 85%;
     padding: 20px;
-    background: rgba(212, 212, 212, 0.8);
+    background: $transparent-black;
     margin: 0 auto;
-    box-shadow: 2px 2px 8px;
+    box-shadow: 0px 0px 20px $green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
     .home-title {
-      color: $blue;
+      color: $green;
       font-size: 5rem;
       padding: 5px;
-      text-shadow: none;
+      margin-bottom: 2%;
     } 
     
     .desktop-paragraph,

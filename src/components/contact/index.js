@@ -56,7 +56,7 @@ class Contact extends Component {
               </div>
       
               <div className='contact-button-container'>
-                <button type="submit" className='input-submit-button page-button'>Submit</button>
+                <button type="submit" className='input-submit-button page-button'>Send</button>
               </div>         
             </form>
         </div>
