@@ -18,6 +18,21 @@ foreach ($data as $key => $value) {
     $data[$key] = addslashes($value);
 }
 
+
+if(empty($data['email'])){
+    throw new Exception('email is a required field');
+}
+
+if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+    throw new Exception('Not a valid email');
+}
+
+if(empty($data['password'])){
+    throw new Exception('password is a required field');
+}
+
+
+
 $email = $data["email"];
 $password = sha1($data["password"]);
 $dateJoined = date("y-m-d h:i:s");
