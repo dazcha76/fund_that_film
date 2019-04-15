@@ -28,6 +28,11 @@ body {
       text-decoration: none;
     }
 
+    .label {
+      color: $green;
+      margin-top: 5%;
+    }
+
     input,
     select,
     textarea {
@@ -42,25 +47,32 @@ body {
       padding: 8px 0;
     }
 
-    .page-button {
-      width: 20%;
-      min-width: 123px;
-      display: inline-block;
-      font-size: 150%;
-      font-weight: 500;
-      border: 2px solid $green;
-      border-radius: 4px;
-      color: $green;
-      background-color: transparent;
-      cursor: pointer;
-      padding: 5px 13px;
-      margin: 2%;
-    }
+    .button-container {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+      transform: translate(-50%, -10%);
 
-    .page-button:hover {
-      background-image: url('./assets/images/light_green.jpg');
-      background-color: $green;
-      color: black;
+      .page-button {
+        width: 20%;
+        min-width: 123px;
+        display: inline-block;
+        font-size: 150%;
+        font-weight: 500;
+        border: 2px solid $green;
+        border-radius: 4px;
+        color: $green;
+        background-color: transparent;
+        cursor: pointer;
+        padding: 5px 13px;
+        margin: 2%;
+      }
+
+      .page-button:hover {
+        background-image: url('./assets/images/light_green.jpg');
+        background-color: $green;
+        color: black;
+      }
     }
   }
 }

@@ -30,18 +30,6 @@
   }
 }
 
-#title-label,
-#runtime-label,
-#logline-label,
-#synopsis-label,
-#film1-label,
-#film2-label,
-label {
-  color: $box-shadow-color;
-  text-shadow:1px 1px 1px black;
-  margin-bottom: 0.1%;
-}
-
 #year-input, 
 #mpaa-input, 
 #genre-input, 

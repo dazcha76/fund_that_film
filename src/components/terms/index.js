@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
+import '../../section/terms.scss';
 
 export default props => {
   return (
