@@ -31,37 +31,29 @@ class FinancialNorthAmerica extends Component {
         <Link to={`/invest/${token}`} target="_blank">
           <button className="share_button page-button">Share</button>
         </Link>
-          <h1 className='financial-charts-header'>Financial Calculations</h1>
-            <Tabs defaultActiveKey='northAmerica'>
-              <Tab eventKey='northAmerica' title='North America' className='tab'>
-                <div className='northAmerican-graph-container'>
-                  <h1 className='chart-header'>Production Gross in Millions</h1>
-                  <NorthAmericaGraphs/>
-                </div>
-                <NorthAmerica/>
-              </Tab>
-              <Tab eventKey='international' title='International'>
-                <div className='international-graphs-container'>
-                    <h1 className='chart-header'>International Gross Earnings</h1>
-                  <InternationalGraphs/>
-                </div>
-                <div className='international-tab-wrapper'>
-                   <International/>
-                </div>
-              </Tab>
-              <Tab eventKey='global' title='Global'>
-                <h1 className='chart-header'>Global Consumer Products</h1>
-                <GlobalGraphs/>
-                <Global/>
-              </Tab>
-              <Tab eventKey='other' title='Other'>
-              <div className='other-northAmerican-graph-container'>
-                  <h1 className='chart-header'>Distributors To Cost Ratio</h1>
-                <OtherGraphs/>
-                <Other/>
-              </div>
-              </Tab>
-            </Tabs>
+        <h1 className='financial-charts-header'>Financial Calculations</h1>
+        <Tabs defaultActiveKey='northAmerica'>
+          <Tab eventKey='northAmerica' title='North America' className='tab'>
+            <h1 className='chart-header'>Production Gross in Millions</h1>
+            <NorthAmericaGraphs/>
+            <NorthAmerica/>
+          </Tab>
+          <Tab eventKey='international' title='International'>
+            <h1 className='chart-header'>International Gross Earnings</h1>
+            <InternationalGraphs/>
+            <International/>
+          </Tab>
+          <Tab eventKey='global' title='Global'>
+            <h1 className='chart-header'>Global Consumer Products</h1>
+            <GlobalGraphs/>
+            <Global/>
+          </Tab>
+          <Tab eventKey='other' title='Other'>
+            <h1 className='chart-header'>Distributors To Cost Ratio</h1>
+            <OtherGraphs/>
+            <Other/>
+          </Tab>
+        </Tabs>
         <Disclaimer/>
       </div>
     )
