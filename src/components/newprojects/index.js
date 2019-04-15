@@ -11,7 +11,6 @@ class NewProject extends Component {
   }
 
   nextPage = (values) => {
-    console.log('VALUES', values)
     this.props.getProjectValues(values);
     this.setState({ page: this.state.page + 1 });
   }
@@ -39,7 +38,6 @@ class NewProject extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("PAGE 1", state)
   return {
     project: state
   }

@@ -72,7 +72,6 @@ class NewProjectSecondPage extends Component {
   }
 
   submitHandler = async (values) => {  
-    console.log("VALUES", values)
     if(values.developmentStage !== 'default'){
       // this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(
@@ -135,7 +134,7 @@ class NewProjectSecondPage extends Component {
               <Field name='film2' component={Autosuggest} validate={required}/>
             </div>              
           </div>
-          <div className='button-container'>
+          <div className='new-project-buttons button-container'>
             <button type="button" className="previous page-button" onClick={previousPage}>
             Previous
           </button>
