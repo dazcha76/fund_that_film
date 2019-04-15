@@ -16,7 +16,6 @@ foreach($request AS $key=>$value){
     $keys_array[]=$key;
 };
 
-
 foreach($required_keys AS $key){
     if(!array_key_exists($key,$request)){
         throw new Exception('missing the '.$key);

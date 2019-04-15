@@ -1,5 +1,25 @@
 import axios from 'axios';
 
+export const createAccount = (values, project) => {
+  const { name, email, password } = values;
+
+  return async dispatch => {
+    const response = await axios.post('/api/signup.php', {
+      user: {
+        name,
+        email, 
+        password,
+        project_id: project
+      } 
+    });
+
+    dispatch({
+      type: 'CREATE_ACCOUNT',
+      payload: response
+    });
+  }
+}
+
 export const getFinancialData = (id1, id2) => {
   return async dispatch => {
     const response = await axios.get('/api/financial.php', {
@@ -76,7 +96,7 @@ export const sendProjectData = values => {
   const { title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2 } = values;
 
   return async dispatch => {
-    await axios.post('/api/addproject.php', {
+    const response = await axios.post('/api/addproject.php', {
       newProject: {
         title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2
       } 
@@ -89,7 +109,7 @@ export const sendProjectData = values => {
 
     dispatch({
       type: 'STORE_MOVIE_COMPARISONS',
-      payload: compare
+      payload: {compare, response}
     });
   }
 }
@@ -148,4 +168,3 @@ export const sendToken = (token) => {
 //     title
 //   }
 // }
-

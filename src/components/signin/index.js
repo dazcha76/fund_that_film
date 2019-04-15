@@ -10,10 +10,6 @@ import { connect } from 'react-redux';
 const validate = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
-  state = {
-    toMyProjects: false
-  }
-
   loginHandler = (values) => {
     this.props.signIn(values)
     return values;
