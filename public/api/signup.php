@@ -21,24 +21,16 @@ $dateJoined = date("y-m-d h:i:s");
 unset($data["password"]);
 
 
-/*
-INSERT INTO `users` SET `name` = "madeup",
-            `last_login` = "19-04-13 03:38:20",
-           `email` = "madeup@.com",
-           `password` = "madeuppassword"
 
-*/
-
-$query_insert_user = "INSERT INTO `users` SET `name` = {$data["name"]},
-            `last_login` = {$dateJoined},
-            `email` = {$email},
-            `password` = {$password} ";
+$query_insert_user = "INSERT INTO `users` SET `name` = '{$data["name"]}',
+            `last_login` = '{$dateJoined}',
+            `email` = '{$email}',
+            `password` = '{$password}' ";
 
 
 $result_insert_user = $db->query($query_insert_user);
-print_r($result_insert_user);
 $user_id = mysqli_insert_id($db);
-print_r($user_id);
+
 
 
 if($result_insert_user){
@@ -46,6 +38,18 @@ if($result_insert_user){
 }else{
     throw new Exception('failed to add user');
 };
+
+
+$insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$user_id}', `projects_id`='{$_SESSION["project_id"]}' ";
+$result_user_projects = $db->query($insert_users_projects_query);
+
+
+
+print_r($_SESSION['comparables_ids']);
+
+
+
+
 
 
 $json_output = json_encode($output);
