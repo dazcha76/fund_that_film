@@ -29,7 +29,7 @@ class FinancialNorthAmerica extends Component {
         <Preloader/>
         <Nav/>
         <Link to={`/invest/${token}`} target="_blank">
-          <button className="share_button button-page">Share</button>
+          <button className="share_button page-button">Share</button>
         </Link>
           <h1 className='financial-charts-header'>Financial Calculations</h1>
             <Tabs defaultActiveKey='northAmerica'>
