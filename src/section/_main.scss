@@ -9,60 +9,58 @@ body {
   background-image: url('./assets/images/black_background.jpg');
   background-attachment: fixed;
   font-weight: 500;
-}
 
-h1 {
-  color: $green;
-  text-align: center;
-  font-size: 300%;
-  letter-spacing: 5px;
-  margin: 5% 0;
-}
+  .main-container {
+    padding: 3% 75px;
 
-a:link,
-a:visited,
-a:hover,
-a:active {
-  text-decoration: none;
-}
-
-input,
-select,
-textarea {
-  font-size: 1em;
-  height: 6vh;
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  border-bottom: 2px solid $green;
-  outline: none;
-  color: white;
-  padding: 8px 0;
-}
-
-.page-button {
-  width: 20%;
-  min-width: 123px;
-  display: inline-block;
-  font-size: 150%;
-  font-weight: 500;
-  border: 2px solid $green;
-  border-radius: 4px;
-  color: $green;
-  background-color: transparent;
-  cursor: pointer;
-  padding: 5px 13px;
-  margin: 2%;
-}
-
-.page-button:hover {
-  background-image: url('./assets/images/light_green.jpg');
-  background-color: $green;
-  color: black;
-}
-
-/*@media (max-width: 450px){
-  .page-button {
-      width: 30vw;
+    h1 {
+      color: $green;
+      text-align: center;
+      font-size: 300%;
+      letter-spacing: 5px;
+      margin: 2% 0 5% 0;
     }
-}*/
+
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      text-decoration: none;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 1em;
+      height: 6vh;
+      width: 100%;
+      background-color: transparent;
+      border: none;
+      border-bottom: 2px solid $green;
+      outline: none;
+      color: white;
+      padding: 8px 0;
+    }
+
+    .page-button {
+      width: 20%;
+      min-width: 123px;
+      display: inline-block;
+      font-size: 150%;
+      font-weight: 500;
+      border: 2px solid $green;
+      border-radius: 4px;
+      color: $green;
+      background-color: transparent;
+      cursor: pointer;
+      padding: 5px 13px;
+      margin: 2%;
+    }
+
+    .page-button:hover {
+      background-image: url('./assets/images/light_green.jpg');
+      background-color: $green;
+      color: black;
+    }
+  }
+}

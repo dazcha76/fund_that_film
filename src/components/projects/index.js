@@ -62,7 +62,7 @@ class Projects extends Component {
     const projectCard = this.props.my_projects.map(this.buildProject);
 
     return (
-      <div className='my-projects-wrapper'>
+      <div className='main-container'>
         <Nav />
         <h1 className='my-projects-title'>My Projects</h1>
         {projectCard}

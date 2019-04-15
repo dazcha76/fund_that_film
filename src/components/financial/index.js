@@ -25,11 +25,11 @@ class FinancialNorthAmerica extends Component {
 
   render(){
     return (
-      <div>
+      <div className='main-container'>
         <Preloader/>
         <Nav/>
         <Link to={`/invest/${token}`} target="_blank">
-          <button className="share_button">Share</button>
+          <button className="share_button button-page">Share</button>
         </Link>
           <h1 className='financial-charts-header'>Financial Calculations</h1>
             <Tabs defaultActiveKey='northAmerica'>

@@ -62,7 +62,7 @@ class CardsContainer extends Component {
     const personCard = this.info.people.map(this.buildPersonInfo);
 
     return(
-      <div className= 'about-us-wrapper'>
+      <div className= 'main-container'>
         <Nav/>
         <h1>Meet the Team</h1>
         <div className= 'person-container'> 

@@ -1,67 +1,10 @@
 @import './variables';
 
-.green {
+.conditions {
+  color: white;
+  text-align: justify;
+
+  .green {
     color: $green;
+  }
 }
-
-.conditions-wrapper {
-    color: white;
-    padding: 0 75px;
-    text-align: justify;
-}
-
-/*@media (max-width: 800px){
-    .conditions-wrapper {
-        .legal {
-            padding: 6% 5%;
-        } 
-    }     
-}
-
-@media (max-width: 414px){
-    .conditions-wrapper {
-        .terms-header {
-            font-size: 2em;
-            padding: 3% 0 0 8%;
-        }
-
-        .legal {
-            padding-top: 5%;
-        } 
-    } 
-}
-
-@media (max-width: 375px){
-    .conditions-wrapper {
-        .terms-header {
-            font-size: 1.8em;
-            padding: 3.5% 0 0 15%;
-        }
-
-        .legal {
-            padding-top: 8%;
-        } 
-    }
-}
-
-@media (max-width: 360px){
-    .conditions-wrapper {
-        .terms-header {
-            font-size: 1.7em;
-            padding: 4.5% 0 0 15%;
-        }
-    }
-}
-
-@media (max-width: 320px){
-    .conditions-wrapper {
-        .terms-header {
-            font-size: 1.5em;
-            padding: 5.5% 0 0 15%;
-        }
-
-        .legal {
-            font-size: 1.2em;
-        } 
-    }
-}*/

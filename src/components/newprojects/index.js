@@ -22,7 +22,7 @@ class NewProject extends Component {
     const { onSubmit } = this.props
     const { page } = this.state
     return (
-      <div>
+      <div className='main-container'>
         <h1 className='new-project-title'>Enter Project Information</h1>
         {page === 1 && <NewProjectFirstPage onSubmit={this.nextPage} />}
         {page === 2 && (

@@ -30,7 +30,7 @@ class Nav extends Component{
             },
             {
                 text:'Terms & Conditions',
-                to:'/terms'
+                to:'/terms_and_conditions'
             }
         ],
         signIn: [

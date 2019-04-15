@@ -89,7 +89,7 @@ class NewProjectSecondPage extends Component {
     }
 
     return (
-      <div className='new-project-wrapper'>
+      <div className='main-container'>
         <Nav/>
         <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
           <div className='multiple-inputs-fields'>

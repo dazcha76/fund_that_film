@@ -52,7 +52,7 @@ class DetailsPage extends Component {
      
         const baseClass = 'movie1_comparison_modal';
         return ( 
-            <div>
+            <div className='main-container'>
             <div onClick = { this.props.toggleDetailPage } id='arrow-icon-up' className= { !this.props.detailPageOnclick ? 'hideArrow' : '' } >
             <i className='fas fa-angle-up'></i>
             </div>
@@ -66,7 +66,7 @@ class DetailsPage extends Component {
 
                 <div className='details-button-container'>
                     <Link to='/financials'>
-                        <button onClick={this.handleConfirm} className='input-submit-button details-page-button'>Confirm</button>
+                        <button onClick={this.handleConfirm} className='input-submit-button details-page-button page-button'>Confirm</button>
                     </Link>
                 </div>
             </div>

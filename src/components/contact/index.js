@@ -29,7 +29,7 @@ class Contact extends Component {
     }
 
     return (
-      <div className='contact-us-wrapper'>
+      <div className='main-container'>
         <Nav/>
         <h1>Contact Us</h1>
         <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>

@@ -72,10 +72,7 @@ class MovieComparison extends Component {
     }
 
     return (
-      <div>
-        <div className='comparables-wrapper'>
-          <div className="comparables-filter"></div>
-          <div className='comparables-container'>
+        <div className='main-container'>
           <Nav/>
             <h1> Movie Comparisons</h1>
             <div className='movie-info-container'>
@@ -85,17 +82,13 @@ class MovieComparison extends Component {
               <div onClick = {this.toggleClass} id='arrow-icon' className='button-btn'>
                 <button className="input-submit-button page-button">More Details</button>
               </div>
-              <div className='comparables-button-btn'>
-                <Link to='/financials'>
-                  <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
-                </Link>
-              </div>
+              <Link to='/financials'>
+                <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
+              </Link>
             </div>
-          </div> 
+          <DetailsPage detailPageOnclick={this.state.active} toggleDetailPage={() => { this.toggleClass()}} />
+          <Disclaimer/>
         </div>
-        <DetailsPage detailPageOnclick={this.state.active} toggleDetailPage={() => { this.toggleClass()}} />
-        <Disclaimer/>
-      </div> 
     )
   }
 }

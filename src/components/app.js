@@ -40,7 +40,7 @@ class App extends Component {
                     <Route path='/contact' component={() => <Contact /> }/>
                     <Route path='/confirmation' component={() => <EmailSent /> }/>
                     <Route path='/about' component={ CardsContainer }/>   
-                    <Route path='/terms' component={ Terms } />
+                    <Route path='/terms_and_conditions' component={ Terms } />
                 </div>
             </main>
         )
