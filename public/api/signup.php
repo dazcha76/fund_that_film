@@ -40,18 +40,6 @@ if($result_insert_user){
 };
 
 
-$insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$user_id}', `projects_id`='{$_SESSION["project_id"]}' ";
-$result_user_projects = $db->query($insert_users_projects_query);
-
-
-
-print_r($_SESSION['comparables_ids']);
-
-
-
-
-
-
 $json_output = json_encode($output);
 print_r($json_output);
 

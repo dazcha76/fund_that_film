@@ -56,7 +56,6 @@ while($row_id=$id_result->fetch_assoc()){
 }
 
 $output['comparables_ids'] = $comparables_ids;
-$_SESSION['comparables_ids'] = $comparables_ids; 
 
 
 $insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$_SESSION["user_id"]}', `projects_id`='{$_SESSION["project_id"]}' ";
