@@ -1,12 +1,10 @@
 import React from 'react';
 
-// export default ({ input, label, type, meta:{touched, error}, placeholder, textarea, value, ...props}) => {
 export default ({ input, label, type, meta:{ touched, error }, placeholder, textarea}) => {
   return(
-    <div>
+    <div className='input-container'>
       <input {...input} type={type} id={input.name} placeholder={label} />
-      {/*<label htmlFor={ input.name }>{ label }</label>*/}
-      <p>{ touched && error }</p>
+      <p className='required'>{ touched && error }</p>
     </div>
   );
 }

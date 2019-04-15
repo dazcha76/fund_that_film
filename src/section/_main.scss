@@ -30,7 +30,12 @@ body {
 
     .label {
       color: $green;
-      margin-top: 5%;
+      margin: 5% 5% 0 5%;
+    }
+
+    .textarea-label {
+      color: $green;
+      margin-top: 3%;
     }
 
     input,
@@ -75,4 +80,15 @@ body {
       }
     }
   }
+}
+
+.input-container {
+  margin: 0 5%;
+}
+
+.multiple-inputs-fields {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }

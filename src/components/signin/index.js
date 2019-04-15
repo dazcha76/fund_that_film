@@ -20,7 +20,7 @@ class SignIn extends Component {
   }
 
   render(){
-    const {handleSubmit, onSubmit } = this.props;
+    const { handleSubmit, onSubmit } = this.props;
 
     if (this.props.sign_in) {
       return <Redirect to='/my_projects' />
@@ -31,9 +31,9 @@ class SignIn extends Component {
         <Nav/> 
         <h1 className='signin-title'>Sign In</h1>
         <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
-          <p className='label'>Email Address: </p>
+          <p className='label'>Email Address:</p>
           <Field name='email' type='email' component={ Input } validate={ validate } />
-          <p className='label'>Password: </p>
+          <p className='label'>Password:</p>
           <Field name='password' type='password' component={ Input } validate={ validate } />
           <div className='button-container'>
             <button type="submit" className='login-submit-button page-button'>Login</button>
