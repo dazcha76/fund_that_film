@@ -18,6 +18,9 @@ foreach ($data as $key => $value) {
     $data[$key] = addslashes($value);
 }
 
+if(empty($data['project_id'])){
+    throw new Exception('need the project id to be sent');
+}
 
 if(empty($data['email'])){
     throw new Exception('email is a required field');
