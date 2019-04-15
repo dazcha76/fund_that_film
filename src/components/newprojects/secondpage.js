@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 import Select from '../helpers/form/drop_down';
 import Autosuggest from '../helpers/form/autosuggest';
 import { connect } from 'react-redux';
-import { sendProjectData, getProjectTitle } from '../../actions';
+import { sendProjectData, getProjectValues } from '../../actions';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 
@@ -74,8 +74,14 @@ class NewProjectSecondPage extends Component {
   submitHandler = async (values) => {  
     console.log("VALUES", values)
     if(values.developmentStage !== 'default'){
-      this.props.getProjectTitle(values.title),
-      await this.props.sendProjectData(values);
+      // this.props.getProjectTitle(values.title),
+      await this.props.sendProjectData(
+        values, 
+        this.props.page_one.title,
+        this.props.page_one.runtime,
+        this.props.page_one.logline,
+        this.props.page_one.synopsis
+      );
       this.setState({toComparables: true})
     }
     return values;
@@ -158,11 +164,12 @@ NewProjectSecondPage = reduxForm({
 
 const mapStateToProps = state => {
   return {
+    page_one: state.project.project,
     project_form: state.form
   }
 }
 
 export default connect(mapStateToProps, { 
   sendProjectData, 
-  getProjectTitle
+  getProjectValues
 })(NewProjectSecondPage); 

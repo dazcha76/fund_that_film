@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import NewProjectFirstPage from './firstpage';
 import NewProjectSecondPage from './secondpage';
+import { connect } from 'react-redux';
+import { getProjectValues } from '../../actions';
 
 class NewProject extends Component {
   state = {
@@ -10,6 +12,7 @@ class NewProject extends Component {
 
   nextPage = (values) => {
     console.log('VALUES', values)
+    this.props.getProjectValues(values);
     this.setState({ page: this.state.page + 1 });
   }
 
@@ -35,11 +38,16 @@ class NewProject extends Component {
   }
 }
 
-NewProject.propTypes = {
-  onSubmit: PropTypes.func.isRequired
-}
+const mapStateToProps = state => {
+  console.log("PAGE 1", state)
+  return {
+    project: state
+  }
+} 
 
-export default NewProject;
+export default connect(mapStateToProps, {
+  getProjectValues
+})(NewProject);
 
 
 // import React, { Component } from 'react';

@@ -45,15 +45,19 @@ export const getMyProjects = () => {
 
     dispatch({
       type: 'GET_MY_PROJECTS',
-      payload: response
+      payload: values
     });
   }
 }
 
-export const getProjectTitle = title => {
+export const getProjectValues = values => {
+  // const { title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2 } = values;
+
+  console.log("NEW PROJECT VALUES", values)
+
   return {
-    type: 'GET_PROJECT_TITLE',
-    title: title
+    type: 'GET_PROJECT_VALUES',
+    payload: values
   }
 }
 
