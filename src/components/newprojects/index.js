@@ -65,30 +65,30 @@ const number = value => value && isNaN(Number(value)) ? 'Must be a number' : und
   
 class NewProject extends Component {
   state = {
-    toComparables: false,
-    filmOneValue: '',
-    filmTwoValue: '',
-    filmOneSuggestions: [],
-    filmTwoSuggestions: []
+    toComparables: false
+    // filmOneValue: '',
+    // filmTwoValue: '',
+    // filmOneSuggestions: [],
+    // filmTwoSuggestions: []
   }
 
   buildOptions(data){
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  filmOneSelected = (value) => {
-    this.setState({
-      filmOneValue: value,
-      filmOneSuggestions: []
-    })
-  }
+  // filmOneSelected = (value) => {
+  //   this.setState({
+  //     filmOneValue: value,
+  //     filmOneSuggestions: []
+  //   })
+  // }
 
-  filmTwoSelected = (value) => {
-    this.setState({
-      filmTwoValue: value,
-      filmTwoSuggestions: []
-    })
-  }
+  // filmTwoSelected = (value) => {
+  //   this.setState({
+  //     filmTwoValue: value,
+  //     filmTwoSuggestions: []
+  //   })
+  // }
 
   submitHandler = async (values) => { 
     console.log("VALUES", values)

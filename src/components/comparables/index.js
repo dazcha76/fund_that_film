@@ -90,6 +90,11 @@ class MovieComparison extends Component {
                   <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
                 </Link>
               </div>
+              <div className='register-button-btn'>
+                <Link to='/register'>
+                  <button className="register-button page-button">Register</button>
+                </Link>
+              </div>
             </div>
           </div> 
         </div>

@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Test from './test';
 import CardsContainer from './aboutus';
 import Contact from './contact';
+import CreateAccount from './newuser';
 import Disclaimer from './footer/disclaimer';
 import EmailSent from './contact/messagesent';
 import FinancialNorthAmerica from './financial';
@@ -32,6 +33,7 @@ class App extends Component {
                 <div className='route-container'>
                     <Route exact path='/' component={ Home }/>
                     <Route path='/sign_in' component={() => <SignIn />}/>
+                    <Route path='/register' component={() => <CreateAccount />}/>
                     <Route path='/new_project' component={() => <NewProject />}/>
                     <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
                     <Route path='/comparisons' component={ MovieComparison }/>
