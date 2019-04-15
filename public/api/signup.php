@@ -14,6 +14,9 @@ $data = json_decode( file_get_contents( 'php://input'),true);
 if(!$data){
     throw new Exception('No data was sent');
 }
+foreach ($data as $key => $value) {
+    $data[$key] = addslashes($value);
+}
 
 $email = $data["email"];
 $password = sha1($data["password"]);
