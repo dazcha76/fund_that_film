@@ -4,7 +4,7 @@ export const createAccount = (values, project) => {
   const { name, email, password } = values;
 
   return async dispatch => {
-    const response = await axios.post('/api/______.php', {
+    const response = await axios.post('/api/signup.php', {
       user: {
         name,
         email, 

@@ -13,9 +13,9 @@ class CreateAccount extends Component {
     toMyProjects: false
   }
 
-  createUser = (values) => {
-    console.log("VALUES", values)
-    this.props.createAccount(values)
+  createUser = (values, project_id) => {
+    console.log("VALUES", values);
+    this.props.createAccount(values, this.props.project_id);
     return values;
   }
 
@@ -53,9 +53,9 @@ CreateAccount = reduxForm({
 })(CreateAccount) ;
 
 const mapStateToProps = state => {
-  console.log('STATE', state)
+  console.log('PROJECT ID', state.comparables.project_id)
   return {
-    new_account: state
+    project_id: state.comparables.project_id
   }
 }
 

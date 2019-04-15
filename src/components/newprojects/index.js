@@ -193,7 +193,6 @@ NewProject = reduxForm({
 })(NewProject);
 
 const mapStateToProps = state => {
-  console.log("STATE:", state)
   return {
     project_form: state.form
   }

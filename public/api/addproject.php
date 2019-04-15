@@ -26,7 +26,6 @@ foreach($request AS $key=>$value){
     $request[$key] = addslashes($value);
     $keys_array[]=$key;
 };
-print_r($keys_array);
 
 foreach($required_keys AS $key){
     if(!array_key_exists($key,$request)){
