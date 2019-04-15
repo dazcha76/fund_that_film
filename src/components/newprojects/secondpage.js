@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import {Redirect} from 'react-router-dom';
 import Select from '../helpers/form/drop_down';
-import Autosuggest from './autosuggest';
+import Autosuggest from '../helpers/form/autosuggest';
 import { connect } from 'react-redux';
 import { sendProjectData, getProjectTitle } from '../../actions';
 import Nav from '../navbar/index';
@@ -116,30 +116,24 @@ class NewProjectSecondPage extends Component {
               <Field name = 'developmentStage' component = { Select } label = 'Current Production Stage:' defaultText = 'Select Stage' options={this.buildOptions(developmentStage)} validate={required}/>
             </div>
           </div>
-
           <div className='multiple-inputs-fields'>
             <div className='film-input-grouping'>
-              <p className='page2-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
-              
-               <Field name='film1' component={Autosuggest} validate={required}/>
-
+              <p className='page2-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>  
+              <Field name='film1' component={Autosuggest} validate={required}/>
             </div>
             <div className='meets-container'>
               <h4 className='meets'>Meets</h4>
             </div>
             <div className='film-input-grouping'>
               <p className='page2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
-
               <Field name='film2' component={Autosuggest} validate={required}/>
-
             </div>              
           </div>
-
           <div className='button-container'>
             <button type="button" className="previous page-button" onClick={previousPage}>
             Previous
           </button>
-          <button type="submit" className='new-project-submit-button page-button' disabled={pristine || submitting}>
+          <button type="submit" className='new-project-submit-button page-button'>
             Submit
           </button>
           </div>
@@ -159,8 +153,7 @@ NewProjectSecondPage = reduxForm({
     mpaa: 'default',
     genre: 'default',
     developmentStage: 'default'
-  }
-  // validate   
+  } 
 })(NewProjectSecondPage);
 
 const mapStateToProps = state => {

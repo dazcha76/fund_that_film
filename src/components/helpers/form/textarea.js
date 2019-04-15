@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
 
-class Input extends Component {
+class Textarea extends Component {
   render(){
     const { input, type, meta:{ touched, error }, ...props } = this.props;
 
     return (
-      <div className='input-container'>
-        <input {...input} type={type} autoComplete='off'/>
+      <div className='textarea-container'>
+        <textarea 
+          autoComplete='off'
+          onBlur={input.onBlur}
+        />
         <p className='required'>{ touched && error }</p>
       </div>
     )
   }
 }
  
-export default Input;
+export default Textarea;

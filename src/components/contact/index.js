@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Redirect } from 'react-router-dom';
 import Input from '../helpers/form/input';
+import Textarea from '../helpers/form/textarea';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
 import { sendContactForm } from '../../actions';
@@ -54,7 +55,7 @@ class Contact extends Component {
           </div>
           <div className="message-input">
             <p className='textarea-label'>Message:</p>
-            <Field name='message' type='text' component='textarea' validate={ required }/>
+            <Field name='message' type='text' component={ Textarea } validate={ required }/>
           </div>
   
           <div className='button-container'>

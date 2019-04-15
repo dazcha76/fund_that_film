@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Field } from 'redux-form';
-import Input from '../helpers/form/input';
 import axios from 'axios';
 import _ from 'lodash';
-import apiKey from '../../config/tmdb.js';
+import apiKey from '../../../config/tmdb.js';
 
 const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
 
@@ -46,7 +45,7 @@ class Autocomplete extends Component {
   }
 
   render(){
-    const { input, ...props } = this.props;
+    const { input, meta:{ touched, error }, ...props } = this.props;
 
     return (
       <div className='autocomplete-input'>
@@ -54,6 +53,7 @@ class Autocomplete extends Component {
         <ul className='suggestion-list'>
           {this.state.fetchedSuggestions.map(this.buildSuggestions)}
         </ul>
+        <p className='required'>{ touched && error }</p>
       </div>
     )
   }

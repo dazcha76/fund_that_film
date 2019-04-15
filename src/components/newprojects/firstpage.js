@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
+import Textarea from '../helpers/form/textarea';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 
@@ -33,7 +34,7 @@ class NewProjectFirstPage extends Component {
 
           <div className='message-input'>
             <p className='textarea-label'>Synopsis: <i className='fas fa-question-circle'><span className='tooltiptext synopsis-tooltip'>Enter a brief summary of what your movie is about</span></i></p>
-            <Field name='synopsis' type='text' component='textarea' validate={required}/>
+            <Field name='synopsis' type='text' component={ Textarea } validate={required}/>
           </div>
 
           <div className='button-container'>
@@ -52,5 +53,4 @@ export default reduxForm({
   form: 'newproject_form',
   destroyOnUnmount: false,
   forceUnregisterOnUnmount: true,
-  // validate
 })(NewProjectFirstPage);

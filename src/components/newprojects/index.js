@@ -9,9 +9,8 @@ class NewProject extends Component {
   }
 
   nextPage = (values) => {
-    console.log("PAGE 1 VALUES:", values)
+    console.log('VALUES', values)
     this.setState({ page: this.state.page + 1 });
-
   }
 
   previousPage = () => {
