@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Nav from '../navbar/index';
-import '../../section/projects.scss'; 
 import { connect } from 'react-redux';
 import { getMyProjects, signIn, getFinancialData, getMovieData, getMovieTitles } from '../../actions';
+import Nav from '../navbar/index';
+import '../../section/projects.scss'; 
 
 class Projects extends Component {
   state = {
@@ -31,23 +31,24 @@ class Projects extends Component {
 
   buildProject = (project) => {
     return (
-        <div key={project.id} className='project-container'>
-          <h1 className='project-title'>{project.title}</h1>
-          <div className='multiple-fields'>
-            <p className='project-detail'><span>Genre:</span> {project.genre}</p>
-            <p className='project-detail'><span>Runtime:</span> {project.runtime}</p>
-            <p className='project-detail'><span>MPAA Rating:</span> {project.mpaa_rating}</p>
-            <p className='project-detail'><span>Release Year:</span> {project.year}</p>
-          </div>
-          <p className='project-detail'><span>Production Stage:</span> {project.production_stage}</p>
-          <p className='project-detail'><span>Logline:</span> {project.logline}</p>
-          <p className='project-detail'><span>Synopsis:</span> {project.synopsis}</p>
-          <div className="my-projects-button-container">
-            <button className='my-project-comparables-button page-button' onClick={() => {this.seeComparables(project.id)}}>Comparables</button>
-
-            <button className='my-project-financial-button page-button' onClick={() => {this.seeFinancials(project.id)}}>Financials</button>
-          </div> 
+      <div key={project.id} className='project-container'>
+        <h2 className='project-title'>{project.title}</h2>
+        <div className='four-fields'>
+          <p><span className='green'>Genre:</span> {project.genre}</p>
+          <p><span className='green'>Runtime:</span> {project.runtime}</p>
+          <p><span className='green'>MPAA Rating:</span> {project.mpaa_rating}</p>
+          <p><span className='green'>Release Year:</span> {project.year}</p>
         </div>
+        <div className='two-fields'>
+          <p className='production'><span className='green'>Production Stage:</span> {project.production_stage}</p>
+          <p className='logline'><span className='green'>Logline:</span> {project.logline}</p>
+        </div>
+        <p className='synopsis'><span className='green'>Synopsis:</span> {project.synopsis}</p>
+        <div className="my-projects-button-container">
+          <button className='my-project-comparables-button page-button' onClick={() => {this.seeComparables(project.id)}}>Comparables</button>
+          <button className='my-project-financial-button page-button' onClick={() => {this.seeFinancials(project.id)}}>Financials</button>
+        </div> 
+      </div>
     )
   }
 
@@ -74,9 +75,7 @@ class Projects extends Component {
 const mapStateToProps = state => {
   return {
     my_projects: state.myprojects.my_projects,
-
     comparables: state.session.user.projects
-
   }
 }
 

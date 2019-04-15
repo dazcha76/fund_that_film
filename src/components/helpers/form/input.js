@@ -3,7 +3,7 @@ import React from 'react';
 export default ({ input, label, type, meta:{ touched, error }, placeholder, textarea}) => {
   return(
     <div className='input-container'>
-      <input {...input} type={type} id={input.name} placeholder={label} />
+      <input {...input} type={type} autoComplete='off'/>
       <p className='required'>{ touched && error }</p>
     </div>
   );

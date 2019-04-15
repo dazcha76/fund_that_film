@@ -1,91 +1,50 @@
 @import './variables';
 
-.my-projects-wrapper {
-  
-  .project-container {
-    width: 70vw;
-    margin: 3% auto 0 auto;
-    padding: 2% 3%;
-    background-color: rgba(212, 212, 212, 0.8);
+.project-container {
+  width: 60vw;
+  margin: 5% auto;
+  padding: 3% 3% 1.5% 3%;
+  color: #ffffff;
+  border: 5px solid #b0f1b1;
+  box-shadow: 0px 0px 25px #62e364;
+  border-radius: 10px;
 
-    .project-title {
-      font-size: 2.3em;
-      margin-bottom: 4%;
-      color: $side-navbar;
+  h2 {
+    color: $green;
+    text-align: center;
+    margin-bottom: 5%;
+  }
+
+  .four-fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 3%;
+    font-size: 1.3em;
+  }
+
+  .two-fields {
+    display: flex;
+    font-size: 1.3em;
+    margin-bottom: 3%;
+
+    .production {
+      width: 50%;
     }
 
-    .multiple-fields {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
+    .logline {
+      width: 50%;
     }
+  }
 
-    .project-detail {
-      color: white;
-      font-size: 1.2em;
+  .synopsis {
+    font-size: 1.3em;
+    margin-bottom: 3%;
+  }
 
-      span {
-        color: $side-navbar;
-      }
-    }
-    
-    .my-projects-button-container {
-      text-align: center;
-      margin-top: 4%;
-
-      .my-project-comparables-button,
-      .my-project-financial-button  {
-        min-width: 200px;
-      }
-    }   
+  .my-projects-button-container {
+    text-align: center;
+    margin-top: 5%;
   }
 }
-
-/*@media (max-width: 414px){
-  .my-projects-wrapper {
-    padding-top: 0;
-
-    .project-container {
-      width: 85vw;
-      padding: 5% 4%;
-      margin-bottom: 5%;
-
-      .project-title {
-        font-size: 1.8em;
-        padding-bottom: 8%;
-      }
-
-      .my-projects-button-container {
-        margin-top: 8%;
-      }
-    }
-  }
-}
-
-@media (max-width: 411px){
-  .my-projects-wrapper {
-    .my-projects-title {
-      padding: 3.7% 0 0 0;
-    }
-  }
-}
-
-@media (max-width: 360px){
-  .my-projects-wrapper {
-
-    .my-projects-title {
-      padding: 4.5% 0 0 5%;
-    }
-  }
-}
-
-@media (max-width: 360px){
-  .my-projects-wrapper {
-
-    .my-projects-title {
-      font-size: 2.3em;
-      padding: 5.5% 0 0 10%;
-    }
-  }
-}*/
