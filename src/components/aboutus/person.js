@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../section/aboutus.scss';
 
 export default props => {
   return (

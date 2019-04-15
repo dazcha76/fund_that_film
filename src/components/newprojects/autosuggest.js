@@ -49,7 +49,7 @@ class Autocomplete extends Component {
     const { input, placeholder, ...props } = this.props;
 
     return (
-      <div>
+      <div className='autocomplete-input'>
         <input {...input} id={input.name} placeholder={placeholder} onChange={this.handleChange} {...props} autoComplete='off' />
         <ul className='suggestion-list'>
           {this.state.fetchedSuggestions.map(this.buildSuggestions)}

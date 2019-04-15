@@ -12,31 +12,31 @@ class NewProjectFirstPage extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <div className='main-container'>
+      <div>
         <Nav/>
         <form className='new-project-form' onSubmit={handleSubmit}>
-          <div>
+          <div className='single-line-input'>
             <p className='label'>Movie Title: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the working title of your movie</span></i></p>
-            <Field name='title' type='text' component={Input} label='Title' className='user-project-input' id='title' validate={required}/>
+            <Field name='title' type='text' component={Input} validate={required}/>
           </div>
 
           <div className='multiple-inputs-fields'>
             <div className='two-input-grouping'>
               <p className='label'>Estimated Runtime: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the estimated runtime in minutes</span></i></p>
-              <Field name='runtime' type='number' component={Input} label='Estimated Runtime (minutes)' className='input-runtime' validate={required}/>
+              <Field name='runtime' type='number' component={Input} validate={required}/>
             </div>
             <div className='two-input-grouping'>
               <p className='label'>Logline: <i className='fas fa-question-circle'><span className='tooltiptext logline-tooltip'>Describe the core conflict of the story in one sentence</span></i></p>
-              <Field name='logline' type='text' component={Input} label='Logline' className='logline' validate={required}/>
+              <Field name='logline' type='text' component={Input} validate={required}/>
             </div>
           </div>
 
-          <div>
-            <p className='label'>Synopsis: <i className='fas fa-question-circle'><span className='tooltiptext synopsis-tooltip'>Enter a brief summary of what your movie is about</span></i></p>
-            <Field name='synopsis' type='text' component='textarea' label='Synopsis' id='synopsis' validate={required}/>
+          <div className='message-input'>
+            <p className='textarea-label'>Synopsis: <i className='fas fa-question-circle'><span className='tooltiptext synopsis-tooltip'>Enter a brief summary of what your movie is about</span></i></p>
+            <Field name='synopsis' type='text' component='textarea' validate={required}/>
           </div>
 
-          <div>
+          <div className='button-container'>
             <button type="submit" className="next page-button">
               Next
             </button>

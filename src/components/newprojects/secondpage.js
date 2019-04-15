@@ -89,24 +89,24 @@ class NewProjectSecondPage extends Component {
     }
 
     return (
-      <div className='main-container'>
+      <div>
         <Nav/>
-        <form className='new-project-form' onSubmit={handleSubmit(this.submitHandler)}>
+        <form className='new-project-form-page-2' onSubmit={handleSubmit(this.submitHandler)}>
           <div className='multiple-inputs-fields'>
             <div className='four-input-grouping'>
-              <p className='label'>Year of Release: <i className='fas fa-question-circle'><span className='tooltiptext year-tooltip'>Enter the year you expect to release the movie</span></i></p>
-              <Field name = 'releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText = 'Select Year' options={this.buildOptions(years)} validate={required}/>
+              <p className='page2-label'>Year of Release: <i className='fas fa-question-circle'><span className='tooltiptext year-tooltip'>Enter the year you expect to release the movie</span></i></p>
+              <Field name='releasedYear' component = { Select } label = 'Estimated Year of Release:' defaultText='Select Year' options={this.buildOptions(years)} validate={required}/>
             </div>
             <div className='four-input-grouping'>
-              <p className='label'>Genre: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the genre of your movie</span></i></p>
+              <p className='page2-label'>Genre: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the genre of your movie</span></i></p>
               <Field name = 'genre' component = { Select } label = 'Genre:' defaultText = 'Select Genre' options={this.buildOptions(genre)} validate={required}/>
             </div>
             <div className='four-input-grouping'>
-              <p className='label'>MPAA Rating: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the target MPAA rating of your movie</span></i></p>
+              <p className='page2-label'>MPAA Rating: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the target MPAA rating of your movie</span></i></p>
               <Field name = 'mpaa' component = { Select } label = 'Target MPAA Rating:' defaultText = 'Select MPAA' options={this.buildOptions(mpaa)} validate={required}/>
             </div>
             <div className='four-input-grouping'>
-              <p className='label'>Production Stage:<i className='fas fa-question-circle'>
+              <p className='page2-label'>Production Stage:<i className='fas fa-question-circle'>
                 <span className='tooltiptext production-tooltip'>
                   <span className='definition'>Pre-Production: Planning the schedule, budget, location and cast</span>
                   <span className='definition'>Production: Filming has started</span>
@@ -119,23 +119,23 @@ class NewProjectSecondPage extends Component {
 
           <div className='multiple-inputs-fields'>
             <div className='film-input-grouping'>
-              <p className='label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
+              <p className='page2-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>
               
-               <Field component={Autosuggest} name='film1' placeholder='Film 1' validate={required}/>
+               <Field name='film1' component={Autosuggest} validate={required}/>
 
             </div>
             <div className='meets-container'>
               <h4 className='meets'>Meets</h4>
             </div>
             <div className='film-input-grouping'>
-              <p className='label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
+              <p className='page2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
 
-              <Field component={Autosuggest} name='film2' placeholder='Film 2' validate={required}/>
+              <Field name='film2' component={Autosuggest} validate={required}/>
 
             </div>              
           </div>
 
-          <div>
+          <div className='button-container'>
             <button type="button" className="previous page-button" onClick={previousPage}>
             Previous
           </button>

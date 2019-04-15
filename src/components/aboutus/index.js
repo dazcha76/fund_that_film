@@ -5,6 +5,7 @@ import danika from '../../assets/images/danika.png';
 import diana from '../../assets/images/diana.png';
 import christine from '../../assets/images/christine.png';
 import Nav from '../navbar/index';
+import '../../section/aboutus.scss';
 
 class CardsContainer extends Component {
   info = { 

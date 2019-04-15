@@ -1,13 +1,62 @@
 @import './variables';
 
+.new-project-form-page-2 {
+  margin: 8% auto;
+}
+
+.dropdown-container {
+  width: 15vw;
+}
+
+.autocomplete-input {
+  width: 27.5vw;
+}
+
+.four-input-grouping {
+  margin: 0 1%;
+}
+
+.page2-label {
+  color: $green;
+  margin: 5% 0 0 0;
+}
+
+#year-input, 
+#mpaa-input, 
+#genre-input, 
+#production-stage-input {
+  color: $white;
+}
+
+.meets-container {
+  margin-bottom: 0.1%;
+  width: 10vw;
+  text-align: center;
+
+  .meets {
+    color: $white;
+    font-size: 1.1em;
+    line-height: 9.5em;
+    display: inline-block;  
+  }
+}
+
+/*-------------- MOVIE SUGGESTIONS --------------*/
+
 .suggestion-list {
   list-style-type: none;
-  background-color: white;
-  padding-left: 2%;
+  background-color: $white;
+  border-radius: 3px;
 }
 
 .suggestion-list li {
+  padding: 0 2%;
   cursor: pointer;
+}
+
+.suggestion-list li:hover {
+  background-color: $green;
+  color: $white;
 }
 
 .movie-poster {
@@ -15,77 +64,13 @@
   margin: 1% 0;
 }
 
-.new-project-wrapper {
-  width: 100%;
-}
-
-.new-project-form {
-  width: 70%;
-  padding: 42px;
-  margin: 0 auto;
-
-  p {
-    color:$required-form;
-    font-weight:400px;
-  }
-}
-
-#year-input, 
-#mpaa-input, 
-#genre-input, 
-#production-stage-input {
-  color: $box-shadow-color;
-}
-
-.user-input-button-container {
-  text-align: center;
-}
-
-
-
-.form-control {
-  color: $input-placeholder;
-  background-color: #3e3e44;
-  border: none;
-}
-
-#synopsis {
-  height: 15vh;
-  margin-bottom: 1%;
-}
-
-.meets {
-  font-size: 1.1em;
-  line-height: 5em;
-  text-align: center;
-  display: inline-block;  
-}
-
-.meets-container {
-  color: $box-shadow-color;
-  text-shadow:1px 1px 1px black;
-  margin-bottom: 0.1%;
-  width: 10vw;
-  text-align: center;
-}
+/*-------------- TOOLTIPS --------------*/
 
 .fa-question-circle {
   display: inline-block;
   margin-left: 2%;
-
   position: relative;
-}
-
-.four-input-grouping {
-  width: 15vw;
-}
-
-.two-input-grouping {
-  width: 35vw;
-}
-
-.film-input-grouping {
-  flex-grow: 1;
+  color: $white;
 }
 
 .fa-question-circle .tooltiptext {
@@ -118,8 +103,4 @@
 .fa-question-circle:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
-
-.new-project-clear-button {
-  margin-right: 5%;
 }

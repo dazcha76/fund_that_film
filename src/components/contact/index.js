@@ -5,7 +5,6 @@ import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
 import { sendContactForm } from '../../actions';
-import '../../section/contact.scss'; 
 
 const required = value => value ? undefined : 'Field is Required';
 
