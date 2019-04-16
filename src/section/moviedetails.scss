@@ -1,79 +1,50 @@
 @import './variables';
 @import './main';
 
-.movie1_comparison_modal {
-  position: fixed;
-  top: 0;
-  left: 0;
+.details-container {
+  overflow-x: scroll;
 
-  pointer-events: none;
-  height: 100vh;
-  width: 100%;
-  padding-top: 7vh;
-  color: white;
-  transition: all 0.5s;
-  transform: translateY(100%);
-  
-  &.active {
-    height: 110vh;
-    display: block;
-    pointer-events: inherit;
-    opacity: 1;
-    transition: all 0.5s;
-    transform: translateY(0);
+  .details-title {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
   }
-}
 
-.modal-content.details-info-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  padding:0px 0px;
-  justify-content: space-evenly;
-  border: none;
+  .details-info-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-top: 8%;
 
-}
-  .modal-movie-img {
-    width: 35vw;
-    margin:2px 0;
-    text-align: center;
+    .details {
+      width: 40vw;
+      color: $white;
+      border-right: 2px solid $green;
+      margin-right: 3%;
+      padding-right: 2%;
 
-    .movie-image {
-      width: 248px;
-      margin:0% 0 1% 14px;
-    }
-    &:hover{
-      filter: drop-shadow(2px 3px 6px $button-color); 
+      .movie-details {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        margin-top: 3%;
+
+        .section {
+          width: 15vw;
+          padding-right: 5%;
+
+          .details-image {
+            width: 100%;
+            padding-bottom: 10%;
+          }
+        }
+      }
     }
 
-    h3 {
-      font-size: 1.2rem;
-    } 
-  } 
-
-.movies-button-container {
-  height: 20vh;
-  width: 10vw;
-  margin: 0 auto;
-
-  .details-submit-button {
-   color:$box-shadow-color;
+    .details:last-child {
+      border-right: none;
+    }
   }
-}
-
-.details-page-button{
-  color: antiquewhite;
-  background-color: $side-navbar;
-    font-size: 150%;
-    border: none;
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-    padding: 5px 8px;
-}
-
-.details-button-container{
-  position: absolute;
-  left: 47%;
-  bottom: 19%;
 }

@@ -4,6 +4,7 @@ import { Route, withRouter } from 'react-router-dom';
 import Test from './test';
 import CardsContainer from './aboutus';
 import Contact from './contact';
+import Details from './comparables/details';
 import Disclaimer from './footer/disclaimer';
 import EmailSent from './contact/messagesent';
 import FinancialNorthAmerica from './financial';
@@ -30,15 +31,16 @@ class App extends Component {
     return (    
       <main>
         <div className='route-container'>
-          <Route exact path='/' component={ Home }/>
-          <Route path='/sign_in' component={() => <SignIn />}/>
-          <Route path='/new_project' component={() => <NewProject />}/>
-          <Route path='/my_projects' component={auth(MyProjects, this.props.sign_in)}/>
-          <Route path='/comparisons' component={() => <MovieComparison /> }/>
-          <Route path='/financials' component={() => FinancialNorthAmerica }/>
-          <Route path='/invest/' component={() => Shareable }/>
-          <Route path='/contact' component={() => <Contact /> }/>
-          <Route path='/confirmation' component={() => <EmailSent /> }/>
+          <Route exact path='/' component={ Home } />
+          <Route path='/sign_in' component={ () => <SignIn /> } />
+          <Route path='/new_project' component={ () => <NewProject /> } />
+          <Route path='/my_projects' component={ auth(MyProjects, this.props.sign_in) } />
+          <Route path='/comparisons' component={ () => <MovieComparison /> } />
+          <Route path='/details' component={ () => <Details /> }/>
+          <Route path='/financials' component={ () => FinancialNorthAmerica } />
+          <Route path='/invest/' component={ () => Shareable } />
+          <Route path='/contact' component={ () => <Contact /> } />
+          <Route path='/confirmation' component={ () => <EmailSent /> } />
           <Route path='/about' component={ CardsContainer }/>   
           <Route path='/terms_and_conditions' component={ Terms } />
         </div>

@@ -3,6 +3,7 @@ import { Field } from 'redux-form';
 import axios from 'axios';
 import _ from 'lodash';
 import apiKey from '../../../config/tmdb.js';
+import film from '../../../assets/images/film.jpg';
 
 const moviePoster = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2';
 
@@ -39,7 +40,7 @@ class Autocomplete extends Component {
       <li key={movie.id} onClick={() => {
         this.handleClick(movie.title)
       }}>
-        <img className='movie-poster' src={moviePoster + movie.poster_path} /> {movie.title}
+        <img className='movie-poster' src={movie.poster_path ? moviePoster + movie.poster_path : film} /> {movie.title}
       </li>
     )
   }

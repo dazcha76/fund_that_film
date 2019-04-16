@@ -72,8 +72,8 @@ export const sendContactForm = values => {
   }
 }
 
-export const sendProjectData = values => {
-  const { title, runtime, logline, releasedYear, genre, mpaa, developmentStage, synopsis, film1, film2 } = values;
+export const sendProjectData = (values, title, runtime, logline, synopsis) => {
+  const { releasedYear, genre, mpaa, developmentStage, film1, film2 } = values;
 
   return async dispatch => {
     await axios.post('/api/addproject.php', {

@@ -12,7 +12,7 @@ import NorthAmericaGraphs from './../shareablecharts/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 import { connect } from 'react-redux';
-import { sendToken, getProjectTitle } from '../../actions';
+import { sendToken, getProjectValues } from '../../actions';
 
 const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
@@ -71,6 +71,6 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, {
-    getProjectTitle, 
+    getProjectValues, 
     sendToken
 })(Shareable);
