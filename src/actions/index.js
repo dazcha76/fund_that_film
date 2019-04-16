@@ -64,7 +64,7 @@ export const getMyProjects = () => {
 
     dispatch({
       type: 'GET_MY_PROJECTS',
-      payload: values
+      payload: response
     });
   }
 }
