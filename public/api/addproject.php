@@ -11,6 +11,7 @@ $incoming_request = json_decode( file_get_contents( 'php://input'),true);
 $required_keys=['runtime','logline','title','releasedYear','genre','mpaa','developmentStage','synopsis','film1','film2'];
 $input_keys_array=[];
 $request = $incoming_request['newProject'];
+
 foreach($request AS $key=>$value){
     $request[$key] = addslashes($value);
     $keys_array[]=$key;
@@ -56,15 +57,18 @@ while($row_id=$id_result->fetch_assoc()){
 
 $output['comparables_ids'] = $comparables_ids;
 
+if(isset($_SESSION['user_id'])){
+    $insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$_SESSION["user_id"]}', `projects_id`='{$_SESSION["project_id"]}' ";
+    $result_user_projects =$db->query($insert_users_projects_query);
 
-$insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$_SESSION["user_id"]}', `projects_id`='{$_SESSION["project_id"]}' ";
-$result_user_projects =$db->query($insert_users_projects_query);
+    if($result_user_projects){
+        $output['insert new project'] = true;
+    }else{
+        throw new Exception('failed to insert new project');
+    };
+}
 
-if($result_user_projects){
-    $output['insert new project'] = true;
-}else{
-    throw new Exception('failed to insert new project');
-};
+
 
 
 $json_output = json_encode($output);

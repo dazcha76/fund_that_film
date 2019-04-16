@@ -14,6 +14,9 @@ $data = json_decode( file_get_contents( 'php://input'),true);
 if(!$data){
     throw new Exception('No data was sent');
 }
+
+print_r($data["project_id"]);
+
 foreach ($data as $key => $value) {
     $data[$key] = addslashes($value);
 }
@@ -57,9 +60,23 @@ $user_id = mysqli_insert_id($db);
 if($result_insert_user){
     $output['insert new user'] = true;
     $output['success'] = true;
+
+    $insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$user_id}', `projects_id`='{$data["project_id"]}' ";
+    $result_user_projects =$db->query($insert_users_projects_query);
+
+    if($result_user_projects){
+    $output['insert new project'] = true;
+    }else{
+    throw new Exception('failed to insert new project');
+    };
+
 }else{
     throw new Exception('failed to add user');
 };
+
+
+
+
 
 
 $json_output = json_encode($output);
