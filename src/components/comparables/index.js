@@ -45,21 +45,24 @@ class MovieComparison extends Component {
     }
 
     return (
-        <div className='main-container comparables-container'>
-          <Nav/>
-          <h1 className='details-title'>Movie Comparisons</h1>
-          <div className='movie-info-container'>
-            { this.renderMovies() }
-          </div>  
-          <div className='button-container'>
-            <Link to='/details'>
-              <button className="input-submit-button page-button">More Details</button>
-            </Link>
-            <Link to='/financials'>
-              <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
-            </Link>
-          </div>
+      <div className='main-container comparables-container'>
+        <Nav/>
+        <h1 className='details-title'>Movie Comparisons</h1>
+        <div className='movie-info-container'>
+          { this.renderMovies() }
+        </div>  
+        <div className='button-container'>
+          <Link to='/details'>
+            <button className="input-submit-button page-button">More Details</button>
+          </Link>
+          <Link to='/financials'>
+            <button onClick={this.handleConfirm} className="page-button">Confirm</button>
+          </Link>
+          <Link to='/register'>
+            <button onClick={this.handleConfirm} className="page-button">Register</button>
+          </Link>
         </div>
+      </div>
     )
   }
 }

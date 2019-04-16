@@ -20,7 +20,7 @@ const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
 class FinancialNorthAmerica extends Component {
   state = {
-    toShareable: false,
+    toShareable: false
   }
 
   render(){

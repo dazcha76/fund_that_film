@@ -12,6 +12,7 @@ import Home from './home';
 import MovieComparison from './comparables';
 import NewProject from './newprojects';
 import MyProjects from './projects';
+import Register from './newuser';
 import Shareable from './shareable/shareable';
 import SignIn from './signin';
 import Terms from './terms';
@@ -39,6 +40,7 @@ class App extends Component {
           <Route path='/details' component={ () => <Details /> }/>
           <Route path='/financials' component={ () => <Financial /> } />
           <Route path='/invest' component={ () => <Shareable /> } />
+          <Route path='/register' component={ () => <Register /> } />
           <Route path='/contact' component={ () => <Contact /> } />
           <Route path='/confirmation' component={ () => <EmailSent /> } />
           <Route path='/about' component={ CardsContainer }/>   
