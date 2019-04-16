@@ -38,7 +38,7 @@ class App extends Component {
           <Route path='/comparisons' component={ () => <MovieComparison /> } />
           <Route path='/details' component={ () => <Details /> }/>
           <Route path='/financials' component={ () => <FinancialNorthAmerica /> } />
-          <Route path='/invest/' component={ () => Shareable } />
+          <Route path='/invest/' component={ () => <Shareable /> } />
           <Route path='/contact' component={ () => <Contact /> } />
           <Route path='/confirmation' component={ () => <EmailSent /> } />
           <Route path='/about' component={ CardsContainer }/>   

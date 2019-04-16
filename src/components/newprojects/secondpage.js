@@ -123,14 +123,14 @@ class NewProjectSecondPage extends Component {
           </div>
           <div className='multiple-inputs-fields'>
             <div className='film-input-grouping'>
-              <p className='page2-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>  
+              <p className='suggestion-label'>Film 1: <i className='fas fa-question-circle'><span className='tooltiptext'>Your movie can be compared to:</span></i></p>  
               <Field name='film1' component={Autosuggest} validate={required}/>
             </div>
             <div className='meets-container'>
               <h4 className='meets'>Meets</h4>
             </div>
             <div className='film-input-grouping'>
-              <p className='page2-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
+              <p className='suggestion-label'>Film 2: <i className='fas fa-question-circle'><span className='tooltiptext'>It can also be compared to:</span></i></p>
               <Field name='film2' component={Autosuggest} validate={required}/>
             </div>              
           </div>
