@@ -21,6 +21,7 @@ foreach($_GET AS $key => $value){
 
 $bodyVars = ['title1' => $_GET['title1'], 'title2' => $_GET['title2']]; 
 
+
 if(!$bodyVars){
     exit(500);
 }
