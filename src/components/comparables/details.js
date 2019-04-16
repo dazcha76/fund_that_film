@@ -46,11 +46,11 @@ class DetailsPage extends Component {
             </div>
             <div className='section'>
               <p><span className='green'>Budget: </span><br/>
-                ${parseInt(movie.budget) ? parseInt(movie.budget).toLocaleString() : 'N/A'}</p>
+                {parseInt(movie.budget) ? '$' + parseInt(movie.budget).toLocaleString() : 'N/A'}</p>
               <p><span className='green'>U.S. Box Office: </span><br/>
-                ${parseInt(movie.us_gross_bo) ? parseInt(movie.us_gross_bo).toLocaleString() : 'N/A'}</p>
+                {parseInt(movie.us_gross_bo) ? '$' + parseInt(movie.us_gross_bo).toLocaleString() : 'N/A'}</p>
               <p><span className='green'>International Box Office: </span><br/>
-                ${parseInt(movie.intl_gross_bo) ? parseInt(movie.intl_gross_bo).toLocaleString() : 'N/A'}</p>
+                {parseInt(movie.intl_gross_bo) ? '$' + parseInt(movie.intl_gross_bo).toLocaleString() : 'N/A'}</p>
             </div>
           </div>
           <div>
