@@ -38,7 +38,12 @@ a:active {
 
 .label {
   color: $green;
-  margin: 5% 5% 0 5%;
+  margin: 3% 5%;
+}
+
+.title-label {
+  color: $green;
+  margin: 1.5% 5%;
 }
 
 .textarea-label {
@@ -49,15 +54,19 @@ a:active {
 input,
 select,
 textarea {
-  font-size: 1em;
-  height: 6vh;
   width: 100%;
   background-color: transparent;
   border: none;
   border-bottom: 2px solid $green;
   outline: none;
   color: white;
-  padding: 8px 0;
+  padding: 5px;
+  height: 5.5vh;
+}
+
+input:focus,
+textarea:focus {
+  box-shadow: 0px 0px 20px $green;
 }
 
 textarea {

@@ -20,12 +20,12 @@ import { connect } from 'react-redux';
 import auth from '../hoc/auth';
 
 class App extends Component {
-  // componentDidMount(){
-  //   setTimeout(() =>{
-  //     let preloader = document.querySelector('.spinner-container');
-  //     preloader.className = 'spinner-container spinner-disappear';
-  //   }, 1000)
-  // }
+  componentDidMount(){
+    setTimeout(() =>{
+      let preloader = document.querySelector('.spinner-container');
+      preloader.className = 'spinner-container spinner-disappear';
+    }, 1000)
+  }
 
   render(){
     return (    
@@ -37,7 +37,7 @@ class App extends Component {
           <Route path='/my_projects' component={ auth(MyProjects, this.props.sign_in) } />
           <Route path='/comparisons' component={ () => <MovieComparison /> } />
           <Route path='/details' component={ () => <Details /> }/>
-          <Route path='/financials' component={ () => FinancialNorthAmerica } />
+          <Route path='/financials' component={ () => <FinancialNorthAmerica /> } />
           <Route path='/invest/' component={ () => Shareable } />
           <Route path='/contact' component={ () => <Contact /> } />
           <Route path='/confirmation' component={ () => <EmailSent /> } />

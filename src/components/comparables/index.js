@@ -23,24 +23,21 @@ class MovieComparison extends Component {
       return (
         <div key={movie.id} className='movies'>
           <img src= { movie.image_url } className='movie-image' />
-          <div className='movie-title-wrapper' >
-            <h4 className='green'>{ movie.title }</h4>
-            <p>
-              <span className='green'>Release Date: </span> 
-              { new Date(movie.us_theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}
-            </p>
-            <p>
-              <span className='green'>Total Box Office: </span> 
-              { parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo) ? '$' + (parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo)).toLocaleString() : 'N/A' }
-            </p>
-          </div>
+          <h4 className='green'>{ movie.title }</h4>
+          <p>
+            <span className='green'>Release Date: </span> 
+            { new Date(movie.us_theatrical_release).toLocaleDateString('en-US', {day : 'numeric', month : 'long', year : 'numeric'})}
+          </p>
+          <p>
+            <span className='green'>Total Box Office: </span> 
+            { parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo) ? '$' + (parseInt(movie.us_gross_bo) + parseInt(movie.intl_gross_bo)).toLocaleString() : 'N/A' }
+          </p>
         </div>
       )
     })
   }
 
   render(){
-    const arrowActive = 'is-active';
     const { movies } = this.props;
 
     if(!movies){
@@ -48,9 +45,9 @@ class MovieComparison extends Component {
     }
 
     return (
-        <div className='main-container'>
+        <div className='main-container comparables-container'>
           <Nav/>
-          <h1> Movie Comparisons</h1>
+          <h1 className='details-title'>Movie Comparisons</h1>
           <div className='movie-info-container'>
             { this.renderMovies() }
           </div>  
@@ -62,7 +59,6 @@ class MovieComparison extends Component {
               <button onClick={this.handleConfirm} className="input-submit-button page-button">Confirm</button>
             </Link>
           </div>
-          <Disclaimer/>
         </div>
     )
   }

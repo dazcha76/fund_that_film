@@ -93,7 +93,6 @@
     
     .slide-out-menu-content-container {
         position: relative;
-        padding: 15px;
         width: 100%;
     
         .slide-out-menu-content {
@@ -116,7 +115,7 @@
 
         li {
             list-style-type: none;
-            padding: 8% 16px;
+            padding: 8% 30px;
             background: transparent;
             transition: background 0.25s;
             color: $black;

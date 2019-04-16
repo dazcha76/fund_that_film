@@ -23,12 +23,6 @@ class DetailsPage extends Component {
     const { movies } = this.props;
 
     return this.props.movies.map( movie => {
-      console.log("GENRE", movie.genre)
-      console.log("RATING", movie.mpaa_rating)
-      console.log("AUDIENCE", movie.audience_satisfaction)
-      console.log("BUDGET", movie.budget)
-      console.log("USA", movie.us_gross_bo)
-      console.log("INTL", movie.intl_gross_bo)
       return (
         <div key={ movie.id } className='details'>
           <h4 className='green'>{ movie.title }</h4>
@@ -42,7 +36,7 @@ class DetailsPage extends Component {
               <p><span className='green'>Rating: </span><br/>
                 { movie.mpaa_rating ? movie.mpaa_rating : 'N/A'}</p>
               <p><span className='green'>Audience Satisfaction: </span><br/>
-                { parseInt(movie.audience_satisfaction) ? movie.audience_satisfaction * 100 : 'N/A'}%</p>
+                { parseInt(movie.audience_satisfaction) ? (movie.audience_satisfaction * 100) + '%' : 'N/A'}</p>
             </div>
             <div className='section'>
               <p><span className='green'>Budget: </span><br/>

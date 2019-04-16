@@ -17,7 +17,7 @@ class NewProjectFirstPage extends Component {
         <Nav/>
         <form className='new-project-form' onSubmit={handleSubmit}>
           <div className='single-line-input'>
-            <p className='label'>Movie Title: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the working title of your movie</span></i></p>
+            <p className='title-label'>Movie Title: <i className='fas fa-question-circle'><span className='tooltiptext'>Enter the working title of your movie</span></i></p>
             <Field name='title' type='text' component={Input} validate={required}/>
           </div>
 
