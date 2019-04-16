@@ -22,11 +22,12 @@ class Shareable extends Component {
   }
 
   render(){
+    console.log("TITLE", this.props.projectTitle.title)
     return (
-      <div>
+      <div className='main-container'>
          <Preloader/>
         <div id="financial-container">
-          <h1 className='shareable-header'>Financial Calculations {this.props.projectTitle}</h1>
+          <h1 className='shareable-header'>Financial Calculations { this.props.projectTitle.title }</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
                 <div className='northAmerican-graph-container'>
@@ -65,12 +66,13 @@ class Shareable extends Component {
 }
 
 const mapStateToProps = state => {
-    return {
-        projectTitle: state.project.project
-    }
+  console.log('STATE', state)
+  return {
+    projectTitle: state.project.project
+  }
 }
 
 export default connect(mapStateToProps, {
-    getProjectValues, 
-    sendToken
+  getProjectValues, 
+  sendToken
 })(Shareable);

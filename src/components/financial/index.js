@@ -25,7 +25,7 @@ class FinancialNorthAmerica extends Component {
 
   render(){
     return (
-      <div>
+      <div className='main-container'>
         <Preloader/>
         <Nav/>
         <Link to={`/invest/${token}`} target="_blank">
@@ -71,6 +71,7 @@ class FinancialNorthAmerica extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("STATE", state)
   return {
     movies: state.movies.movieList,
     finance: state.finance.financeList

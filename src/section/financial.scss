@@ -7,6 +7,14 @@
   z-index: 2;
 }
 
+h5 {
+  font-weight: 700;
+}
+
+/*.shareable-header {
+  margin: 6% 0 5% 0;
+}*/
+
 .nav.nav-tabs {
   display: flex;
   flex-direction: row;
@@ -60,7 +68,7 @@
       line-height: 8vh;
       color:$black;
       text-align: center;
-      background-color: $green;
+      background-image: url('./assets/images/light_green.jpg');
       margin: 0;
     }
 
@@ -90,6 +98,7 @@
 
     .tne {
       font-size: 1.3rem;
+      font-weight: 700;
       justify-content: space-evenly;
     }
   }

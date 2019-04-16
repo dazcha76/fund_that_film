@@ -19,14 +19,14 @@ class InternationalGraphs extends Component{
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
-                        "rgba(255, 99, 132, 0.2)",
-                        "rgba(54, 162, 235, 0.2)",
-                        "rgba(255, 206, 86, 0.2)"
+                        "rgba(255, 99, 132, 0.4)",
+                        "rgba(54, 162, 235, 0.4)",
+                        "rgba(255, 206, 86, 0.4)"
                       ],
                       borderColor: [
-                        "rgba(255,99,132,1)",
-                        "rgba(54, 162, 235, 1)",
-                        "rgba(255, 206, 86, 1)"
+                        "rgb(255,99,132)",
+                        "rgb(54, 162, 235)",
+                        "rgb(255, 206, 86)"
                       ],
                     borderWidth: 1,
                 }]
@@ -50,6 +50,13 @@ class InternationalGraphs extends Component{
                     padding:5,
                     fontColor:'#35f8c7',
                     fontFamily: 'sans-serif'
+                },
+                tooltips: {
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  titleFontSize: 16,
+                  titleFontColor: '#000',
+                  bodyFontColor: '#000',
+                  bodyFontSize: 16
                 }
             }
         })

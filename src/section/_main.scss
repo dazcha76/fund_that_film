@@ -144,3 +144,7 @@ textarea {
   background-color: $green;
   color: black;
 }
+
+button:focus {
+ outline:0;
+}

@@ -7,7 +7,7 @@ import Contact from './contact';
 import Details from './comparables/details';
 import Disclaimer from './footer/disclaimer';
 import EmailSent from './contact/messagesent';
-import FinancialNorthAmerica from './financial';
+import Financial from './financial';
 import Home from './home';
 import MovieComparison from './comparables';
 import NewProject from './newprojects';
@@ -37,8 +37,8 @@ class App extends Component {
           <Route path='/my_projects' component={ auth(MyProjects, this.props.sign_in) } />
           <Route path='/comparisons' component={ () => <MovieComparison /> } />
           <Route path='/details' component={ () => <Details /> }/>
-          <Route path='/financials' component={ () => <FinancialNorthAmerica /> } />
-          <Route path='/invest/' component={ () => <Shareable /> } />
+          <Route path='/financials' component={ () => <Financial /> } />
+          <Route path='/invest' component={ () => <Shareable /> } />
           <Route path='/contact' component={ () => <Contact /> } />
           <Route path='/confirmation' component={ () => <EmailSent /> } />
           <Route path='/about' component={ CardsContainer }/>   
