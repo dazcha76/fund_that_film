@@ -29,14 +29,17 @@ class CreateAccount extends Component {
     }
 
     return (
-      <div className='main-wrapper'>
+      <div className='main-container'>
         <Nav/> 
           <form className='new-account-form' onSubmit={handleSubmit(this.createUser)}>
             <h1 className='new-account-title'>Create Account</h1>
             <div className="new-account-inputs">
-              <Field type='name' id='name' name='name' className='name-input'  placeholder='First and Last Name' validate={ validate } component={ Input }/>
-              <Field type='email' id='email' name='email' className='email-input'  placeholder='Email Address' validate={ validate } component={ Input }/>
-              <Field type='password' id='password' name='password' className='password-input'  placeholder='Password' validate={ validate } component={ Input }/>
+              <p className='label'>Full Name:</p>
+              <Field name='name' type='name' validate={ validate } component={ Input }/>
+              <p className='label'>Email Address:</p>
+              <Field type='email' name='email'  validate={ validate } component={ Input }/>
+              <p className='label'>Password:</p>
+              <Field type='password' name='password'  validate={ validate } component={ Input }/>
             </div>
             <div className='button-container'>
               <button type="submit" className='login-submit-button page-button'>Register</button>

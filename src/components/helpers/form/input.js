@@ -6,7 +6,7 @@ class Input extends Component {
 
     return (
       <div className='input-container'>
-        <input {...input} type={type} autoComplete='off'/>
+        <input {...input} type={type} />
         <p className='required'>{ touched && error }</p>
       </div>
     )
