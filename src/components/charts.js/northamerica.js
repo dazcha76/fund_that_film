@@ -71,6 +71,13 @@ class NorthAmericaGraphs extends Component {
                     padding:5,
                     fontColor:'#35f8c7',
                     fontFamily: 'sans-serif'
+                },
+                tooltips: {
+                  backgroundColor: 'rgba(255, 255, 255, 0.8)',
+                  titleFontSize: 16,
+                  titleFontColor: '#000',
+                  bodyFontColor: '#000',
+                  bodyFontSize: 16
                 }
             }
     });
