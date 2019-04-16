@@ -61,6 +61,8 @@ if($result_insert_user){
     $output['insert new user'] = true;
     $output['success'] = true;
 
+    $_SESSION['user_id'] = $user_id;
+
     $insert_users_projects_query = " INSERT INTO `users_projects` SET `users_id`='{$user_id}', `projects_id`='{$data["project_id"]}' ";
     $result_user_projects =$db->query($insert_users_projects_query);
 
