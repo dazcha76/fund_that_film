@@ -7,7 +7,6 @@ const DEFAULT_STATE = {
 const comparablesReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type) {
     case 'STORE_MOVIE_COMPARISONS':
-    console.log("PROJECT ID", action.payload.response.data.project_id)
       return { 
         title1: action.payload.compare.title1, 
         title2: action.payload.compare.title2, 

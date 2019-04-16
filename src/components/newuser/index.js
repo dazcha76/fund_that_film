@@ -13,8 +13,7 @@ class CreateAccount extends Component {
     toMyProjects: false
   }
 
-  createUser = (values, project_id) => {
-    console.log("VALUES", values);
+  createUser = (values, projectID) => {
     this.props.createAccount(values, this.props.project_id);
     return values;
   }

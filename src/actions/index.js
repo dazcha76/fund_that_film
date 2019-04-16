@@ -1,17 +1,16 @@
 import axios from 'axios';
 
-export const createAccount = (values, project) => {
+export const createAccount = (values, projectID) => {
   const { name, email, password } = values;
 
   return async dispatch => {
     const response = await axios.post('/api/signup.php', {
-      user: {
         name,
         email, 
         password,
-        project_id: project
+        project_id: projectID
       } 
-    });
+    );
 
     dispatch({
       type: 'CREATE_ACCOUNT',
