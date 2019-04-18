@@ -4,6 +4,18 @@ import { connect } from 'react-redux';
 import { sendToken } from '../../actions';
 
 class InternationalGraphs extends Component{
+    divisible = (value) => {
+        if(value <= 10000){
+            return (value/1000).toFixed(1)
+        } else if(value <= 100000){
+            return (value/10000).toFixed(1)
+        } else if(value <= 1000000){
+            return (value/100000).toFixed(1)
+        } else if(value > 1000000){
+            return (value/1000000).toFixed(1)
+        }
+    }
+
     componentDidUpdate(){
         let ctx =document.getElementById('internationalChart');
         let internationalChart = new Chart (ctx, {
@@ -13,9 +25,9 @@ class InternationalGraphs extends Component{
                 datasets:[{
                     label: 'International Gross Earnings',
                     data: [
-                        this.props.finance['theatrical, home, tv gross'],
-                        this.props.finance['sales agent fee'],
-                        this.props.finance['total net earnings']
+                        this.divisible(this.props.finance['theatrical, home, tv gross']),
+                        this.divisible(this.props.finance['sales agent fee']),
+                        this.divisible(this.props.finance['total net earnings'])
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [

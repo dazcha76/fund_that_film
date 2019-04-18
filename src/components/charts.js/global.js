@@ -17,7 +17,7 @@ class GlobalGraphs extends Component{
     }
 
     componentDidUpdate(){
-        let ctx =document.getElementById('globalChart');
+        let ctx =document.getElementById('globalChart'); 
         let globalChart = new Chart (ctx, {
             type: 'bar',
             data: {
@@ -25,9 +25,6 @@ class GlobalGraphs extends Component{
                 datasets:[{
                     label: 'Global Consumer Products',
                     data: [
-                        // this.props.finance['royalties gross']/1000000,
-                        // this.props.finance['sales agent fee']/1000000,
-                        // this.props.finance["distributor's net"]/1000000
                         this.divisible(this.props.finance['royalties gross']),
                         this.divisible(this.props.finance['sales agent fee']),
                         this.divisible(this.props.finance["distributor's net"])
