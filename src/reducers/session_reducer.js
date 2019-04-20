@@ -1,9 +1,10 @@
 const DEFAULT_STATE = {
-    user: {
-      id: null,
-      name: null,
-      projects: null
-    }
+  login: false,
+  user: {
+    id: null,
+    name: null,
+    projects: null
+  }
 };
 
 const userSessionReducer = (state = DEFAULT_STATE, action) => {
