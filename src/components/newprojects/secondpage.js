@@ -81,6 +81,7 @@ class NewProjectSecondPage extends Component {
         this.props.page_one.logline,
         this.props.page_one.synopsis
       );
+      this.props.destroy();
       this.setState({toComparables: true})
     }
     return values;
