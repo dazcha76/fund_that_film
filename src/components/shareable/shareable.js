@@ -22,7 +22,6 @@ class Shareable extends Component {
   }
 
   render(){
-    console.log("TITLE", this.props.projectTitle.title)
     return (
       <div className='main-container'>
          <Preloader/>
@@ -66,7 +65,6 @@ class Shareable extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('STATE', state)
   return {
     projectTitle: state.project.project
   }

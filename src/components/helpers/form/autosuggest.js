@@ -29,7 +29,6 @@ class Autocomplete extends Component {
 
   handleClick = (movie) => {
     this.props.input.onChange(movie);
-    console.log(movie);
     this.setState({
       fetchedSuggestions: []
     })
