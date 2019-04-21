@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions';
+import { signIn, register } from '../../actions';
 import '../../section/signin.scss';
 
 const validate = value => value ? undefined : 'Field is Required';
@@ -12,6 +12,7 @@ const validate = value => value ? undefined : 'Field is Required';
 class SignIn extends Component {
   loginHandler = (values) => {
     this.props.signIn(values);
+    this.props.register(false);
     return values;
   }
 
@@ -49,8 +50,9 @@ const mapStateToProps = state => {
   console.log("SIGNIN", state)
   return {
     sign_in: state.session.success,
+    register: state.session.register,
     sign_in_form: state.form
   }
 }
 
-export default connect(mapStateToProps, { signIn })(SignIn); 
+export default connect(mapStateToProps, { signIn, register })(SignIn); 

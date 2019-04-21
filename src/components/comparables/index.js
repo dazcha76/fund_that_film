@@ -8,7 +8,6 @@ import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 
 class MovieComparison extends Component {
-  
   async componentDidMount(){
     const { title1, title2 } = this.props.comparables;
     await this.props.getMovieData(title1, title2);
@@ -40,7 +39,7 @@ class MovieComparison extends Component {
   }
 
   render(){
-    const { movies, signedIn } = this.props;
+    const { movies, session } = this.props;
 
     if(!movies){
       return <Preloader/>
@@ -48,7 +47,7 @@ class MovieComparison extends Component {
 
     return (
       <div className='main-container comparables-container'>
-        {!signedIn && <Register />}
+        {!session.login && session.register && <Register />}
         <Nav/>
         <h1 className='details-title'>Movie Comparisons</h1>
         <div className='movie-info-container'>
@@ -71,7 +70,7 @@ const mapStateToProps = state => {
   return {
     comparables: state.comparables,
     movies: state.movies.movieList,
-    signedIn: state.session.login
+    session: state.session
   }
 } 
 

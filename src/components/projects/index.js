@@ -12,9 +12,6 @@ class Projects extends Component {
   }
 
   componentDidMount(){
-    setTimeout(()=>{
-      this.setState({ pageHasLoaded: true })
-    },1000)
     this.props.getMyProjects();
   }
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import logo from '../../assets/images/ftf_logo_150.png';
 import { connect } from 'react-redux';
-import { signIn, signOut } from '../../actions';
+import { signIn, signOut, register } from '../../actions';
 
 class Nav extends Component{
     state = {
@@ -56,6 +56,7 @@ class Nav extends Component{
 
     logout = () => {
         this.props.signOut();
+        this.props.register(true)
         this.props.history.push('/');
     }
 
@@ -135,12 +136,14 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
+    console.log("STATE", state)
   return {
     sign_in: state.session,
-    sign_out: state.session.login
+    sign_out: state.session.login,
+    register: state.session.register
   }
 }
 
 export default withRouter(connect(mapStateToProps, { 
-    signIn, signOut 
+    signIn, signOut , register
 })(Nav)); 
