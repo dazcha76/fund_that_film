@@ -16,11 +16,20 @@ import Register from './newuser';
 import Shareable from './shareable/shareable';
 import SignIn from './signin';
 import Terms from './terms';
-import { signIn } from '../actions';
+import { signIn, toggleNavbar } from '../actions';
 import { connect } from 'react-redux';
 import auth from '../hoc/auth';
 
 class App extends Component {
+
+  hideNavbar = () => {
+    this.props.toggleNavbar(false);
+  }
+
+  componentWillMount(){
+    window.addEventListener('click', this.hideNavbar, true);
+  }
+
   render(){
     return (    
       <main>
@@ -51,7 +60,7 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-  signIn
+  signIn, toggleNavbar
 })(App));
 
 

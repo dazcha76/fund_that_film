@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import logo from '../../assets/images/ftf_logo_150.png';
 import { connect } from 'react-redux';
-import { signIn, signOut, register } from '../../actions';
+import { signIn, signOut, register, toggleNavbar } from '../../actions';
 
 class Nav extends Component{
     state = {
-        active: false,
         topLinks: [
             {
                 text: 'New Project',
@@ -42,16 +41,12 @@ class Nav extends Component{
     }
 
     toggleClass = () => {
-        const currentState = this.state.active;
-        this.setState({ active: !currentState });
+        const currentState = this.props.toggle;
+        this.props.toggleNavbar(!currentState);
     }
 
     hideNavbar = () => {
-        this.setState({ active: false });
-    }
-
-    componentWillMount(){
-        window.addEventListener('click', this.hideNavbar, true);
+        this.props.toggleNavbar(false);
     }
 
     logout = () => {
@@ -105,14 +100,14 @@ class Nav extends Component{
         return(
             <div className='nav-bar-container'>
                 <div className='nav-bar'>
-                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.toggleClass } className= { this.props.toggle ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
                     </button>
                 </div>
-                <div id='slide-out-menu' className = {this.state.active ? 'active' : '' }>
-                    <button onClick= { this.toggleClass } className= { this.state.active ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                <div id='slide-out-menu' className = {this.props.toggle ? 'active' : '' }>
+                    <button onClick= { this.hideNavbar } className= { this.props.toggle ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
@@ -139,10 +134,11 @@ const mapStateToProps = state => {
   return {
     sign_in: state.session,
     sign_out: state.session.login,
-    register: state.session.register
+    register: state.session.register,
+    toggle: state.navbar.active
   }
 }
 
 export default withRouter(connect(mapStateToProps, { 
-    signIn, signOut , register
+    signIn, signOut , register, toggleNavbar
 })(Nav)); 
