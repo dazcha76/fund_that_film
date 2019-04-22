@@ -8,6 +8,8 @@ class Register extends Component {
     this.props.register(false)
   }
 
+  
+
   render(){
     return (
       <div className='modal-container'>

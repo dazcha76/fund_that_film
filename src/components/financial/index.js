@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Tabs, Tab } from 'react-bootstrap';
 import {Redirect, Link } from 'react-router-dom';
-// import Button from 'react-bootstrap/Button';
 import NorthAmerica from './northAmerica'; 
 import International from './international';
 import Global from './global';
@@ -12,9 +11,10 @@ import InternationalGraphs from '../charts.js/international';
 import NorthAmericaGraphs from './../charts.js/northamerica';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
+import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, sendToken } from '../../actions';
+import { getFinancialData, getMovieData, signIn, sendToken, register } from '../../actions';
 
 const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
@@ -23,9 +23,16 @@ class FinancialNorthAmerica extends Component {
     toShareable: false
   }
 
+  componentWillMount(){
+    this.props.register(true)
+  }
+
   render(){
+    const { session } = this.props;
+
     return (
       <div className='main-container'>
+      {!session.login && session.register && <Register />}
         <Preloader/>
         <Nav/>
         <Link to={`/invest/${token}`} target="_blank">
@@ -73,10 +80,11 @@ class FinancialNorthAmerica extends Component {
 const mapStateToProps = state => {
   return {
     movies: state.movies.movieList,
-    finance: state.finance.financeList
+    finance: state.finance.financeList,
+    session: state.session
   }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData, getMovieData, sendToken
+    getFinancialData, getMovieData, signIn, register, sendToken
 })(FinancialNorthAmerica);
