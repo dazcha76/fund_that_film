@@ -71,7 +71,7 @@
   }       
 }
 
-@media (orientation: landscape){
+@media only screen and (max-height: 450px){
   .home-container {
     background-size: auto;
 

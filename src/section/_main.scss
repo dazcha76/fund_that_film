@@ -198,7 +198,7 @@ button:focus {
   }
 }
 
-@media (orientation: landscape){
+@media only screen and (max-height: 450px){
 
   h1 {
     font-size: 275%;

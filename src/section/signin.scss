@@ -17,7 +17,7 @@
   }
 }
 
-@media (orientation: landscape){
+@media only screen and (max-height: 450px){
   .sign-in {
     padding: 3% 75px 0 75px;
 

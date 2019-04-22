@@ -145,7 +145,7 @@
     }
 }
 
-@media (orientation: landscape) {
+@media only screen and (max-height: 450px){
     .hamburger.is-active {
         padding: 5%;
         
