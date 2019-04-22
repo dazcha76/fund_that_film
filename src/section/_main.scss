@@ -198,3 +198,19 @@ button:focus {
   }
 }
 
+@media (orientation: landscape){
+
+  h1 {
+    font-size: 275%;
+  }
+
+  .input {
+    padding: 15px 0;
+  }
+
+  .button-container {
+      position: static;
+      transform: none;
+      width: 100%;
+  }
+}

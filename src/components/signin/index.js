@@ -24,7 +24,7 @@ class SignIn extends Component {
     } 
 
     return (
-      <div className='main-container'>
+      <div className='main-container sign-in'>
         <Nav/> 
         <h1 className='signin-title'>Sign In</h1>
         <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
