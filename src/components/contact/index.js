@@ -6,6 +6,7 @@ import Textarea from '../helpers/form/textarea';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
 import { sendContactForm } from '../../actions';
+import '../../section/contact.scss';
 
 const required = value => value ? undefined : 'Field is Required';
 
@@ -31,7 +32,7 @@ class Contact extends Component {
     return (
       <div className='main-container'>
         <Nav/>
-        <h1>Contact Us</h1>
+        <h1 className='contact'>Contact Us</h1>
         <form className='contact-us-form' onSubmit={handleSubmit(this.submitHandler)}>
           <div className='multiple-inputs-fields'>
             <div className="two-input-grouping">
@@ -58,8 +59,8 @@ class Contact extends Component {
             <Field name='message' type='text' component={ Textarea } validate={ required }/>
           </div>
   
-          <div className='button-container'>
-            <button type="submit" className='input-submit-button page-button'>Send</button>
+          <div className='button-container no-disclaimer'>
+            <button type="submit" className='page-button'>Send</button>
           </div>         
         </form>
       </div>

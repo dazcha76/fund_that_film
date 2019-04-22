@@ -32,8 +32,8 @@ class SignIn extends Component {
           <Field name='email' type='email' component={ Input } validate={ validate } />
           <p className='label'>Password:</p>
           <Field name='password' type='password' component={ Input } validate={ validate } />
-          <div className='button-container'>
-            <button type="submit" className='login-submit-button page-button'>Login</button>
+          <div className='button-container no-disclaimer'>
+            <button type="submit" className='page-button'>Login</button>
           </div>
         </form>
       </div>

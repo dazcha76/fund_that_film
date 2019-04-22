@@ -162,5 +162,35 @@ button:focus {
     font-size: 200%;
     font-weight: 700;
   }
+
+  .button-container {
+      width: 300px;
+  }
+
+  .multiple-inputs-fields {
+    display: block;
+  }
+
+  .two-input-grouping {
+    width: 100%;
+  }
+
+  .message-input {
+    margin: 0;
+    width: 100%;
+  }
+
+  .textarea-label,
+  .textarea-container {
+    margin: 0 5%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .no-disclaimer {
+    bottom: 3%;
+  }
 }
 
