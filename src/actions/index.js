@@ -76,8 +76,15 @@ export const getProjectValues = values => {
   }
 }
 
+export const toggleNavbar = boolean => {
+  return {
+    type: 'TOGGLE_NAVBAR',
+    payload: boolean
+  }
+}
+
 export const register = boolean => {
-  return{
+  return {
     type: 'REGISTER',
     payload: boolean 
   }

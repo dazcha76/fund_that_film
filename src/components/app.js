@@ -21,6 +21,17 @@ import { connect } from 'react-redux';
 import auth from '../hoc/auth';
 
 class App extends Component {
+
+  hideNavbar = () => {
+    // this.setState({ activeNav: false });
+    console.log('HIDE NAVBAR')
+  }
+
+
+  componentDidMount(){
+    window.addEventListener('click', this.hideNavbar, true);
+  }
+
   render(){
     return (    
       <main>
