@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { sendContactForm } from '../../actions';
 import '../../section/contact.scss';
 
-const required = value => value ? undefined : 'Field is Required';
+// const required = value => value ? undefined : 'Field is Required';
 
 class Contact extends Component {
   state = {
@@ -37,26 +37,26 @@ class Contact extends Component {
           <div className='multiple-inputs-fields'>
             <div className="two-input-grouping">
               <p className='label'>First Name:</p>
-              <Field name='firstName' type='text' component={ Input } validate={ required }/>
+              <Field name='firstName' type='text' component={ Input } />
             </div>
             <div className='two-input-grouping'>
               <p className='label'>Last Name:</p>
-              <Field name='lastName' type='text' component={ Input } validate={ required }/>
+              <Field name='lastName' type='text' component={ Input } />
             </div>
           </div>
           <div className="multiple-inputs-fields">
             <div className='two-input-grouping'>
               <p className='label'>Phone Number:</p>
-              <Field name='phoneNumber' type='text' component={ Input } validate={ required }/>
+              <Field name='phoneNumber' type='text' component={ Input } />
             </div>
             <div className='two-input-grouping'>
               <p className='label'>Email Address:</p>
-              <Field name='email' type='email' component={ Input } validate={ required }/>
+              <Field name='email' type='email' component={ Input } />
             </div>
           </div>
           <div className="message-input">
             <p className='textarea-label'>Message:</p>
-            <Field name='message' type='text' component={ Textarea } validate={ required }/>
+            <Field name='message' type='text' component={ Textarea } />
           </div>
   
           <div className='button-container no-disclaimer'>
@@ -68,8 +68,35 @@ class Contact extends Component {
   }
 }
 
+const validate = (values) => {
+  const errors = {};
+
+  if(!values.firstName){
+    errors.firstName = 'Field is Required'
+  }
+
+  if(!values.lastName){
+    errors.lastName = 'Field is Required'
+  }
+
+  if(!values.phoneNumber){
+    errors.phoneNumber = 'Field is Required'
+  }
+
+  if(!values.email){
+    errors.email = 'Field is Required'
+  }
+
+  if(!values.message){
+    errors.message = 'Field is Required'
+  }
+
+  return errors;
+}
+
 Contact = reduxForm({
     form: 'contact_form',
+    validate
   })(Contact) ;
 
 const mapStateToProps = state => {
