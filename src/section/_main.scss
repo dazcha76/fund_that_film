@@ -148,3 +148,19 @@ textarea {
 button:focus {
  outline:0;
 }
+
+/*-------------- MEDIA QUERIES --------------*/
+
+@media (orientation: portrait){
+
+  .main-container {
+    padding: 3% 7%;
+  }
+
+  h1 {
+    margin-top: 35px;
+    font-size: 200%;
+    font-weight: 700;
+  }
+}
+
