@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData } from '../../actions';
+import { getFinancialData, getMovieData, signIn } from '../../actions';
+import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
@@ -38,28 +39,27 @@ class MovieComparison extends Component {
   }
 
   render(){
-    const { movies } = this.props;
+    const { movies, session } = this.props;
 
     if(!movies){
       return <Preloader/>
     }
 
     return (
+
       <div className='main-container comparables-container'>
+        {!session.login && session.register && <Register />}
         <Nav/>
         <h1 className='details-title'>Movie Comparisons</h1>
         <div className='movie-info-container'>
           { this.renderMovies() }
         </div>  
-        <div className='button-container'>
+        <div className='button-container comparables-buttons'>
           <Link to='/details'>
             <button className="input-submit-button page-button">More Details</button>
           </Link>
           <Link to='/financials'>
             <button onClick={this.handleConfirm} className="page-button">Confirm</button>
-          </Link>
-          <Link to='/register'>
-            <button onClick={this.handleConfirm} className="page-button">Register</button>
           </Link>
         </div>
       </div>
@@ -70,10 +70,13 @@ class MovieComparison extends Component {
 const mapStateToProps = state => {
   return {
     comparables: state.comparables,
-    movies: state.movies.movieList
+    movies: state.movies.movieList,
+    session: state.session
   }
 } 
 
 export default connect(mapStateToProps, {
-  getMovieData, getFinancialData
+  getMovieData, 
+  getFinancialData, 
+  signIn
 })(MovieComparison);

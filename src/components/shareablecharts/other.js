@@ -7,7 +7,7 @@ class OtherGraphs extends Component{
     componentDidUpdate(){
         let ratio = (this.props.finance["distributor's net earning to cost ratio"]).split('');
         let cost = ratio[2];
-        let earnings = ratio[0]
+        let earnings = ratio[0];
 
         var ctx = document.getElementById('otherChart');
         var otherChart = new Chart (ctx, {

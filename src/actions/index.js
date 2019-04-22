@@ -76,6 +76,13 @@ export const getProjectValues = values => {
   }
 }
 
+export const register = boolean => {
+  return{
+    type: 'REGISTER',
+    payload: boolean 
+  }
+}
+
 export const sendContactForm = values => {
   const { firstName, lastName, phoneNumber, email, message } = values;
 

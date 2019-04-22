@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
-import { signIn } from '../../actions';
+import { signIn, register } from '../../actions';
 import '../../section/signin.scss';
 
 const validate = value => value ? undefined : 'Field is Required';
@@ -12,6 +12,7 @@ const validate = value => value ? undefined : 'Field is Required';
 class SignIn extends Component {
   loginHandler = (values) => {
     this.props.signIn(values);
+    this.props.register(false);
     return values;
   }
 
@@ -23,7 +24,7 @@ class SignIn extends Component {
     } 
 
     return (
-      <div className='main-container'>
+      <div className='main-container sign-in'>
         <Nav/> 
         <h1 className='signin-title'>Sign In</h1>
         <form className='sign-in-form' onSubmit={handleSubmit(this.loginHandler)}>
@@ -31,8 +32,8 @@ class SignIn extends Component {
           <Field name='email' type='email' component={ Input } validate={ validate } />
           <p className='label'>Password:</p>
           <Field name='password' type='password' component={ Input } validate={ validate } />
-          <div className='button-container'>
-            <button type="submit" className='login-submit-button page-button'>Login</button>
+          <div className='button-container no-disclaimer'>
+            <button type="submit" className='page-button'>Login</button>
           </div>
         </form>
       </div>
@@ -46,11 +47,11 @@ SignIn = reduxForm({
   })(SignIn) ;
 
 const mapStateToProps = state => {
-  console.log("SIGNIN", state)
   return {
     sign_in: state.session.success,
+    register: state.session.register,
     sign_in_form: state.form
   }
 }
 
-export default connect(mapStateToProps, { signIn })(SignIn); 
+export default connect(mapStateToProps, { signIn, register })(SignIn); 

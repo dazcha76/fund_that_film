@@ -21,13 +21,6 @@ import { connect } from 'react-redux';
 import auth from '../hoc/auth';
 
 class App extends Component {
-  componentDidMount(){
-    setTimeout(() =>{
-      let preloader = document.querySelector('.spinner-container');
-      preloader.className = 'spinner-container spinner-disappear';
-    }, 1000)
-  }
-
   render(){
     return (    
       <main>

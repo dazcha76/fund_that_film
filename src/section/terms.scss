@@ -4,3 +4,10 @@
   color: white;
   text-align: justify;
 }
+
+@media (orientation: portrait){
+
+  .conditions {
+    padding-bottom: 15%;
+  }
+}

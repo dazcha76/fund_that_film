@@ -148,3 +148,69 @@ textarea {
 button:focus {
  outline:0;
 }
+
+/*-------------- MEDIA QUERIES --------------*/
+
+@media (orientation: portrait){
+
+  .main-container {
+    padding: 3% 7%;
+  }
+
+  h1 {
+    margin-top: 35px;
+    font-size: 200%;
+    font-weight: 700;
+  }
+
+  .button-container {
+      width: 300px;
+  }
+
+  .multiple-inputs-fields {
+    display: block;
+  }
+
+  .two-input-grouping {
+    width: 100%;
+  }
+
+  .single-line-input {
+    width: 100%;
+  }
+
+  .message-input {
+    margin: 0;
+    width: 100%;
+  }
+
+  .textarea-label,
+  .textarea-container {
+    margin: 0 5%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .no-disclaimer {
+    bottom: 3%;
+  }
+}
+
+@media only screen and (max-height: 450px){
+
+  h1 {
+    font-size: 275%;
+  }
+
+  .input {
+    padding: 15px 0;
+  }
+
+  .button-container {
+      position: static;
+      transform: none;
+      width: 100%;
+  }
+}

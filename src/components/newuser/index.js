@@ -55,7 +55,6 @@ CreateAccount = reduxForm({
 })(CreateAccount) ;
 
 const mapStateToProps = state => {
-  console.log('PROJECT ID', state.comparables.project_id)
   return {
     project_id: state.comparables.project_id
   }

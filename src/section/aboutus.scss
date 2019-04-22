@@ -1,6 +1,10 @@
 @import './variables';
 
 .main-container {
+
+  .mobile {
+    display: none;
+  }
             
   .person-container {
     display: flex;
@@ -38,3 +42,28 @@
     }
   }
 }
+
+@media (orientation: portrait){
+
+  .about {
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+      margin-bottom: 10%;
+    }
+
+    .person {
+
+      h5 {
+        font-weight: 500;
+      }
+    }
+
+  }
+  
+}
+
+    

@@ -1,4 +1,9 @@
 @import './variables';
+
+/*.no-scroll {
+  height: 100vh;
+  overflow: visible;
+}*/
   
 .movie-info-container {
   display: flex;
@@ -23,5 +28,39 @@
           margin-bottom: 0.5rem;
         }
       }
+  }
+}
+
+@media (orientation: portrait){
+/*  .no-scroll {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .yes-scroll {
+    height: auto;
+    overflow: visible;
+  }*/
+
+  .details-title {
+    margin-bottom: 15%;
+  }
+
+  .movie-info-container {
+    display: block;
+
+    .movies {
+      width: 100%;
+      margin-bottom: 10%;
+
+        p {
+          margin: 0;
+        }
+    }
+  }
+
+  .comparables-buttons {
+    position: static;
+    transform: none;
   }
 }

@@ -4,6 +4,18 @@ import { connect } from 'react-redux';
 import { sendToken } from '../../actions';
 
 class GlobalGraphs extends Component{
+    divisible = (value) => {
+        if(value <= 10000){
+            return (value/1000).toFixed(1)
+        } else if(value <= 100000){
+            return (value/10000).toFixed(1)
+        } else if(value <= 1000000){
+            return (value/100000).toFixed(1)
+        } else if(value > 1000000){
+            return (value/1000000).toFixed(1)
+        }
+    }
+
     componentDidUpdate(){
         let ctx =document.getElementById('globalChart');
         let globalChart = new Chart (ctx, {
@@ -13,9 +25,9 @@ class GlobalGraphs extends Component{
                 datasets:[{
                     label: 'Global Consumer Products',
                     data: [
-                        this.props.finance['royalties gross'],
-                        this.props.finance['sales agent fee'],
-                        this.props.finance["distributor's net"]
+                        this.divisible(this.props.finance['royalties gross']),
+                        this.divisible(this.props.finance['sales agent fee']),
+                        this.divisible(this.props.finance["distributor's net"])
                     ],
                     borderColor: '#8e5ea2',
                     backgroundColor: [
