@@ -45,6 +45,10 @@ class Nav extends Component{
         this.props.toggleNavbar(!currentState);
     }
 
+    hideNavbar = () => {
+        this.props.toggleNavbar(false);
+    }
+
     logout = () => {
         this.props.signOut();
         this.props.register(true)
@@ -103,7 +107,7 @@ class Nav extends Component{
                     </button>
                 </div>
                 <div id='slide-out-menu' className = {this.props.toggle ? 'active' : '' }>
-                    <button onClick= { this.toggleClass } className= { this.props.toggle ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
+                    <button onClick= { this.hideNavbar } className= { this.props.toggle ? (hamburgerBaseClass + hamburgerActive):hamburgerBaseClass } type='button'>
                         <span className='hamburger-box'>
                             <span className='hamburger-inner'></span>
                         </span>
@@ -127,7 +131,6 @@ class Nav extends Component{
   }
 
 const mapStateToProps = state => {
-    console.log("STATE", state)
   return {
     sign_in: state.session,
     sign_out: state.session.login,

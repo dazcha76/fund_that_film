@@ -23,9 +23,7 @@ import auth from '../hoc/auth';
 class App extends Component {
 
   hideNavbar = () => {
-    // const currentState = this.props.toggle;
     this.props.toggleNavbar(false);
-    console.log('HIDE NAVBAR');
   }
 
   componentWillMount(){
