@@ -136,3 +136,49 @@
 .signout-button {
     cursor: pointer;
 }
+
+@media (orientation: landscape) {
+    .hamburger.is-active {
+        padding: 5%;
+        
+        .hamburger-inner { 
+            height: 2px;
+            width: 20px; 
+            
+            &:after {
+                height: 2px;
+                width: 20px;
+            }
+            
+            &:before {
+                height: 2px;
+                width: 20px;
+            }  
+        }
+    }
+
+    #slide-out-menu {
+        width: 200px;
+
+        .welcome-login-header {
+            display: none;
+        }
+
+        .login-img-container {
+            display: none;
+        } 
+
+        .slide-out-menu-content-container {
+            margin-top: 50px;
+
+            .slide-out-menu-content {
+
+                li {
+                    padding: 3% 20px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
+}
