@@ -6,7 +6,6 @@ import { signIn, signOut, register, toggleNavbar } from '../../actions';
 
 class Nav extends Component{
     state = {
-        // active: false,
         topLinks: [
             {
                 text: 'New Project',
@@ -42,19 +41,9 @@ class Nav extends Component{
     }
 
     toggleClass = () => {
-        // const currentState = this.state.active;
-        // this.setState({ active: !currentState });
         const currentState = this.props.toggle;
         this.props.toggleNavbar(!currentState);
     }
-
-    // hideNavbar = () => {
-    //     this.setState({ active: false });
-    // }
-
-    // componentDidMount(){
-    //     window.addEventListener('click', this.hideNavbar, true);
-    // }
 
     logout = () => {
         this.props.signOut();
@@ -103,8 +92,6 @@ class Nav extends Component{
         const hamburgerBaseClass = 'hamburger hamburger--spin ';
         const hamburgerActive = 'is-active';
         const login = this.props.sign_in.login;
-
-        // window.addEventListener('click', this.hideNavbar, true);
 
         return(
             <div className='nav-bar-container'>

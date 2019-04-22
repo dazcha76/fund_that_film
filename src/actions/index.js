@@ -167,17 +167,3 @@ export const sendToken = (token) => {
     });
   }
 }
-
-// export const film1Suggestion = (title) => {
-//   return {
-//     type: 'FILM_1',
-//     title
-//   }
-// }
-
-// export const film2Suggestion = (title) => {
-//   return {
-//     type: 'FILM_2',
-//     title
-//   }
-// }
