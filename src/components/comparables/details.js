@@ -27,11 +27,11 @@ class DetailsPage extends Component {
         <div key={ movie.id } className='details'>
           <h4 className='green'>{ movie.title }</h4>
           <div className='movie-details'>
-            <div className='section'>
+            <div className='poster-section'>
               <img src= { movie.image_url } className='details-image'/>
             </div>
-            <div>
-              <div className='section'>
+            <div className='details-section'>
+              <div>
                 <p><span className='green'>Genre: </span><br/>
                   { movie.genre ? movie.genre : 'N/A' }</p>
                 <p><span className='green'>Rating: </span><br/>
@@ -39,7 +39,7 @@ class DetailsPage extends Component {
                 <p><span className='green'>Audience Satisfaction: </span><br/>
                   { parseInt(movie.audience_satisfaction) ? (movie.audience_satisfaction * 100) + '%' : 'N/A'}</p>
               </div>
-              <div className='section'>
+              <div>
                 <p><span className='green'>Budget: </span><br/>
                   {parseInt(movie.budget) ? '$' + parseInt(movie.budget).toLocaleString() : 'N/A'}</p>
                 <p><span className='green'>U.S. Box Office: </span><br/>
