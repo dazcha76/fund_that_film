@@ -29,22 +29,24 @@ class DetailsPage extends Component {
           <div className='movie-details'>
             <div className='section'>
               <img src= { movie.image_url } className='details-image'/>
-            </div> 
-            <div className='section'>
-              <p><span className='green'>Genre: </span><br/>
-                { movie.genre ? movie.genre : 'N/A' }</p>
-              <p><span className='green'>Rating: </span><br/>
-                { movie.mpaa_rating ? movie.mpaa_rating : 'N/A'}</p>
-              <p><span className='green'>Audience Satisfaction: </span><br/>
-                { parseInt(movie.audience_satisfaction) ? (movie.audience_satisfaction * 100) + '%' : 'N/A'}</p>
             </div>
-            <div className='section'>
-              <p><span className='green'>Budget: </span><br/>
-                {parseInt(movie.budget) ? '$' + parseInt(movie.budget).toLocaleString() : 'N/A'}</p>
-              <p><span className='green'>U.S. Box Office: </span><br/>
-                {parseInt(movie.us_gross_bo) ? '$' + parseInt(movie.us_gross_bo).toLocaleString() : 'N/A'}</p>
-              <p><span className='green'>International Box Office: </span><br/>
-                {parseInt(movie.intl_gross_bo) ? '$' + parseInt(movie.intl_gross_bo).toLocaleString() : 'N/A'}</p>
+            <div>
+              <div className='section'>
+                <p><span className='green'>Genre: </span><br/>
+                  { movie.genre ? movie.genre : 'N/A' }</p>
+                <p><span className='green'>Rating: </span><br/>
+                  { movie.mpaa_rating ? movie.mpaa_rating : 'N/A'}</p>
+                <p><span className='green'>Audience Satisfaction: </span><br/>
+                  { parseInt(movie.audience_satisfaction) ? (movie.audience_satisfaction * 100) + '%' : 'N/A'}</p>
+              </div>
+              <div className='section'>
+                <p><span className='green'>Budget: </span><br/>
+                  {parseInt(movie.budget) ? '$' + parseInt(movie.budget).toLocaleString() : 'N/A'}</p>
+                <p><span className='green'>U.S. Box Office: </span><br/>
+                  {parseInt(movie.us_gross_bo) ? '$' + parseInt(movie.us_gross_bo).toLocaleString() : 'N/A'}</p>
+                <p><span className='green'>International Box Office: </span><br/>
+                  {parseInt(movie.intl_gross_bo) ? '$' + parseInt(movie.intl_gross_bo).toLocaleString() : 'N/A'}</p>
+              </div>
             </div>
           </div>
           <div>
@@ -72,7 +74,7 @@ class DetailsPage extends Component {
         <div className='details-info-container'>
             { this.buildMovieDetails() }
         </div>
-        <div className='button-container'>
+        <div className='button-container detail-buttons'>
           <Link to='/financials'>
             <button onClick={this.handleConfirm} className='input-submit-button details-page-button page-button'>Confirm</button>
           </Link>

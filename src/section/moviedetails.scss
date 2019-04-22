@@ -47,3 +47,39 @@
     }
   }
 }
+
+@media (orientation: portrait){
+  .details-container {
+    overflow-x: visible;
+
+    .details-title {
+      position: static;
+      transform: none;
+    }
+
+    .details-info-container {
+      display: block;
+
+      .details {
+        width: 100%;
+        border-right: none;
+
+        .movie-details {
+          
+          .section {
+
+            .details-image {
+              
+            }
+          }
+        }
+      }
+    }
+
+    .detail-buttons {
+      position: static;
+      transform: none;
+      margin-bottom: 20%;
+    }
+  }
+}
