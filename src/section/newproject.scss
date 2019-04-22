@@ -112,3 +112,36 @@
   visibility: visible;
   opacity: 1;
 }
+
+/*-------------- MEDIA QUERIES --------------*/
+
+@media (orientation: portrait){
+  .new-project {
+    margin-bottom: 8%;
+  }
+
+  .new-project-title {
+    margin-bottom: 16%;
+  }
+
+  .fa-question-circle .tooltiptext {
+    width: 38vw;
+  }
+
+  .dropdown-container {
+    width: 100%;
+  }
+
+  .autocomplete-input {
+    width: 100%;
+  }
+
+  .new-project-buttons {
+    position: static;
+    transform: none;
+  }
+
+  .meets-container {
+    display: none;
+  }
+}

@@ -136,10 +136,10 @@ class NewProjectSecondPage extends Component {
             </div>              
           </div>
           <div className='new-project-buttons button-container'>
-            <button type="button" className="previous page-button" onClick={previousPage}>
+            {/*<button type="button" className="previous page-button" onClick={previousPage}>
             Previous
-          </button>
-          <button type="submit" className='new-project-submit-button page-button'>
+          </button>*/}
+          <button type="submit" className='page-button'>
             Submit
           </button>
           </div>
