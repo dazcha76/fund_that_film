@@ -13,7 +13,7 @@ class Register extends Component {
       <div className='modal-container'>
         <div className='register-modal'>
           <h2>Would you like to register and save your information?</h2>
-          <div className='button-container'>
+          <div className='button-container modal-buttons'>
             <Link to='/register'>
               <button className='page-button'>Yes</button>
             </Link>

@@ -46,6 +46,7 @@ class MovieComparison extends Component {
     }
 
     return (
+
       <div className='main-container comparables-container'>
         {!session.login && session.register && <Register />}
         <Nav/>
@@ -53,7 +54,7 @@ class MovieComparison extends Component {
         <div className='movie-info-container'>
           { this.renderMovies() }
         </div>  
-        <div className='button-container'>
+        <div className='button-container comparables-buttons'>
           <Link to='/details'>
             <button className="input-submit-button page-button">More Details</button>
           </Link>

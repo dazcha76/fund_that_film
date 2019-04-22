@@ -25,3 +25,17 @@
     text-align: center;
   }
 }
+
+@media (orientation: portrait){
+  .modal-container {
+    .register-modal {
+      width: 80vw;
+      height: 50vh;
+      padding: 12% 5% 5% 5%;
+
+      .modal-buttons {
+        display: block;
+      }
+    }
+  }
+}
