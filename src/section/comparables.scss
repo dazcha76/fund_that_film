@@ -1,9 +1,4 @@
 @import './variables';
-
-/*.no-scroll {
-  height: 100vh;
-  overflow: visible;
-}*/
   
 .movie-info-container {
   display: flex;
@@ -32,15 +27,6 @@
 }
 
 @media (orientation: portrait){
-/*  .no-scroll {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .yes-scroll {
-    height: auto;
-    overflow: visible;
-  }*/
 
   .details-title {
     margin-bottom: 15%;

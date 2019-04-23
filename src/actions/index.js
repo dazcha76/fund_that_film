@@ -90,6 +90,13 @@ export const register = boolean => {
   }
 }
 
+export const scrollable = value => {
+  return {
+    type: 'SCROLLABLE',
+    payload: value
+  }
+}
+
 export const sendContactForm = values => {
   const { firstName, lastName, phoneNumber, email, message } = values;
 

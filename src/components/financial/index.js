@@ -14,7 +14,7 @@ import Preloader from '../preloader/index';
 import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, signIn, sendToken, register } from '../../actions';
+import { getFinancialData, getMovieData, signIn, sendToken, register, scrollable } from '../../actions';
 
 const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
@@ -28,10 +28,10 @@ class FinancialNorthAmerica extends Component {
   }
 
   render(){
-    const { session } = this.props;
+    const { session, scroll } = this.props;
 
     return (
-      <div className='main-container'>
+      <div className={'main-container ' + scroll}>
       {!session.login && session.register && <Register />}
         <Preloader/>
         <Nav/>
@@ -78,13 +78,15 @@ class FinancialNorthAmerica extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("STATE", state.scrollable.scrollable)
   return {
     movies: state.movies.movieList,
     finance: state.finance.financeList,
-    session: state.session
+    session: state.session,
+    scroll: state.scrollable.scrollable
   }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData, getMovieData, signIn, register, sendToken
+    getFinancialData, getMovieData, signIn, register, sendToken, scrollable
 })(FinancialNorthAmerica);
