@@ -6,14 +6,13 @@
 }
 
 @media (orientation: portrait){
-
-  .signin-title {
-    margin-top: 40%;
-    margin-bottom: 30%;
-  }
-
   .sign-in-form {
     width: 100%;
+    margin-top: 35%;
+
+    .no-disclaimer {
+      margin-top: 30%;
+    }
   }
 }
 
