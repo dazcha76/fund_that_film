@@ -4,16 +4,12 @@
   position: absolute;
   top: 5px;
   right: 2%;
-  z-index: 2;
+/*  z-index: 2;*/
 }
 
 h5 {
   font-weight: 700;
 }
-
-/*.shareable-header {
-  margin: 6% 0 5% 0;
-}*/
 
 .nav.nav-tabs {
   display: flex;
@@ -118,4 +114,39 @@ h5 {
   justify-content: space-between;
 }
 
+@media (orientation: portrait){
+  .financial-charts-header {
+    margin-top: 70px;
+  }
 
+  .graph-container {
+    display: none;
+  }
+
+
+  .card-financial-global-wrapper {
+    display: block;
+    
+    .card.financial-card {
+      width: 100%;
+
+      .financial-header {
+  
+      }
+
+      .international-body,
+      .global-body,
+      .other-body,
+      .northamerica-body {
+        display: block;
+      }
+    }
+
+    .international-card,
+    .global-card,
+    .other-card,
+    .northamerica-card {
+      width: 100%;
+    }
+  }
+}
