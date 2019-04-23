@@ -29,15 +29,15 @@ class Shareable extends Component {
           <h1 className='shareable-header'>Financial Calculations { this.props.projectTitle.title }</h1>
             <Tabs defaultActiveKey='northAmerica'>
               <Tab eventKey='northAmerica' title='North America' className='tab'>
-                <div className='northAmerican-graph-container'>
+                <div className='graph-container'>
                   <h1 className='chart-header'>Production Gross in Millions</h1>
                   <NorthAmericaGraphs/>
                 </div>
                 <NorthAmerica/>
               </Tab>
               <Tab eventKey='international' title='International'>
-                <div className='international-graphs-container'>
-                    <h1 className='chart-header'>International Gross Earnings</h1>
+                <div className='graph-container'>
+                  <h1 className='chart-header'>International Gross Earnings</h1>
                   <InternationalGraphs/>
                 </div>
                 <div className='international-tab-wrapper'>
@@ -45,14 +45,18 @@ class Shareable extends Component {
                 </div>
               </Tab>
               <Tab eventKey='global' title='Global'>
-                <h1 className='chart-header'>Global Consumer Products</h1>
-                <GlobalGraphs/>
+                <div className='graph-container'>
+                  <h1 className='chart-header'>Global Consumer Products</h1>
+                  <GlobalGraphs/>
+                </div>
                 <Global/>
               </Tab>
               <Tab eventKey='other' title='Other'>
               <div className='other-northAmerican-graph-container'>
+                <div className='graph-container'>
                   <h1 className='chart-header'>Distributors To Cost Ratio</h1>
-                <OtherGraphs/>
+                  <OtherGraphs/>
+                </div>
                 <Other/>
               </div>
               </Tab>
