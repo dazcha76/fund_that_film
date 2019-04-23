@@ -1,5 +1,19 @@
 @import './variables';
 
+.new-account-form {
+  width: 70vw;
+  margin: 0 auto;
+
+  .new-account-inputs {
+    margin-top: 10%;
+
+    .register-label {
+      color: $green;
+      margin: 1% 5%;
+    }
+  }
+}
+
 .modal-container {
   height: 100vh;
   width: 100%;
@@ -27,6 +41,21 @@
 }
 
 @media (orientation: portrait){
+  .new-account-form {
+
+    .new-account-inputs {
+      margin-top: 30%;
+
+      .register-label {
+        margin: 1% 0;
+      }
+
+      .input-container {
+        margin: 0;
+      }
+    }
+  }
+
   .modal-container {
     .register-modal {
       width: 80vw;

@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import { sendContactForm } from '../../actions';
 import '../../section/contact.scss';
 
-// const required = value => value ? undefined : 'Field is Required';
-
 class Contact extends Component {
   state = {
     messageSent: false
