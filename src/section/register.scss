@@ -42,15 +42,16 @@
 
 @media (orientation: portrait){
   .new-account-form {
+
     .new-account-inputs {
       margin-top: 30%;
 
+      .register-label {
+        margin: 1% 0;
+      }
+
       .input-container {
         margin: 0;
-
-        .register-label {
-          margin: 1% 0;
-        }
       }
     }
   }
