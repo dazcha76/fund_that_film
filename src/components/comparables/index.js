@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, signIn } from '../../actions';
+import { getFinancialData, getMovieData, signIn, scrollable } from '../../actions';
 import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
@@ -39,7 +39,7 @@ class MovieComparison extends Component {
   }
 
   render(){
-    const { movies, session } = this.props;
+    const { movies, session, scroll } = this.props;
 
     if(!movies){
       return <Preloader/>
@@ -47,7 +47,7 @@ class MovieComparison extends Component {
 
     return (
 
-      <div className='main-container comparables-container'>
+      <div className={'main-container comparables-container ' + scroll }>
         {!session.login && session.register && <Register />}
         <Nav/>
         <h1 className='details-title'>Movie Comparisons</h1>
@@ -71,12 +71,14 @@ const mapStateToProps = state => {
   return {
     comparables: state.comparables,
     movies: state.movies.movieList,
-    session: state.session
+    session: state.session,
+    scroll: state.scrollable.scrollable
   }
 } 
 
 export default connect(mapStateToProps, {
   getMovieData, 
   getFinancialData, 
-  signIn
+  signIn,
+  scrollable
 })(MovieComparison);

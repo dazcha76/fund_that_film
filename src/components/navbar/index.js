@@ -51,7 +51,7 @@ class Nav extends Component{
 
     logout = () => {
         this.props.signOut();
-        this.props.register(true)
+        this.props.register(true);
         this.props.history.push('/');
     }
 
@@ -135,7 +135,8 @@ const mapStateToProps = state => {
     sign_in: state.session,
     sign_out: state.session.login,
     register: state.session.register,
-    toggle: state.navbar.active
+    toggle: state.navbar.active,
+    scroll: state.scrollable.scrollable
   }
 }
 

@@ -78,7 +78,6 @@ class FinancialNorthAmerica extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE", state.scrollable.scrollable)
   return {
     movies: state.movies.movieList,
     finance: state.finance.financeList,

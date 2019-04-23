@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { register } from '../../actions';
+import { connect } from 'react-redux';
+import { register, scrollable } from '../../actions';
 
 class Register extends Component {
   handleClick = () => {
-    this.props.register(false)
+    this.props.register(false);
+    this.props.scrollable('yes-scroll');
   }
 
-  
+  componentWillMount(){
+    this.props.scrollable('no-scroll');
+  }
 
   render(){
     return (
@@ -34,5 +37,5 @@ const mapStateToProps = state => {
 } 
 
 export default connect(mapStateToProps, {
-  register
+  register, scrollable
 })(Register);
