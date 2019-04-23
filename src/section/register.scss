@@ -41,6 +41,20 @@
 }
 
 @media (orientation: portrait){
+  .new-account-form {
+    .new-account-inputs {
+      margin-top: 30%;
+
+      .input-container {
+        margin: 0;
+
+        .register-label {
+          margin: 1% 0;
+        }
+      }
+    }
+  }
+
   .modal-container {
     .register-modal {
       width: 80vw;
