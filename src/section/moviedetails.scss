@@ -47,6 +47,14 @@
           justify-content: center;
           width: 15vw;
           padding-right: 5%;
+
+          .details-desktop {
+            display: block;
+          }
+
+          .details-mobile {
+            display: none;
+          }
         }
       }
     }
@@ -90,6 +98,14 @@
           .details-section {
             width: 100%;
             padding-right: 0;
+
+            .details-desktop {
+              display: none;
+            }
+
+            .details-mobile {
+              display: block;
+            }
           }
         }
       }
