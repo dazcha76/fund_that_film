@@ -34,11 +34,11 @@ class CreateAccount extends Component {
           <form className='new-account-form' onSubmit={handleSubmit(this.createUser)}>
             <h1 className='new-account-title'>Create Account</h1>
             <div className="new-account-inputs">
-              <p className='label'>Full Name:</p>
+              <p className='register-label'>Full Name:</p>
               <Field name='name' type='name' validate={ validate } component={ Input }/>
-              <p className='label'>Email Address:</p>
+              <p className='register-label'>Email Address:</p>
               <Field type='email' name='email'  validate={ validate } component={ Input }/>
-              <p className='label'>Password:</p>
+              <p className='register-label'>Password:</p>
               <Field type='password' name='password'  validate={ validate } component={ Input }/>
             </div>
             <div className='button-container'>

@@ -1,5 +1,19 @@
 @import './variables';
 
+.new-account-form {
+  width: 70vw;
+  margin: 0 auto;
+
+  .new-account-inputs {
+    margin-top: 10%;
+
+    .register-label {
+      color: $green;
+      margin: 1% 5%;
+    }
+  }
+}
+
 .modal-container {
   height: 100vh;
   width: 100%;
