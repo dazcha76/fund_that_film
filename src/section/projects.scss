@@ -49,4 +49,22 @@
   }
 }
 
-    
+@media (orientation: portrait){
+  .project-container {
+    width: 90%;
+    padding-bottom: 5%;
+
+    .four-fields {
+      display: block;
+    }
+
+    .two-fields {
+      display: block;
+
+      .production,
+      .logline {
+        width: 100%;
+      }
+    }
+  }
+}
