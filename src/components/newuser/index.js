@@ -21,8 +21,24 @@ class CreateAccount extends Component {
     return values;
   }
 
+  handleChange = (event) => { 
+    if(event.target.name === 'password'){
+      let password = event.target.value;
+      console.log("PASSWORD", password);
+    } else if(event.target.name === 'confirm'){
+      let confirm = event.target.value;
+      console.log("CONFIRM", confirm);
+    }
+
+    
+    
+    // let titleInput = event.target.value;
+    // this.props.input.onChange(titleInput);
+    // this.fetchSuggestions(titleInput)
+  };
+
   render(){
-    const {handleSubmit, onSubmit } = this.props;
+    const {handleSubmit, onSubmit, onChange } = this.props;
 
     if (this.state.toSignIn === true) {
       return <Redirect to='/sign_in' />
@@ -39,7 +55,9 @@ class CreateAccount extends Component {
               <p className='register-label'>Email Address:</p>
               <Field type='email' name='email'  validate={ validate } component={ Input }/>
               <p className='register-label'>Password:</p>
-              <Field type='password' name='password'  validate={ validate } component={ Input }/>
+              <Field type='password' name='password'  validate={ validate } component={ Input } onChange={this.handleChange} />
+              <p className='register-label'>Confirm Password:</p>
+              <Field type='password' name='confirm'  validate={ validate } component={ Input } onChange={this.handleChange}/>
             </div>
             <div className='button-container'>
               <button type="submit" className='login-submit-button page-button'>Register</button>
