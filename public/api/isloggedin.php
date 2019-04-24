@@ -3,12 +3,12 @@ session_start();
 
 
 $output = [
-    'logged in' => false
+    'login' => false
 ];
 
 
 if(isset($_SESSION['user_id'])){
-    $output['logged in'] = true;
+    $output['login'] = true;
 }
 
 $json_output = json_encode($output);
