@@ -8,9 +8,7 @@ $output = [
 
 
 if(isset($_SESSION['user_id'])){
-    $output =[
-        'logged in'=>true
-    ];
+    $output['logged in'] = true;
 }
 
 $json_output = json_encode($output);
