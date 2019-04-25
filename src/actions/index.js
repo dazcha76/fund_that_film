@@ -105,6 +105,8 @@ export const sendContactForm = values => {
         firstName, lastName, phoneNumber, email, message
     })
 
+    console.log("RESPONSE", response)
+
     dispatch({
       type: 'SEND_CONTACT_FORM',
       payload: response
