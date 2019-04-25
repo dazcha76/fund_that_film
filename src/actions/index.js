@@ -151,7 +151,7 @@ export const signIn = values => {
   }
 }
 
-export const signOut = values => {
+export const signOut = () => {
   return async dispatch => {
     const response = await axios.get('/api/signout.php');
 

@@ -3,10 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import Input from '../helpers/form/input';
 import Nav from '../navbar/index';
 import { Redirect } from 'react-router-dom';
-import { createAccount, sendProjectData } from '../../actions';
+import { createAccount, sendProjectData, signOut } from '../../actions';
 import { connect } from 'react-redux';
-
-// const validate = value => value ? undefined : 'Field is Required';
 
 class CreateAccount extends Component {
   state = {
@@ -21,29 +19,11 @@ class CreateAccount extends Component {
     return values;
   }
 
-  // handleChange = (event) => { 
-  //   let password = '';
-  //   let confirm = '';
-
-  //   if(event.target.name === 'password'){
-  //     password = event.target.value;
-  //     console.log("PASSWORD", password);
-  //   } else if(event.target.name === 'confirm'){
-  //     confirm = event.target.value;
-  //     console.log("CONFIRM", confirm);
-  //   }
-
-    // if(password !== confirm){
-    //   console.log("your passwords don't match")
-    // } else if(password === confirm){
-    //   console.log("your passwords MATCH")
-    // }
-  // };
-
   render(){
     const {handleSubmit, onSubmit, onChange } = this.props;
 
     if (this.state.toSignIn === true) {
+      this.props.signOut();
       return <Redirect to='/sign_in' />
     }
 
@@ -74,8 +54,6 @@ class CreateAccount extends Component {
 const validate = (values) => {
   const errors = {};
 
-  console.log("VALUES", values)
-
   if(values.confirm !== values.password){
     errors.confirm = 'Your passwords do not match'
   }
@@ -89,6 +67,7 @@ CreateAccount = reduxForm({
 })(CreateAccount) ;
 
 const mapStateToProps = state => {
+  console.log('LOGIN STATE', state)
   return {
     project_id: state.comparables.project_id
   }
@@ -96,5 +75,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { 
   createAccount, 
-  sendProjectData 
+  sendProjectData,
+  signOut
 })(CreateAccount); 

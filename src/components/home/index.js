@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 export default props => {
+
   return (
     <div className='home-container'>
       <div className='homepage-content'>
@@ -13,7 +14,7 @@ export default props => {
             <button className='page-button login-button'>Log In</button>
           </Link>
           <Link to='/new_project'>
-            <button className='page-button start-project-button'>Try It</button>
+          <button className='page-button start-project-button'>Try It</button>
           </Link>
         </div>
       </div>

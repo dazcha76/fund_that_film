@@ -10,6 +10,7 @@ import '../../section/signin.scss';
 const validate = value => value ? undefined : 'Field is Required';
 
 class SignIn extends Component {
+
   loginHandler = (values) => {
     this.props.signIn(values);
     this.props.register(false);

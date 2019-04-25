@@ -4,7 +4,7 @@ const DEFAULT_STATE = {
   user: {
     id: null,
     name: null,
-    projects: null
+    projects: {}
   }
 };
 
@@ -13,7 +13,7 @@ const userSessionReducer = (state = DEFAULT_STATE, action) => {
     case 'SIGN_IN':
       return action.payload.data
     case 'SIGN_OUT':
-      return action.payload.data
+      return { ...DEFAULT_STATE };
     case 'REGISTER':
       return {register: action.payload}
     default:
