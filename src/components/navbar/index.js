@@ -113,7 +113,9 @@ class Nav extends Component{
                         </span>
                     </button>
                     <div className='login-img-container'>
-                        <img className='login-img' src= { logo }/>
+                        <Link to='/' >
+                            <img className='login-img' src= { logo }/>
+                        </Link >
                     </div>
                     <div className='welcome-login-header'>
                         <h2>{login ? `Welcome ${this.props.sign_in.user.name}!` : 'FUND THAT FILM'}</h2>

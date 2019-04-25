@@ -23,7 +23,7 @@ class Contact extends Component {
   render(){
     const {handleSubmit, onSubmit } = this.props;
 
-    if (this.state.messageSent === true) {
+    if (this.props.email.success === true) {
       return <Redirect to='/confirmation' />
     }
 
@@ -99,7 +99,8 @@ Contact = reduxForm({
 
 const mapStateToProps = state => {
   return {
-    contact_form: state.form
+    contact_form: state.form,
+    email: state.email
   }
 }
 
