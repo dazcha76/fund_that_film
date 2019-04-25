@@ -98,7 +98,6 @@ Contact = reduxForm({
   })(Contact) ;
 
 const mapStateToProps = state => {
-  console.log("FORM STATE", state)
   return {
     contact_form: state.form,
     email: state.email
