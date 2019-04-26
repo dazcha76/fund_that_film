@@ -14,13 +14,12 @@ $output=[
     ];
 
 
-if(isset($_SESSION['user_id'])){ //if is set, user is logged in
-    $output['user']['id']=$_SESSION['user_id'];
+if(isset($_SESSION['user_id'])){ 
     $output['success']=true; 
     $output['login']=true;
     $output['check-signin']=true;
     $json_output=json_encode($output);
-}else{//if user is not logged in
+}else{
     $output['login'] = false;
 
     $data = json_decode( file_get_contents( 'php://input'),true);
@@ -61,8 +60,6 @@ if(isset($_SESSION['user_id'])){ //if is set, user is logged in
             }
             $output['success']=true;
             $output['login']=true;
-            
-        $output['user']['id']=$_SESSION['user_id'];
    
         }else{
             throw new Exception('Invalid email or password');
