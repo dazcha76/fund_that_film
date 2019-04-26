@@ -68,7 +68,7 @@ if(isset($_SESSION['user_id'])){
     }  
 }
 
-    $proj_id_query = "SELECT u.`id`, u.`name`,up.`projects_id`,pc.`comparables_id`,c.`title`
+    $proj_id_query = "SELECT u.`id`, u.`name`,up.`projects_id`, pc.`comparables_id`,c.`title`
                         FROM `users` AS u
                         JOIN `users_projects` AS up ON up.`users_id`=u.`id`
                         JOIN `projects_comparables` AS pc ON pc.`projects_id` = up.`projects_id`
@@ -81,6 +81,8 @@ if(isset($_SESSION['user_id'])){
             $output['user']['name']=$row['name'];
             $_SESSION['user_name']=$row['name'];
 
+            print_r($row);
+
             if(!array_key_exists($row['projects_id'],$output['user']['projects'])){
                 $output['user']['projects'][$row['projects_id']]=[];
                 $output['user']['projects'][$row['projects_id']][]=['id'=>$row['comparables_id'],'title'=>$row['title']];
@@ -89,6 +91,9 @@ if(isset($_SESSION['user_id'])){
             }       
         }
 
+
+    $_SESSION['projects'] =$output['user']['projects'];
+        
     $json_output=json_encode($output);
     print_r($json_output);
 
