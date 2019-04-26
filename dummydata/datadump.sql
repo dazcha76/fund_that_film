@@ -261,8 +261,8 @@ CREATE TABLE `projects_comparables` (
 INSERT INTO `projects_comparables` (`id`, `projects_id`, `comparables_id`) VALUES
 (1, 1, 3),
 (2, 1, 4),
-(3, 2, 4),
-(4, 2, 5);
+(105, 2, 4),
+(106, 2, 5);
 
 -- --------------------------------------------------------
 
