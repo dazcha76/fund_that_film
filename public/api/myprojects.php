@@ -46,8 +46,9 @@ if($id_result){
             $data[]=$row;
         }
 
-        $output['success']=true;
-        $output['data'] =$data;
+        $output['success'] = true;
+        $output['data'] = $data;
+        $output['projects'] = $_SESSION['projects'];
 
         $json_output =json_encode($output);
 

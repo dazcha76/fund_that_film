@@ -19,6 +19,7 @@ class Projects extends Component {
   }
 
   seeComparables = (projectId) => {
+    console.log('PROJECTS ID', this.projectId);
     this.props.getMovieData(this.props.comparables[projectId][0].title, this.props.comparables[projectId][1].title);
     this.setState({toComparables: true})
   }
