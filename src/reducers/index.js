@@ -10,7 +10,7 @@ import newaccount_reducer from './newaccount_reducer';
 import project_reducer from './project_reducer';
 import session_reducer from './session_reducer';
 import scrollable_reducer from './scrollable_reducer';
-import token_reducer from './token_reducer'
+import token_reducer from './token_reducer';
 
 const rootReducer = combineReducers({
   comparables: comparables_reducer,

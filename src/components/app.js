@@ -16,7 +16,7 @@ import Register from './newuser';
 import Shareable from './shareable/shareable';
 import SignIn from './signin';
 import Terms from './terms';
-import { signIn, toggleNavbar } from '../actions';
+import { signIn, toggleNavbar, loggedIn } from '../actions';
 import { connect } from 'react-redux';
 import auth from '../hoc/auth';
 
@@ -60,7 +60,7 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps, {
-  signIn, toggleNavbar
+  signIn, toggleNavbar, loggedIn
 })(App));
 
 

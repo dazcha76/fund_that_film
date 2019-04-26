@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getMyProjects, signIn, getFinancialData, getMovieData, getMovieTitles } from '../../actions';
+import { getMyProjects, signIn, getFinancialData, getMovieData } from '../../actions';
 import Nav from '../navbar/index';
 import '../../section/projects.scss'; 
+
+var projectCard;
 
 class Projects extends Component {
   state = {
@@ -12,11 +14,12 @@ class Projects extends Component {
   }
 
   componentDidMount(){
+    console.log("GETTING MY PROJECTS")
     this.props.getMyProjects();
   }
 
   seeComparables = (projectId) => {
-    this.props.getMovieTitles(this.props.comparables[projectId][0].title, this.props.comparables[projectId][1].title);
+    this.props.getMovieData(this.props.comparables[projectId][0].title, this.props.comparables[projectId][1].title);
     this.setState({toComparables: true})
   }
 
@@ -50,6 +53,7 @@ class Projects extends Component {
   }
 
   render(){
+    const { my_projects } = this.props;
     
     if (this.state.toComparables === true) {
       return <Redirect to='/comparisons' />
@@ -57,25 +61,38 @@ class Projects extends Component {
       return <Redirect to='/financials' />
     }
 
-    const projectCard = this.props.my_projects.map(this.buildProject);
+    if(my_projects){
+      console.log("I HAVE PROJECTS")
+      projectCard = this.props.my_projects.map(this.buildProject);
+    } 
 
     return (
       <div className='main-container'>
         <Nav />
         <h1 className='my-projects-title'>My Projects</h1>
-        {projectCard}
+        {my_projects ? projectCard : (
+            <div className='no-projects'>
+              <h2>You don't have any projects...</h2>
+              <Link to='/new_project'>
+                <button className='page-button'>Create One!</button>
+              </Link>
+            </div>
+          ) 
+        }
       </div>
     )
   }
 }
 
 const mapStateToProps = state => {
+  console.log("STATE", state)
   return {
     my_projects: state.myprojects.my_projects,
-    comparables: state.session.user.projects
+    comparables: state.session.user.projects,
+    user_info: state.user
   }
 }
 
 export default connect(mapStateToProps, {
-    getMyProjects, signIn, getFinancialData, getMovieData, getMovieTitles
+    getMyProjects, signIn, getFinancialData, getMovieData
 })(Projects);

@@ -11,13 +11,10 @@ $output = [
 
 $data = json_decode( file_get_contents( 'php://input'),true);
 
-print_r($data);
 
 if(!$data){
     throw new Exception('No data was sent');
 }
-
-print_r($data["project_id"]);
 
 foreach ($data as $key => $value) {
     $data[$key] = addslashes($value);

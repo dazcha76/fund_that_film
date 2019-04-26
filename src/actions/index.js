@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; 
 
 export const createAccount = (values, projectID) => {
   const { name, email, password } = values;
@@ -59,6 +59,7 @@ export const getMovieTitles = (title1, title2) => {
 }
 
 export const getMyProjects = () => {
+  console.log("GET PROJECTS ACTION")
   return async dispatch => {
     const response = await axios.get('/api/myprojects.php');
 
@@ -76,10 +77,27 @@ export const getProjectValues = values => {
   }
 }
 
-export const toggleNavbar = boolean => {
-  return {
-    type: 'TOGGLE_NAVBAR',
-    payload: boolean
+export const loggedIn = () => {
+  return async dispatch => {
+    try {
+      // Send back userData
+      const { data: { login } } = await axios.get('/api/isloggedin.php');
+
+
+      if(login){
+        return dispatch({
+          type: 'SIGN_IN',
+          payload: {}
+        });
+      }
+
+      throw new Error('Not signed in');
+
+    } catch(err){
+      dispatch({
+        type: 'SIGN_OUT'
+      });
+    }
   }
 }
 
@@ -134,26 +152,48 @@ export const sendProjectData = (values, title, runtime, logline, synopsis) => {
   }
 }
 
-export const signIn = values => {
-  const { email, password } = values;
-
+export const signIn = (email, password) => {
+  console.log("SIGN IN ACTION CALLED")
   return async dispatch => {
-    const response = await axios.post('/api/signin.php', {
-      login: {
-        email, password
-      } 
-    });
+    try {
+      const response = await axios.post('/api/signin.php', {
+        login: {
+          email, password
+        } 
+      });
 
-    dispatch({
-      type: 'SIGN_IN',
-      payload: response
-    });
+      console.log("ACTION RESPONSE", response)
+
+      const { data: { success, login } } = response;
+
+      if(success && login){
+
+        let name = response.data.user.name;
+
+        localStorage.setItem('logged-in', 'true');
+        localStorage.setItem('user', name);
+
+        return dispatch({
+          type: 'SIGN_IN',
+          payload: response
+        });
+      }
+
+      throw new Error('Sign In Failed');
+      
+    } catch(err){
+      console.log('Sign In Failed, dispatch an action to handle log in failure');
+    }
+    
   }
 }
 
 export const signOut = () => {
   return async dispatch => {
     const response = await axios.get('/api/signout.php');
+
+    // localStorage.removeItem('logged-in');
+    localStorage.clear();
 
     dispatch({
       type: 'SIGN_OUT',
@@ -172,5 +212,12 @@ export const sendToken = (token) => {
       type: 'SEND_TOKEN',
       payload: response
     });
+  }
+}
+
+export const toggleNavbar = boolean => {
+  return {
+    type: 'TOGGLE_NAVBAR',
+    payload: boolean
   }
 }
