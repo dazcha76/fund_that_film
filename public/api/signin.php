@@ -15,7 +15,7 @@ $output=[
 
 
 if(isset($_SESSION['user_id'])){ //if is set, user is logged in
-    $output['user']['id']=$_SESSION['user_id'];
+
     $output['success']=true; 
     $output['login']=true;
     $output['check-signin']=true;
@@ -61,8 +61,7 @@ if(isset($_SESSION['user_id'])){ //if is set, user is logged in
             }
             $output['success']=true;
             $output['login']=true;
-            
-        $output['user']['id']=$_SESSION['user_id'];
+        
    
         }else{
             throw new Exception('Invalid email or password');
@@ -83,6 +82,7 @@ if(isset($_SESSION['user_id'])){ //if is set, user is logged in
 
         while($row=$proj_id_result->fetch_assoc()){
             $output['user']['name']=$row['name'];
+            $_SESSION['user_name']=$row['name'];
 
             if(!array_key_exists($row['projects_id'],$output['user']['projects'])){
                 $output['user']['projects'][$row['projects_id']]=[];

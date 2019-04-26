@@ -12,7 +12,8 @@ const validate = value => value ? undefined : 'Field is Required';
 class SignIn extends Component {
 
   loginHandler = (values) => {
-    this.props.signIn(values);
+    console.log('SIGN IN HANDLER')
+    this.props.signIn(values.email, values.password);
     this.props.register(false);
     return values;
   }
@@ -49,7 +50,7 @@ SignIn = reduxForm({
 
 const mapStateToProps = state => {
   return {
-    sign_in: state.session.success,
+    sign_in: state.session.login,
     register: state.session.register,
     sign_in_form: state.form
   }
