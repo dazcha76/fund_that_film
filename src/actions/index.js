@@ -101,9 +101,9 @@ export const loggedIn = () => {
   }
 }
 
-export const register = boolean => {
+export const showModal = boolean => {
   return {
-    type: 'REGISTER',
+    type: 'SHOW_MODAL',
     payload: boolean 
   }
 }

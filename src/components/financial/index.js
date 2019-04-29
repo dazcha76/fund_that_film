@@ -14,25 +14,33 @@ import Preloader from '../preloader/index';
 import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, signIn, sendToken, register, scrollable } from '../../actions';
+import { getFinancialData, getMovieData, signIn, sendToken, scrollable, showModal } from '../../actions';
 
 const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 
 class FinancialNorthAmerica extends Component {
   state = {
-    toShareable: false
+    toShareable: false,
+    // showModal: 'show',
+    scrollable: 'no-scroll'
   }
 
   componentWillMount(){
-    this.props.register(true)
+    if(localStorage.getItem('logged-in')){
+      this.setState({
+        scrollable: 'yes-scroll',
+        // showModal: 'dontShow'
+      })
+    }
+    // this.props.register(true)
   }
 
   render(){
-    const { session, scroll } = this.props;
+    const { session, modal, scroll } = this.props;
 
     return (
-      <div className={'main-container ' + scroll}>
-      {!session.login && session.register && <Register />}
+      <div className={'main-container ' + scroll }>
+      {!localStorage.getItem('logged-in') && modal && <Register />}
         <Preloader/>
         <Nav/>
         <Link to={`/invest/${token}`} target="_blank">
@@ -86,10 +94,17 @@ const mapStateToProps = state => {
     movies: state.movies.movieList,
     finance: state.finance.financeList,
     session: state.session,
-    scroll: state.scrollable.scrollable
+    scroll: state.scrollable.scrollable,
+    modal: state.modal.showModal
   }
 }
 
 export default connect(mapStateToProps, {
-    getFinancialData, getMovieData, signIn, register, sendToken, scrollable
+    getFinancialData, 
+    getMovieData, 
+    signIn, 
+    // register, 
+    sendToken, 
+    scrollable,
+    showModal
 })(FinancialNorthAmerica);

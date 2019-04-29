@@ -44,6 +44,14 @@ a:active {
   overflow: visible;
 }
 
+.show {
+  display: block;
+}
+
+.dontShow {
+  display: none;
+}
+
 /*-------------- INPUT FIELDS AND LABELS --------------*/
 
 .label {

@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { register, scrollable } from '../../actions';
+import { showModal, scrollable } from '../../actions';
 
 class Register extends Component {
+  // state = {
+  //   scrollable: 'yes-scroll'
+  // }
+
   handleClick = () => {
-    this.props.register(false);
+    this.props.showModal(false);
     this.props.scrollable('yes-scroll');
   }
 
-  componentWillMount(){
-    this.props.scrollable('no-scroll');
-  }
+  // componentWillMount(){
+  //   this.props.scrollable('no-scroll');
+  // }
 
   render(){
     return (
-      <div className='modal-container'>
+      <div className={'modal-container '}>
         <div className='register-modal'>
           <h2>Would you like to register and save your information?</h2>
           <div className='button-container modal-buttons'>
@@ -32,10 +36,11 @@ class Register extends Component {
 
 const mapStateToProps = state => {
   return {
-    register: state.session.register
+    // register: state.session.register
   }
 } 
 
 export default connect(mapStateToProps, {
-  register, scrollable
+  showModal, 
+  scrollable
 })(Register);

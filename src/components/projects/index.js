@@ -14,12 +14,10 @@ class Projects extends Component {
   }
 
   componentDidMount(){
-    console.log("GETTING MY PROJECTS")
     this.props.getMyProjects();
   }
 
   seeComparables = (projectId) => {
-    console.log('PROJECTS ID', this.projectId);
     this.props.getMovieData(this.props.project_info[projectId][0].title, this.props.project_info[projectId][1].title);
     this.setState({toComparables: true})
   }
@@ -63,7 +61,6 @@ class Projects extends Component {
     }
 
     if(my_projects){
-      console.log("I HAVE PROJECTS")
       projectCard = this.props.my_projects.map(this.buildProject);
     } 
 
@@ -86,10 +83,8 @@ class Projects extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE", state)
   return {
     my_projects: state.myprojects.data,
-    // comparables: state.session.user.projects,
     project_info: state.myprojects.projects,
     user_info: state.user
   }

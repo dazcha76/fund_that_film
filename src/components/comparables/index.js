@@ -1,20 +1,40 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, signIn, scrollable } from '../../actions';
+import { getFinancialData, getMovieData, signIn, showModal, scrollable } from '../../actions';
 import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 
 class MovieComparison extends Component {
-  async componentDidMount(){
-    const { title1, title2 } = this.props.comparables;
-    await this.props.getMovieData(title1, title2);
-  }
+  // state = {
+  //   scrollable: 'no-scroll'
+  // }
 
+  componentWillMount(){
+    if(localStorage.getItem('logged-in')){
+      // this.setState({
+      //   scrollable: 'yes-scroll'
+      // })
+      this.props.scrollable('yes-scroll')
+    }
+  }
+  
+  async componentDidMount(){
+    if(!localStorage.getItem('logged-in')){
+      const { title1, title2 } = this.props.comparables;
+      await this.props.getMovieData(title1, title2);
+    }
+  }
+  
   handleConfirm = () => {
     this.props.getFinancialData(this.props.movies[0].id, this.props.movies[1].id);
+    if(!localStorage.getItem('logged-in')){
+      this.props.showModal(true);
+      this.props.scrollable('no-scroll');
+    }
+
   }
 
   renderMovies(){
@@ -39,7 +59,8 @@ class MovieComparison extends Component {
   }
 
   render(){
-    const { movies, session, scroll } = this.props;
+    const { movies, session, modal, scroll } = this.props;
+    // const canScroll = this.state.scrollable;
 
     if(!movies){
       return <Preloader/>
@@ -48,7 +69,7 @@ class MovieComparison extends Component {
     return (
 
       <div className={'main-container comparables-container ' + scroll }>
-        {!session.login && session.register && <Register />}
+        {!localStorage.getItem('logged-in') && modal && <Register />}
         <Nav/>
         <h1 className='details-title'>Movie Comparisons</h1>
         <div className='movie-info-container'>
@@ -72,6 +93,7 @@ const mapStateToProps = state => {
     comparables: state.comparables,
     movies: state.movies.movieList,
     session: state.session,
+    modal: state.modal.showModal,
     scroll: state.scrollable.scrollable
   }
 } 
@@ -80,5 +102,6 @@ export default connect(mapStateToProps, {
   getMovieData, 
   getFinancialData, 
   signIn,
+  showModal,
   scrollable
 })(MovieComparison);
