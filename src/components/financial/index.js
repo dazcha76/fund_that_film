@@ -27,10 +27,11 @@ class FinancialNorthAmerica extends Component {
 
   componentWillMount(){
     if(localStorage.getItem('logged-in')){
-      this.setState({
-        scrollable: 'yes-scroll',
+      // this.setState({
+      //   scrollable: 'yes-scroll',
         // showModal: 'dontShow'
-      })
+      // })
+      this.props.scrollable('yes-scroll')
     }
     // this.props.register(true)
   }

@@ -114,6 +114,10 @@ h5 {
 }
 
 @media (orientation: portrait){
+  #financial-container {
+    margin: 115px auto 75px;
+  }
+
   .financial-charts-header {
     margin-top: 70px;
   }
@@ -147,5 +151,9 @@ h5 {
     .northamerica-card {
       width: 100%;
     }
+  }
+
+  .share_button {
+    top: 40px;
   }
 }
