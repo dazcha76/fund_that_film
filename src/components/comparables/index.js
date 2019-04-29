@@ -1,30 +1,23 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { getFinancialData, getMovieData, signIn, showModal, scrollable } from '../../actions';
+import { getFinancialData, getMovieData, signIn, showModal, scrollable, getMyProjects } from '../../actions';
 import Register from '../newuser/register';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 import Preloader from '../preloader/index';
 
 class MovieComparison extends Component {
-  // state = {
-  //   scrollable: 'no-scroll'
-  // }
 
   componentWillMount(){
     if(localStorage.getItem('logged-in')){
-      // this.setState({
-      //   scrollable: 'yes-scroll'
-      // })
       this.props.scrollable('yes-scroll')
     }
   }
   
   async componentDidMount(){
-    if(!localStorage.getItem('logged-in')){
-      const { title1, title2 } = this.props.comparables;
-      await this.props.getMovieData(title1, title2);
+    if(localStorage.getItem('logged-in')){
+      this.props.getMyProjects();
     }
   }
   
@@ -34,7 +27,6 @@ class MovieComparison extends Component {
       this.props.showModal(true);
       this.props.scrollable('no-scroll');
     }
-
   }
 
   renderMovies(){
@@ -60,7 +52,6 @@ class MovieComparison extends Component {
 
   render(){
     const { movies, session, modal, scroll } = this.props;
-    // const canScroll = this.state.scrollable;
 
     if(!movies){
       return <Preloader/>
@@ -103,5 +94,6 @@ export default connect(mapStateToProps, {
   getFinancialData, 
   signIn,
   showModal,
-  scrollable
+  scrollable,
+  getMyProjects
 })(MovieComparison);

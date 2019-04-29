@@ -13,7 +13,6 @@ class SignIn extends Component {
 
   loginHandler = (values) => {
     this.props.signIn(values.email, values.password);
-    // this.props.register(false);
     return values;
   }
 

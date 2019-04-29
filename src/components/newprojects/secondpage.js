@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 import Select from '../helpers/form/drop_down';
 import Autosuggest from '../helpers/form/autosuggest';
 import { connect } from 'react-redux';
-import { sendProjectData, getProjectValues } from '../../actions';
+import { sendProjectData, getProjectValues, getMyProjects, getMovieData } from '../../actions';
 import Nav from '../navbar/index';
 import Disclaimer from '../footer/disclaimer';
 
@@ -12,7 +12,10 @@ const years = [
   { text: '2019', value: '2019' },
   { text: '2020', value: '2020' },
   { text: '2021', value: '2021' },
-  { text: '2022', value: '2022' }
+  { text: '2022', value: '2022' },
+  { text: '2023', value: '2023' },
+  { text: '2024', value: '2024' },
+  { text: '2025', value: '2025' }
 ]
 
 const mpaa = [
@@ -71,7 +74,7 @@ class NewProjectSecondPage extends Component {
     return data.map(({text, value}) => <option key={value} value={value}>{text}</option> );
   }
 
-  submitHandler = async (values) => {  
+  submitHandler = async (values) => { 
     if(values.developmentStage !== 'default'){
       // this.props.getProjectTitle(values.title),
       await this.props.sendProjectData(
@@ -81,9 +84,11 @@ class NewProjectSecondPage extends Component {
         this.props.page_one.logline,
         this.props.page_one.synopsis
       );
+      this.props.getMovieData(values.film1, values.film2);
       this.props.destroy();
       this.setState({toComparables: true})
     }
+
     return values;
   }
 
@@ -171,5 +176,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps, { 
   sendProjectData, 
-  getProjectValues
+  getProjectValues,
+  getMyProjects,
+  getMovieData
 })(NewProjectSecondPage); 

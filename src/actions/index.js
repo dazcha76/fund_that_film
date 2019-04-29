@@ -51,12 +51,12 @@ export const getMovieData = (film1, film2) => {
   }
 }
 
-export const getMovieTitles = (title1, title2) => {
-  return {
-    type: 'PROJECT_COMPARABLES',
-    payload: {title1, title2}
-  };
-}
+// export const getMovieTitles = (title1, title2) => {
+//   return {
+//     type: 'COMPARABLE_MOVIES',
+//     payload: {title1, title2}
+//   };
+// }
 
 export const getMyProjects = () => {
   console.log("GET PROJECTS ACTION")
@@ -80,9 +80,7 @@ export const getProjectValues = values => {
 export const loggedIn = () => {
   return async dispatch => {
     try {
-      // Send back userData
       const { data: { login } } = await axios.get('/api/isloggedin.php');
-
 
       if(login){
         return dispatch({

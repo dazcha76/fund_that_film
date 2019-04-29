@@ -4,18 +4,10 @@ import { connect } from 'react-redux';
 import { showModal, scrollable } from '../../actions';
 
 class Register extends Component {
-  // state = {
-  //   scrollable: 'yes-scroll'
-  // }
-
   handleClick = () => {
     this.props.showModal(false);
     this.props.scrollable('yes-scroll');
   }
-
-  // componentWillMount(){
-  //   this.props.scrollable('no-scroll');
-  // }
 
   render(){
     return (

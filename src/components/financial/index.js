@@ -21,19 +21,13 @@ const token = 'f1f3aabffb332762c3c9c0cd87f9e280380d0a8b';
 class FinancialNorthAmerica extends Component {
   state = {
     toShareable: false,
-    // showModal: 'show',
     scrollable: 'no-scroll'
   }
 
   componentWillMount(){
     if(localStorage.getItem('logged-in')){
-      // this.setState({
-      //   scrollable: 'yes-scroll',
-        // showModal: 'dontShow'
-      // })
       this.props.scrollable('yes-scroll')
     }
-    // this.props.register(true)
   }
 
   render(){
