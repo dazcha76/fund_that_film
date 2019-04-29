@@ -20,12 +20,12 @@ class Projects extends Component {
 
   seeComparables = (projectId) => {
     console.log('PROJECTS ID', this.projectId);
-    this.props.getMovieData(this.props.comparables[projectId][0].title, this.props.comparables[projectId][1].title);
+    this.props.getMovieData(this.props.project_info[projectId][0].title, this.props.project_info[projectId][1].title);
     this.setState({toComparables: true})
   }
 
   seeFinancials = (projectId) => {
-    this.props.getFinancialData(this.props.comparables[projectId][0].id, this.props.comparables[projectId][1].id).then(() => {
+    this.props.getFinancialData(this.props.project_info[projectId][0].id, this.props.project_info[projectId][1].id).then(() => {
       this.setState({toFinancials: true})
     })
   }
@@ -88,8 +88,9 @@ class Projects extends Component {
 const mapStateToProps = state => {
   console.log("STATE", state)
   return {
-    my_projects: state.myprojects.my_projects,
-    comparables: state.session.user.projects,
+    my_projects: state.myprojects.data,
+    // comparables: state.session.user.projects,
+    project_info: state.myprojects.projects,
     user_info: state.user
   }
 }

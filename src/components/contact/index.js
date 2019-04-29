@@ -21,7 +21,7 @@ class Contact extends Component {
   }
 
   render(){
-    const {handleSubmit, onSubmit } = this.props;
+    const {handleSubmit, onSubmit, pristine, submitting } = this.props;
 
     if (this.props.email.success === true) {
       return <Redirect to='/confirmation' />
@@ -58,7 +58,7 @@ class Contact extends Component {
           </div>
   
           <div className='button-container no-disclaimer'>
-            <button type="submit" className='page-button'>Send</button>
+            <button type="submit" className='page-button' disabled={pristine || submitting} >Send</button>
           </div>         
         </form>
       </div>
