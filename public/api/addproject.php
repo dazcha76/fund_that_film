@@ -45,15 +45,10 @@ $id_query = 'SELECT c.`id`,c.`title`
                 FROM `comparables` AS c
                 WHERE '.$queryTitle.'';
 
-//print_r($id_query);
 $id_result=$db->query($id_query);
 $insert_ids=[];
 $comparables_ids=[];
 
-if( $_SESSION['new_comparable']){
-    $comparables_ids[] =''. $_SESSION['new_comparable'];
-    unset($_SESSION['new_comparable']);
-}
 
 while($row_id=$id_result->fetch_assoc()){
     $comparables_ids[]=$row_id['id'];
@@ -64,6 +59,12 @@ while($row_id=$id_result->fetch_assoc()){
 
 $output['comparables_ids'] = $comparables_ids;
 
+if(count( $comparables_ids) === 1){
+    $_SESSION['comparable_in_database'] = $output['comparables_ids'][0];
+    print_r($_SESSION['comparable_in_database']);
+}else{
+    unset($_SESSION['comparable_in_database'] );
+}
 
 
 if(isset($_SESSION['user_id'])){

@@ -121,14 +121,26 @@ if($id_result -> num_rows === 1){
                 
                 if($insert_comp_result){
                     $insert_comp_id = mysqli_insert_id($db);
-                   // print_r($_SESSION['project_id']);
-                   $_SESSION['new_comparable'] = $insert_comp_id;
-                    unset($_SESSION['new_comparable']);
+                   
+                    $_SESSION['new_comparable'] = $insert_comp_id;
+                                    
                     $insert_query = "INSERT INTO `projects_comparables` SET `projects_id`='{$_SESSION['project_id']}', `comparables_id`='{$insert_comp_id}'";
-                   // print_r($insert_query);
                     $insert_result=$db->query($insert_query);
-                    $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$insert_comp_id,'title'=>$movies_detail_data["title"]];
 
+                   
+                    $id_in_database=$_SESSION['comparable_in_database'];
+                    $read_query = "SELECT `title` FROM `comparables` WHERE `id`= {$id_in_database}";
+                    $read_result =$db->query($read_query);
+                    
+                    while($row= $read_result->fetch_assoc()){
+                        $missing_title=$row['title'];
+                    };
+                   $str_insert_comp_id =  ''.$insert_comp_id;
+                   
+                   $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$str_insert_comp_id,'title'=>$movies_detail_data["title"]];
+                   $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$_SESSION['comparable_in_database'],'title'=>$missing_title];
+                   $_SESSION['projects'][] =$output['user']['projects'][$_SESSION['project_id']];
+                   
                 } else {
                     throw new Exception('There was an error with the film that you are trying to enter.');
                 }
@@ -276,13 +288,14 @@ if($id_result -> num_rows === 1){
                     
                     if($insert_comp_result){
                         $insert_comp_id = mysqli_insert_id($db);
-        
-                        // print_r($_SESSION['project_id']);
+                       
+                       
                          $insert_query = "INSERT INTO `projects_comparables` SET `projects_id`='{$_SESSION['project_id']}', `comparables_id`='{$insert_comp_id}'";
-                        // print_r($insert_query);
                          $insert_result=$db->query($insert_query);
                          $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$insert_comp_id,'title'=>$movies_detail_data["title"]];
                        
+                         $_SESSION['projects'][] = $output['user']['projects'][$_SESSION['project_id']];
+                         print_r($_SESSION['projects']);
 
                     } else {
                         throw new Exception('There was an error with the film that you are trying to enter.');
