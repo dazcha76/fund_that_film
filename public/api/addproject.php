@@ -61,7 +61,7 @@ $output['comparables_ids'] = $comparables_ids;
 
 if(count( $comparables_ids) === 1){
     $_SESSION['comparable_in_database'] = $output['comparables_ids'][0];
-    print_r($_SESSION['comparable_in_database']);
+    
 }else{
     unset($_SESSION['comparable_in_database'] );
 }

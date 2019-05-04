@@ -66,7 +66,17 @@ $id_array = [];
 while($row_id =$id_result -> fetch_assoc()){
     $id_array[] = $row_id['id'];
     $incoming_title[] = $row_id['title'];
+    
 }
+
+if($id_result -> num_rows === 2){
+    for($indexIDS=0;$indexIDS<count($id_array);$indexIDS++){
+        $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$id_array[$indexIDS], 'title'=>$incoming_title[$indexIDS]];
+    }    
+    $_SESSION['projects'][$_SESSION['project_id']] =  $output['user']['projects'][$_SESSION['project_id']];
+}
+
+
 
 
 
@@ -401,6 +411,9 @@ if($id_result -> num_rows === 1){
         }
     }
 }
+
+
+
 
 $queryPiece='';
 
