@@ -56,6 +56,7 @@ if($bodyVars){
     exit(500);
 }
 
+
 $id_query = 'SELECT c.`id`, c.`title`
                 FROM `comparables` AS c
                 WHERE '.$queryTitle.'';
@@ -69,16 +70,13 @@ while($row_id =$id_result -> fetch_assoc()){
     
 }
 
-if($id_result -> num_rows === 2){
+
+if($id_result -> num_rows === 2 && isset($_SESSION['project_id'])){
     for($indexIDS=0;$indexIDS<count($id_array);$indexIDS++){
         $output['user']['projects'][$_SESSION['project_id']][]=['id'=>$id_array[$indexIDS], 'title'=>$incoming_title[$indexIDS]];
     }    
     $_SESSION['projects'][$_SESSION['project_id']] =  $output['user']['projects'][$_SESSION['project_id']];
 }
-
-
-
-
 
 if($id_result -> num_rows === 1){
    
