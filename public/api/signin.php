@@ -81,18 +81,19 @@ if(isset($_SESSION['user_id'])){
             $output['user']['name']=$row['name'];
             $_SESSION['user_name']=$row['name'];
 
-            // print_r($row);
-
             if(!array_key_exists($row['projects_id'],$output['user']['projects'])){
                 $output['user']['projects'][$row['projects_id']]=[];
                 $output['user']['projects'][$row['projects_id']][]=['id'=>$row['comparables_id'],'title'=>$row['title']];
+
             }else{                
                 $output['user']['projects'][$row['projects_id']][]=['id'=>$row['comparables_id'],'title'=>$row['title']];
-            }       
+            } 
+            
         }
 
 
-    $_SESSION['projects'] =$output['user']['projects'];
+    $_SESSION['projects'] = $output['user']['projects'];
+   
         
     $json_output=json_encode($output);
     print_r($json_output);
