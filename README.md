@@ -4,7 +4,7 @@ Fund that Film enables producers the necessary tools they need in order to prese
 
 Using APIs, proprietary algorithms, and financial analysis we are able to help you determine whether your next big idea will not only satisfy audiences, but what your potential box office earnings would be.
 
-### Implemented
+### Technologies
 - **React**
 - **Redux**
 - **PHP** 
